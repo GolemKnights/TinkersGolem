@@ -1,0 +1,14 @@
+{
+  "layers": [
+    {
+      "type": "tconstruct:material",
+      "index": 0,
+      "prefix": "tinkers_golem:metal_golem/boots/plating_"
+    },
+    {
+      "type": "tconstruct:material",
+      "index": 1,
+      "prefix": "tinkers_golem:metal_golem/boots/maille_"
+    }
+  ]
+}
