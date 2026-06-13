@@ -2,35 +2,45 @@ modLoader="javafml"
 loaderVersion="[47,)"
 license="All rights reserved"
 [[mods]]
-modId="golemdungeons"
+modId="tinkers_golem"
 version="${file.jarVersion}" #mandatory
-displayName="Golem Dungeons" #mandatory
-logoFile="golemdungeons.png" #optional
-credits="LightLand team and Nulladev Team" #optional
-authors="lcy0x1" #optional
+displayName="Tinkers Golem" #mandatory
+#logoFile="tinkers_golem.png" #optional
+credits="GolemKnights" #optional
+authors="Qikahome" #optional
 description='''
-This mod adds golems that can be crafted with different materials in a Tinker-like playstyle.
+
 '''
-[[dependencies.golemdungeons]]
+[[dependencies.tinkers_golem]]
     modId="forge"
     mandatory=true
     versionRange="[47.1.0,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.golemdungeons]]
+[[dependencies.tinkers_golem]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.20,1.21)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.golemdungeons]]
+[[dependencies.tinkers_golem]]
     modId="l2library"
     mandatory=true
     versionRange="[2.5.3,)"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.golemdungeons]]
+[[dependencies.tinkers_golem]]
     modId="modulargolems"
     mandatory=true
     versionRange="[2.6.34,)"
+    side="BOTH"
+[[dependencies.tinkers_golem]]
+    modId="mantle"
+    mandatory=true
+    versionRange="[1.11.104,)"
+    side="BOTH"
+[[dependencies.tinkers_golem]]
+    modId="tconstruct"
+    mandatory=true
+    versionRange="[3.11.2.166,)"
     side="BOTH"

@@ -15,7 +15,7 @@ buildscript {
 plugins {
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'net.darkhax.curseforgegradle' version '[1.1.24,1.2)'
-    id "at.stnwtr.gradle-secrets-plugin" version "1.0.1"
+//    id "at.stnwtr.gradle-secrets-plugin" version "1.0.1"
     id "com.modrinth.minotaur" version "2.+"
 }
 
@@ -24,7 +24,7 @@ apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
 version = "${ll_version}"
-group = "dev.kxmc.${modid}"
+group = "golemknights.${modid}"
 archivesBaseName = "${modid}"
 
 if (lljij.toBoolean()) jarJar.enable()
@@ -194,6 +194,11 @@ repositories {
             includeGroup "com.iafenvoy"
         }
     }
+
+    maven {
+        name = 'DVS1 Maven FS'
+        url = 'https://dvs1.progwml6.com/files/maven'
+    }
 }
 
 dependencies {
@@ -211,6 +216,9 @@ dependencies {
         transitive = false
         jarJar.ranged(it, "[1.1.0,)")
     }
+
+    implementation fg.deobf("slimeknights.mantle:Mantle:${minecraft_version}-${mantle_version}")
+    implementation fg.deobf("slimeknights.tconstruct:TConstruct:${minecraft_version}-${tconstruct_version}")
 
 
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
@@ -233,35 +241,35 @@ dependencies {
 
 
     implementation fg.deobf("curse.maven:lionfish-api-1001614:5922047")
-    implementation fg.deobf("curse.maven:lendercataclysm-551586:6832543")
-    implementation fg.deobf("curse.maven:the-twilight-forest-227639:5468648")
+    //implementation fg.deobf("curse.maven:lendercataclysm-551586:6832543")
+    //implementation fg.deobf("curse.maven:the-twilight-forest-227639:5468648")
 
 }
 
-tasks.register('publishCurseForge', TaskPublishCurseForge) {
-    apiToken = secrets.get("curseforge_token")
-    def mainFile = upload(project.curseforge_project, new File("./build/libs/${modid}-${ll_version}.jar"))
-    mainFile.changelog = new File('./changelog.txt').text.split("\n\n\n")[0]
-    mainFile.addEnvironment("Client", "Server")
-    mainFile.addGameVersion("1.20.1")
-    mainFile.addModLoader("Forge", "NeoForge")
-    mainFile.addRequirement("l2library", "modulargolems")
-    mainFile.releaseType = "release"
-    disableVersionDetection()
-}
+// tasks.register('publishCurseForge', TaskPublishCurseForge) {
+//     apiToken = secrets.get("curseforge_token")
+//     def mainFile = upload(project.curseforge_project, new File("./build/libs/${modid}-${ll_version}.jar"))
+//     mainFile.changelog = new File('./changelog.txt').text.split("\n\n\n")[0]
+//     mainFile.addEnvironment("Client", "Server")
+//     mainFile.addGameVersion("1.20.1")
+//     mainFile.addModLoader("Forge", "NeoForge")
+//     mainFile.addRequirement("l2library", "modulargolems")
+//     mainFile.releaseType = "release"
+//     disableVersionDetection()
+// }
 
-modrinth {
-    token = secrets.get("modrinth_token")
-    projectId = project.modrinth_project
-    versionName = "Golem Dungoens ${project.ll_version}"
-    versionNumber = project.ll_version
-    versionType = "release"
-    uploadFile = new File("./build/libs/${modid}-${ll_version}.jar")
-    gameVersions = ["1.20.1"]
-    loaders = ["forge", "neoforge"]
-    changelog = new File('./changelog.txt').text.split("\n\n")[0]
-    dependencies {
-        required.project "l2library"
-        required.project "modular-golems"
-    }
-}
+// modrinth {
+//     token = secrets.get("modrinth_token")
+//     projectId = project.modrinth_project
+//     versionName = "Golem Dungoens ${project.ll_version}"
+//     versionNumber = project.ll_version
+//     versionType = "release"
+//     uploadFile = new File("./build/libs/${modid}-${ll_version}.jar")
+//     gameVersions = ["1.20.1"]
+//     loaders = ["forge", "neoforge"]
+//     changelog = new File('./changelog.txt').text.split("\n\n")[0]
+//     dependencies {
+//         required.project "l2library"
+//         required.project "modular-golems"
+//     }
+// }

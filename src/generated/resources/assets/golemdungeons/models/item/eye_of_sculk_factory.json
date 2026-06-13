@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "golemdungeons:item/eye_of_sculk_factory"
-  }
-}
