@@ -1,8 +1,6 @@
 package golemknights.tinkersgolem.register;
 
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
-import golemknights.tinkersgolem.TinkersGolem;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
