@@ -11,7 +11,6 @@ import dev.xkmc.modulargolems.content.item.equipments.GolemItemSpecialRenderer;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -36,7 +35,7 @@ public class ModifiableMetalGolemArmorRender implements GolemItemSpecialRenderer
     public ModifiableMetalGolemArmorRender() {
     }
 
-    private static final MethodHandle TEXTURE_HANDLE;
+    public static final MethodHandle TEXTURE_HANDLE;
 
     static {
         try {

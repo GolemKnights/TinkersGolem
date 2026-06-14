@@ -1,0 +1,9 @@
+{
+  "layers": [
+    {
+      "type": "tconstruct:material",
+      "index": 0,
+      "prefix": "tinkers_golem:dog_golem/plating_"
+    }
+  ]
+}
