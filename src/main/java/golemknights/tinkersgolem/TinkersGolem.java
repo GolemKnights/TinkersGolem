@@ -2,7 +2,7 @@ package golemknights.tinkersgolem;
 
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
-import golemknights.tinkersgolem.item.TGItems;
+import golemknights.tinkersgolem.register.TGItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;

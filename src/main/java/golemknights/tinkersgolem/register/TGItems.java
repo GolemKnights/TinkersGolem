@@ -1,4 +1,4 @@
-package golemknights.tinkersgolem.item;
+package golemknights.tinkersgolem.register;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorItem;
