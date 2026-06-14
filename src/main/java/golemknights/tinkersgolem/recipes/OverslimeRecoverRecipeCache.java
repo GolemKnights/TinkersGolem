@@ -1,6 +1,7 @@
 package golemknights.tinkersgolem.recipes;
 
 import golemknights.tinkersgolem.register.TGRecipes;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeManager;
 import slimeknights.mantle.recipe.helper.RecipeHelper;
@@ -9,14 +10,15 @@ import slimeknights.tconstruct.common.recipe.RecipeCacheInvalidator;
 import java.util.*;
 
 public class OverslimeRecoverRecipeCache {
-    private static final Map<ItemStack, List<OverslimeRecoverRecipe>> CACHE = new HashMap();
+    private static final Map<Item, List<OverslimeRecoverRecipe>> CACHE = new HashMap();
 
     public static List<OverslimeRecoverRecipe> findRecipe(RecipeManager manager, ItemStack type) {
-        if (CACHE.containsKey(type)) {
-            return CACHE.get(type);
+        if ((type.getTag() == null || type.getTag().isEmpty()) && CACHE.containsKey(type.getItem())) {
+            return CACHE.get(type.getItem());
         } else {
             List<OverslimeRecoverRecipe> list = new ArrayList<>();
-            for (OverslimeRecoverRecipe recipe : RecipeHelper.getRecipes(manager, TGRecipes.overslime_recover_recipe_type.get(), OverslimeRecoverRecipe.class)) {
+            for (OverslimeRecoverRecipe recipe : RecipeHelper.getRecipes(manager,
+                    TGRecipes.overslime_recover_recipe_type.get(), OverslimeRecoverRecipe.class)) {
                 if (recipe.matches(type)) {
                     list.add(recipe);
                 }
@@ -24,7 +26,9 @@ public class OverslimeRecoverRecipeCache {
             if (list.isEmpty()) {
                 list = Collections.emptyList();
             }
-            CACHE.put(type, list);
+            if ((type.getTag() == null || type.getTag().isEmpty())) {
+                CACHE.put(type.getItem(), list);
+            }
             return list;
         }
     }

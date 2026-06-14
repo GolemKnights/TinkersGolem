@@ -16,10 +16,7 @@ import java.util.List;
 
 import static golemknights.tinkersgolem.TinkersGolem.MODID;
 
-@Mod.EventBusSubscriber(
-		modid = MODID,
-		bus = Mod.EventBusSubscriber.Bus.FORGE
-)
+@Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class GolemOverslimeEvents {
 	public static final String OVERSLIME_KEY = "golem_overslime";
 
@@ -40,7 +37,8 @@ public class GolemOverslimeEvents {
 	public static void setOverslime(LivingEntity entity, float amount) {
 		if (isGolem(entity)) {
 			AttributeInstance attribute = entity.getAttribute(TGAttributes.MAX_OVERSLIME.get());
-			if (attribute == null) return;
+			if (attribute == null)
+				return;
 			float value = (float) attribute.getValue();
 			entity.getPersistentData().putFloat(OVERSLIME_KEY, Math.min(Math.max(amount, 0), value));
 		}
@@ -65,19 +63,38 @@ public class GolemOverslimeEvents {
 		Entity entity = event.getTarget();
 		if (entity instanceof LivingEntity target && isGolem(target)) {
 			AttributeInstance attribute = target.getAttribute(TGAttributes.MAX_OVERSLIME.get());
-			if (attribute == null) return;
+			if (attribute == null)
+				return;
 			float value = (float) attribute.getValue();
-			if (value <= 0) return;
-			if (value == getOverslime(target)) return;
+			if (value <= 0)
+				return;
+			if (value == getOverslime(target))
+				return;
 			ItemStack item = event.getItemStack();
 			List<OverslimeRecoverRecipe> recipes = OverslimeRecoverRecipeCache.findRecipe(target.level().getRecipeManager(), item);
 			if (!recipes.isEmpty()) {
 				float amount = 0;
 				for (OverslimeRecoverRecipe recipe : recipes) {
+					if (!recipe.matches(item)) {
+						continue;
+					}
 					amount += recipe.getOutput();
 				}
 				addOverslime(target, amount);
+
+				ItemStack remaining = item.getCraftingRemainingItem();
 				item.shrink(1);
+				if (remaining.isEmpty()) {
+					return;
+				}
+				var player = event.getEntity();
+				if (item.isEmpty()) {
+					player.setItemInHand(event.getHand(), remaining);
+					return;
+				}
+				if (!player.getInventory().add(remaining)) {
+					player.drop(remaining, false);
+				}
 			}
 		}
 	}
