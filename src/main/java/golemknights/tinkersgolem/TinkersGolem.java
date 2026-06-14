@@ -1,13 +1,7 @@
 package golemknights.tinkersgolem;
 
-import com.tterrag.registrate.providers.ProviderType;
-import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
-import dev.xkmc.l2itemselector.select.item.IItemSelector;
 import dev.xkmc.l2library.base.L2Registrate;
-import dev.xkmc.l2library.serial.config.ConfigTypeEntry;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
-import dev.xkmc.modulargolems.compat.materials.cataclysm.CataDispatch;
-import dev.xkmc.modulargolems.compat.materials.twilightforest.TFDispatch;
 import golemknights.tinkersgolem.item.TGItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -16,13 +10,9 @@ import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
-import slimeknights.tconstruct.TConstruct;
-import slimeknights.tconstruct.common.registration.ItemDeferredRegisterExtension;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -108,7 +98,11 @@ public class TinkersGolem {
 		// new GDDamageTypes(output, pvd, helper).generate(server, gen);
 	}
 
-	public static ResourceLocation loc(String id) {
+	/**
+	 * Get the ResourceLocation in Tinkers' Golem's namespace.
+	 * @return the ResourceLocation.
+	 */
+	public static ResourceLocation getResource(String id) {
 		return new ResourceLocation(MODID, id);
 	}
 
