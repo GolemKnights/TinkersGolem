@@ -11,17 +11,15 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
 import static dev.xkmc.modulargolems.init.ModularGolems.REGISTRATE;
+import static golemknights.tinkersgolem.TinkersGolem.ATTRIBUTES;
 import static golemknights.tinkersgolem.TinkersGolem.MODID;
 
 public class TGAttributes {
-	public static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, MODID);
 	public static final RegistryObject<Attribute> MAX_OVERSLIME = ATTRIBUTES.register("max_overslime", () -> new RangedAttribute(MODID + ".max_overslime", 0, 0, Integer.MAX_VALUE).setSyncable(true));
 
 	public static final RegistryEntry<GolemStatType> STAT_OVERSLIME = regStat("max_overslime", MAX_OVERSLIME, GolemStatType.Kind.ADD, StatFilterType.MASS);

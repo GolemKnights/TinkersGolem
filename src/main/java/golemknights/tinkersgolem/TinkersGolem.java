@@ -10,6 +10,7 @@ import golemknights.tinkersgolem.register.TGItems;
 import golemknights.tinkersgolem.register.TGModifiers;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.common.MinecraftForge;
@@ -44,6 +45,7 @@ public class TinkersGolem {
 	public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(MODID);
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, MODID);
     public static final SynchronizedDeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = SynchronizedDeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, MODID);
+    public static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, MODID);
 
     // public static final ConfigTypeEntry<SpawnConfig> SPAWN = new
 	// ConfigTypeEntry<>(HANDLER, "spawn", SpawnConfig.class);
@@ -56,9 +58,9 @@ public class TinkersGolem {
 		MinecraftForge.EVENT_BUS.register(this);
 		ITEMS.register(MOD_BUS);
 		TGItems.load();
-		TGAttributes.ATTRIBUTES.register(MOD_BUS);
 		RECIPE_TYPES.register(MOD_BUS);
 		RECIPE_SERIALIZERS.register(MOD_BUS);
+        ATTRIBUTES.register(MOD_BUS);
         TGModifiers.registers(MOD_BUS);
 		MOD_BUS.addListener(TGAttributes::setupAttributes);
 		// GDItems.register();
