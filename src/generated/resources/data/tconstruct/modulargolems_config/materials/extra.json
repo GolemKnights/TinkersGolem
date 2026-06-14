@@ -11,7 +11,9 @@
     }
   },
   "modifiers": {
-    "tconstruct:cinderslime": {},
+    "tconstruct:cinderslime": {
+      "modulargolems:fire_immune": 1
+    },
     "tconstruct:queenslime": {},
     "tconstruct:slimesteel": {}
   },
@@ -29,15 +31,18 @@
   "stats": {
     "tconstruct:cinderslime": {
       "modulargolems:attack": 20.0,
-      "modulargolems:max_health": 200.0
+      "modulargolems:max_health": 200.0,
+      "modulargolems:max_overslime": 20.0
     },
     "tconstruct:queenslime": {
       "modulargolems:attack": 20.0,
-      "modulargolems:max_health": 200.0
+      "modulargolems:max_health": 200.0,
+      "modulargolems:max_overslime": 40.0
     },
     "tconstruct:slimesteel": {
       "modulargolems:attack": 20.0,
-      "modulargolems:max_health": 200.0
+      "modulargolems:max_health": 200.0,
+      "modulargolems:max_overslime": 20.0
     }
   }
 }
