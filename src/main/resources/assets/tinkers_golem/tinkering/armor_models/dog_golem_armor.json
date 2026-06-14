@@ -4,6 +4,11 @@
       "type": "tconstruct:material",
       "index": 0,
       "prefix": "tinkers_golem:dog_golem/plating_"
+    },
+    {
+      "type": "tconstruct:material",
+      "index": 1,
+      "prefix": "tinkers_golem:dog_golem/maille_"
     }
   ]
 }
