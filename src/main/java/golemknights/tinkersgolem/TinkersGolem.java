@@ -2,6 +2,7 @@ package golemknights.tinkersgolem;
 
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
+import golemknights.tinkersgolem.register.TGAttributes;
 import golemknights.tinkersgolem.register.TGItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -43,6 +44,8 @@ public class TinkersGolem {
 		MinecraftForge.EVENT_BUS.register(this);
 		ITEMS.register(MOD_BUS);
 		TGItems.load();
+		TGAttributes.ATTRIBUTES.register(MOD_BUS);
+		MOD_BUS.addListener(TGAttributes::setupAttributes);
 		// GDItems.register();
 		// GDModifiers.register();
 		// GDWorldGen.register();
