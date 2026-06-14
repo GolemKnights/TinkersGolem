@@ -47,12 +47,12 @@ public class OverslimeRecoverRecipe implements ICustomOutputRecipe<IEmptyContain
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return TGRecipes.overslime_recover_recipe_serializer.get();
+        return TGRecipes.OVERSLIME_RECOVER_SERIALIZER.get();
     }
 
     @Override
     public RecipeType<?> getType() {
-        return TGRecipes.overslime_recover_recipe_type.get();
+        return TGRecipes.OVERSLIME_RECOVER.get();
     }
 
     public boolean matches(ItemStack type) {

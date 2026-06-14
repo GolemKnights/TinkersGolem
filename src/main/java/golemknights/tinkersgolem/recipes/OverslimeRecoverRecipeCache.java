@@ -18,7 +18,7 @@ public class OverslimeRecoverRecipeCache {
         } else {
             List<OverslimeRecoverRecipe> list = new ArrayList<>();
             for (OverslimeRecoverRecipe recipe : RecipeHelper.getRecipes(manager,
-                    TGRecipes.overslime_recover_recipe_type.get(), OverslimeRecoverRecipe.class)) {
+                    TGRecipes.OVERSLIME_RECOVER.get(), OverslimeRecoverRecipe.class)) {
                 if (recipe.matches(type)) {
                     list.add(recipe);
                 }
