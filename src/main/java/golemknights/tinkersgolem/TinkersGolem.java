@@ -1,7 +1,10 @@
 package golemknights.tinkersgolem;
 
+import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
+import golemknights.tinkersgolem.data.TGConfigGen;
+import golemknights.tinkersgolem.events.TGAttackListener;
 import golemknights.tinkersgolem.register.TGAttributes;
 import golemknights.tinkersgolem.register.TGItems;
 import golemknights.tinkersgolem.register.TGModifiers;
@@ -63,32 +66,12 @@ public class TinkersGolem {
 		// GDWorldGen.register();
 		// GDTriggers.register();
 		// GDConfig.init();
-		// AttackEventHandler.register(3513, new GDAttackListener());
-		// if (ModList.get().isLoaded(CataDispatch.MODID)) {
-		// MinecraftForge.EVENT_BUS.register(CataclysmEventHandler.class);
-		// FMLJavaModLoadingContext.get().getModEventBus().register(CataclysmModEventHandler.class);
-		// }
+		AttackEventHandler.register(3516, new TGAttackListener());
 	}
 
 	@SubscribeEvent
 	public static void modifyAttributes(EntityAttributeModificationEvent event) {
 	}
-
-	// @SubscribeEvent
-	// public static void setup(final FMLCommonSetupEvent event) {
-	// event.enqueueWork(() -> {
-	// DungeonFactionRegistry.register();
-	// IItemSelector.register(new SummonWandSelector(MODID));
-	// if (ModList.get().isLoaded(CataDispatch.MODID)) {
-	// CataclysmFactions.register();
-	// IItemSelector.register(new SummonWandSelector(MODID));
-	// }
-	// if (ModList.get().isLoaded(TFDispatch.MODID)) {
-	// TwilightFactions.register();
-	// IItemSelector.register(new SummonWandSelector(MODID));
-	// }
-	// });
-	// }
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void gatherData(GatherDataEvent event) {
@@ -98,23 +81,17 @@ public class TinkersGolem {
 		// REGISTRATE.addDataGenerator(ProviderType.ADVANCEMENT, GDAdvGen::genAdv);
 		// REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, GDTagGen::genItemTag);
 
-		// var gen = event.getGenerator();
-		// var output = gen.getPackOutput();
-		// var pvd = event.getLookupProvider();
-		// var helper = event.getExistingFileHelper();
-		// var server = event.includeServer();
-		// GDStructureGen reg = new GDStructureGen(output, pvd);
-		// gen.addProvider(server, new GDConfigGen(gen));
-		// gen.addProvider(server, reg);
-		// gen.addProvider(server, new GDBiomeTagsProvider(output, pvd, helper));
-		// gen.addProvider(server, new GDGLMGen(output));
-		// gen.addProvider(server, new GDStructureTagsProvider(output,
-		// reg.getRegistryProvider(), helper));
-		// new GDDamageTypes(output, pvd, helper).generate(server, gen);
+		var gen = event.getGenerator();
+		var output = gen.getPackOutput();
+		var pvd = event.getLookupProvider();
+		var helper = event.getExistingFileHelper();
+		var server = event.includeServer();
+		gen.addProvider(server, new TGConfigGen(gen));
 	}
 
 	/**
 	 * Get the ResourceLocation in Tinkers' Golem's namespace.
+	 *
 	 * @return the ResourceLocation.
 	 */
 	public static ResourceLocation getResource(String id) {
