@@ -46,7 +46,6 @@ public class TinkersGolem {
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, MODID);
     public static final SynchronizedDeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = SynchronizedDeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, MODID);
     public static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, MODID);
-
     // public static final ConfigTypeEntry<SpawnConfig> SPAWN = new
 	// ConfigTypeEntry<>(HANDLER, "spawn", SpawnConfig.class);
 	// public static final ConfigTypeEntry<EquipmentConfig> ITEMS = new
