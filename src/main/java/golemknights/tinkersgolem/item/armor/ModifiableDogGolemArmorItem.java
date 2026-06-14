@@ -3,6 +3,7 @@ package golemknights.tinkersgolem.item.armor;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -14,6 +15,9 @@ import com.google.common.collect.Multimap;
 
 import dev.xkmc.modulargolems.content.entity.dog.DogGolemEntity;
 import dev.xkmc.modulargolems.content.item.equipments.DogGolemArmorItem;
+import dev.xkmc.modulargolems.content.item.equipments.DogGolemArmorSpecialRenderer;
+import golemknights.tinkersgolem.client.render.ModifiableDogGolemArmorRender;
+
 import static golemknights.tinkersgolem.TinkersGolem.LOGGER;
 import static golemknights.tinkersgolem.TinkersGolem.getResource;
 import static golemknights.tinkersgolem.client.render.ModifiableMetalGolemArmorRender.TEXTURE_HANDLE;
@@ -46,6 +50,7 @@ import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import slimeknights.mantle.client.SafeClientAccess;
 import slimeknights.mantle.client.TooltipKey;
+import slimeknights.tconstruct.common.Sounds;
 import slimeknights.tconstruct.library.client.armor.ArmorModelManager;
 import slimeknights.tconstruct.library.client.armor.ArmorModelManager.ArmorModel;
 import slimeknights.tconstruct.library.client.armor.texture.ArmorTextureSupplier;
@@ -68,6 +73,8 @@ import slimeknights.tconstruct.library.tools.helper.ToolBuildHandler;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.helper.TooltipUtil;
 import slimeknights.tconstruct.library.tools.item.IModifiableDisplay;
+import slimeknights.tconstruct.library.tools.item.armor.DummyArmorMaterial;
+
 import static slimeknights.tconstruct.library.tools.item.armor.ModifiableArmorItem.ENDERMASK;
 import static slimeknights.tconstruct.library.tools.item.armor.ModifiableArmorItem.PIGLIN_NEUTRAL;
 import static slimeknights.tconstruct.library.tools.item.armor.ModifiableArmorItem.SNOW_BOOTS;
@@ -76,15 +83,17 @@ import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.library.utils.Util;
+import static golemknights.tinkersgolem.register.TGItems.DOG_GOLEM_ARMOR;
 
-public class ModifiableDogGolemArmorItem extends DogGolemArmorItem implements IModifiableDisplay {
+public class ModifiableDogGolemArmorItem extends DogGolemArmorItem
+        implements IModifiableDisplay, DogGolemArmorSpecialRenderer.ProviderItem {
 
-    public static final ResourceLocation MISSING_TEXTURE = new ResourceLocation("minecraft:missingno");
-    public static final ResourceLocation EMPTY_TEXTURE = getResource("textures/tinker_armor/dog_golem/empty.png");
+    private static final DummyArmorMaterial material = new DummyArmorMaterial(getResource(DOG_GOLEM_ARMOR),
+            Sounds.EQUIP_PLATE.getSound());
 
     public ModifiableDogGolemArmorItem(Properties properties,
             ToolDefinition toolDefinition, ResourceLocation textureModel) {
-        super(properties, null, 0, 0);
+        super(properties, material, 0, 0);
         this.toolDefinition = toolDefinition;
         this.textureModel = textureModel;
     }
@@ -407,8 +416,25 @@ public class ModifiableDogGolemArmorItem extends DogGolemArmorItem implements IM
         return toolForRendering;
     }
 
+    @Override
+    public ResourceLocation getModelTexture(LivingEntity user, boolean override) {
+        LOGGER.warn("getModelTexture not implemented");
+        return null;
+    }
+
+    @Override
+    public int getColor(ItemStack stack) {
+        LOGGER.warn("getColor not implemented");
+        return -1;
+    }
+
+    @Override
+    public Optional<DogGolemArmorSpecialRenderer> getSpecialRenderer() {
+        return Optional.of(ModifiableDogGolemArmorRender.INSTANCE);
+
+    }
+
     private ArmorModel armorModel;
-    private RegistryAccess registryAccess;
 
     protected ResourceLocation getName() {
         return textureModel;
@@ -423,59 +449,5 @@ public class ModifiableDogGolemArmorItem extends DogGolemArmorItem implements IM
             }
         }
         return armorModel;
-    }
-
-    @Override
-    public ResourceLocation getModelTexture(LivingEntity user, boolean override) {
-        if (!override)
-            return EMPTY_TEXTURE;
-        if (user instanceof DogGolemEntity dog) {
-            ItemStack chestplate = dog.getItemBySlot(EquipmentSlot.CHEST);
-            if (chestplate.getItem() == this) {
-                ArmorModel model = getModel(chestplate);
-                registryAccess = dog.level().registryAccess();
-                for (ArmorTextureSupplier textureSupplier : armorModel.layers()) {
-                    ArmorTexture texture = textureSupplier.getArmorTexture(chestplate,
-                            ArmorTextureSupplier.TextureType.ARMOR, registryAccess);
-                    if (texture != ArmorTexture.EMPTY) {
-                        if (texture instanceof TintedArmorTexture tintedTexture) {
-                            try {
-                                return (ResourceLocation) TEXTURE_HANDLE.invokeExact(tintedTexture);
-                            } catch (Throwable e) {
-                                LOGGER.error("ModifiableMetalGolemArmorRender render error, error: {}", e.getMessage());
-                            }
-                        } else
-                            LOGGER.error("Not Support texture type: {}", texture.getClass());
-                    }
-                }
-                LOGGER.warn("Not found supported texture type in chestplate", chestplate.getDisplayName().toString());
-                return MISSING_TEXTURE;
-            }
-            LOGGER.warn("Stack {} not a dog golem armor", chestplate.getItem().toString());
-            return MISSING_TEXTURE;
-        }
-        LOGGER.warn("Entity {} not a dog golem", user.toString());
-        return MISSING_TEXTURE;
-    }
-
-    @Override
-    public int getColor(ItemStack stack) {
-        if (stack.getItem() == this) {
-            ArmorModel model = getModel(stack);
-            for (ArmorTextureSupplier textureSupplier : armorModel.layers()) {
-                ArmorTexture texture = textureSupplier.getArmorTexture(stack,
-                        ArmorTextureSupplier.TextureType.ARMOR, registryAccess);
-                if (texture != ArmorTexture.EMPTY) {
-                    if (texture instanceof TintedArmorTexture tintedTexture) {
-                        return tintedTexture.color();
-                    } else
-                        LOGGER.error("Not Support texture type: {}", texture);
-                }
-            }
-            LOGGER.warn("Not found supported texture type in stack", stack);
-            return -1;
-        }
-        LOGGER.warn("Stack {} not a dog golem armor", stack);
-        return -1;
     }
 }
