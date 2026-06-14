@@ -13,7 +13,7 @@ public class OverslimeRecoverRecipeCache {
     private static final Map<Item, List<OverslimeRecoverRecipe>> CACHE = new HashMap();
 
     public static List<OverslimeRecoverRecipe> findRecipe(RecipeManager manager, ItemStack type) {
-        if ((type.getTag() == null || type.getTag().isEmpty()) && CACHE.containsKey(type.getItem())) {
+        if (!type.hasTag() && CACHE.containsKey(type.getItem())) {
             return CACHE.get(type.getItem());
         } else {
             List<OverslimeRecoverRecipe> list = new ArrayList<>();
@@ -26,12 +26,14 @@ public class OverslimeRecoverRecipeCache {
             if (list.isEmpty()) {
                 list = Collections.emptyList();
             }
-            if ((type.getTag() == null || type.getTag().isEmpty())) {
+            list = Collections.unmodifiableList(list);
+            if (!type.hasTag()) {
                 CACHE.put(type.getItem(), list);
             }
             return list;
         }
     }
+
     static {
         RecipeCacheInvalidator.addReloadListener((client) -> {
             CACHE.clear();
