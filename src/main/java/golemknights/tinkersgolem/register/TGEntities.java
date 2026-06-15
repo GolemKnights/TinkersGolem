@@ -59,14 +59,14 @@ public class TGEntities {
 				.defaultLang().register();
 
 
-		HOLDER_SLIME = REGISTRATE.item("slime_golem_holder", p ->
+		HOLDER_SLIME = TinkersGolem.REGISTRATE.item("slime_golem_holder", p ->
 						new GolemHolder<>(p.fireResistant(), TYPE_SLIME))
 				.model((ctx, pvd) -> pvd.getBuilder(ctx.getName()).parent(new ModelFile.UncheckedModelFile("builtin/entity"))
 						.texture("particle", "minecraft:block/clay"))
 				.transform(e -> e.tab(GolemItems.GOLEMS.getKey(), x -> e.getEntry().fillItemCategory(x)))
 				.tag(MGTagGen.GOLEM_HOLDERS).defaultLang().register();
 
-		SLIME_INNER = REGISTRATE.item("slime_golem_inner", p ->
+		SLIME_INNER = TinkersGolem.REGISTRATE.item("slime_golem_inner", p ->
 						new GolemPart<>(p.fireResistant(), TYPE_SLIME, SlimeGolemPartType.INNER, 9))
 				.model((ctx, pvd) -> pvd.getBuilder(ctx.getName()).parent(new ModelFile.UncheckedModelFile("builtin/entity"))
 						.texture("particle", "minecraft:block/clay"))
@@ -74,7 +74,7 @@ public class TGEntities {
 				.transform(e -> e.tab(GolemItems.GOLEMS.getKey(), x -> e.getEntry().fillItemCategory(x)))
 				.tag(MGTagGen.GOLEM_PARTS).defaultLang().register();
 
-		SLIME_OUTER = REGISTRATE.item("slime_golem_outer", p ->
+		SLIME_OUTER = TinkersGolem.REGISTRATE.item("slime_golem_outer", p ->
 						new GolemPart<>(p.fireResistant(), TYPE_SLIME, SlimeGolemPartType.OUTER, 9))
 				.model((ctx, pvd) -> pvd.getBuilder(ctx.getName()).parent(new ModelFile.UncheckedModelFile("builtin/entity"))
 						.texture("particle", "minecraft:block/clay"))

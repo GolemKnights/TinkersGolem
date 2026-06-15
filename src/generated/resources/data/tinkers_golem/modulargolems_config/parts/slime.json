@@ -1,13 +1,13 @@
 {
   "filters": {
-    "modulargolems:slime_golem_inner": {
+    "tinkers_golem:slime_golem_inner": {
       "ATTACK": 0.0,
       "HEAD": 1.0,
       "HEALTH": 1.0,
       "MASS": 0.5,
       "MOVEMENT": 0.0
     },
-    "modulargolems:slime_golem_outer": {
+    "tinkers_golem:slime_golem_outer": {
       "ATTACK": 1.0,
       "HEAD": 0.0,
       "HEALTH": 0.0,
