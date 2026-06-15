@@ -24,8 +24,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.ForgeMod;
 
-import static dev.xkmc.modulargolems.init.ModularGolems.REGISTRATE;
-
 public class TGEntities {
 
 	public static final EntityEntry<SlimeGolemEntity> ENTITY_SLIME;
@@ -36,7 +34,7 @@ public class TGEntities {
 
 	static {
 		ENTITY_SLIME = TinkersGolem.REGISTRATE.entity("slime_golem", SlimeGolemEntity::new, MobCategory.MISC)
-				.properties(e -> e.sized(1.4F, 2.7F).clientTrackingRange(10))
+				.properties(e -> e.sized(2.04F, 2.04F).clientTrackingRange(20))
 				.renderer(() -> SlimeGolemRenderer::new)
 				.attributes(() -> Mob.createMobAttributes()
 						.add(Attributes.MAX_HEALTH, 20)
