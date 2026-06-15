@@ -1,4 +1,6 @@
 {
+  "entity.tinkers_golem.slime_golem": "Slime Golem",
+  "golem_type.tinkers_golem.slime_golem": "Slime Golem",
   "modifier.tinkers_golem.overforced": "Overforced",
   "modifier.tinkers_golem.overgrowth": "Overgrowth",
   "modifier.tinkers_golem.overgrowth.desc": "Slowly recover overslime over time",

@@ -1,12 +1,10 @@
-package golemknights.tinkersgolem.client;
+package golemknights.tinkersgolem.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import dev.xkmc.modulargolems.content.client.armor.GolemEquipmentModels;
 import dev.xkmc.modulargolems.content.entity.common.IGolemModel;
 import dev.xkmc.modulargolems.content.entity.common.IHeadedModel;
-import golemknights.tinkersgolem.SlimeGolemEntity;
-import golemknights.tinkersgolem.register.SlimeGolemPartType;
 import net.minecraft.client.model.SlimeModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.geom.ModelPart;

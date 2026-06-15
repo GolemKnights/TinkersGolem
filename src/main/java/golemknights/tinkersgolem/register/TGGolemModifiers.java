@@ -9,7 +9,6 @@ import dev.xkmc.modulargolems.content.item.upgrade.SimpleUpgradeItem;
 import dev.xkmc.modulargolems.content.modifier.base.GolemModifier;
 import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
-import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.modifiers.golem.OverforcedModifier;
 import golemknights.tinkersgolem.modifiers.golem.OvergrowthModifier;
@@ -31,7 +30,7 @@ public class TGGolemModifiers {
 
 	static {
 		OVERGROWTH = reg("overgrowth", OvergrowthModifier::new, "Slowly recover overslime over time");
-		OVERFORCED = reg("overforced", OverforcedModifier::new,null);
+		OVERFORCED = reg("overforced", OverforcedModifier::new, null);
 		OVERLORD = reg("overlord", OverlordModifier::new, "When taking damage, recover overslime by %s%% of damage taken");
 
 	}
@@ -40,7 +39,7 @@ public class TGGolemModifiers {
 	public static <T extends GolemModifier> RegistryEntry<T> reg(String id, NonNullSupplier<T> sup, @Nullable String def) {
 		var cls = new L2Registrate.RegistryInstance<GolemModifier>(() -> null, ResourceKey.createRegistryKey(new ResourceLocation(ModularGolems.MODID, "modifier")));
 		Mutable<RegistryEntry<T>> holder = new MutableObject<>();
-		L2Registrate.GenericBuilder<GolemModifier, T> ans = TinkersGolem.REGISTRATE.generic(GolemTypes.MODIFIERS, id, sup).defaultLang();
+		L2Registrate.GenericBuilder<GolemModifier, T> ans = TinkersGolem.REGISTRATE.generic(cls, id, sup).defaultLang();
 		if (def != null) {
 			ans.addMiscData(ProviderType.LANG, (pvd) -> pvd.add(holder.getValue().get().getDescriptionId() + ".desc", def));
 		}

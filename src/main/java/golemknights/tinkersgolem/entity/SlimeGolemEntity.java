@@ -1,7 +1,6 @@
-package golemknights.tinkersgolem;
+package golemknights.tinkersgolem.entity;
 
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
-import golemknights.tinkersgolem.register.SlimeGolemPartType;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;

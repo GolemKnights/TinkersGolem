@@ -43,7 +43,6 @@ public class TinkersGolem {
 
 	public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(MODID);
     public static final EntityTypeDeferredRegister ENTITIES = new EntityTypeDeferredRegister(MODID);
-    public static final L2Registrate.RegistryInstance<GolemType<?, ?>> TYPES = new L2Registrate(MODID).newRegistry("golem_type", GolemType.class);
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, MODID);
 	public static final SynchronizedDeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = SynchronizedDeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, MODID);
 	public static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, MODID);
