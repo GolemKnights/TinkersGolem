@@ -105,7 +105,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
                     float f1 = this.random.nextFloat() * 0.5F + 0.5F;
                     float f2 = Mth.sin(f) * (float)i * 0.5F * f1;
                     float f3 = Mth.cos(f) * (float)i * 0.5F * f1;
-                    this.level().addParticle(this.getParticleType(), this.getX() + (double)f2, this.getY(), this.getZ() + (double)f3, (double)0.0F, (double)0.0F, (double)0.0F);
+                    this.level().addParticle(this.getParticleType(), this.getX() + (double)f2, this.getY(), this.getZ() + (double)f3, 0.0F, 0.0F, (double)0.0F);
                 }
             }
 
