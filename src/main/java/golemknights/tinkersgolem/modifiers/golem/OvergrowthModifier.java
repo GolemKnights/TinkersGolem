@@ -8,8 +8,8 @@ import golemknights.tinkersgolem.events.GolemOverslimeEvents;
 import java.util.Random;
 
 public class OvergrowthModifier extends GolemModifier {
-    public OvergrowthModifier(StatFilterType type, int maxLevel) {
-        super(type, maxLevel);
+    public OvergrowthModifier() {
+        super(StatFilterType.MASS, 5);
     }
 
     @Override
