@@ -95,7 +95,7 @@ public class ModifiableMetalGolemArmorRender implements GolemItemSpecialRenderer
                 gemr.translateAndRotate(pose);
                 gemr = gemr.getChild(s);
             }
-            /** Renders a colored model */
+            /* Renders a colored model */
             float red = 1.0F, green = 1.0F, blue = 1.0F, alpha = 1.0F;
             if (color != -1) {
                 alpha *= (float) (color >> 24 & 255) / 255.0F;

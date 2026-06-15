@@ -1,7 +1,6 @@
 package golemknights.tinkersgolem.events;
 
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
-import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import golemknights.tinkersgolem.recipes.OverslimeRecoverRecipe;
 import golemknights.tinkersgolem.recipes.OverslimeRecoverRecipeCache;
 import golemknights.tinkersgolem.register.TGAttributes;
@@ -22,7 +21,7 @@ public class GolemOverslimeEvents {
 	public static final String OVERSLIME_KEY = "golem_overslime";
 
 	public static boolean isGolem(LivingEntity entity) {
-		return entity instanceof AbstractGolemEntity<?,?>;
+		return entity instanceof AbstractGolemEntity<?, ?>;
 	}
 
 	public static float getOverslime(LivingEntity entity) {
