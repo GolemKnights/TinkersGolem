@@ -26,7 +26,6 @@ public enum SlimeGolemPartType implements IGolemPart<SlimeGolemPartType> {
 		return switch (this) {
 			case INNER -> TGEntities.SLIME_INNER.get();
 			case OUTER -> TGEntities.SLIME_OUTER.get();
-			default -> throw new IncompatibleClassChangeError();
 		};
 	}
 

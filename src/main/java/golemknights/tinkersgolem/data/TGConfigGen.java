@@ -2,10 +2,15 @@ package golemknights.tinkersgolem.data;
 
 import dev.xkmc.l2library.serial.config.ConfigDataProvider;
 import dev.xkmc.modulargolems.content.config.GolemMaterialConfig;
+import dev.xkmc.modulargolems.content.config.GolemPartConfig;
+import dev.xkmc.modulargolems.content.core.StatFilterType;
 import dev.xkmc.modulargolems.init.ModularGolems;
+import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import dev.xkmc.modulargolems.init.registrate.GolemModifiers;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
+import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.register.TGAttributes;
+import golemknights.tinkersgolem.register.TGEntities;
 import golemknights.tinkersgolem.register.TGGolemModifiers;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -21,6 +26,30 @@ public class TGConfigGen extends ConfigDataProvider {
 	@Override
 	public void add(Collector map) {
 
+		map.add(ModularGolems.PARTS, TinkersGolem.getResource("slime"), new GolemPartConfig()
+				.addPart(TGEntities.SLIME_INNER.get())
+				.addFilter(StatFilterType.HEALTH, 1)
+				.addFilter(StatFilterType.ATTACK, 0)
+				.addFilter(StatFilterType.MOVEMENT, 0)
+				.addFilter(StatFilterType.MASS, 0.5)
+				.addFilter(StatFilterType.HEAD, 1)
+				.end()
+
+				.addPart(TGEntities.SLIME_OUTER.get())
+				.addFilter(StatFilterType.HEALTH, 0)
+				.addFilter(StatFilterType.ATTACK, 1)
+				.addFilter(StatFilterType.MOVEMENT, 1)
+				.addFilter(StatFilterType.MASS, 0.5)
+				.addFilter(StatFilterType.HEAD, 0)
+				.end()
+
+				.addEntity(TGEntities.TYPE_SLIME.get())
+				.addFilter(GolemTypes.STAT_HEALTH.get(), 0.5)
+				.addFilter(GolemTypes.STAT_ATTACK.get(), 0.4)
+				.addFilter(GolemTypes.STAT_REGEN.get(), 1)
+				.addFilter(GolemTypes.STAT_SWEEP.get(), 0)
+				.end()
+		);
 
 		map.add(ModularGolems.MATERIALS, TConstruct.getResource("extra"), new GolemMaterialConfig()
 				.addMaterial(TConstruct.getResource("slimesteel"), Ingredient.of(TinkerMaterials.slimesteel.getIngotTag()))

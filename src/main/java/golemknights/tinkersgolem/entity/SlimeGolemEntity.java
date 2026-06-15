@@ -1,5 +1,6 @@
 package golemknights.tinkersgolem.entity;
 
+import dev.xkmc.l2serial.serialization.SerialClass;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -28,238 +29,241 @@ import java.util.EnumSet;
 
 import static dev.xkmc.modulargolems.init.registrate.GolemTypes.GOLEM_REGEN;
 
+@SerialClass
 public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, SlimeGolemPartType> {
-    private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(SlimeGolemEntity.class, EntityDataSerializers.INT);
-    public float targetSquish;
-    public float squish;
-    public float oSquish;
-    private boolean wasOnGround;
 
-    public SlimeGolemEntity(EntityType<SlimeGolemEntity> type, Level level) {
-        super(type, level);
-        this.fixupDimensions();
-        this.moveControl = new SlimeMoveControl(this);
-    }
+	private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(SlimeGolemEntity.class, EntityDataSerializers.INT);
 
-    @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(ID_SIZE, 1);
-    }
+	public float targetSquish;
+	public float squish;
+	public float oSquish;
+	private boolean wasOnGround;
 
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        this.goalSelector.addGoal(5, new SlimeKeepOnJumpingGoal(this));
-    }
+	public SlimeGolemEntity(EntityType<SlimeGolemEntity> type, Level level) {
+		super(type, level);
+		this.fixupDimensions();
+		this.moveControl = new SlimeMoveControl(this);
+	}
 
-    public void setSize(int size, boolean resetHealth) {
-        int i = Mth.clamp(size, 1, 127);
-        this.entityData.set(ID_SIZE, i);
-        this.reapplyPosition();
-        this.refreshDimensions();
-        this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(i * i);
-        this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2F + 0.1F * (float)i);
-        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(i);
-        if (resetHealth) {
-            this.setHealth(this.getMaxHealth());
-        }
+	@Override
+	protected void defineSynchedData() {
+		super.defineSynchedData();
+		this.entityData.define(ID_SIZE, 1);
+	}
 
-        this.xpReward = i;
-    }
+	@Override
+	protected void registerGoals() {
+		super.registerGoals();
+		this.goalSelector.addGoal(5, new SlimeKeepOnJumpingGoal(this));
+	}
 
-    public int getSize() {
-        return this.entityData.get(ID_SIZE);
-    }
+	public void setSize(int size, boolean resetHealth) {
+		int i = Mth.clamp(size, 1, 127);
+		this.entityData.set(ID_SIZE, i);
+		this.reapplyPosition();
+		this.refreshDimensions();
+		this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(i * i);
+		this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2F + 0.1F * (float) i);
+		this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(i);
+		if (resetHealth) {
+			this.setHealth(this.getMaxHealth());
+		}
 
-    public void addAdditionalSaveData(CompoundTag p_33619_) {
-        super.addAdditionalSaveData(p_33619_);
-        p_33619_.putInt("Size", this.getSize() - 1);
-        p_33619_.putBoolean("wasOnGround", this.wasOnGround);
-    }
+		this.xpReward = i;
+	}
 
-    public void readAdditionalSaveData(CompoundTag p_33607_) {
-        this.setSize(p_33607_.getInt("Size") + 1, false);
-        super.readAdditionalSaveData(p_33607_);
-        this.wasOnGround = p_33607_.getBoolean("wasOnGround");
-    }
+	public int getSize() {
+		return this.entityData.get(ID_SIZE);
+	}
 
-    public boolean isTiny() {
-        return this.getSize() <= 1;
-    }
+	public void addAdditionalSaveData(CompoundTag p_33619_) {
+		super.addAdditionalSaveData(p_33619_);
+		p_33619_.putInt("Size", this.getSize() - 1);
+		p_33619_.putBoolean("wasOnGround", this.wasOnGround);
+	}
 
-    protected ParticleOptions getParticleType() {
-        return ParticleTypes.ITEM_SLIME;
-    }
+	public void readAdditionalSaveData(CompoundTag p_33607_) {
+		this.setSize(p_33607_.getInt("Size") + 1, false);
+		super.readAdditionalSaveData(p_33607_);
+		this.wasOnGround = p_33607_.getBoolean("wasOnGround");
+	}
 
-    public void tick() {
-        this.squish += (this.targetSquish - this.squish) * 0.5F;
-        this.oSquish = this.squish;
-        super.tick();
-        if (this.onGround() && !this.wasOnGround) {
-            int i = this.getSize();
-            if (true) {
-                for(int j = 0; j < i * 8; ++j) {
-                    float f = this.random.nextFloat() * ((float)Math.PI * 2F);
-                    float f1 = this.random.nextFloat() * 0.5F + 0.5F;
-                    float f2 = Mth.sin(f) * (float)i * 0.5F * f1;
-                    float f3 = Mth.cos(f) * (float)i * 0.5F * f1;
-                    this.level().addParticle(this.getParticleType(), this.getX() + (double)f2, this.getY(), this.getZ() + (double)f3, 0.0F, 0.0F, (double)0.0F);
-                }
-            }
+	public boolean isTiny() {
+		return this.getSize() <= 1;
+	}
 
-            this.playSound(this.getSquishSound(), this.getSoundVolume(), ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) / 0.8F);
-            this.targetSquish = -0.5F;
-        } else if (!this.onGround() && this.wasOnGround) {
-            this.targetSquish = 1.0F;
-        }
+	protected ParticleOptions getParticleType() {
+		return ParticleTypes.ITEM_SLIME;
+	}
 
-        this.wasOnGround = this.onGround();
-        this.decreaseSquish();
-    }
+	public void tick() {
+		this.squish += (this.targetSquish - this.squish) * 0.5F;
+		this.oSquish = this.squish;
+		super.tick();
+		if (this.onGround() && !this.wasOnGround) {
+			int i = this.getSize();
+			if (true) {
+				for (int j = 0; j < i * 8; ++j) {
+					float f = this.random.nextFloat() * ((float) Math.PI * 2F);
+					float f1 = this.random.nextFloat() * 0.5F + 0.5F;
+					float f2 = Mth.sin(f) * (float) i * 0.5F * f1;
+					float f3 = Mth.cos(f) * (float) i * 0.5F * f1;
+					this.level().addParticle(this.getParticleType(), this.getX() + (double) f2, this.getY(), this.getZ() + (double) f3, 0.0F, 0.0F, (double) 0.0F);
+				}
+			}
 
-    protected void decreaseSquish() {
-        this.targetSquish *= 0.6F;
-    }
+			this.playSound(this.getSquishSound(), this.getSoundVolume(), ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) / 0.8F);
+			this.targetSquish = -0.5F;
+		} else if (!this.onGround() && this.wasOnGround) {
+			this.targetSquish = 1.0F;
+		}
 
-    protected int getJumpDelay() {
-        return this.random.nextInt(20) + 10;
-    }
+		this.wasOnGround = this.onGround();
+		this.decreaseSquish();
+	}
 
-    @Override
-    protected float getSoundVolume() {
-        return 0.4F * (float)this.getSize();
-    }
+	protected void decreaseSquish() {
+		this.targetSquish *= 0.6F;
+	}
 
-    @Override
-    public int getMaxHeadXRot() {
-        return 0;
-    }
+	protected int getJumpDelay() {
+		return this.random.nextInt(20) + 10;
+	}
 
-    @Override
-    protected void jumpFromGround() {
-        Vec3 vec3 = this.getDeltaMovement();
-        this.setDeltaMovement(vec3.x, this.getJumpPower(), vec3.z);
-        this.hasImpulse = true;
-    }
+	@Override
+	protected float getSoundVolume() {
+		return 0.4F * (float) this.getSize();
+	}
 
-    @Nullable
-    @Override
-    public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor p_33601_, @NotNull DifficultyInstance p_33602_, @NotNull MobSpawnType p_33603_, @Nullable SpawnGroupData p_33604_, @Nullable CompoundTag p_33605_) {
-        this.setSize(4, true);
-        return super.finalizeSpawn(p_33601_, p_33602_, p_33603_, p_33604_, p_33605_);
-    }
+	@Override
+	public int getMaxHeadXRot() {
+		return 0;
+	}
 
-    protected float getSoundPitch() {
-        float f = this.isTiny() ? 1.4F : 0.8F;
-        return ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) * f;
-    }
+	@Override
+	protected void jumpFromGround() {
+		Vec3 vec3 = this.getDeltaMovement();
+		this.setDeltaMovement(vec3.x, this.getJumpPower(), vec3.z);
+		this.hasImpulse = true;
+	}
 
-    protected SoundEvent getJumpSound() {
-        return this.isTiny() ? SoundEvents.SLIME_JUMP_SMALL : SoundEvents.SLIME_JUMP;
-    }
+	@Nullable
+	@Override
+	public SpawnGroupData finalizeSpawn(@NotNull ServerLevelAccessor p_33601_, @NotNull DifficultyInstance p_33602_, @NotNull MobSpawnType p_33603_, @Nullable SpawnGroupData p_33604_, @Nullable CompoundTag p_33605_) {
+		this.setSize(4, true);
+		return super.finalizeSpawn(p_33601_, p_33602_, p_33603_, p_33604_, p_33605_);
+	}
+
+	protected float getSoundPitch() {
+		float f = this.isTiny() ? 1.4F : 0.8F;
+		return ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) * f;
+	}
+
+	protected SoundEvent getJumpSound() {
+		return this.isTiny() ? SoundEvents.SLIME_JUMP_SMALL : SoundEvents.SLIME_JUMP;
+	}
 
 
-    protected boolean doPlayJumpSound() {
-        return this.getSize() > 0;
-    }
+	protected boolean doPlayJumpSound() {
+		return this.getSize() > 0;
+	}
 
-    @Override
-    protected float getStandingEyeHeight(@NotNull Pose pose, EntityDimensions dimensions) {
-        return 0.625F * dimensions.height;
-    }
+	@Override
+	protected float getStandingEyeHeight(@NotNull Pose pose, EntityDimensions dimensions) {
+		return 0.625F * dimensions.height;
+	}
 
-    @Override
-    protected SoundEvent getHurtSound(@NotNull DamageSource source) {
-        return this.isTiny() ? SoundEvents.SLIME_HURT_SMALL : SoundEvents.SLIME_HURT;
-    }
+	@Override
+	protected SoundEvent getHurtSound(@NotNull DamageSource source) {
+		return this.isTiny() ? SoundEvents.SLIME_HURT_SMALL : SoundEvents.SLIME_HURT;
+	}
 
-    @Override
-    protected SoundEvent getDeathSound() {
-        return this.isTiny() ? SoundEvents.SLIME_DEATH_SMALL : SoundEvents.SLIME_DEATH;
-    }
+	@Override
+	protected SoundEvent getDeathSound() {
+		return this.isTiny() ? SoundEvents.SLIME_DEATH_SMALL : SoundEvents.SLIME_DEATH;
+	}
 
-    protected SoundEvent getSquishSound() {
-        return this.isTiny() ? SoundEvents.SLIME_SQUISH_SMALL : SoundEvents.SLIME_SQUISH;
-    }
+	protected SoundEvent getSquishSound() {
+		return this.isTiny() ? SoundEvents.SLIME_SQUISH_SMALL : SoundEvents.SLIME_SQUISH;
+	}
 
-    public static AttributeSupplier.Builder createMonsterAttributes() {
-        return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE).add(Attributes.ATTACK_SPEED, 4.0F).add(Attributes.ATTACK_KNOCKBACK, 0.4).add(ForgeMod.ENTITY_REACH.get()).add(Attributes.FOLLOW_RANGE, 35.0F).add(GOLEM_REGEN.get());
-    }
+	public static AttributeSupplier.Builder createMonsterAttributes() {
+		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE).add(Attributes.ATTACK_SPEED, 4.0F).add(Attributes.ATTACK_KNOCKBACK, 0.4).add(ForgeMod.ENTITY_REACH.get()).add(Attributes.FOLLOW_RANGE, 35.0F).add(GOLEM_REGEN.get());
+	}
 
-    static class SlimeMoveControl extends MoveControl {
-        private float yRot;
-        private int jumpDelay;
-        private final SlimeGolemEntity slime;
-        private boolean isAggressive;
+	static class SlimeMoveControl extends MoveControl {
+		private float yRot;
+		private int jumpDelay;
+		private final SlimeGolemEntity slime;
+		private boolean isAggressive;
 
-        public SlimeMoveControl(SlimeGolemEntity golem) {
-            super(golem);
-            this.slime = golem;
-            this.yRot = 180.0F * golem.getYRot() / (float)Math.PI;
-        }
+		public SlimeMoveControl(SlimeGolemEntity golem) {
+			super(golem);
+			this.slime = golem;
+			this.yRot = 180.0F * golem.getYRot() / (float) Math.PI;
+		}
 
-        public void setDirection(float p_33673_, boolean p_33674_) {
-            this.yRot = p_33673_;
-            this.isAggressive = p_33674_;
-        }
+		public void setDirection(float p_33673_, boolean p_33674_) {
+			this.yRot = p_33673_;
+			this.isAggressive = p_33674_;
+		}
 
-        public void setWantedMovement(double p_33671_) {
-            this.speedModifier = p_33671_;
-            this.operation = Operation.MOVE_TO;
-        }
+		public void setWantedMovement(double p_33671_) {
+			this.speedModifier = p_33671_;
+			this.operation = Operation.MOVE_TO;
+		}
 
-        public void tick() {
-            this.mob.setYRot(this.rotlerp(this.mob.getYRot(), this.yRot, 90.0F));
-            this.mob.yHeadRot = this.mob.getYRot();
-            this.mob.yBodyRot = this.mob.getYRot();
-            if (this.operation != Operation.MOVE_TO) {
-                this.mob.setZza(0.0F);
-            } else {
-                this.operation = Operation.WAIT;
-                if (this.mob.onGround()) {
-                    this.mob.setSpeed((float)(this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
-                    if (this.jumpDelay-- <= 0) {
-                        this.jumpDelay = this.slime.getJumpDelay();
-                        if (this.isAggressive) {
-                            this.jumpDelay /= 3;
-                        }
+		public void tick() {
+			this.mob.setYRot(this.rotlerp(this.mob.getYRot(), this.yRot, 90.0F));
+			this.mob.yHeadRot = this.mob.getYRot();
+			this.mob.yBodyRot = this.mob.getYRot();
+			if (this.operation != Operation.MOVE_TO) {
+				this.mob.setZza(0.0F);
+			} else {
+				this.operation = Operation.WAIT;
+				if (this.mob.onGround()) {
+					this.mob.setSpeed((float) (this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
+					if (this.jumpDelay-- <= 0) {
+						this.jumpDelay = this.slime.getJumpDelay();
+						if (this.isAggressive) {
+							this.jumpDelay /= 3;
+						}
 
-                        this.slime.getJumpControl().jump();
-                        if (this.slime.doPlayJumpSound()) {
-                            this.slime.playSound(this.slime.getJumpSound(), this.slime.getSoundVolume(), this.slime.getSoundPitch());
-                        }
-                    } else {
-                        this.slime.xxa = 0.0F;
-                        this.slime.zza = 0.0F;
-                        this.mob.setSpeed(0.0F);
-                    }
-                } else {
-                    this.mob.setSpeed((float)(this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
-                }
-            }
+						this.slime.getJumpControl().jump();
+						if (this.slime.doPlayJumpSound()) {
+							this.slime.playSound(this.slime.getJumpSound(), this.slime.getSoundVolume(), this.slime.getSoundPitch());
+						}
+					} else {
+						this.slime.xxa = 0.0F;
+						this.slime.zza = 0.0F;
+						this.mob.setSpeed(0.0F);
+					}
+				} else {
+					this.mob.setSpeed((float) (this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
+				}
+			}
 
-        }
-    }
+		}
+	}
 
-    static class SlimeKeepOnJumpingGoal extends Goal {
-        private final SlimeGolemEntity slime;
+	static class SlimeKeepOnJumpingGoal extends Goal {
+		private final SlimeGolemEntity slime;
 
-        public SlimeKeepOnJumpingGoal(SlimeGolemEntity golem) {
-            this.slime = golem;
-            this.setFlags(EnumSet.of(Flag.JUMP, Flag.MOVE));
-        }
+		public SlimeKeepOnJumpingGoal(SlimeGolemEntity golem) {
+			this.slime = golem;
+			this.setFlags(EnumSet.of(Flag.JUMP, Flag.MOVE));
+		}
 
-        public boolean canUse() {
-            return !this.slime.isPassenger();
-        }
+		public boolean canUse() {
+			return !this.slime.isPassenger();
+		}
 
-        public void tick() {
-            MoveControl movecontrol = this.slime.getMoveControl();
-            if (movecontrol instanceof SlimeMoveControl slimemovecontrol) {
-                slimemovecontrol.setWantedMovement(1.0F);
-            }
+		public void tick() {
+			MoveControl movecontrol = this.slime.getMoveControl();
+			if (movecontrol instanceof SlimeMoveControl slimemovecontrol) {
+				slimemovecontrol.setWantedMovement(1.0F);
+			}
 
-        }
-    }
+		}
+	}
 }
