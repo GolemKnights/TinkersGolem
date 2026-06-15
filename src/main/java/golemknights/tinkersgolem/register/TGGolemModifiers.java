@@ -5,14 +5,15 @@ import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import dev.xkmc.l2library.base.L2Registrate;
-import dev.xkmc.modulargolems.content.core.StatFilterType;
 import dev.xkmc.modulargolems.content.item.upgrade.SimpleUpgradeItem;
 import dev.xkmc.modulargolems.content.modifier.base.GolemModifier;
 import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import golemknights.tinkersgolem.TinkersGolem;
+import golemknights.tinkersgolem.modifiers.golem.OverforcedModifier;
 import golemknights.tinkersgolem.modifiers.golem.OvergrowthModifier;
+import golemknights.tinkersgolem.modifiers.golem.OverlordModifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -25,10 +26,13 @@ import java.util.function.Supplier;
 public class TGGolemModifiers {
 
 	public static final RegistryEntry<OvergrowthModifier> OVERGROWTH;
+	public static final RegistryEntry<OverforcedModifier> OVERFORCED;
+	public static final RegistryEntry<OverlordModifier> OVERLORD;
 
 	static {
-		OVERGROWTH = reg("reforge", () -> new OvergrowthModifier(StatFilterType.MASS, 5),
-				"Slowly recover overslime over time");
+		OVERGROWTH = reg("overgrowth", OvergrowthModifier::new, "Slowly recover overslime over time");
+		OVERFORCED = reg("overforced", OverforcedModifier::new,null);
+		OVERLORD = reg("overlord", OverlordModifier::new, "When taking damage, recover overslime by %s%% of damage taken");
 
 	}
 

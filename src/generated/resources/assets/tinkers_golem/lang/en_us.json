@@ -1,4 +1,7 @@
 {
-  "modifier.tinkers_golem.reforge": "Reforge",
-  "modifier.tinkers_golem.reforge.desc": "Slowly recover overslime over time"
+  "modifier.tinkers_golem.overforced": "Overforced",
+  "modifier.tinkers_golem.overgrowth": "Overgrowth",
+  "modifier.tinkers_golem.overgrowth.desc": "Slowly recover overslime over time",
+  "modifier.tinkers_golem.overlord": "Overlord",
+  "modifier.tinkers_golem.overlord.desc": "When taking damage, recover overslime by %s%% of damage taken"
 }

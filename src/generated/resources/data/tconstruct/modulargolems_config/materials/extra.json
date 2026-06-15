@@ -14,7 +14,9 @@
     "tconstruct:cinderslime": {
       "modulargolems:fire_immune": 1
     },
-    "tconstruct:queenslime": {},
+    "tconstruct:queenslime": {
+      "tinkers_golem:overlord": 2
+    },
     "tconstruct:slimesteel": {}
   },
   "repairIngredients": {
