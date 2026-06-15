@@ -7,7 +7,7 @@ import golemknights.tinkersgolem.data.TGConfigGen;
 import golemknights.tinkersgolem.events.TGAttackListener;
 import golemknights.tinkersgolem.register.TGAttributes;
 import golemknights.tinkersgolem.register.TGItems;
-import golemknights.tinkersgolem.register.TGModifiers;
+import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -28,7 +28,6 @@ import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
-import slimeknights.tconstruct.TConstruct;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(TinkersGolem.MODID)
@@ -61,7 +60,7 @@ public class TinkersGolem {
 		RECIPE_TYPES.register(MOD_BUS);
 		RECIPE_SERIALIZERS.register(MOD_BUS);
         ATTRIBUTES.register(MOD_BUS);
-        TGModifiers.registers(MOD_BUS);
+        TGTinkersModifiers.registers(MOD_BUS);
 		MOD_BUS.addListener(TGAttributes::setupAttributes);
 		// GDItems.register();
 		// GDModifiers.register();

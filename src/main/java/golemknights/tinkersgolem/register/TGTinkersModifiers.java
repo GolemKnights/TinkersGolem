@@ -5,7 +5,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.RegisterEvent;
 
-public class TGModifiers {
+public class TGTinkersModifiers {
     @SubscribeEvent
     void registerSerializers(RegisterEvent event) {
         if (event.getRegistryKey() == Registries.RECIPE_SERIALIZER) {
@@ -14,6 +14,6 @@ public class TGModifiers {
     }
 
     public static void registers(IEventBus bus) {
-        bus.register(new TGModifiers());
+        bus.register(new TGTinkersModifiers());
     }
 }
