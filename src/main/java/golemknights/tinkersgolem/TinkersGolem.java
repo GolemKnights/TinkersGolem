@@ -4,7 +4,6 @@ import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
 import dev.xkmc.modulargolems.content.core.GolemType;
-import dev.xkmc.modulargolems.init.ModularGolems;
 import golemknights.tinkersgolem.data.TGConfigGen;
 import golemknights.tinkersgolem.events.TGAttackListener;
 import golemknights.tinkersgolem.register.*;

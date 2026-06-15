@@ -30,7 +30,7 @@ import java.util.EnumSet;
 import static dev.xkmc.modulargolems.init.registrate.GolemTypes.GOLEM_REGEN;
 
 public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, SlimeGolemPartType> {
-    private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(SlimeGolemEntity.class, EntityDataSerializers.INT);;
+    private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(SlimeGolemEntity.class, EntityDataSerializers.INT);
     public float targetSquish;
     public float squish;
     public float oSquish;
