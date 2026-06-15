@@ -28,6 +28,7 @@ import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
+import slimeknights.tconstruct.TConstruct;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(TinkersGolem.MODID)
@@ -40,7 +41,7 @@ public class TinkersGolem {
 	public static final IEventBus MOD_BUS = FMLJavaModLoadingContext.get().getModEventBus();
 
 	public static final PacketHandlerWithConfig HANDLER = new PacketHandlerWithConfig(
-			new ResourceLocation(TinkersGolem.MODID, "main"), 1);
+			getResource("main"), 1);
 
 	public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(MODID);
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, MODID);
