@@ -10,7 +10,7 @@ import slimeknights.tconstruct.common.recipe.RecipeCacheInvalidator;
 import java.util.*;
 
 public class OverslimeRecoverRecipeCache {
-    private static final Map<Item, List<OverslimeRecoverRecipe>> CACHE = new HashMap();
+    private static final Map<Item, List<OverslimeRecoverRecipe>> CACHE = new HashMap<>();
 
     public static List<OverslimeRecoverRecipe> findRecipe(RecipeManager manager, ItemStack type) {
         if (!type.hasTag() && CACHE.containsKey(type.getItem())) {

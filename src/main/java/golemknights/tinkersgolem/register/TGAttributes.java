@@ -25,6 +25,7 @@ public class TGAttributes {
 	public static final RegistryEntry<GolemStatType> STAT_OVERSLIME = regStat("max_overslime", MAX_OVERSLIME, GolemStatType.Kind.ADD, StatFilterType.MASS);
 	public static final RegistryEntry<GolemStatType> STAT_OVERSLIME_BONUS = regStat("overslime_bonus", MAX_OVERSLIME, GolemStatType.Kind.PERCENT, StatFilterType.MASS);
 
+	@SuppressWarnings("removal")
 	private static RegistryEntry<GolemStatType> regStat(String id, Supplier<Attribute> sup, GolemStatType.Kind kind, StatFilterType type) {
 		var cls = new L2Registrate.RegistryInstance<GolemStatType>(() -> null, ResourceKey.createRegistryKey(new ResourceLocation(ModularGolems.MODID, "stat_type")));
 		return REGISTRATE.generic(cls, id, () -> new GolemStatType(sup, kind, type)).register();
