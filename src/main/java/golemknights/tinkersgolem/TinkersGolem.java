@@ -3,12 +3,11 @@ package golemknights.tinkersgolem;
 import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
+import dev.xkmc.modulargolems.content.core.GolemType;
+import dev.xkmc.modulargolems.init.ModularGolems;
 import golemknights.tinkersgolem.data.TGConfigGen;
 import golemknights.tinkersgolem.events.TGAttackListener;
-import golemknights.tinkersgolem.register.TGAttributes;
-import golemknights.tinkersgolem.register.TGGolemModifiers;
-import golemknights.tinkersgolem.register.TGItems;
-import golemknights.tinkersgolem.register.TGTinkersModifiers;
+import golemknights.tinkersgolem.register.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -26,6 +25,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import slimeknights.mantle.registration.deferred.EntityTypeDeferredRegister;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
 
@@ -43,7 +43,9 @@ public class TinkersGolem {
 			getResource("main"), 1);
 
 	public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(MODID);
-	public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, MODID);
+    public static final EntityTypeDeferredRegister ENTITIES = new EntityTypeDeferredRegister(MODID);
+    public static final L2Registrate.RegistryInstance<GolemType<?, ?>> TYPES = new L2Registrate(MODID).newRegistry("golem_type", GolemType.class);
+    public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, MODID);
 	public static final SynchronizedDeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = SynchronizedDeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, MODID);
 	public static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, MODID);
 	// public static final ConfigTypeEntry<SpawnConfig> SPAWN = new
@@ -55,10 +57,12 @@ public class TinkersGolem {
 
 	public TinkersGolem() {
 		TGItems.load();
+        TGEntities.load();
 		TGAttributes.load();
 		TGGolemModifiers.load();
 		MinecraftForge.EVENT_BUS.register(this);
 		ITEMS.register(MOD_BUS);
+        ENTITIES.register(MOD_BUS);
 		RECIPE_TYPES.register(MOD_BUS);
 		RECIPE_SERIALIZERS.register(MOD_BUS);
 		ATTRIBUTES.register(MOD_BUS);
