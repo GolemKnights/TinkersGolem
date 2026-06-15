@@ -23,6 +23,7 @@ public class TGAttributes {
 	public static final RegistryObject<Attribute> MAX_OVERSLIME = ATTRIBUTES.register("max_overslime", () -> new RangedAttribute(MODID + ".max_overslime", 0, 0, Integer.MAX_VALUE).setSyncable(true));
 
 	public static final RegistryEntry<GolemStatType> STAT_OVERSLIME = regStat("max_overslime", MAX_OVERSLIME, GolemStatType.Kind.ADD, StatFilterType.MASS);
+	public static final RegistryEntry<GolemStatType> STAT_OVERSLIME_BONUS = regStat("overslime_bonus", MAX_OVERSLIME, GolemStatType.Kind.PERCENT, StatFilterType.MASS);
 
 	private static RegistryEntry<GolemStatType> regStat(String id, Supplier<Attribute> sup, GolemStatType.Kind kind, StatFilterType type) {
 		var cls = new L2Registrate.RegistryInstance<GolemStatType>(() -> null, ResourceKey.createRegistryKey(new ResourceLocation(ModularGolems.MODID, "stat_type")));
@@ -43,4 +44,9 @@ public class TGAttributes {
 			event.add(GolemTypes.ENTITY_DOG.get(), MAX_OVERSLIME.get());
 		}
 	}
+
+	public static void load() {
+
+	}
+
 }

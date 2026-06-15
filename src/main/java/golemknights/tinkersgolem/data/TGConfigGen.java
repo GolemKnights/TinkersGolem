@@ -26,19 +26,20 @@ public class TGConfigGen extends ConfigDataProvider {
 				.addMaterial(TConstruct.getResource("slimesteel"), Ingredient.of(TinkerMaterials.slimesteel.getIngotTag()))
 				.addStat(GolemTypes.STAT_HEALTH.get(), 200)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 20)
-				.addStat(TGAttributes.STAT_OVERSLIME.get(), 20)
+				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
+				.addStat(TGAttributes.STAT_OVERSLIME_BONUS.get(), 0.4)
 				.end()
 
 				.addMaterial(TConstruct.getResource("queenslime"), Ingredient.of(TinkerMaterials.queensSlime.getIngotTag()))
 				.addStat(GolemTypes.STAT_HEALTH.get(), 200)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 20)
-				.addStat(TGAttributes.STAT_OVERSLIME.get(), 40)
+				.addStat(TGAttributes.STAT_OVERSLIME.get(), 100)
 				.end()
 
 				.addMaterial(TConstruct.getResource("cinderslime"), Ingredient.of(TinkerMaterials.cinderslime.getIngotTag()))
 				.addStat(GolemTypes.STAT_HEALTH.get(), 200)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 20)
-				.addStat(TGAttributes.STAT_OVERSLIME.get(), 20)
+				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
 				.addModifier(GolemModifiers.FIRE_IMMUNE.get(), 1)
 				.end()
 		);
