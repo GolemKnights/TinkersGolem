@@ -4,6 +4,7 @@ import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
 import golemknights.tinkersgolem.data.TGConfigGen;
+import golemknights.tinkersgolem.data.TGToolDefinitionDataProvider;
 import golemknights.tinkersgolem.events.TGAttackListener;
 import golemknights.tinkersgolem.register.TGAttributes;
 import golemknights.tinkersgolem.register.TGGolemModifiers;
@@ -90,6 +91,7 @@ public class TinkersGolem {
 		var helper = event.getExistingFileHelper();
 		var server = event.includeServer();
 		gen.addProvider(server, new TGConfigGen(gen));
+		gen.addProvider(server, new TGToolDefinitionDataProvider(output));
 	}
 
 	/**
