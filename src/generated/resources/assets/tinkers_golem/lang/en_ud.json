@@ -1,5 +1,10 @@
 {
   "entity.tinkers_golem.slime_golem": "ɯǝןo⅁ ǝɯıןS",
+  "golem_material.tinkers_golem.ender_slime": "ǝɯıןS ɹǝpuƎ",
+  "golem_material.tinkers_golem.sky_slime": "ǝɯıןS ʎʞS",
+  "golem_material.tinkers_golem.slime": "ǝɯıןS",
+  "golem_part.slime_golem.core": "%s :ǝɹoƆ",
+  "golem_part.slime_golem.shell": "%s :ןןǝɥS",
   "golem_type.tinkers_golem.slime_golem": "ɯǝןo⅁ ǝɯıןS",
   "item.tinkers_golem.slime_golem_core": "ǝɹoƆ ɯǝןo⅁ ǝɯıןS",
   "item.tinkers_golem.slime_golem_holder": "ɹǝpןoH ɯǝןo⅁ ǝɯıןS",
@@ -8,5 +13,6 @@
   "modifier.tinkers_golem.overgrowth": "ɥʇʍoɹbɹǝʌO",
   "modifier.tinkers_golem.overgrowth.desc": "ǝɯıʇ ɹǝʌo ǝɯıןsɹǝʌo ɹǝʌoɔǝɹ ʎןʍoןS",
   "modifier.tinkers_golem.overlord": "pɹoןɹǝʌO",
-  "modifier.tinkers_golem.overlord.desc": "uǝʞɐʇ ǝbɐɯɐp ɟo %s%% ʎq ǝɯıןsɹǝʌo ɹǝʌoɔǝɹ 'ǝbɐɯɐp buıʞɐʇ uǝɥM"
+  "modifier.tinkers_golem.overlord.desc": "uǝʞɐʇ ǝbɐɯɐp ɟo %s%% ʎq ǝɯıןsɹǝʌo ɹǝʌoɔǝɹ 'ǝbɐɯɐp buıʞɐʇ uǝɥM",
+  "tinkers_golem.max_overslime": "ǝɯıןsɹǝʌO xɐW"
 }
