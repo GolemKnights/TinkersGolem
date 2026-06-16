@@ -11,10 +11,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import slimeknights.tconstruct.TConstruct;
 
 @OnlyIn(Dist.CLIENT)
 public class SlimeGolemRenderer extends MobRenderer<SlimeGolemEntity, SlimeModel<SlimeGolemEntity>> {
-    private static final ResourceLocation SLIME_LOCATION = new ResourceLocation("textures/entity/slime/slime.png");
+    private static final ResourceLocation SLIME_LOCATION = TConstruct.getResource("textures/entity/sky_slime.png");
 
     public SlimeGolemRenderer(EntityRendererProvider.Context p_174391_) {
         super(p_174391_, new SlimeModel<>(p_174391_.bakeLayer(ModelLayers.SLIME)), 0.25F);
