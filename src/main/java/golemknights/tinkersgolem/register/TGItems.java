@@ -6,9 +6,13 @@ import net.minecraft.world.item.Item;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.Sounds;
+import slimeknights.tconstruct.library.materials.stats.MaterialStatType;
 import slimeknights.tconstruct.library.tools.definition.ModifiableArmorMaterial;
 import golemknights.tinkersgolem.item.armor.ModifiableDogGolemArmorItem;
 import golemknights.tinkersgolem.item.armor.ModifiableMetalGolemArmorItem;
+import slimeknights.tconstruct.library.tools.part.ToolPartItem;
+import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
+
 import static golemknights.tinkersgolem.TinkersGolem.ITEMS;
 import static golemknights.tinkersgolem.TinkersGolem.getResource;
 
@@ -24,6 +28,7 @@ public class TGItems {
     public static final ModifiableArmorMaterial GOLEM = ModifiableArmorMaterial.create(getResource(METAL_GOLEM),
             Sounds.EQUIP_PLATE.getSound());
     protected static final Item.Properties UNSTACKABLE_PROPS = new Item.Properties().stacksTo(1);
+    protected static final Item.Properties ITEM_PROPS = new Item.Properties();
     public static final ResourceLocation[] METAL_GOLEM_ARMOR_MODELS = { HELMETS, CHESTPLATES, LEGGINGS,
             BOOTS_DIAMOND };
     public static final EnumObject<ArmorItem.Type, ModifiableMetalGolemArmorItem> metalGolemArmor = ITEMS
@@ -38,4 +43,9 @@ public class TGItems {
     public static final ItemObject<ModifiableDogGolemArmorItem> dogGolemArmor = ITEMS.register(
             DOG_GOLEM_ARMOR,
             () -> new ModifiableDogGolemArmorItem(UNSTACKABLE_PROPS, GOLEM, getResource(DOG_GOLEM_ARMOR)));
+    public static final EnumObject<ArmorItem.Type, ToolPartItem> metal_golem_plating = ITEMS.registerEnum(
+            ArmorItem.Type.values(),
+            "metal_golem_plating",
+            (type) -> new ToolPartItem(ITEM_PROPS, PlatingMaterialStats.TYPES.get(type.ordinal()).getId())
+    );
 }
