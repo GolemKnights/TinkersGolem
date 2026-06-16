@@ -101,15 +101,6 @@ public class SlimeGolemArmorLayer <T extends SlimeGolemEntity, M extends Hierarc
         model.renderToBuffer(matrices, vertexconsumer, packedLight, OverlayTexture.NO_OVERLAY, red, green, blue, 1.0F);
     }
 
-    /**
-     * More generic ForgeHook version of the above function, it allows for Items to have more control over what texture they provide.
-     *
-     * @param entity Entity wearing the armor
-     * @param stack ItemStack for the armor
-     * @param armor Armor item instance
-     * @param type Subtype, can be null or "overlay"
-     * @return ResourceLocation pointing at the armor's texture
-     */
     public static ResourceLocation getArmorResource(Entity entity, ItemStack stack, ArmorItem armor, String type) {
         String texture = armor.getMaterial().getName();
         String domain = "minecraft";

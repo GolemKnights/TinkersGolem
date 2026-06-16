@@ -8,6 +8,8 @@ import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
 import dev.xkmc.modulargolems.init.advancement.GolemTriggers;
 import dev.xkmc.modulargolems.init.data.MGConfig;
+import golemknights.tinkersgolem.client.DynamicBreakParticleOption;
+import golemknights.tinkersgolem.register.TGParticles;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -172,8 +174,12 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 				float f1 = this.random.nextFloat() * 0.5F + 0.5F;
 				float f2 = Mth.sin(f) * (float) i * 0.5F * f1;
 				float f3 = Mth.cos(f) * (float) i * 0.5F * f1;
-				this.level().addParticle(this.getParticleType(), this.getX() + (double) f2, this.getY(), this.getZ() + (double) f3, 0.0F, 0.0F, 0.0F);
-			}
+                GolemMaterial mat = getMaterials().get(1);
+                Item item = GolemMaterialConfig.get().getCraftIngredient(mat.id()).getItems()[0].getItem();
+
+                this.level().addParticle(new DynamicBreakParticleOption(item.getDefaultInstance()), this.getX() + (double) f2, this.getY(), this.getZ() + (double) f3, 0.0F, 0.0F, 0.0F);
+
+            }
 
 			this.playSound(this.getSquishSound(), this.getSoundVolume(), ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) / 0.8F);
 			this.targetSquish = -0.5F;
@@ -384,15 +390,10 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 				this.mob.setZza(0.0F);
 				return;
 			}
-			// 暂不清楚作用，先注释掉
-			// this.operation = Operation.WAIT;
 			if (this.mob.onGround()) {
 				this.mob.setSpeed((float) (this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
 				if (this.jumpDelay-- <= 0) {
 					this.jumpDelay = this.slime.getJumpDelay();
-//					if (this.isAggressive) {
-//						this.jumpDelay /= 3;
-//					}
 					this.slime.getJumpControl().jump();
 					if (this.slime.doPlayJumpSound()) {
 						this.slime.playSound(this.slime.getJumpSound(), this.slime.getSoundVolume(), this.slime.getSoundPitch());

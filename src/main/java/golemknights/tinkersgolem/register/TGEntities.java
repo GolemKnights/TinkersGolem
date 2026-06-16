@@ -40,7 +40,8 @@ public class TGEntities {
 				.attributes(() -> Mob.createMobAttributes()
 						.add(Attributes.MAX_HEALTH, 20)
 						.add(Attributes.ATTACK_DAMAGE, 4)
-						.add(Attributes.MOVEMENT_SPEED, 0.25D)
+                        //可能是因为寻路问题，史莱姆傀儡移动速度异常缓慢，为此适当提高了基础移速
+						.add(Attributes.MOVEMENT_SPEED, 0.8D)
 						.add(Attributes.KNOCKBACK_RESISTANCE, 0)
 						.add(Attributes.ATTACK_SPEED, 4)
 						.add(Attributes.ATTACK_KNOCKBACK, 1)
