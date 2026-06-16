@@ -2,6 +2,8 @@ package golemknights.tinkersgolem.entity;
 
 import dev.xkmc.l2serial.serialization.SerialClass;
 import dev.xkmc.modulargolems.content.config.GolemMaterial;
+import dev.xkmc.modulargolems.content.config.GolemMaterialConfig;
+import dev.xkmc.modulargolems.content.core.GolemType;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
 import net.minecraft.core.particles.ParticleOptions;
@@ -14,6 +16,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
+import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffects;
@@ -21,14 +24,14 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.UUID;
+import java.util.*;
 
 
 @SerialClass
@@ -178,36 +181,82 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		super.onSyncedDataUpdated(p_33609_);
 	}
 
+
 	@Override
-	public void remove(Entity.RemovalReason p_149847_) {
-		int i = this.getSize();
-		if (!this.level().isClientSide && i > 1 && this.isDeadOrDying()) {
+	protected void dropCustomDeathLoot(DamageSource source, int i, boolean b) {
+		if (!isTiny()) return;
+		Map<Item, Integer> drop = new HashMap<>();
+		for (GolemMaterial mat : getMaterials()) {
+			Item item = GolemMaterialConfig.get().getCraftIngredient(mat.id()).getItems()[0].getItem();
+			drop.compute(item, (e, old) -> (old == null ? 0 : old) + 1);
+		}
+		drop.forEach((k, v) -> spawnAtLocation(new ItemStack(k, v)));
+		if (!isHostile()) {
+			for (EquipmentSlot slot : EquipmentSlot.values()) {
+				dropSlot(slot, true);
+			}
+		}
+	}
+
+	protected List<ArrayList<IUpgradeItem>> splitUpgrades(int n) {
+		var upgrades = getUpgrades();
+		var ans = new ArrayList<ArrayList<IUpgradeItem>>();
+		for (int i = 0; i < n; i++)
+			ans.add(new ArrayList<>());
+		var holder = GolemType.getGolemHolder(getType());
+		for (var e : upgrades) {
+			if (!(e instanceof IUpgradeItem item)) {
+				spawnAtLocation(e.getDefaultInstance());
+				continue;
+			}
+			var sim = new ArrayList<ArrayList<IUpgradeItem>>();
+			var builder = new SimpleWeightedRandomList.Builder<Integer>();
+			for (int i = 0; i < n; i++) {
+				var copy = new ArrayList<>(ans.get(i));
+				copy.add(item);
+				sim.add(copy);
+				int rem = holder.getRemaining(getMaterials(), copy);
+				if (rem >= 0)
+					builder.add(i, rem);
+			}
+			var rand = builder.build();
+
+			var index = rand.getRandom(getRandom());
+			if (index.isEmpty()) {
+				spawnAtLocation(e.getDefaultInstance());
+				continue;
+			}
+			ans.get(index.get().getData()).add(item);
+		}
+		return ans;
+	}
+
+	@Override
+	public void remove(Entity.RemovalReason reason) {
+		int size = this.getSize();
+		if (!this.level().isClientSide && size > 1 && this.isDeadOrDying()) {
 			Component component = this.getCustomName();
 			boolean flag = this.isNoAi();
-			float f = (float) i / 4.0F;
-			int j = i / 2;
-			int k = 2 + this.random.nextInt(3);
-
-			for (int l = 0; l < k; ++l) {
-				float f1 = ((float) (l % 2) - 0.5F) * f;
-				float f2 = ((float) (l / 2) - 0.5F) * f;
+			float offset = (float) size / 4.0F;
+			int nextSize = size / 2;
+			int n = 2;
+			var split = splitUpgrades(n);
+			for (int i = 0; i < n; ++i) {
+				float f1 = ((i & 1) - 0.5F) * offset;
+				float f2 = ((i >> 1) - 0.5F) * offset;
 				SlimeGolemEntity slime = this.getType().create(this.level());
-				if (slime != null) {
-					if (this.isPersistenceRequired()) {
-						slime.setPersistenceRequired();
-					}
-
-					slime.setCustomName(component);
-					slime.setNoAi(flag);
-					slime.setInvulnerable(this.isInvulnerable());
-					slime.setSize(j, true);
-					slime.moveTo(this.getX() + (double) f1, this.getY() + (double) 0.5F, this.getZ() + (double) f2, this.random.nextFloat() * 360.0F, 0.0F);
-					this.level().addFreshEntity(slime);
-				}
+				if (slime == null) continue;
+				slime.onCreate(getMaterials(), split.get(i), getOwnerUUID());
+				slime.setCustomName(component);
+				slime.setNoAi(flag);
+				slime.setInvulnerable(this.isInvulnerable());
+				slime.setSize(nextSize, true);
+				slime.moveTo(this.getX() + (double) f1, this.getY() + (double) 0.5F, this.getZ() + (double) f2, this.random.nextFloat() * 360.0F, 0.0F);
+				this.level().addFreshEntity(slime);
 			}
 		}
 
-		super.remove(p_149847_);
+		super.remove(reason);
 	}
 
 	protected float getSoundPitch() {
