@@ -6,6 +6,7 @@ import dev.xkmc.modulargolems.content.config.GolemMaterialConfig;
 import dev.xkmc.modulargolems.content.core.GolemType;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
+import dev.xkmc.modulargolems.init.advancement.GolemTriggers;
 import dev.xkmc.modulargolems.init.data.MGConfig;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -14,6 +15,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
@@ -129,16 +131,29 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
         ItemStack itemstack = player.getItemInHand(hand);
         if (MGConfig.COMMON.strictInteract.get() && !itemstack.isEmpty()) {
             return InteractionResult.PASS;
-        } else if (!this.level().isClientSide() && this.canModify(player) && itemstack.canEquip(EquipmentSlot.HEAD, this)) {
-            if (!this.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {
-                this.dropSlot(EquipmentSlot.HEAD, false);
+        } else if (itemstack.isEmpty() || !this.canModify(player)) {
+            return super.mobInteractImpl(player, hand);
+        } else if (!player.isShiftKeyDown()) {
+            if (itemstack.canEquip(EquipmentSlot.HEAD, this)){
+                if (this.level().isClientSide()) {
+                    return InteractionResult.SUCCESS;
+                }
+                if (!this.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {
+                    this.dropSlot(EquipmentSlot.HEAD, false);
+                }
+
+                this.setItemSlot(EquipmentSlot.HEAD, itemstack.split(1));
+                GolemTriggers.EQUIP.trigger((ServerPlayer)player, 1);
+                return InteractionResult.CONSUME;
+            }else {
+                return InteractionResult.FAIL;
+            }
+        } else {
+            for(EquipmentSlot slot : EquipmentSlot.values()) {
+                this.dropSlot(slot, false);
             }
 
-            this.setItemSlot(EquipmentSlot.HEAD,  itemstack.split(1));
-
             return InteractionResult.SUCCESS;
-        } else {
-            return super.mobInteractImpl(player, hand);
         }
     }
 
