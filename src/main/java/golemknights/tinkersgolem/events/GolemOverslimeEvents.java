@@ -69,6 +69,8 @@ public class GolemOverslimeEvents {
 			if (value == getOverslime(target))
 				return;
 			ItemStack item = event.getItemStack();
+			if (item.isEmpty())
+				return;
 			List<OverslimeRecoverRecipe> recipes = OverslimeRecoverRecipeCache.findRecipe(target.level().getRecipeManager(), item);
 			if (!recipes.isEmpty()) {
 				float amount = 0;
