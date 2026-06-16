@@ -4,6 +4,7 @@ import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
 import golemknights.tinkersgolem.data.TGConfigGen;
+import golemknights.tinkersgolem.data.TGStationSlotLayoutProvider;
 import golemknights.tinkersgolem.data.TGToolDefinitionDataProvider;
 import golemknights.tinkersgolem.events.TGAttackListener;
 import golemknights.tinkersgolem.register.TGAttributes;
@@ -29,6 +30,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
+import slimeknights.tconstruct.library.utils.Util;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(TinkersGolem.MODID)
@@ -92,6 +94,7 @@ public class TinkersGolem {
 		var server = event.includeServer();
 		gen.addProvider(server, new TGConfigGen(gen));
 		gen.addProvider(server, new TGToolDefinitionDataProvider(output));
+		gen.addProvider(server, new TGStationSlotLayoutProvider(output));
 	}
 
 	/**
@@ -101,6 +104,9 @@ public class TinkersGolem {
 	 */
 	public static ResourceLocation getResource(String id) {
 		return new ResourceLocation(MODID, id);
+	}
+	public static String makeTranslationKey(String base, String name) {
+		return Util.makeTranslationKey(base, getResource(name));
 	}
 
 }
