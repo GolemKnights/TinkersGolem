@@ -4,7 +4,6 @@ import com.tterrag.registrate.providers.ProviderType;
 import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
-import dev.xkmc.modulargolems.content.core.GolemType;
 import golemknights.tinkersgolem.data.TGConfigGen;
 import golemknights.tinkersgolem.data.TGLang;
 import golemknights.tinkersgolem.data.TGRecipeGen;
