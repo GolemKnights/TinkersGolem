@@ -37,7 +37,7 @@ public class SlimeGolemModel extends HierarchicalModel<SlimeGolemEntity> impleme
 
 	@Override
 	public void renderToBufferInternal(SlimeGolemPartType type, PoseStack stack, VertexConsumer consumer, int i, int j, float f1, float f2, float f3, float f4) {
-		if (type == SlimeGolemPartType.INNER) {
+		if (type == SlimeGolemPartType.CORE) {
 			root().render(stack, consumer, i, j, f1, f2, f3, f4);
 		} else {
 			outer.render(stack, consumer, i, j, f1, f2, f3, f4);

@@ -3,7 +3,6 @@ package golemknights.tinkersgolem.entity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import dev.xkmc.modulargolems.content.core.IGolemPart;
-import dev.xkmc.modulargolems.content.entity.dog.DogGolemPartType;
 import dev.xkmc.modulargolems.content.item.golem.GolemPart;
 import golemknights.tinkersgolem.register.TGEntities;
 import net.minecraft.ChatFormatting;
@@ -15,8 +14,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Locale;
 
 public enum SlimeGolemPartType implements IGolemPart<SlimeGolemPartType> {
-	INNER,
-	OUTER;
+	CORE,
+	SHELL;
 
 	public MutableComponent getDesc(MutableComponent desc) {
 		return Component.translatable("golem_part.slime_golem." +
@@ -26,8 +25,8 @@ public enum SlimeGolemPartType implements IGolemPart<SlimeGolemPartType> {
 
 	public GolemPart<?, SlimeGolemPartType> toItem() {
 		return switch (this) {
-			case INNER -> TGEntities.SLIME_INNER.get();
-			case OUTER -> TGEntities.SLIME_OUTER.get();
+			case CORE -> TGEntities.SLIME_CORE.get();
+			case SHELL -> TGEntities.SLIME_SHELL.get();
 		};
 	}
 
@@ -74,11 +73,11 @@ public enum SlimeGolemPartType implements IGolemPart<SlimeGolemPartType> {
 			float size = 1f;
 			stack.scale(size, size, size);
 			stack.translate(0, -1.9, 0);
-		} else if (part == INNER) {
+		} else if (part == CORE) {
 			float size = 1f;
 			stack.scale(size, size, size);
 			stack.translate(0, -1.9, 0);
-		} else if (part == OUTER) {
+		} else if (part == SHELL) {
 			float size = 1f;
 			stack.scale(size, size, size);
 			stack.translate(0, -1.9, 0);

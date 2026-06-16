@@ -1,9 +1,9 @@
 {
   "entity.tinkers_golem.slime_golem": "Slime Golem",
   "golem_type.tinkers_golem.slime_golem": "Slime Golem",
+  "item.tinkers_golem.slime_golem_core": "Slime Golem Core",
   "item.tinkers_golem.slime_golem_holder": "Slime Golem Holder",
-  "item.tinkers_golem.slime_golem_inner": "Slime Golem Inner",
-  "item.tinkers_golem.slime_golem_outer": "Slime Golem Outer",
+  "item.tinkers_golem.slime_golem_shell": "Slime Golem Shell",
   "modifier.tinkers_golem.overforced": "Overforced",
   "modifier.tinkers_golem.overgrowth": "Overgrowth",
   "modifier.tinkers_golem.overgrowth.desc": "Slowly recover overslime over time",

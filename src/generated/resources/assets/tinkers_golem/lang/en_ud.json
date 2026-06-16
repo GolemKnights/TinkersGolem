@@ -1,9 +1,9 @@
 {
   "entity.tinkers_golem.slime_golem": "ɯǝןo⅁ ǝɯıןS",
   "golem_type.tinkers_golem.slime_golem": "ɯǝןo⅁ ǝɯıןS",
+  "item.tinkers_golem.slime_golem_core": "ǝɹoƆ ɯǝןo⅁ ǝɯıןS",
   "item.tinkers_golem.slime_golem_holder": "ɹǝpןoH ɯǝןo⅁ ǝɯıןS",
-  "item.tinkers_golem.slime_golem_inner": "ɹǝuuI ɯǝןo⅁ ǝɯıןS",
-  "item.tinkers_golem.slime_golem_outer": "ɹǝʇnO ɯǝןo⅁ ǝɯıןS",
+  "item.tinkers_golem.slime_golem_shell": "ןןǝɥS ɯǝןo⅁ ǝɯıןS",
   "modifier.tinkers_golem.overforced": "pǝɔɹoɟɹǝʌO",
   "modifier.tinkers_golem.overgrowth": "ɥʇʍoɹbɹǝʌO",
   "modifier.tinkers_golem.overgrowth.desc": "ǝɯıʇ ɹǝʌo ǝɯıןsɹǝʌo ɹǝʌoɔǝɹ ʎןʍoןS",

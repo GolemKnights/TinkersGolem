@@ -1,10 +1,12 @@
 package golemknights.tinkersgolem;
 
+import com.tterrag.registrate.providers.ProviderType;
 import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
 import dev.xkmc.modulargolems.content.core.GolemType;
 import golemknights.tinkersgolem.data.TGConfigGen;
+import golemknights.tinkersgolem.data.TGRecipeGen;
 import golemknights.tinkersgolem.events.TGAttackListener;
 import golemknights.tinkersgolem.register.*;
 import net.minecraft.core.registries.Registries;
@@ -82,7 +84,7 @@ public class TinkersGolem {
 	public static void gatherData(GatherDataEvent event) {
 		// REGISTRATE.addDataGenerator(ProviderType.LANG, GDLang::genLang);
 		// REGISTRATE.addDataGenerator(ProviderType.LOOT, GDLootGen::genLoot);
-		// REGISTRATE.addDataGenerator(ProviderType.RECIPE, GDRecipeGen::genRecipe);
+		 REGISTRATE.addDataGenerator(ProviderType.RECIPE, TGRecipeGen::genRecipe);
 		// REGISTRATE.addDataGenerator(ProviderType.ADVANCEMENT, GDAdvGen::genAdv);
 		// REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, GDTagGen::genItemTag);
 

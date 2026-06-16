@@ -5,7 +5,6 @@ import dev.xkmc.modulargolems.content.config.GolemMaterialConfig;
 import dev.xkmc.modulargolems.content.config.GolemPartConfig;
 import dev.xkmc.modulargolems.content.core.StatFilterType;
 import dev.xkmc.modulargolems.init.ModularGolems;
-import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import dev.xkmc.modulargolems.init.registrate.GolemModifiers;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import golemknights.tinkersgolem.TinkersGolem;
@@ -13,9 +12,12 @@ import golemknights.tinkersgolem.register.TGAttributes;
 import golemknights.tinkersgolem.register.TGEntities;
 import golemknights.tinkersgolem.register.TGGolemModifiers;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import slimeknights.tconstruct.TConstruct;
+import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.shared.TinkerMaterials;
+import slimeknights.tconstruct.shared.block.SlimeType;
 
 public class TGConfigGen extends ConfigDataProvider {
 
@@ -27,7 +29,7 @@ public class TGConfigGen extends ConfigDataProvider {
 	public void add(Collector map) {
 
 		map.add(ModularGolems.PARTS, TinkersGolem.getResource("slime"), new GolemPartConfig()
-				.addPart(TGEntities.SLIME_INNER.get())
+				.addPart(TGEntities.SLIME_CORE.get())
 				.addFilter(StatFilterType.HEALTH, 1)
 				.addFilter(StatFilterType.ATTACK, 0)
 				.addFilter(StatFilterType.MOVEMENT, 0)
@@ -35,7 +37,7 @@ public class TGConfigGen extends ConfigDataProvider {
 				.addFilter(StatFilterType.HEAD, 1)
 				.end()
 
-				.addPart(TGEntities.SLIME_OUTER.get())
+				.addPart(TGEntities.SLIME_SHELL.get())
 				.addFilter(StatFilterType.HEALTH, 0)
 				.addFilter(StatFilterType.ATTACK, 1)
 				.addFilter(StatFilterType.MOVEMENT, 1)
@@ -48,6 +50,29 @@ public class TGConfigGen extends ConfigDataProvider {
 				.addFilter(GolemTypes.STAT_ATTACK.get(), 0.4)
 				.addFilter(GolemTypes.STAT_REGEN.get(), 1)
 				.addFilter(GolemTypes.STAT_SWEEP.get(), 0)
+				.end()
+		);
+
+		map.add(ModularGolems.MATERIALS, TinkersGolem.getResource("slime"), new GolemMaterialConfig()
+				.addMaterial(TinkersGolem.getResource("slime"), Ingredient.of(Items.SLIME_BALL))
+				.onlyFor(TGTagGen.SLIME_PART)
+				.addStat(GolemTypes.STAT_HEALTH.get(), 20)
+				.addStat(GolemTypes.STAT_ATTACK.get(), 4)
+				.addStat(TGAttributes.STAT_OVERSLIME.get(), 20)
+				.end()
+
+				.addMaterial(TinkersGolem.getResource("sky_slime"), Ingredient.of(TinkerCommons.slimeball.get(SlimeType.SKY)))
+				.onlyFor(TGTagGen.SLIME_PART)
+				.addStat(GolemTypes.STAT_HEALTH.get(), 20)
+				.addStat(GolemTypes.STAT_ATTACK.get(), 4)
+				.addStat(TGAttributes.STAT_OVERSLIME.get(), 20)
+				.end()
+
+				.addMaterial(TinkersGolem.getResource("ender_slime"), Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ENDER)))
+				.onlyFor(TGTagGen.SLIME_PART)
+				.addStat(GolemTypes.STAT_HEALTH.get(), 40)
+				.addStat(GolemTypes.STAT_ATTACK.get(), 4)
+				.addStat(TGAttributes.STAT_OVERSLIME.get(), 20)
 				.end()
 		);
 
