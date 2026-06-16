@@ -34,7 +34,7 @@ public class TGToolsRecipeProvider extends BaseRecipeProvider implements IMateri
                                         GolemItems.GOLEM_TEMPLATE.get(),
                                         GolemItems.GOLEM_TEMPLATE.get()
                                 )
-                        ).save(consumer, this.prefix(TGItems.METAL_GOLEM_PLATING, metalGolemFolder))
+                        ).save(consumer, this.prefix(id(item), metalGolemFolder))
         );
     }
     private void addPartRecipes(Consumer<FinishedRecipe> consumer) {

@@ -21,7 +21,7 @@
       "icon": "tinkers_golem:metal_golem_plating",
       "translation_key": "pattern.tinkers_golem.metal_golem_plating",
       "x": 33,
-      "y": 29
+      "y": 53
     },
     {
       "filter": [
@@ -41,7 +41,7 @@
       "icon": "tconstruct:plating",
       "translation_key": "pattern.tconstruct.plating",
       "x": 23,
-      "y": 49
+      "y": 29
     },
     {
       "filter": [
@@ -61,6 +61,24 @@
       "icon": "tconstruct:plating",
       "translation_key": "pattern.tconstruct.plating",
       "x": 43,
+      "y": 29
+    },
+    {
+      "filter": {
+        "item": "modulargolems:metal_golem_template"
+      },
+      "icon": "tinkers_golem:golem_template",
+      "translation_key": "pattern.tinkers_golem.golem_template",
+      "x": 13,
+      "y": 49
+    },
+    {
+      "filter": {
+        "item": "modulargolems:metal_golem_template"
+      },
+      "icon": "tinkers_golem:golem_template",
+      "translation_key": "pattern.tinkers_golem.golem_template",
+      "x": 53,
       "y": 49
     }
   ],
