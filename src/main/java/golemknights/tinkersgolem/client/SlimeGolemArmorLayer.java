@@ -29,6 +29,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.AbstractSkullBlock;
 import net.minecraft.world.level.block.SkullBlock;
 import net.minecraftforge.client.ForgeHooksClient;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Map;
 
@@ -42,7 +43,7 @@ public class SlimeGolemArmorLayer <T extends SlimeGolemEntity, M extends Hierarc
     }
 
     @Override
-    public void render(PoseStack matrices, MultiBufferSource buffer, int packedLight, T entity, float pLimbSwing, float swing, float partialTicks, float age, float headYaw, float headPitch) {
+    public void render(@NotNull PoseStack matrices, @NotNull MultiBufferSource buffer, int packedLight, T entity, float pLimbSwing, float swing, float partialTicks, float age, float headYaw, float headPitch) {
         ItemStack helmet = entity.getItemBySlot(EquipmentSlot.HEAD);
         if (!helmet.isEmpty()) {
             matrices.pushPose();
