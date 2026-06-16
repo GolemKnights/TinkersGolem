@@ -19,6 +19,7 @@
     },
     "tconstruct:slimesteel": {}
   },
+  "partLimitation": {},
   "repairIngredients": {
     "tconstruct:cinderslime": {
       "tag": "forge:ingots/cinderslime"

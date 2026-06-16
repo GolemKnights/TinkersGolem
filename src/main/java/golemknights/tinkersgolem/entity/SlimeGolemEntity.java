@@ -1,7 +1,9 @@
 package golemknights.tinkersgolem.entity;
 
 import dev.xkmc.l2serial.serialization.SerialClass;
+import dev.xkmc.modulargolems.content.config.GolemMaterial;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
+import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -24,8 +26,9 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.EnumSet;
-
+import java.util.UUID;
 
 
 @SerialClass
@@ -45,17 +48,23 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	}
 
 	@Override
+	public void onCreate(ArrayList<GolemMaterial> materials, ArrayList<IUpgradeItem> upgrades, @org.jetbrains.annotations.Nullable UUID owner) {
+		super.onCreate(materials, upgrades, owner);
+		setSize(4, true);
+	}
+
+	@Override
 	protected void defineSynchedData() {
 		super.defineSynchedData();
 		this.entityData.define(ID_SIZE, 1);
 	}
 
-    @Override
-    protected void registerGoals() {
-        super.registerGoals();
-        this.goalSelector.addGoal(3, new SlimeRandomDirectionGoal(this));
-        this.goalSelector.addGoal(5, new SlimeKeepOnJumpingGoal(this));
-    }
+	@Override
+	protected void registerGoals() {
+		super.registerGoals();
+		this.goalSelector.addGoal(3, new SlimeRandomDirectionGoal(this));
+		this.goalSelector.addGoal(5, new SlimeKeepOnJumpingGoal(this));
+	}
 
 	public void setSize(int size, boolean resetHealth) {
 		int i = Mth.clamp(size, 1, 127);
@@ -154,56 +163,56 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		return super.finalizeSpawn(p_33601_, p_33602_, p_33603_, p_33604_, p_33605_);
 	}
 
-    @Override
-    public void onSyncedDataUpdated(EntityDataAccessor<?> p_33609_) {
-        if (ID_SIZE.equals(p_33609_)) {
-            this.refreshDimensions();
-            this.setYRot(this.yHeadRot);
-            this.yBodyRot = this.yHeadRot;
-            if (this.isInWater() && this.random.nextInt(20) == 0) {
-                this.doWaterSplashEffect();
-            }
-        }
+	@Override
+	public void onSyncedDataUpdated(EntityDataAccessor<?> p_33609_) {
+		if (ID_SIZE.equals(p_33609_)) {
+			this.refreshDimensions();
+			this.setYRot(this.yHeadRot);
+			this.yBodyRot = this.yHeadRot;
+			if (this.isInWater() && this.random.nextInt(20) == 0) {
+				this.doWaterSplashEffect();
+			}
+		}
 
-        super.onSyncedDataUpdated(p_33609_);
-    }
+		super.onSyncedDataUpdated(p_33609_);
+	}
 
-    @Override
-    public void remove(Entity.RemovalReason p_149847_) {
-        int i = this.getSize();
-        if (!this.level().isClientSide && i > 1 && this.isDeadOrDying()) {
-            Component component = this.getCustomName();
-            boolean flag = this.isNoAi();
-            float f = (float)i / 4.0F;
-            int j = i / 2;
-            int k = 2 + this.random.nextInt(3);
+	@Override
+	public void remove(Entity.RemovalReason p_149847_) {
+		int i = this.getSize();
+		if (!this.level().isClientSide && i > 1 && this.isDeadOrDying()) {
+			Component component = this.getCustomName();
+			boolean flag = this.isNoAi();
+			float f = (float) i / 4.0F;
+			int j = i / 2;
+			int k = 2 + this.random.nextInt(3);
 
-            for(int l = 0; l < k; ++l) {
-                float f1 = ((float)(l % 2) - 0.5F) * f;
-                float f2 = ((float)(l / 2) - 0.5F) * f;
-                SlimeGolemEntity slime = this.getType().create(this.level());
-                if (slime != null) {
-                    if (this.isPersistenceRequired()) {
-                        slime.setPersistenceRequired();
-                    }
+			for (int l = 0; l < k; ++l) {
+				float f1 = ((float) (l % 2) - 0.5F) * f;
+				float f2 = ((float) (l / 2) - 0.5F) * f;
+				SlimeGolemEntity slime = this.getType().create(this.level());
+				if (slime != null) {
+					if (this.isPersistenceRequired()) {
+						slime.setPersistenceRequired();
+					}
 
-                    slime.setCustomName(component);
-                    slime.setNoAi(flag);
-                    slime.setInvulnerable(this.isInvulnerable());
-                    slime.setSize(j, true);
-                    slime.moveTo(this.getX() + (double)f1, this.getY() + (double)0.5F, this.getZ() + (double)f2, this.random.nextFloat() * 360.0F, 0.0F);
-                    this.level().addFreshEntity(slime);
-                }
-            }
-        }
+					slime.setCustomName(component);
+					slime.setNoAi(flag);
+					slime.setInvulnerable(this.isInvulnerable());
+					slime.setSize(j, true);
+					slime.moveTo(this.getX() + (double) f1, this.getY() + (double) 0.5F, this.getZ() + (double) f2, this.random.nextFloat() * 360.0F, 0.0F);
+					this.level().addFreshEntity(slime);
+				}
+			}
+		}
 
-        super.remove(p_149847_);
-    }
+		super.remove(p_149847_);
+	}
 
-    protected float getSoundPitch() {
-        float f = this.isTiny() ? 1.4F : 0.8F;
-        return ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) * f;
-    }
+	protected float getSoundPitch() {
+		float f = this.isTiny() ? 1.4F : 0.8F;
+		return ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) * f;
+	}
 
 	protected SoundEvent getJumpSound() {
 		return this.isTiny() ? SoundEvents.SLIME_JUMP_SMALL : SoundEvents.SLIME_JUMP;
@@ -309,32 +318,31 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		}
 	}
 
+	static class SlimeRandomDirectionGoal extends Goal {
+		private final SlimeGolemEntity slime;
+		private float chosenDegrees;
+		private int nextRandomizeTime;
 
-    static class SlimeRandomDirectionGoal extends Goal {
-        private final SlimeGolemEntity slime;
-        private float chosenDegrees;
-        private int nextRandomizeTime;
+		public SlimeRandomDirectionGoal(SlimeGolemEntity golem) {
+			this.slime = golem;
+			this.setFlags(EnumSet.of(Flag.LOOK));
+		}
 
-        public SlimeRandomDirectionGoal(SlimeGolemEntity golem) {
-            this.slime = golem;
-            this.setFlags(EnumSet.of(Flag.LOOK));
-        }
+		public boolean canUse() {
+			return this.slime.getTarget() == null && (this.slime.onGround() || this.slime.isInWater() || this.slime.isInLava() || this.slime.hasEffect(MobEffects.LEVITATION)) && this.slime.getMoveControl() instanceof SlimeMoveControl;
+		}
 
-        public boolean canUse() {
-            return this.slime.getTarget() == null && (this.slime.onGround() || this.slime.isInWater() || this.slime.isInLava() || this.slime.hasEffect(MobEffects.LEVITATION)) && this.slime.getMoveControl() instanceof SlimeMoveControl;
-        }
+		public void tick() {
+			if (--this.nextRandomizeTime <= 0) {
+				this.nextRandomizeTime = this.adjustedTickDelay(40 + this.slime.getRandom().nextInt(60));
+				this.chosenDegrees = (float) this.slime.getRandom().nextInt(360);
+			}
 
-        public void tick() {
-            if (--this.nextRandomizeTime <= 0) {
-                this.nextRandomizeTime = this.adjustedTickDelay(40 + this.slime.getRandom().nextInt(60));
-                this.chosenDegrees = (float)this.slime.getRandom().nextInt(360);
-            }
+			MoveControl movecontrol = this.slime.getMoveControl();
+			if (movecontrol instanceof SlimeMoveControl slimemovecontrol) {
+				slimemovecontrol.setDirection(this.chosenDegrees, false);
+			}
 
-            MoveControl movecontrol = this.slime.getMoveControl();
-            if (movecontrol instanceof SlimeMoveControl slimemovecontrol) {
-                slimemovecontrol.setDirection(this.chosenDegrees, false);
-            }
-
-        }
-    }
+		}
+	}
 }
