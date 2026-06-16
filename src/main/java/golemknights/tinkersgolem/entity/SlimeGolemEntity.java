@@ -64,6 +64,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
     private void tryAddAttribute(Attribute attribute, AttributeModifier modifier) {
         AttributeInstance instance = getAttribute(attribute);
         if (instance != null) {
+            instance.removeModifier(modifier.getId());
             instance.addTransientModifier(modifier);
         }
     }
@@ -89,13 +90,14 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 
 	public void setSize(int size, boolean resetHealth) {
 		int i = Mth.clamp(size, 1, 127);
+        float p = i /4F;
 		this.entityData.set(ID_SIZE, i);
 		this.reapplyPosition();
 		this.refreshDimensions();
-		this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(i * i);
-		this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2F + 0.1F * (float) i);
-		this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(i);
-		if (resetHealth) {
+        tryAddAttribute(Attributes.MAX_HEALTH, new AttributeModifier("tinkers_golem.size_health_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
+        tryAddAttribute(Attributes.MOVEMENT_SPEED, new AttributeModifier("tinkers_golem.size_speed_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
+        tryAddAttribute(Attributes.ATTACK_DAMAGE, new AttributeModifier("tinkers_golem.size_damage_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
+        if (resetHealth) {
 			this.setHealth(this.getMaxHealth());
 		}
 
