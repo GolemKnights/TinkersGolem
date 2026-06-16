@@ -6,6 +6,7 @@ import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
 import dev.xkmc.modulargolems.content.core.GolemType;
 import golemknights.tinkersgolem.data.TGConfigGen;
+import golemknights.tinkersgolem.data.TGLang;
 import golemknights.tinkersgolem.data.TGRecipeGen;
 import golemknights.tinkersgolem.events.TGAttackListener;
 import golemknights.tinkersgolem.register.*;
@@ -48,12 +49,6 @@ public class TinkersGolem {
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, MODID);
 	public static final SynchronizedDeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = SynchronizedDeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, MODID);
 	public static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, MODID);
-	// public static final ConfigTypeEntry<SpawnConfig> SPAWN = new
-	// ConfigTypeEntry<>(HANDLER, "spawn", SpawnConfig.class);
-	// public static final ConfigTypeEntry<EquipmentConfig> ITEMS = new
-	// ConfigTypeEntry<>(HANDLER, "equipment", EquipmentConfig.class);
-	// public static final ConfigTypeEntry<TrialConfig> TRIAL = new
-	// ConfigTypeEntry<>(HANDLER, "trial", TrialConfig.class);
 
 	public TinkersGolem() {
 		TGItems.load();
@@ -82,7 +77,7 @@ public class TinkersGolem {
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void gatherData(GatherDataEvent event) {
-		// REGISTRATE.addDataGenerator(ProviderType.LANG, GDLang::genLang);
+		REGISTRATE.addDataGenerator(ProviderType.LANG, TGLang::genLang);
 		// REGISTRATE.addDataGenerator(ProviderType.LOOT, GDLootGen::genLoot);
 		 REGISTRATE.addDataGenerator(ProviderType.RECIPE, TGRecipeGen::genRecipe);
 		// REGISTRATE.addDataGenerator(ProviderType.ADVANCEMENT, GDAdvGen::genAdv);

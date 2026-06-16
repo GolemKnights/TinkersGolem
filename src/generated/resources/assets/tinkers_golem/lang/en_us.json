@@ -1,5 +1,10 @@
 {
   "entity.tinkers_golem.slime_golem": "Slime Golem",
+  "golem_material.tinkers_golem.ender_slime": "Ender Slime",
+  "golem_material.tinkers_golem.sky_slime": "Sky Slime",
+  "golem_material.tinkers_golem.slime": "Slime",
+  "golem_part.slime_golem.core": "Core: %s",
+  "golem_part.slime_golem.shell": "Shell: %s",
   "golem_type.tinkers_golem.slime_golem": "Slime Golem",
   "item.tinkers_golem.slime_golem_core": "Slime Golem Core",
   "item.tinkers_golem.slime_golem_holder": "Slime Golem Holder",
@@ -8,5 +13,6 @@
   "modifier.tinkers_golem.overgrowth": "Overgrowth",
   "modifier.tinkers_golem.overgrowth.desc": "Slowly recover overslime over time",
   "modifier.tinkers_golem.overlord": "Overlord",
-  "modifier.tinkers_golem.overlord.desc": "When taking damage, recover overslime by %s%% of damage taken"
+  "modifier.tinkers_golem.overlord.desc": "When taking damage, recover overslime by %s%% of damage taken",
+  "tinkers_golem.max_overslime": "Max Overslime"
 }
