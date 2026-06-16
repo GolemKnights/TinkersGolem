@@ -6,6 +6,7 @@ import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
 import golemknights.tinkersgolem.data.TGConfigGen;
 import golemknights.tinkersgolem.data.TGStationSlotLayoutProvider;
 import golemknights.tinkersgolem.data.TGToolDefinitionDataProvider;
+import golemknights.tinkersgolem.data.TGToolsRecipeProvider;
 import golemknights.tinkersgolem.events.TGAttackListener;
 import golemknights.tinkersgolem.register.TGAttributes;
 import golemknights.tinkersgolem.register.TGGolemModifiers;
@@ -30,6 +31,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
+import slimeknights.tconstruct.common.registration.ItemDeferredRegisterExtension;
 import slimeknights.tconstruct.library.utils.Util;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -45,7 +47,7 @@ public class TinkersGolem {
 	public static final PacketHandlerWithConfig HANDLER = new PacketHandlerWithConfig(
 			getResource("main"), 1);
 
-	public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(MODID);
+	public static final ItemDeferredRegisterExtension ITEMS = new ItemDeferredRegisterExtension(MODID);
 	public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, MODID);
 	public static final SynchronizedDeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = SynchronizedDeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, MODID);
 	public static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, MODID);
@@ -95,6 +97,7 @@ public class TinkersGolem {
 		gen.addProvider(server, new TGConfigGen(gen));
 		gen.addProvider(server, new TGToolDefinitionDataProvider(output));
 		gen.addProvider(server, new TGStationSlotLayoutProvider(output));
+		gen.addProvider(server, new TGToolsRecipeProvider(output));
 	}
 
 	/**

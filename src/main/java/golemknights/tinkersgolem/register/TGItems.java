@@ -6,11 +6,12 @@ import net.minecraft.world.item.Item;
 import slimeknights.mantle.registration.object.EnumObject;
 import slimeknights.mantle.registration.object.ItemObject;
 import slimeknights.tconstruct.common.Sounds;
-import slimeknights.tconstruct.library.materials.stats.MaterialStatType;
+import slimeknights.tconstruct.common.registration.CastItemObject;
 import slimeknights.tconstruct.library.recipe.partbuilder.Pattern;
 import slimeknights.tconstruct.library.tools.definition.ModifiableArmorMaterial;
 import golemknights.tinkersgolem.item.armor.ModifiableDogGolemArmorItem;
 import golemknights.tinkersgolem.item.armor.ModifiableMetalGolemArmorItem;
+import slimeknights.tconstruct.library.tools.part.PartCastItem;
 import slimeknights.tconstruct.library.tools.part.ToolPartItem;
 import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 
@@ -55,4 +56,20 @@ public class TGItems {
     );
     public static final Pattern METAL_GOLEM_ARMOR = pattern("metal_golem_armor");
     public static final Pattern METAL_GOLEM_PLATING = pattern("metal_golem_plating");
+    public static final CastItemObject helmetMetalGolemPlatingCast = ITEMS.registerCast(
+            "helmet_metal_golem_plating",
+            () -> new PartCastItem(ITEM_PROPS, () -> metal_golem_plating.get(ArmorItem.Type.HELMET))
+    );
+    public static final CastItemObject chestplateMetalGolemPlatingCast = ITEMS.registerCast(
+            "chestplate_metal_golem_plating",
+            () -> new PartCastItem(ITEM_PROPS, () -> metal_golem_plating.get(ArmorItem.Type.CHESTPLATE))
+    );
+    public static final CastItemObject leggingsMetalGolemPlatingCast = ITEMS.registerCast(
+            "leggings_metal_golem_plating",
+            () -> new PartCastItem(ITEM_PROPS, () -> metal_golem_plating.get(ArmorItem.Type.LEGGINGS))
+    );
+    public static final CastItemObject bootsMetalGolemPlatingCast = ITEMS.registerCast(
+            "boots_metal_golem_plating",
+            () -> new PartCastItem(ITEM_PROPS, () -> metal_golem_plating.get(ArmorItem.Type.BOOTS))
+    );
 }
