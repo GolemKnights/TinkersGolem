@@ -6,6 +6,7 @@ import dev.xkmc.modulargolems.content.config.GolemMaterialConfig;
 import dev.xkmc.modulargolems.content.core.GolemType;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
+import dev.xkmc.modulargolems.init.data.MGConfig;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -18,11 +19,17 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -47,7 +54,19 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		super(type, level);
 		this.fixupDimensions();
 		this.moveControl = new SlimeMoveControl(this);
+        if (!level.isClientSide) {
+            tryAddAttribute(Attributes.ARMOR, new AttributeModifier("tinkers_golem.small_armor_bonus", 3, AttributeModifier.Operation.MULTIPLY_TOTAL));
+            tryAddAttribute(Attributes.ARMOR_TOUGHNESS, new AttributeModifier("tinkers_golem.small_toughness_bonus", 3, AttributeModifier.Operation.MULTIPLY_TOTAL));
+            tryAddAttribute(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier("tinkers_golem.small_resistence_bonus", 3, AttributeModifier.Operation.MULTIPLY_TOTAL));
+        }
 	}
+
+    private void tryAddAttribute(Attribute attribute, AttributeModifier modifier) {
+        AttributeInstance instance = getAttribute(attribute);
+        if (instance != null) {
+            instance.addTransientModifier(modifier);
+        }
+    }
 
 	@Override
 	public void onCreate(ArrayList<GolemMaterial> materials, ArrayList<IUpgradeItem> upgrades, @Nullable UUID owner) {
@@ -102,6 +121,24 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	public boolean isTiny() {
 		return this.getSize() <= 1;
 	}
+
+    @Override
+    protected InteractionResult mobInteractImpl(Player player, InteractionHand hand) {
+        ItemStack itemstack = player.getItemInHand(hand);
+        if (MGConfig.COMMON.strictInteract.get() && !itemstack.isEmpty()) {
+            return InteractionResult.PASS;
+        } else if (!this.level().isClientSide() && this.canModify(player) && itemstack.canEquip(EquipmentSlot.HEAD, this)) {
+            if (!this.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {
+                this.dropSlot(EquipmentSlot.HEAD, false);
+            }
+
+            this.setItemSlot(EquipmentSlot.HEAD,  itemstack.split(1));
+
+            return InteractionResult.SUCCESS;
+        } else {
+            return super.mobInteractImpl(player, hand);
+        }
+    }
 
 	protected ParticleOptions getParticleType() {
 		return ParticleTypes.ITEM_SLIME;
@@ -177,7 +214,6 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		super.onSyncedDataUpdated(p_33609_);
 	}
 
-
 	@Override
 	protected void dropCustomDeathLoot(DamageSource source, int i, boolean b) {
 		if (!isTiny()) return;
@@ -225,35 +261,45 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		return ans;
 	}
 
-	@Override
-	public void remove(Entity.RemovalReason reason) {
-		int size = this.getSize();
-		if (!this.level().isClientSide && size > 1 && this.isDeadOrDying()) {
-			Component component = this.getCustomName();
-			boolean flag = this.isNoAi();
-			float offset = (float) size / 4.0F;
-			int nextSize = size / 2;
-			int n = 2;
-			var split = splitUpgrades(n);
-			for (int i = 0; i < n; ++i) {
-				float f1 = ((i & 1) - 0.5F) * offset;
-				float f2 = ((i >> 1) - 0.5F) * offset;
-				SlimeGolemEntity slime = this.getType().create(this.level());
-				if (slime == null) continue;
-				slime.onCreate(getMaterials(), split.get(i), getOwnerUUID());
-				slime.setCustomName(component);
-				slime.setNoAi(flag);
-				slime.setInvulnerable(this.isInvulnerable());
-				slime.setSize(nextSize, true);
-				slime.moveTo(this.getX() + (double) f1, this.getY() + (double) 0.5F, this.getZ() + (double) f2, this.random.nextFloat() * 360.0F, 0.0F);
-				this.level().addFreshEntity(slime);
-			}
-		}
+    @Override
+    public void remove(Entity.RemovalReason reason) {
+        int size = this.getSize();
+        if (!this.level().isClientSide && size > 1 && this.isDeadOrDying()) {
+            Component component = this.getCustomName();
+            boolean flag = this.isNoAi();
+            float offset = (float) size / 4.0F;
+            int nextSize = size / 2;
+            int n = 2;
+            var split = splitUpgrades(n);
+            ItemStack helmet = getItemBySlot(EquipmentSlot.HEAD);
+            int helmetIndex = -1;
+            if (!helmet.isEmpty()) {
+                helmetIndex = this.random.nextInt(n);
+            }
 
-		super.remove(reason);
-	}
+            for (int i = 0; i < n; ++i) {
+                float f1 = ((i & 1) - 0.5F) * offset;
+                float f2 = -0.5F * offset;
+                SlimeGolemEntity slime = this.getType().create(this.level());
+                if (slime == null) continue;
+                slime.onCreate(getMaterials(), split.get(i), getOwnerUUID());
+                slime.setCustomName(component);
+                slime.setNoAi(flag);
+                slime.setInvulnerable(this.isInvulnerable());
+                slime.setSize(nextSize, true);
+                if (i == helmetIndex) {
+                    slime.setItemSlot(EquipmentSlot.HEAD, helmet.copy());
+                }
+                slime.moveTo(this.getX() + (double) f1, this.getY() + (double) 0.5F, this.getZ() + (double) f2, this.random.nextFloat() * 360.0F, 0.0F);
+                this.level().addFreshEntity(slime);
+            }
+        }
 
-	protected float getSoundPitch() {
+        super.remove(reason);
+    }
+
+
+    protected float getSoundPitch() {
 		float f = this.isTiny() ? 1.4F : 0.8F;
 		return ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) * f;
 	}
@@ -262,10 +308,10 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		return this.isTiny() ? SoundEvents.SLIME_JUMP_SMALL : SoundEvents.SLIME_JUMP;
 	}
 
-	@Override
-	public EntityDimensions getDimensions(Pose pose) {
-		return super.getDimensions(pose).scale(0.255F * (float) this.getSize());
-	}
+    @Override
+    public EntityDimensions getDimensions(Pose pose) {
+        return super.getDimensions(pose).scale(0.255F * (float)this.getSize());
+    }
 
 
 	protected boolean doPlayJumpSound() {
@@ -294,7 +340,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	static class SlimeMoveControl extends MoveControl {
 		private int jumpDelay;
 		private final SlimeGolemEntity slime;
-		private boolean isAggressive;
+		//private boolean isAggressive;
 
 		public SlimeMoveControl(SlimeGolemEntity golem) {
 			super(golem);
@@ -306,16 +352,16 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 			this.operation = Operation.MOVE_TO;
 		}
 
-		@Override
-		public void tick() {
-			if (this.operation == Operation.MOVE_TO) {
-				double d0 = this.wantedX - this.mob.getX();
-				double d1 = this.wantedZ - this.mob.getZ();
-				float targetYRot = (float) (Mth.atan2(d1, d0) * (180F / Math.PI)) - 90.0F;
-				this.mob.setYRot(this.rotlerp(this.mob.getYRot(), targetYRot, 90.0F));
-			}
-			this.mob.yHeadRot = this.mob.getYRot();
-			this.mob.yBodyRot = this.mob.getYRot();
+        @Override
+        public void tick() {
+            if (this.operation == Operation.MOVE_TO) {
+                double d0 = this.wantedX - this.mob.getX();
+                double d1 = this.wantedZ - this.mob.getZ();
+                float targetYRot = (float) (Mth.atan2(d1, d0) * (180F / Math.PI)) - 90.0F;
+                this.mob.setYRot(this.rotlerp(this.mob.getYRot(), targetYRot, 90.0F));
+            }
+            this.mob.yHeadRot = this.mob.getYRot();
+            this.mob.yBodyRot = this.mob.getYRot();
 
 			if (this.operation != Operation.MOVE_TO) {
 				this.mob.setZza(0.0F);
@@ -327,9 +373,9 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 				this.mob.setSpeed((float) (this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
 				if (this.jumpDelay-- <= 0) {
 					this.jumpDelay = this.slime.getJumpDelay();
-					if (this.isAggressive) {
-						this.jumpDelay /= 3;
-					}
+//					if (this.isAggressive) {
+//						this.jumpDelay /= 3;
+//					}
 					this.slime.getJumpControl().jump();
 					if (this.slime.doPlayJumpSound()) {
 						this.slime.playSound(this.slime.getJumpSound(), this.slime.getSoundVolume(), this.slime.getSoundPitch());
@@ -353,12 +399,12 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 			this.setFlags(EnumSet.of(Flag.JUMP, Flag.MOVE));
 		}
 
-		@Override
+        @Override
 		public boolean canUse() {
 			return !this.slime.isPassenger();
 		}
 
-		@Override
+        @Override
 		public void tick() {
 			MoveControl movecontrol = this.slime.getMoveControl();
 			if (movecontrol instanceof SlimeMoveControl slimemovecontrol) {
