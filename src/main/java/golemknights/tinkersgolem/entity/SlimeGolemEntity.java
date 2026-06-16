@@ -62,8 +62,9 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		this.goalSelector.addGoal(3, new SlimeRandomDirectionGoal(this));
-		this.goalSelector.addGoal(5, new SlimeKeepOnJumpingGoal(this));
+		this.goalSelector.addGoal(2, meleeGoal);
+		this.goalSelector.addGoal(9, new SlimeRandomDirectionGoal(this));
+		this.goalSelector.addGoal(9, new SlimeKeepOnJumpingGoal(this));
 	}
 
 	public void setSize(int size, boolean resetHealth) {
