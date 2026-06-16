@@ -29,9 +29,9 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
         defineArmor(TGItems.GOLEM).modules(
                 (slots) -> PartStatsModule
                         .armor(slots)
-                        .part(TinkerToolParts.plating, 1.0F)
-                        .part(TinkerToolParts.plating, 1.0F)
-                        .part(TinkerToolParts.plating, 1.0F)
+                        .part(TGItems.metal_golem_plating, 0.6F)
+                        .part(TinkerToolParts.plating, 0.2F)
+                        .part(TinkerToolParts.plating, 0.2F)
                 )
                 .module(metalGolemMaterials)
                 .module(
@@ -44,10 +44,9 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 .module(
                         ToolSlotsModule.builder()
                                 .slots(SlotType.UPGRADE, 2)
-                                .slots(SlotType.DEFENSE, 3)
+                                .slots(SlotType.DEFENSE, 2)
                                 .build()
-                )
-                .module(FixedMaterialToolName.FIRST);
+                );
     }
 
     @Override
