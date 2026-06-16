@@ -205,15 +205,13 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 				spawnAtLocation(e.getDefaultInstance());
 				continue;
 			}
-			var sim = new ArrayList<ArrayList<IUpgradeItem>>();
 			var builder = new SimpleWeightedRandomList.Builder<Integer>();
 			for (int i = 0; i < n; i++) {
 				var copy = new ArrayList<>(ans.get(i));
 				copy.add(item);
-				sim.add(copy);
 				int rem = holder.getRemaining(getMaterials(), copy);
 				if (rem >= 0)
-					builder.add(i, rem);
+					builder.add(i, rem + 1);
 			}
 			var rand = builder.build();
 
