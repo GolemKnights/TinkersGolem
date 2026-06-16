@@ -1,12 +1,15 @@
 package golemknights.tinkersgolem.data;
 
+import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import golemknights.tinkersgolem.register.TGItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.crafting.Ingredient;
 import slimeknights.tconstruct.common.data.BaseRecipeProvider;
 import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
 import slimeknights.tconstruct.library.data.recipe.IToolRecipeHelper;
+import slimeknights.tconstruct.library.recipe.tinkerstation.building.ToolBuildingRecipeBuilder;
 import slimeknights.tconstruct.library.tools.layout.Patterns;
 import slimeknights.tconstruct.tools.TinkerTools;
 
@@ -28,7 +31,13 @@ public class TGToolsRecipeProvider extends BaseRecipeProvider implements IMateri
         String armorFolder = "tools/armor/";
         String metalGolemFolder = armorFolder + "metal_golem/";
         TGItems.metalGolemArmor.forEach(
-                (item) -> this.toolBuilding(consumer, item, metalGolemFolder, TGItems.METAL_GOLEM_PLATING)
+                (item) -> ToolBuildingRecipeBuilder.toolBuildingRecipe(item)
+                        .addExtraRequirement(
+                                Ingredient.of(
+                                        GolemItems.GOLEM_TEMPLATE.get(),
+                                        GolemItems.GOLEM_TEMPLATE.get()
+                                )
+                        ).save(consumer, this.prefix(TGItems.METAL_GOLEM_PLATING, metalGolemFolder))
         );
     }
     private void addPartRecipes(Consumer<FinishedRecipe> consumer) {

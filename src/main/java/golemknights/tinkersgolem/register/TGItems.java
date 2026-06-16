@@ -56,6 +56,7 @@ public class TGItems {
     );
     public static final Pattern METAL_GOLEM_ARMOR = pattern("metal_golem_armor");
     public static final Pattern METAL_GOLEM_PLATING = pattern("metal_golem_plating");
+    public static final Pattern GOLEM_TEMPLATE = pattern("golem_template");
     public static final CastItemObject helmetMetalGolemPlatingCast = ITEMS.registerCast(
             "helmet_metal_golem_plating",
             () -> new PartCastItem(ITEM_PROPS, () -> metal_golem_plating.get(ArmorItem.Type.HELMET))
