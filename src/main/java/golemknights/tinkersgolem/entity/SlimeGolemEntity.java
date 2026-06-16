@@ -4,7 +4,10 @@ import dev.xkmc.l2serial.serialization.SerialClass;
 import dev.xkmc.modulargolems.content.config.GolemMaterial;
 import dev.xkmc.modulargolems.content.config.GolemMaterialConfig;
 import dev.xkmc.modulargolems.content.core.GolemType;
+import dev.xkmc.modulargolems.content.config.GolemMaterialConfig;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
+import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
+import dev.xkmc.modulargolems.content.item.equipments.CustomDropGolemWeapon;
 import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -19,7 +22,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
@@ -51,7 +53,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	}
 
 	@Override
-	public void onCreate(ArrayList<GolemMaterial> materials, ArrayList<IUpgradeItem> upgrades, @org.jetbrains.annotations.Nullable UUID owner) {
+	public void onCreate(ArrayList<GolemMaterial> materials, ArrayList<IUpgradeItem> upgrades, @Nullable UUID owner) {
 		super.onCreate(materials, upgrades, owner);
 		setSize(4, true);
 	}
@@ -66,7 +68,6 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	protected void registerGoals() {
 		super.registerGoals();
 		this.goalSelector.addGoal(2, meleeGoal);
-		this.goalSelector.addGoal(9, new SlimeRandomDirectionGoal(this));
 		this.goalSelector.addGoal(9, new SlimeKeepOnJumpingGoal(this));
 	}
 
@@ -115,17 +116,15 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		super.tick();
 		if (this.onGround() && !this.wasOnGround) {
 			int i = this.getSize();
-			if (true) {
-				for (int j = 0; j < i * 8; ++j) {
-					float f = this.random.nextFloat() * ((float) Math.PI * 2F);
-					float f1 = this.random.nextFloat() * 0.5F + 0.5F;
-					float f2 = Mth.sin(f) * (float) i * 0.5F * f1;
-					float f3 = Mth.cos(f) * (float) i * 0.5F * f1;
-					this.level().addParticle(this.getParticleType(), this.getX() + (double) f2, this.getY(), this.getZ() + (double) f3, 0.0F, 0.0F, (double) 0.0F);
-				}
-			}
+            for (int j = 0; j < i * 8; ++j) {
+                float f = this.random.nextFloat() * ((float) Math.PI * 2F);
+                float f1 = this.random.nextFloat() * 0.5F + 0.5F;
+                float f2 = Mth.sin(f) * (float) i * 0.5F * f1;
+                float f3 = Mth.cos(f) * (float) i * 0.5F * f1;
+                this.level().addParticle(this.getParticleType(), this.getX() + (double) f2, this.getY(), this.getZ() + (double) f3, 0.0F, 0.0F, 0.0F);
+            }
 
-			this.playSound(this.getSquishSound(), this.getSoundVolume(), ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) / 0.8F);
+            this.playSound(this.getSquishSound(), this.getSoundVolume(), ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) / 0.8F);
 			this.targetSquish = -0.5F;
 		} else if (!this.onGround() && this.wasOnGround) {
 			this.targetSquish = 1.0F;
@@ -268,6 +267,11 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		return this.isTiny() ? SoundEvents.SLIME_JUMP_SMALL : SoundEvents.SLIME_JUMP;
 	}
 
+    @Override
+    public EntityDimensions getDimensions(Pose pose) {
+        return super.getDimensions(pose).scale(0.255F * (float)this.getSize());
+    }
+
 
 	protected boolean doPlayJumpSound() {
 		return this.getSize() > 0;
@@ -292,8 +296,38 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		return this.isTiny() ? SoundEvents.SLIME_SQUISH_SMALL : SoundEvents.SLIME_SQUISH;
 	}
 
+    @Override
+    protected void dropCustomDeathLoot(DamageSource source, int i, boolean b) {
+        boolean skip = false;
+        Entity var7 = source.getDirectEntity();
+        if (var7 instanceof MetalGolemEntity golem) {
+            Item var13 = golem.getMainHandItem().getItem();
+            if (var13 instanceof CustomDropGolemWeapon item) {
+                skip = item.dropCustomDeathLoot(this, golem, golem.getMainHandItem(), source);
+            }
+        }
+
+        if (isTiny()){
+            if (!skip) {
+                Map<Item, Integer> drop = new HashMap<>();
+
+                for(GolemMaterial mat : this.getMaterials()) {
+                    Item item = GolemMaterialConfig.get().getCraftIngredient(mat.id()).getItems()[0].getItem();
+                    drop.compute(item, (e, old) -> (old == null ? 0 : old) + 1);
+                }
+
+                drop.forEach((k, v) -> this.spawnAtLocation(new ItemStack(k, 1)));
+            }
+
+            if (!this.isHostile()) {
+                for(EquipmentSlot slot : EquipmentSlot.values()) {
+                    this.dropSlot(slot, true);
+                }
+            }
+        }
+    }
+
 	static class SlimeMoveControl extends MoveControl {
-		private float yRot;
 		private int jumpDelay;
 		private final SlimeGolemEntity slime;
 		private boolean isAggressive;
@@ -301,12 +335,6 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		public SlimeMoveControl(SlimeGolemEntity golem) {
 			super(golem);
 			this.slime = golem;
-			this.yRot = 180.0F * golem.getYRot() / (float) Math.PI;
-		}
-
-		public void setDirection(float p_33673_, boolean p_33674_) {
-			this.yRot = p_33673_;
-			this.isAggressive = p_33674_;
 		}
 
 		public void setWantedMovement(double p_33671_) {
@@ -314,37 +342,43 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 			this.operation = Operation.MOVE_TO;
 		}
 
-		public void tick() {
-			this.mob.setYRot(this.rotlerp(this.mob.getYRot(), this.yRot, 90.0F));
-			this.mob.yHeadRot = this.mob.getYRot();
-			this.mob.yBodyRot = this.mob.getYRot();
-			if (this.operation != Operation.MOVE_TO) {
-				this.mob.setZza(0.0F);
-			} else {
-				this.operation = Operation.WAIT;
-				if (this.mob.onGround()) {
-					this.mob.setSpeed((float) (this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
-					if (this.jumpDelay-- <= 0) {
-						this.jumpDelay = this.slime.getJumpDelay();
-						if (this.isAggressive) {
-							this.jumpDelay /= 3;
-						}
+        @Override
+        public void tick() {
+            if (this.operation == Operation.MOVE_TO) {
+                double d0 = this.wantedX - this.mob.getX();
+                double d1 = this.wantedZ - this.mob.getZ();
+                float targetYRot = (float) (Mth.atan2(d1, d0) * (180F / Math.PI)) - 90.0F;
+                this.mob.setYRot(this.rotlerp(this.mob.getYRot(), targetYRot, 90.0F));
+            }
+            this.mob.yHeadRot = this.mob.getYRot();
+            this.mob.yBodyRot = this.mob.getYRot();
 
-						this.slime.getJumpControl().jump();
-						if (this.slime.doPlayJumpSound()) {
-							this.slime.playSound(this.slime.getJumpSound(), this.slime.getSoundVolume(), this.slime.getSoundPitch());
-						}
-					} else {
-						this.slime.xxa = 0.0F;
-						this.slime.zza = 0.0F;
-						this.mob.setSpeed(0.0F);
-					}
-				} else {
-					this.mob.setSpeed((float) (this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
-				}
-			}
-
-		}
+            if (this.operation != Operation.MOVE_TO) {
+                this.mob.setZza(0.0F);
+                return;
+            }
+            // 暂不清楚作用，先注释掉
+            // this.operation = Operation.WAIT;
+            if (this.mob.onGround()) {
+                this.mob.setSpeed((float) (this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
+                if (this.jumpDelay-- <= 0) {
+                    this.jumpDelay = this.slime.getJumpDelay();
+                    if (this.isAggressive) {
+                        this.jumpDelay /= 3;
+                    }
+                    this.slime.getJumpControl().jump();
+                    if (this.slime.doPlayJumpSound()) {
+                        this.slime.playSound(this.slime.getJumpSound(), this.slime.getSoundVolume(), this.slime.getSoundPitch());
+                    }
+                } else {
+                    this.slime.xxa = 0.0F;
+                    this.slime.zza = 0.0F;
+                    this.mob.setSpeed(0.0F);
+                }
+            } else {
+                this.mob.setSpeed((float) (this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
+            }
+        }
 	}
 
 	static class SlimeKeepOnJumpingGoal extends Goal {
@@ -355,42 +389,16 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 			this.setFlags(EnumSet.of(Flag.JUMP, Flag.MOVE));
 		}
 
+        @Override
 		public boolean canUse() {
 			return !this.slime.isPassenger();
 		}
 
+        @Override
 		public void tick() {
 			MoveControl movecontrol = this.slime.getMoveControl();
 			if (movecontrol instanceof SlimeMoveControl slimemovecontrol) {
 				slimemovecontrol.setWantedMovement(1.0F);
-			}
-
-		}
-	}
-
-	static class SlimeRandomDirectionGoal extends Goal {
-		private final SlimeGolemEntity slime;
-		private float chosenDegrees;
-		private int nextRandomizeTime;
-
-		public SlimeRandomDirectionGoal(SlimeGolemEntity golem) {
-			this.slime = golem;
-			this.setFlags(EnumSet.of(Flag.LOOK));
-		}
-
-		public boolean canUse() {
-			return this.slime.getTarget() == null && (this.slime.onGround() || this.slime.isInWater() || this.slime.isInLava() || this.slime.hasEffect(MobEffects.LEVITATION)) && this.slime.getMoveControl() instanceof SlimeMoveControl;
-		}
-
-		public void tick() {
-			if (--this.nextRandomizeTime <= 0) {
-				this.nextRandomizeTime = this.adjustedTickDelay(40 + this.slime.getRandom().nextInt(60));
-				this.chosenDegrees = (float) this.slime.getRandom().nextInt(360);
-			}
-
-			MoveControl movecontrol = this.slime.getMoveControl();
-			if (movecontrol instanceof SlimeMoveControl slimemovecontrol) {
-				slimemovecontrol.setDirection(this.chosenDegrees, false);
 			}
 
 		}
