@@ -2,6 +2,9 @@ package golemknights.tinkersgolem.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemRenderer;
+import golemknights.tinkersgolem.client.SlimeGolemArmorLayer;
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.util.Mth;
@@ -13,7 +16,9 @@ public class SlimeGolemRenderer extends AbstractGolemRenderer<SlimeGolemEntity, 
 
 	public SlimeGolemRenderer(EntityRendererProvider.Context set) {
 		super(set, new SlimeGolemModel(set.getModelSet()), 0.25F, SlimeGolemPartType::values);
-	}
+        addLayer(new SlimeGolemArmorLayer<>(this, new HumanoidModel<>(set.bakeLayer(ModelLayers.PLAYER_OUTER_ARMOR)), set.getModelSet()));
+
+    }
 
 	@Override
 	public void render(SlimeGolemEntity entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {

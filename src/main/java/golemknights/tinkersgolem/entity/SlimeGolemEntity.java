@@ -90,7 +90,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 
 	public void setSize(int size, boolean resetHealth) {
 		int i = Mth.clamp(size, 1, 127);
-        float p = i /4F;
+        float p = i /4F - 1;
 		this.entityData.set(ID_SIZE, i);
 		this.reapplyPosition();
 		this.refreshDimensions();
