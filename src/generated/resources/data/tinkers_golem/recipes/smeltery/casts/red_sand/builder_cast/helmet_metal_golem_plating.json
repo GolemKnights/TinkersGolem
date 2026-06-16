@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:item_part_builder",
+  "pattern": "tinkers_golem:helmet_metal_golem_plating",
+  "pattern_item": {
+    "tag": "tconstruct:casts/red_sand"
+  },
+  "result": "tinkers_golem:helmet_metal_golem_plating_red_sand_cast"
+}

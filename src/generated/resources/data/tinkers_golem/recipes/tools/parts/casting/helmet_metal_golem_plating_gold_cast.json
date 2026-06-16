@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:table_casting_material",
+  "cast": {
+    "tag": "tinkers_golem:casts/multi_use/helmet_metal_golem_plating"
+  },
+  "item_cost": 19,
+  "result": "tinkers_golem:helmet_metal_golem_plating"
+}
