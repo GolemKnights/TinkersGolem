@@ -1,0 +1,16 @@
+{
+  "type": "tconstruct:part_builder",
+  "cost": 44,
+  "pattern": "tinkers_golem:chestplate_metal_golem_plating",
+  "pattern_item": [
+    {
+      "tag": "tconstruct:patterns/default"
+    },
+    {
+      "item": "tinkers_golem:chestplate_metal_golem_plating_cast"
+    }
+  ],
+  "result": {
+    "item": "tinkers_golem:chestplate_metal_golem_plating"
+  }
+}
