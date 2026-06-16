@@ -3,9 +3,18 @@
     {
       "type": "tconstruct:part_stats",
       "parts": [
-        "tconstruct:boots_plating",
-        "tconstruct:boots_plating",
-        "tconstruct:boots_plating"
+        {
+          "item": "tinkers_golem:boots_metal_golem_plating",
+          "scale": 0.6
+        },
+        {
+          "item": "tconstruct:boots_plating",
+          "scale": 0.2
+        },
+        {
+          "item": "tconstruct:boots_plating",
+          "scale": 0.2
+        }
       ],
       "primary_part": 0
     },
@@ -31,13 +40,9 @@
     {
       "type": "tconstruct:modifier_slots",
       "slots": {
-        "defense": 3,
+        "defense": 2,
         "upgrades": 2
       }
-    },
-    {
-      "type": "tconstruct:fixed_material_name",
-      "index": 0
     }
   ]
 }
