@@ -11,6 +11,7 @@ import dev.xkmc.modulargolems.init.data.MGConfig;
 import golemknights.tinkersgolem.client.DynamicBreakParticleOption;
 import golemknights.tinkersgolem.events.GolemOverslimeEvents;
 import golemknights.tinkersgolem.register.TGAttributes;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -37,6 +38,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.common.util.LazyOptional;
 
 import javax.annotation.Nullable;
 import java.util.*;
@@ -51,6 +55,9 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	public float squish;
 	public float oSquish;
 	private boolean wasOnGround;
+
+	@SerialClass.SerialField
+	private final SlimeTank tank = new SlimeTank(4, 1000);
 
 	public SlimeGolemEntity(EntityType<SlimeGolemEntity> type, Level level) {
 		super(type, level);
@@ -363,6 +370,14 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	public int getPreviewScale() {
 		if (!isAddedToWorld()) return 60;
 		return 60 / getSize();
+	}
+
+	@Override
+	public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction facing) {
+		if (capability == ForgeCapabilities.FLUID_HANDLER) {
+			return LazyOptional.of(() -> tank).cast();
+		}
+		return super.getCapability(capability, facing);
 	}
 
 }
