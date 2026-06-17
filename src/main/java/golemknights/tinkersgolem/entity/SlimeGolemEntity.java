@@ -37,9 +37,19 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.templates.FluidTank;
+import slimeknights.mantle.fluid.FluidTransferHelper;
+import slimeknights.tconstruct.library.modifiers.fluid.FluidEffectContext;
+import slimeknights.tconstruct.library.modifiers.fluid.FluidEffectManager;
+import slimeknights.tconstruct.library.modifiers.fluid.FluidEffects;
+import slimeknights.tconstruct.library.utils.NBTTags;
 
 import javax.annotation.Nullable;
 import java.util.*;
+
+import static slimeknights.tconstruct.tools.modifiers.ability.fluid.UseFluidOnHitModifier.spawnParticles;
 
 
 @SerialClass
@@ -47,6 +57,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 
 	private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(SlimeGolemEntity.class, EntityDataSerializers.INT);
 
+    protected FluidTank fluid = new FluidTank(10000);
 	public float targetSquish;
 	public float squish;
 	public float oSquish;
@@ -54,7 +65,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 
 	public SlimeGolemEntity(EntityType<SlimeGolemEntity> type, Level level) {
 		super(type, level);
-		this.fixupDimensions();
+        this.fixupDimensions();
 		this.moveControl = new SlimeMoveControl(this);
 	}
 
@@ -80,8 +91,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 
 	@Override
 	protected void registerGoals() {
-		super.registerGoals();
-		this.goalSelector.addGoal(2, meleeGoal);
+        this.goalSelector.addGoal(2, meleeGoal);
 		this.goalSelector.addGoal(9, new SlimeKeepOnJumpingGoal(this));
 	}
 
@@ -96,10 +106,11 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		tryAddAttribute(Attributes.ATTACK_DAMAGE, new AttributeModifier("tinkers_golem.size_damage_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		tryAddAttribute(TGAttributes.MAX_OVERSLIME.get(), new AttributeModifier("tinkers_golem.size_overslime_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		tryAddAttribute(ForgeMod.ENTITY_REACH.get(), new AttributeModifier("tinkers_golem.size_reach_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
-		if (resetHealth) {
+        if (resetHealth) {
 			this.setGuardedDataImpl(this.getMaxHealth(), true, true);
 			float overslime = (float) getAttributeValue(TGAttributes.MAX_OVERSLIME.get());
 			GolemOverslimeEvents.setOverslime(this, overslime);
+            this.fluid.setCapacity(i * 2500);
 		}
 
 		this.xpReward = i;
@@ -109,16 +120,20 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		return this.entityData.get(ID_SIZE);
 	}
 
-	public void addAdditionalSaveData(CompoundTag p_33619_) {
-		super.addAdditionalSaveData(p_33619_);
-		p_33619_.putInt("Size", this.getSize() - 1);
-		p_33619_.putBoolean("wasOnGround", this.wasOnGround);
+	public void addAdditionalSaveData(CompoundTag tag) {
+		super.addAdditionalSaveData(tag);
+		tag.putInt("Size", this.getSize() - 1);
+		tag.putBoolean("wasOnGround", this.wasOnGround);
+        if (!fluid.isEmpty()) {
+            tag.put(NBTTags.TANK, fluid.writeToNBT(new CompoundTag()));
+        }
 	}
 
-	public void readAdditionalSaveData(CompoundTag p_33607_) {
-		this.setSize(p_33607_.getInt("Size") + 1, false);
-		super.readAdditionalSaveData(p_33607_);
-		this.wasOnGround = p_33607_.getBoolean("wasOnGround");
+	public void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+		this.setSize(tag.getInt("Size") + 1, false);
+		this.wasOnGround = tag.getBoolean("wasOnGround");
+        fluid.readFromNBT(tag.getCompound(NBTTags.TANK));
 	}
 
 	public boolean isTiny() {
@@ -136,23 +151,29 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		} else if (!this.canModify(player)) {
 			return super.mobInteractImpl(player, hand);
 		} else if (!player.isShiftKeyDown()) {
+            if (itemstack.isEmpty()){
+                return super.mobInteractImpl(player, hand);
+            }
+
+            boolean success = false;
+            if (!FluidTransferHelper.interactWithContainer(level(), this.getOnPos(), fluid, player, hand).didTransfer()) {
+                success = true;
+                FluidTransferHelper.interactWithFilledBucket(level(), this.getOnPos(), fluid, player, hand, player.getDirection().getOpposite());
+            }
+
 			if (itemstack.canEquip(EquipmentSlot.HEAD, this)) {
-				if (this.level().isClientSide()) {
-					return InteractionResult.SUCCESS;
-				}
+                success = true;
                 dropHelmet();
 				this.setItemSlot(EquipmentSlot.HEAD, itemstack.split(1));
-
-				GolemTriggers.EQUIP.trigger((ServerPlayer) player, 1);
-				return InteractionResult.CONSUME;
-			} else {
-				return InteractionResult.FAIL;
+                if (player instanceof ServerPlayer mp) {
+                    GolemTriggers.EQUIP.trigger(mp, 1);
+                }
 			}
-		} else {
-            dropHelmet();
 
-			return InteractionResult.SUCCESS;
+            return success ? (level().isClientSide() ? InteractionResult.SUCCESS : InteractionResult.CONSUME) : InteractionResult.FAIL;
 		}
+        dropHelmet();
+        return super.mobInteractImpl(player, hand);
 	}
     private void dropHelmet(){
         if (!this.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {
@@ -282,7 +303,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	}
 
 	@Override
-	public void remove(Entity.RemovalReason reason) {
+	public void remove(RemovalReason reason) {
 		int size = this.getSize();
 		if (!this.level().isClientSide && size > 1 && this.isDeadOrDying()) {
 			Component component = this.getCustomName();
@@ -302,14 +323,22 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 				float f2 = -0.5F * offset;
 				SlimeGolemEntity slime = this.getType().create(this.level());
 				if (slime == null) continue;
+
 				slime.onCreate(getMaterials(), split.get(i), getOwnerUUID());
 				slime.setCustomName(component);
 				slime.setNoAi(flag);
 				slime.setInvulnerable(this.isInvulnerable());
 				slime.setSize(nextSize, true);
+
+                FluidStack fluid = this.getFluid();
+                if (!fluid.isEmpty()){
+                    fluid.setAmount(fluid.getAmount() / 2);
+                }
 				if (i == helmetIndex) {
 					slime.setItemSlot(EquipmentSlot.HEAD, helmet.copy());
-				}
+                    slime.setFluid(fluid);
+				}else slime.setFluid(fluid);
+
 				slime.moveTo(this.getX() + (double) f1, this.getY() + (double) 0.5F, this.getZ() + (double) f2, this.random.nextFloat() * 360.0F, 0.0F);
 				this.level().addFreshEntity(slime);
 			}
@@ -338,6 +367,24 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		return this.getSize() > 0;
 	}
 
+    @Override
+    public void doEnchantDamageEffects(LivingEntity attacker, Entity target) {
+        FluidStack fluid = this.getFluid();
+        LivingEntity livingTarget = target instanceof LivingEntity living ? living : null;
+        if (!fluid.isEmpty()) {
+            FluidEffects recipe = FluidEffectManager.INSTANCE.find(fluid.getFluid());
+            if (recipe.hasEntityEffects()) {
+                int consumed = recipe.applyToEntity(fluid, this.getSize(), FluidEffectContext.builder(attacker.level()).user(attacker, null).target(target, livingTarget), IFluidHandler.FluidAction.EXECUTE);
+                if (consumed > 0) {
+                    spawnParticles(target, fluid);
+                    fluid.shrink(consumed);
+                    setFluid(fluid);
+                }
+            }
+        }
+        super.doEnchantDamageEffects(attacker, target);
+    }
+
 	@Override
 	protected float getStandingEyeHeight(Pose pose, EntityDimensions dimensions) {
 		return 0.625F * dimensions.height;
@@ -363,4 +410,11 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		return 60 / getSize();
 	}
 
+    public FluidStack getFluid() {
+        return this.fluid.getFluid();
+    }
+
+    public void setFluid(FluidStack fluid) {
+       this.fluid.setFluid(fluid);
+    }
 }

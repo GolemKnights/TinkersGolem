@@ -22,6 +22,7 @@ public class OvershockModifier extends GolemModifier {
             for (LivingEntity living : list) {
                 if (!(living instanceof AbstractGolemEntity)){
                     living.hurt(slime.damageSources().mobAttack(slime), (float) slime.getAttributeValue(Attributes.ATTACK_DAMAGE));
+                    golem.doEnchantDamageEffects(golem, living);
                 }
             }
         }
