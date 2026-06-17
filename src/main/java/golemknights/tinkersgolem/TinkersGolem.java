@@ -54,9 +54,9 @@ public class TinkersGolem {
 
 	public TinkersGolem() {
 		TGItems.load();
+		TGAttributes.load();
 		TGEntities.load();
 		TGParticles.load();
-		TGAttributes.load();
 		TGGolemModifiers.load();
 		TGRecipes.load();
 		MinecraftForge.EVENT_BUS.register(this);

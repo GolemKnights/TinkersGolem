@@ -2,6 +2,7 @@ package golemknights.tinkersgolem.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+import dev.xkmc.modulargolems.content.core.GolemSlot;
 import dev.xkmc.modulargolems.content.core.IGolemPart;
 import dev.xkmc.modulargolems.content.item.golem.GolemPart;
 import golemknights.tinkersgolem.register.TGEntities;
@@ -14,8 +15,19 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Locale;
 
 public enum SlimeGolemPartType implements IGolemPart<SlimeGolemPartType> {
-	CORE,
-	SHELL;
+	CORE(GolemSlot.MIDDLE),
+	SHELL(GolemSlot.DOWN);
+
+	private final GolemSlot slot;
+
+	SlimeGolemPartType(GolemSlot slot) {
+		this.slot = slot;
+	}
+
+	@Override
+	public GolemSlot getSlot() {
+		return slot;
+	}
 
 	public MutableComponent getDesc(MutableComponent desc) {
 		return Component.translatable("golem_part.slime_golem." +

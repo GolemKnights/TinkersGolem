@@ -37,15 +37,12 @@ public class TGAttributes {
 	 * Adds attributes.
 	 */
 	public static void setupAttributes(EntityAttributeModificationEvent event) {
-		if (event.getTypes().contains(GolemTypes.ENTITY_GOLEM.get())) {
-			event.add(GolemTypes.ENTITY_GOLEM.get(), MAX_OVERSLIME.get());
-		}
-		if (event.getTypes().contains(GolemTypes.ENTITY_HUMANOID.get())) {
-			event.add(GolemTypes.ENTITY_HUMANOID.get(), MAX_OVERSLIME.get());
-		}
-		if (event.getTypes().contains(GolemTypes.ENTITY_DOG.get())) {
-			event.add(GolemTypes.ENTITY_DOG.get(), MAX_OVERSLIME.get());
-		}
+		event.add(GolemTypes.ENTITY_GOLEM.get(), MAX_OVERSLIME.get());
+		event.add(GolemTypes.ENTITY_HUMANOID.get(), MAX_OVERSLIME.get());
+		event.add(GolemTypes.ENTITY_DOG.get(), MAX_OVERSLIME.get());
+		event.add(GolemTypes.ENTITY_GOLEM.get(), OVERSLIME_RECOVERY.get());
+		event.add(GolemTypes.ENTITY_HUMANOID.get(), OVERSLIME_RECOVERY.get());
+		event.add(GolemTypes.ENTITY_DOG.get(), OVERSLIME_RECOVERY.get());
 	}
 
 	public static void load() {
