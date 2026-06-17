@@ -43,6 +43,11 @@ public class GolemOverslimeEvents {
 	}
 
 	public static void addOverslime(LivingEntity entity, float amount) {
+		if (amount > 0) {
+			var ins = entity.getAttribute(TGAttributes.OVERSLIME_RECOVERY.get());
+			if (ins != null)
+				amount *= (float) ins.getValue();
+		}
 		setOverslime(entity, getOverslime(entity) + amount);
 	}
 

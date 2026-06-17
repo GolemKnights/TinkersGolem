@@ -210,12 +210,9 @@ dependencies {
     implementation fg.deobf("dev.xkmc.l2itemselector:l2itemselector:0.2.1")
     implementation fg.deobf("dev.xkmc.l2damagetracker:l2damagetracker:0.3.7")
     implementation fg.deobf("dev.xkmc.mob_weapon_api:mob_weapon_api:0.2.14")
+    implementation fg.deobf("dev.xkmc.l2modularblock:l2modularblock:1.1.0")
     implementation fg.deobf("dev.xkmc.modulargolems:modulargolems:${modulargolems_version}-slim")
 
-    implementation fg.deobf(jarJar("dev.xkmc.l2modularblock:l2modularblock:1.1.0")) {
-        transitive = false
-        jarJar.ranged(it, "[1.1.0,)")
-    }
 
     implementation fg.deobf("slimeknights.mantle:Mantle:${minecraft_version}-${mantle_version}")
     implementation fg.deobf("slimeknights.tconstruct:TConstruct:${minecraft_version}-${tconstruct_version}")
