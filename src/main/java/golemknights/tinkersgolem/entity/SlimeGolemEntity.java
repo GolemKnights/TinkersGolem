@@ -8,6 +8,7 @@ import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
 import dev.xkmc.modulargolems.init.advancement.GolemTriggers;
 import dev.xkmc.modulargolems.init.data.MGConfig;
+import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.client.DynamicBreakParticleOption;
 import golemknights.tinkersgolem.events.GolemOverslimeEvents;
 import golemknights.tinkersgolem.register.TGAttributes;
@@ -57,12 +58,15 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	private boolean wasOnGround;
 
 	@SerialClass.SerialField
-	private final SlimeTank tank = new SlimeTank(4, 1000);
+	protected final SlimeTank tank = new SlimeTank(4, 1000);
 
 	public SlimeGolemEntity(EntityType<SlimeGolemEntity> type, Level level) {
 		super(type, level);
 		this.fixupDimensions();
 		this.moveControl = new SlimeMoveControl(this);
+		if (!level.isClientSide()) {
+			tank.add(() -> TinkersGolem.HANDLER.toTrackingPlayers(new SlimeTankSyncPacket(this, tank), this));
+		}
 	}
 
 	private void tryAddAttribute(Attribute attribute, AttributeModifier modifier) {
