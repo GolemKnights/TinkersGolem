@@ -1,16 +1,16 @@
 {
   "filters": {
     "tinkers_golem:slime_golem_core": {
-      "ATTACK": 0.0,
+      "ATTACK": 1.0,
       "HEAD": 1.0,
-      "HEALTH": 1.0,
+      "HEALTH": 0.5,
       "MASS": 0.5,
       "MOVEMENT": 0.0
     },
     "tinkers_golem:slime_golem_shell": {
-      "ATTACK": 1.0,
+      "ATTACK": 0.0,
       "HEAD": 0.0,
-      "HEALTH": 0.0,
+      "HEALTH": 0.5,
       "MASS": 0.5,
       "MOVEMENT": 1.0
     }
@@ -18,7 +18,7 @@
   "magnifiers": {
     "tinkers_golem:slime_golem": {
       "modulargolems:attack": 0.4,
-      "modulargolems:max_health": 0.5,
+      "modulargolems:max_health": 0.8,
       "modulargolems:regen": 1.0,
       "modulargolems:sweep": 0.0
     }
