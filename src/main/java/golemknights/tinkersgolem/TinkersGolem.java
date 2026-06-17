@@ -4,6 +4,8 @@ import com.tterrag.registrate.providers.ProviderType;
 import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
+import golemknights.tinkersgolem.cap.OverslimeCap;
+import golemknights.tinkersgolem.cap.OverslimeSyncPacket;
 import golemknights.tinkersgolem.data.TGConfigGen;
 import golemknights.tinkersgolem.data.TGLang;
 import golemknights.tinkersgolem.data.TGRecipeGen;
@@ -25,6 +27,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
@@ -45,7 +48,9 @@ public class TinkersGolem {
 	public static final IEventBus MOD_BUS = FMLJavaModLoadingContext.get().getModEventBus();
 
 	public static final PacketHandlerWithConfig HANDLER = new PacketHandlerWithConfig(
-			getResource("main"), 1);
+			getResource("main"), 1,
+			e -> e.create(OverslimeSyncPacket.class, NetworkDirection.PLAY_TO_CLIENT)
+	);
 
 	public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(MODID);
 	public static final EntityTypeDeferredRegister ENTITIES = new EntityTypeDeferredRegister(MODID);
@@ -83,6 +88,7 @@ public class TinkersGolem {
 		// GDWorldGen.register();
 		// GDTriggers.register();
 		// GDConfig.init();
+		OverslimeCap.register();
 		AttackEventHandler.register(3516, new TGAttackListener());
 	}
 

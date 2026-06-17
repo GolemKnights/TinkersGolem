@@ -22,5 +22,6 @@
   "modifier.tinkers_golem.overteleport": "Overteleport",
   "modifier.tinkers_golem.overteleport.desc": "Teleport target when dealing damage, or teleport itself when taking damage",
   "modifier.tinkers_golem.overworked": "Overworked",
+  "tinkers_golem.info.overslime": "Overslime: %s/%s",
   "tinkers_golem.max_overslime": "Max Overslime"
 }
