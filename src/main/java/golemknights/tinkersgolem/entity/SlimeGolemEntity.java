@@ -69,8 +69,6 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	public void onCreate(ArrayList<GolemMaterial> materials, ArrayList<IUpgradeItem> upgrades, @Nullable UUID owner) {
 		super.onCreate(materials, upgrades, owner);
 		setSize(4, true);
-		float overslime = (float) getAttributeValue(TGAttributes.MAX_OVERSLIME.get());
-		GolemOverslimeEvents.setOverslime(this, overslime);
 	}
 
 	@Override
@@ -98,7 +96,8 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		tryAddAttribute(TGAttributes.MAX_OVERSLIME.get(), new AttributeModifier("tinkers_golem.size_overslime_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		if (resetHealth) {
 			this.setHealth(this.getMaxHealth());
-			GolemOverslimeEvents.setOverslime(this, 99999);
+			float overslime = (float) getAttributeValue(TGAttributes.MAX_OVERSLIME.get());
+			GolemOverslimeEvents.setOverslime(this, overslime);
 		}
 
 		this.xpReward = i;
