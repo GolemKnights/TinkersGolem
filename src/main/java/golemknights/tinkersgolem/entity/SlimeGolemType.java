@@ -9,9 +9,14 @@ import dev.xkmc.modulargolems.content.menu.equipment.EquipmentsMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
+import java.util.Optional;
 import java.util.function.Supplier;
 
 public class SlimeGolemType extends GolemType<SlimeGolemEntity, SlimeGolemPartType> {
+
+	public static float getSize(ItemStack stack) {
+		return Optional.ofNullable(stack.getTag()).filter((e) -> e.contains("golem_entity")).map((e) -> e.getCompound("golem_entity")).map((e) -> e.getInt("Size") + 1).orElse(4);
+	}
 
 	public SlimeGolemType(EntityEntry<SlimeGolemEntity> type, Supplier<ModelProvider<SlimeGolemEntity, SlimeGolemPartType>> model) {
 		super(type, SlimeGolemPartType::values, SlimeGolemPartType.CORE, model);
@@ -30,6 +35,11 @@ public class SlimeGolemType extends GolemType<SlimeGolemEntity, SlimeGolemPartTy
 	@Override
 	public ItemStack getMenuIcon(SlimeGolemEntity golem) {
 		return Items.DIAMOND_HELMET.getDefaultInstance();
+	}
+
+	@Override
+	public boolean mayEdit(ItemStack stack) {
+		return getSize(stack) == 4;
 	}
 
 }
