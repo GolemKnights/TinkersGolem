@@ -8,6 +8,7 @@ import golemknights.tinkersgolem.data.TGConfigGen;
 import golemknights.tinkersgolem.data.TGLang;
 import golemknights.tinkersgolem.data.TGRecipeGen;
 import golemknights.tinkersgolem.data.TGTagGen;
+import golemknights.tinkersgolem.entity.SlimeTankSyncPacket;
 import golemknights.tinkersgolem.events.TGAttackListener;
 import golemknights.tinkersgolem.register.*;
 import net.minecraft.core.particles.ParticleType;
@@ -25,6 +26,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
@@ -45,7 +47,9 @@ public class TinkersGolem {
 	public static final IEventBus MOD_BUS = FMLJavaModLoadingContext.get().getModEventBus();
 
 	public static final PacketHandlerWithConfig HANDLER = new PacketHandlerWithConfig(
-			getResource("main"), 1);
+			getResource("main"), 1,
+			e -> e.create(SlimeTankSyncPacket.class, NetworkDirection.PLAY_TO_CLIENT)
+	);
 
 	public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(MODID);
 	public static final EntityTypeDeferredRegister ENTITIES = new EntityTypeDeferredRegister(MODID);
