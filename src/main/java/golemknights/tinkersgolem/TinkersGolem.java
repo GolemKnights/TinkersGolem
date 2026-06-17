@@ -14,6 +14,7 @@ import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.common.MinecraftForge;
@@ -52,6 +53,13 @@ public class TinkersGolem {
 	public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, MODID);
 	public static final SynchronizedDeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = SynchronizedDeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, MODID);
 	public static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, MODID);
+	public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
+	// public static final ConfigTypeEntry<SpawnConfig> SPAWN = new
+	// ConfigTypeEntry<>(HANDLER, "spawn", SpawnConfig.class);
+	// public static final ConfigTypeEntry<EquipmentConfig> ITEMS = new
+	// ConfigTypeEntry<>(HANDLER, "equipment", EquipmentConfig.class);
+	// public static final ConfigTypeEntry<TrialConfig> TRIAL = new
+	// ConfigTypeEntry<>(HANDLER, "trial", TrialConfig.class);
 
 	public TinkersGolem() {
 		TGItems.load();
@@ -67,6 +75,7 @@ public class TinkersGolem {
 		RECIPE_TYPES.register(MOD_BUS);
 		RECIPE_SERIALIZERS.register(MOD_BUS);
 		ATTRIBUTES.register(MOD_BUS);
+		TABS.register(MOD_BUS);
 		TGTinkersModifiers.registers(MOD_BUS);
 		MOD_BUS.addListener(TGAttributes::setupAttributes);
 		// GDItems.register();
