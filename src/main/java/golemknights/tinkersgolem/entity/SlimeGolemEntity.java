@@ -55,18 +55,13 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		super(type, level);
 		this.fixupDimensions();
 		this.moveControl = new SlimeMoveControl(this);
-		if (!level.isClientSide) {
-			tryAddAttribute(Attributes.ARMOR, new AttributeModifier("tinkers_golem.small_armor_bonus", 3, AttributeModifier.Operation.MULTIPLY_TOTAL));
-			tryAddAttribute(Attributes.ARMOR_TOUGHNESS, new AttributeModifier("tinkers_golem.small_toughness_bonus", 3, AttributeModifier.Operation.MULTIPLY_TOTAL));
-			tryAddAttribute(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier("tinkers_golem.small_resistence_bonus", 3, AttributeModifier.Operation.MULTIPLY_TOTAL));
-		}
 	}
 
 	private void tryAddAttribute(Attribute attribute, AttributeModifier modifier) {
 		AttributeInstance instance = getAttribute(attribute);
 		if (instance != null) {
 			instance.removeModifier(modifier.getId());
-			instance.addTransientModifier(modifier);
+			instance.addPermanentModifier(modifier);
 		}
 	}
 
@@ -74,6 +69,8 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	public void onCreate(ArrayList<GolemMaterial> materials, ArrayList<IUpgradeItem> upgrades, @Nullable UUID owner) {
 		super.onCreate(materials, upgrades, owner);
 		setSize(4, true);
+		var overslime = getAttributeValue(TGAttributes.MAX_OVERSLIME.get());
+		GolemOverslimeEvents.setOverslime(this, overslime);
 	}
 
 	@Override
