@@ -15,9 +15,15 @@
   },
   "modifiers": {
     "tinkers_golem:earth_slime": {},
-    "tinkers_golem:ender_slime": {},
-    "tinkers_golem:ichor": {},
-    "tinkers_golem:sky_slime": {}
+    "tinkers_golem:ender_slime": {
+      "tinkers_golem:overteleport": 1
+    },
+    "tinkers_golem:ichor": {
+      "tinkers_golem:overboking": 1
+    },
+    "tinkers_golem:sky_slime": {
+      "tinkers_golem:overshock": 1
+    }
   },
   "partLimitation": {
     "modulargolems:copper": [

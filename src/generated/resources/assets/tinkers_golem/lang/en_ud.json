@@ -10,11 +10,17 @@
   "item.tinkers_golem.slime_golem_core": "ǝɹoƆ ɯǝןo⅁ ǝɯıןS",
   "item.tinkers_golem.slime_golem_holder": "ɹǝpןoH ɯǝןo⅁ ǝɯıןS",
   "item.tinkers_golem.slime_golem_shell": "ןןǝɥS ɯǝןo⅁ ǝɯıןS",
+  "modifier.tinkers_golem.overboking": "buıʞoqɹǝʌO",
+  "modifier.tinkers_golem.overboking.desc": "ǝbɐɯɐp buıןɐǝp uǝɥʍ ʇǝbɹɐʇ ǝɥʇ ʎɐʍɐ ɥsnd oʇ ǝɔuɐɥɔ ɐ sɐH",
   "modifier.tinkers_golem.overforced": "pǝɔɹoɟɹǝʌO",
   "modifier.tinkers_golem.overgrowth": "ɥʇʍoɹbɹǝʌO",
   "modifier.tinkers_golem.overgrowth.desc": "ǝɯıʇ ɹǝʌo ǝɯıןsɹǝʌo ɹǝʌoɔǝɹ ʎןʍoןS",
   "modifier.tinkers_golem.overlord": "pɹoןɹǝʌO",
   "modifier.tinkers_golem.overlord.desc": "uǝʞɐʇ ǝbɐɯɐp ɟo %s%% ʎq ǝɯıןsɹǝʌo ɹǝʌoɔǝɹ 'ǝbɐɯɐp buıʞɐʇ uǝɥM",
+  "modifier.tinkers_golem.overshock": "ʞɔoɥsɹǝʌO",
+  "modifier.tinkers_golem.overshock.desc": "buıpuɐן uodn ǝbɐɯɐp ɐǝɹɐ ןɐǝp oʇ ǝɔuɐɥɔ ɐ sɐH",
+  "modifier.tinkers_golem.overteleport": "ʇɹodǝןǝʇɹǝʌO",
+  "modifier.tinkers_golem.overteleport.desc": "ǝbɐɯɐp buıʞɐʇ uǝɥʍ ɟןǝsʇı ʇɹodǝןǝʇ ɹo 'ǝbɐɯɐp buıןɐǝp uǝɥʍ ʇǝbɹɐʇ ʇɹodǝןǝ⟘",
   "modifier.tinkers_golem.overworked": "pǝʞɹoʍɹǝʌO",
   "tinkers_golem.max_overslime": "ǝɯıןsɹǝʌO xɐW"
 }

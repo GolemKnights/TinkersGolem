@@ -124,43 +124,47 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	public boolean isTiny() {
 		return this.getSize() <= 1;
 	}
+    public boolean wasOnGround() {
+        return wasOnGround;
+    }
 
 	@Override
 	protected InteractionResult mobInteractImpl(Player player, InteractionHand hand) {
 		ItemStack itemstack = player.getItemInHand(hand);
 		if (MGConfig.COMMON.strictInteract.get() && !itemstack.isEmpty()) {
 			return InteractionResult.PASS;
-		} else if (itemstack.isEmpty() || !this.canModify(player)) {
+		} else if (!this.canModify(player)) {
 			return super.mobInteractImpl(player, hand);
 		} else if (!player.isShiftKeyDown()) {
 			if (itemstack.canEquip(EquipmentSlot.HEAD, this)) {
 				if (this.level().isClientSide()) {
 					return InteractionResult.SUCCESS;
 				}
-				if (!this.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {
-					this.dropSlot(EquipmentSlot.HEAD, false);
-				}
-
+                dropHelmet();
 				this.setItemSlot(EquipmentSlot.HEAD, itemstack.split(1));
+
 				GolemTriggers.EQUIP.trigger((ServerPlayer) player, 1);
 				return InteractionResult.CONSUME;
 			} else {
 				return InteractionResult.FAIL;
 			}
 		} else {
-			for (EquipmentSlot slot : EquipmentSlot.values()) {
-				this.dropSlot(slot, false);
-			}
+            dropHelmet();
 
 			return InteractionResult.SUCCESS;
 		}
 	}
+    private void dropHelmet(){
+        if (!this.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {
+            this.dropSlot(EquipmentSlot.HEAD, false);
+        }
+    }
 
 	public void tick() {
 		this.squish += (this.targetSquish - this.squish) * 0.5F;
 		this.oSquish = this.squish;
 		super.tick();
-		if (this.onGround() && !this.wasOnGround) {
+		if (this.onGround() && !wasOnGround()) {
 			int i = this.getSize();
 			for (int j = 0; j < i * 8; ++j) {
 				float f = this.random.nextFloat() * ((float) Math.PI * 2F);
@@ -176,7 +180,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 
 			this.playSound(this.getSquishSound(), this.getSoundVolume(), ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) / 0.8F);
 			this.targetSquish = -0.5F;
-		} else if (!this.onGround() && this.wasOnGround) {
+		} else if (!this.onGround() && this.wasOnGround()) {
 			this.targetSquish = 1.0F;
 		}
 

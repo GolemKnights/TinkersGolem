@@ -71,6 +71,7 @@ public class TGConfigGen extends ConfigDataProvider {
 				.addStat(GolemTypes.STAT_HEALTH.get(), 40)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 10)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
+                .addModifier(TGGolemModifiers.OVERSHOCK.get(), 1)
 				.end()
 
 				.addMaterial(TinkersGolem.getResource("ichor"), Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ICHOR)))
@@ -78,6 +79,7 @@ public class TGConfigGen extends ConfigDataProvider {
 				.addStat(GolemTypes.STAT_HEALTH.get(), 40)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 10)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
+                .addModifier(TGGolemModifiers.OVERBOKING.get(), 1)
 				.end()
 
 				.addMaterial(TinkersGolem.getResource("ender_slime"), Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ENDER)))
@@ -85,6 +87,7 @@ public class TGConfigGen extends ConfigDataProvider {
 				.addStat(GolemTypes.STAT_HEALTH.get(), 30)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 10)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
+                .addModifier(TGGolemModifiers.OVERTELEPORT.get(), 1)
 				.end()
 
 				.supportsDefaultAnd(List.of(TGEntities.SLIME_CORE.get()),
