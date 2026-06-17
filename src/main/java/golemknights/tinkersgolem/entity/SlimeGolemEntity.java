@@ -95,7 +95,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		tryAddAttribute(Attributes.ATTACK_DAMAGE, new AttributeModifier("tinkers_golem.size_damage_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		tryAddAttribute(TGAttributes.MAX_OVERSLIME.get(), new AttributeModifier("tinkers_golem.size_overslime_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		if (resetHealth) {
-			this.setHealth(this.getMaxHealth());
+			this.setGuardedDataImpl(this.getMaxHealth(), true, true);
 			float overslime = (float) getAttributeValue(TGAttributes.MAX_OVERSLIME.get());
 			GolemOverslimeEvents.setOverslime(this, overslime);
 		}
