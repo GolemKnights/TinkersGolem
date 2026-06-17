@@ -21,7 +21,8 @@ public class TGTabs {
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("tabs.tinkerdgolem.items"))
                     .icon(()->TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).getRenderTool())
-                    .displayItems((displayParameters, output) ->{
+                    .displayItems(
+                            (displayParameters, output) ->{
                                 ;
                             }
                     )
@@ -33,8 +34,14 @@ public class TGTabs {
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("tabs.tinkerdgolem.tools"))
                     .icon(()->TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).getRenderTool())
-                    .displayItems((displayParameters, output) ->{
-                                TGItems.metalGolemArmor.forEach((item)-> acceptTool(output::accept, item));
+                    .displayItems(
+                            (displayParameters, output) -> {
+                                acceptCast(output, TGItems.helmetMetalGolemPlatingCast);
+                                acceptCast(output, TGItems.chestplateMetalGolemPlatingCast);
+                                acceptCast(output, TGItems.leggingsMetalGolemPlatingCast);
+                                acceptCast(output, TGItems.bootsMetalGolemPlatingCast);
+                                TGItems.metal_golem_plating.forEach((item) -> acceptPart(output::accept, item));
+                                TGItems.metalGolemArmor.forEach((item) -> acceptTool(output::accept, item));
                             }
                     )
                     .withTabsBefore(TinkerTools.tabTools.getId())
