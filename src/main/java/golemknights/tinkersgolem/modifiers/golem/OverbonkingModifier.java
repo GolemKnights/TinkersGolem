@@ -22,7 +22,7 @@ public class OverbonkingModifier extends GolemModifier {
 	@Override
     public void onHurtTarget(AbstractGolemEntity<?, ?> entity, LivingHurtEvent event, int level) {
         LivingEntity target = event.getEntity();
-        if (target instanceof LivingEntity && entity.getRandom().nextInt(10) < level) {
+        if (target instanceof LivingEntity && entity.getRandom().nextInt(10) < level * 2) {
             Vec3 angle = new Vec3(getAngle(entity, target), getAngle(entity, target), getAngle(entity, target));
             target.push(4, angle.x, angle.z);
             entity.level().playSound(null, entity.getX(), entity.getY(), entity.getZ(), Sounds.BONK.getSound(), entity.getSoundSource(), 1, 0.5f);
