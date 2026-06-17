@@ -14,5 +14,6 @@
   "modifier.tinkers_golem.overgrowth.desc": "Slowly recover overslime over time",
   "modifier.tinkers_golem.overlord": "Overlord",
   "modifier.tinkers_golem.overlord.desc": "When taking damage, recover overslime by %s%% of damage taken",
+  "modifier.tinkers_golem.overworked": "Overworked",
   "tinkers_golem.max_overslime": "Max Overslime"
 }

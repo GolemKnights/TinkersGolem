@@ -21,9 +21,11 @@ import static golemknights.tinkersgolem.TinkersGolem.MODID;
 
 public class TGAttributes {
 	public static final RegistryObject<Attribute> MAX_OVERSLIME = ATTRIBUTES.register("max_overslime", () -> new RangedAttribute(MODID + ".max_overslime", 0, 0, Integer.MAX_VALUE).setSyncable(true));
+	public static final RegistryObject<Attribute> OVERSLIME_RECOVERY = ATTRIBUTES.register("overslime_recovery", () -> new RangedAttribute(MODID + ".overslime_recovery", 1, 0, Integer.MAX_VALUE).setSyncable(true));
 
 	public static final RegistryEntry<GolemStatType> STAT_OVERSLIME = regStat("max_overslime", MAX_OVERSLIME, GolemStatType.Kind.ADD, StatFilterType.MASS);
 	public static final RegistryEntry<GolemStatType> STAT_OVERSLIME_BONUS = regStat("overslime_bonus", MAX_OVERSLIME, GolemStatType.Kind.PERCENT, StatFilterType.MASS);
+	public static final RegistryEntry<GolemStatType> STAT_OVERSLIME_RECOVERY = regStat("overslime_recovery", OVERSLIME_RECOVERY, GolemStatType.Kind.PERCENT, StatFilterType.MASS);
 
 	@SuppressWarnings("removal")
 	private static RegistryEntry<GolemStatType> regStat(String id, Supplier<Attribute> sup, GolemStatType.Kind kind, StatFilterType type) {
