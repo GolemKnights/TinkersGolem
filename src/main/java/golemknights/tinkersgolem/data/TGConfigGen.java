@@ -54,7 +54,7 @@ public class TGConfigGen extends ConfigDataProvider {
 		);
 
 		map.add(ModularGolems.MATERIALS, TinkersGolem.getResource("slime"), new GolemMaterialConfig()
-				.addMaterial(TinkersGolem.getResource("slime"), Ingredient.of(Items.SLIME_BALL))
+				.addMaterial(TinkersGolem.getResource("earth_slime"), Ingredient.of(Items.SLIME_BALL))
 				.onlyFor(TGTagGen.SLIME_PART)
 				.addStat(GolemTypes.STAT_HEALTH.get(), 50)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 15)
@@ -67,6 +67,13 @@ public class TGConfigGen extends ConfigDataProvider {
 				.addStat(GolemTypes.STAT_ATTACK.get(), 10)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
 				.end()
+
+                .addMaterial(TinkersGolem.getResource("ichor"), Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ICHOR)))
+                .onlyFor(TGTagGen.SLIME_PART)
+                .addStat(GolemTypes.STAT_HEALTH.get(), 40)
+                .addStat(GolemTypes.STAT_ATTACK.get(), 10)
+                .addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
+                .end()
 
 				.addMaterial(TinkersGolem.getResource("ender_slime"), Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ENDER)))
 				.onlyFor(TGTagGen.SLIME_PART)
@@ -84,7 +91,7 @@ public class TGConfigGen extends ConfigDataProvider {
 				.addStat(TGAttributes.STAT_OVERSLIME_BONUS.get(), 0.4)
 				.end()
 
-				.addMaterial(TConstruct.getResource("queenslime"), Ingredient.of(TinkerMaterials.queensSlime.getIngotTag()))
+				.addMaterial(TConstruct.getResource("queens_slime"), Ingredient.of(TinkerMaterials.queensSlime.getIngotTag()))
 				.addStat(GolemTypes.STAT_HEALTH.get(), 200)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 20)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 100)

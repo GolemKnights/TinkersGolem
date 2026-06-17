@@ -3,7 +3,7 @@
     "tconstruct:cinderslime": {
       "tag": "forge:ingots/cinderslime"
     },
-    "tconstruct:queenslime": {
+    "tconstruct:queens_slime": {
       "tag": "forge:ingots/queens_slime"
     },
     "tconstruct:slimesteel": {
@@ -14,7 +14,7 @@
     "tconstruct:cinderslime": {
       "modulargolems:fire_immune": 1
     },
-    "tconstruct:queenslime": {
+    "tconstruct:queens_slime": {
       "tinkers_golem:overlord": 2
     },
     "tconstruct:slimesteel": {}
@@ -24,7 +24,7 @@
     "tconstruct:cinderslime": {
       "tag": "forge:ingots/cinderslime"
     },
-    "tconstruct:queenslime": {
+    "tconstruct:queens_slime": {
       "tag": "forge:ingots/queens_slime"
     },
     "tconstruct:slimesteel": {
@@ -37,7 +37,7 @@
       "modulargolems:max_health": 200.0,
       "modulargolems:max_overslime": 50.0
     },
-    "tconstruct:queenslime": {
+    "tconstruct:queens_slime": {
       "modulargolems:attack": 20.0,
       "modulargolems:max_health": 200.0,
       "modulargolems:max_overslime": 100.0

@@ -7,7 +7,6 @@ import net.minecraft.world.entity.ai.control.MoveControl;
 class SlimeMoveControl extends MoveControl {
 	private int jumpDelay;
 	private final SlimeGolemEntity slime;
-	//private boolean isAggressive;
 
 	public SlimeMoveControl(SlimeGolemEntity golem) {
 		super(golem);

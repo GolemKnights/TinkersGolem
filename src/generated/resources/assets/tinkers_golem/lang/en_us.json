@@ -1,8 +1,9 @@
 {
   "entity.tinkers_golem.slime_golem": "Slime Golem",
+  "golem_material.tinkers_golem.earth_slime": "Earth Slime",
   "golem_material.tinkers_golem.ender_slime": "Ender Slime",
+  "golem_material.tinkers_golem.ichor": "Ichor",
   "golem_material.tinkers_golem.sky_slime": "Sky Slime",
-  "golem_material.tinkers_golem.slime": "Slime",
   "golem_part.slime_golem.core": "Core: %s",
   "golem_part.slime_golem.shell": "Shell: %s",
   "golem_type.tinkers_golem.slime_golem": "Slime Golem",

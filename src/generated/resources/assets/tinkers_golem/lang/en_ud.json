@@ -1,8 +1,9 @@
 {
   "entity.tinkers_golem.slime_golem": "ɯǝןo⅁ ǝɯıןS",
+  "golem_material.tinkers_golem.earth_slime": "ǝɯıןS ɥʇɹɐƎ",
   "golem_material.tinkers_golem.ender_slime": "ǝɯıןS ɹǝpuƎ",
+  "golem_material.tinkers_golem.ichor": "ɹoɥɔI",
   "golem_material.tinkers_golem.sky_slime": "ǝɯıןS ʎʞS",
-  "golem_material.tinkers_golem.slime": "ǝɯıןS",
   "golem_part.slime_golem.core": "%s :ǝɹoƆ",
   "golem_part.slime_golem.shell": "%s :ןןǝɥS",
   "golem_type.tinkers_golem.slime_golem": "ɯǝןo⅁ ǝɯıןS",

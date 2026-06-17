@@ -1,57 +1,72 @@
 {
   "ingredients": {
+    "tinkers_golem:earth_slime": {
+      "item": "minecraft:slime_ball"
+    },
     "tinkers_golem:ender_slime": {
       "item": "tconstruct:ender_slime_ball"
     },
+    "tinkers_golem:ichor": {
+      "item": "tconstruct:ichor_slime_ball"
+    },
     "tinkers_golem:sky_slime": {
       "item": "tconstruct:sky_slime_ball"
-    },
-    "tinkers_golem:slime": {
-      "item": "minecraft:slime_ball"
     }
   },
   "modifiers": {
+    "tinkers_golem:earth_slime": {},
     "tinkers_golem:ender_slime": {},
-    "tinkers_golem:sky_slime": {},
-    "tinkers_golem:slime": {}
+    "tinkers_golem:ichor": {},
+    "tinkers_golem:sky_slime": {}
   },
   "partLimitation": {
+    "tinkers_golem:earth_slime": {
+      "tag": "tinkers_golem:slime_part"
+    },
     "tinkers_golem:ender_slime": {
       "tag": "tinkers_golem:slime_part"
     },
-    "tinkers_golem:sky_slime": {
+    "tinkers_golem:ichor": {
       "tag": "tinkers_golem:slime_part"
     },
-    "tinkers_golem:slime": {
+    "tinkers_golem:sky_slime": {
       "tag": "tinkers_golem:slime_part"
     }
   },
   "repairIngredients": {
+    "tinkers_golem:earth_slime": {
+      "item": "minecraft:slime_ball"
+    },
     "tinkers_golem:ender_slime": {
       "item": "tconstruct:ender_slime_ball"
     },
+    "tinkers_golem:ichor": {
+      "item": "tconstruct:ichor_slime_ball"
+    },
     "tinkers_golem:sky_slime": {
       "item": "tconstruct:sky_slime_ball"
-    },
-    "tinkers_golem:slime": {
-      "item": "minecraft:slime_ball"
     }
   },
   "stats": {
+    "tinkers_golem:earth_slime": {
+      "modulargolems:attack": 15.0,
+      "modulargolems:max_health": 50.0,
+      "modulargolems:max_overslime": 70.0
+    },
     "tinkers_golem:ender_slime": {
       "modulargolems:attack": 10.0,
       "modulargolems:max_health": 30.0,
+      "modulargolems:max_overslime": 50.0
+    },
+    "tinkers_golem:ichor": {
+      "modulargolems:attack": 10.0,
+      "modulargolems:max_health": 40.0,
       "modulargolems:max_overslime": 50.0
     },
     "tinkers_golem:sky_slime": {
       "modulargolems:attack": 10.0,
       "modulargolems:max_health": 40.0,
       "modulargolems:max_overslime": 50.0
-    },
-    "tinkers_golem:slime": {
-      "modulargolems:attack": 15.0,
-      "modulargolems:max_health": 50.0,
-      "modulargolems:max_overslime": 70.0
     }
   }
 }

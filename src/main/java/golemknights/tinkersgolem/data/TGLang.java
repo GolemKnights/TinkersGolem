@@ -53,8 +53,9 @@ public enum TGLang {
 		}
 
 		pvd.add(TinkersGolem.MODID + ".max_overslime", "Max Overslime");
-		pvd.add("golem_material." + TinkersGolem.MODID + ".slime", "Slime");
+		pvd.add("golem_material." + TinkersGolem.MODID + ".earth_slime", "Earth Slime");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".sky_slime", "Sky Slime");
+        pvd.add("golem_material." + TinkersGolem.MODID + ".ichor", "Ichor");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".ender_slime", "Ender Slime");
 
 		for (var type : SlimeGolemPartType.values()) {
