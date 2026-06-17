@@ -9,9 +9,8 @@ import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
 import dev.xkmc.modulargolems.init.advancement.GolemTriggers;
 import dev.xkmc.modulargolems.init.data.MGConfig;
 import golemknights.tinkersgolem.client.DynamicBreakParticleOption;
+import golemknights.tinkersgolem.events.GolemOverslimeEvents;
 import golemknights.tinkersgolem.register.TGAttributes;
-import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -20,6 +19,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.DifficultyInstance;
@@ -32,6 +32,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -97,11 +98,12 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		this.reapplyPosition();
 		this.refreshDimensions();
 		tryAddAttribute(Attributes.MAX_HEALTH, new AttributeModifier("tinkers_golem.size_health_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
-		tryAddAttribute(Attributes.MOVEMENT_SPEED, new AttributeModifier("tinkers_golem.size_speed_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
+		tryAddAttribute(Attributes.MOVEMENT_SPEED, new AttributeModifier("tinkers_golem.size_speed_bonus", p / 2F, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		tryAddAttribute(Attributes.ATTACK_DAMAGE, new AttributeModifier("tinkers_golem.size_damage_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		tryAddAttribute(TGAttributes.MAX_OVERSLIME.get(), new AttributeModifier("tinkers_golem.size_overslime_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		if (resetHealth) {
 			this.setHealth(this.getMaxHealth());
+            GolemOverslimeEvents.setOverslime(this, 99999);
 		}
 
 		this.xpReward = i;
@@ -158,9 +160,21 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		}
 	}
 
-	protected ParticleOptions getParticleType() {
-		return ParticleTypes.ITEM_SLIME;
-	}
+    @Override
+    protected void hurtArmor(DamageSource source, float damage) {
+        if (!(damage <= 0.0F)) {
+            damage /= 4.0F;
+            if (damage < 1.0F) {
+                damage = 1.0F;
+            }
+
+            ItemStack itemstack = this.getItemBySlot(EquipmentSlot.HEAD);
+            if ((!source.is(DamageTypeTags.IS_FIRE) || !itemstack.getItem().isFireResistant()) && itemstack.getItem() instanceof ArmorItem) {
+                itemstack.hurtAndBreak((int)damage, this, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.HEAD));
+            }
+
+        }
+    }
 
 	public void tick() {
 		this.squish += (this.targetSquish - this.squish) * 0.5F;
