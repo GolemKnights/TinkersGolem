@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:tool_building",
+  "extra_requirements": [
+    [
+      {
+        "item": "modulargolems:metal_golem_template"
+      },
+      {
+        "item": "modulargolems:metal_golem_template"
+      }
+    ]
+  ],
+  "result": "tinkers_golem:metal_golem_chestplate",
+  "result_count": 1
+}

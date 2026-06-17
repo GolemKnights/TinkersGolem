@@ -5,6 +5,9 @@ import dev.xkmc.l2damagetracker.contents.attack.AttackEventHandler;
 import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
 import golemknights.tinkersgolem.data.TGConfigGen;
+import golemknights.tinkersgolem.data.TGStationSlotLayoutProvider;
+import golemknights.tinkersgolem.data.TGToolDefinitionDataProvider;
+import golemknights.tinkersgolem.data.TGToolsRecipeProvider;
 import golemknights.tinkersgolem.data.TGLang;
 import golemknights.tinkersgolem.data.TGRecipeGen;
 import golemknights.tinkersgolem.events.TGAttackListener;
@@ -30,6 +33,8 @@ import org.apache.logging.log4j.Logger;
 import slimeknights.mantle.registration.deferred.EntityTypeDeferredRegister;
 import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
+import slimeknights.tconstruct.common.registration.ItemDeferredRegisterExtension;
+import slimeknights.tconstruct.library.utils.Util;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(TinkersGolem.MODID)
@@ -45,7 +50,7 @@ public class TinkersGolem {
 	public static final PacketHandlerWithConfig HANDLER = new PacketHandlerWithConfig(
 			getResource("main"), 1);
 
-	public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(MODID);
+	public static final ItemDeferredRegisterExtension ITEMS = new ItemDeferredRegisterExtension(MODID);
 	public static final EntityTypeDeferredRegister ENTITIES = new EntityTypeDeferredRegister(MODID);
 	public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, MODID);
 	public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, MODID);
@@ -94,6 +99,9 @@ public class TinkersGolem {
 		var helper = event.getExistingFileHelper();
 		var server = event.includeServer();
 		gen.addProvider(server, new TGConfigGen(gen));
+		gen.addProvider(server, new TGToolDefinitionDataProvider(output));
+		gen.addProvider(server, new TGStationSlotLayoutProvider(output));
+		gen.addProvider(server, new TGToolsRecipeProvider(output));
 	}
 
 	/**
@@ -103,6 +111,9 @@ public class TinkersGolem {
 	 */
 	public static ResourceLocation getResource(String id) {
 		return new ResourceLocation(MODID, id);
+	}
+	public static String makeTranslationKey(String base, String name) {
+		return Util.makeTranslationKey(base, getResource(name));
 	}
 
 }
