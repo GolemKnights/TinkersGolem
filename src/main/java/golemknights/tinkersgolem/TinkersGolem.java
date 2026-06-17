@@ -7,6 +7,7 @@ import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
 import golemknights.tinkersgolem.data.TGConfigGen;
 import golemknights.tinkersgolem.data.TGLang;
 import golemknights.tinkersgolem.data.TGRecipeGen;
+import golemknights.tinkersgolem.data.TGTagGen;
 import golemknights.tinkersgolem.events.TGAttackListener;
 import golemknights.tinkersgolem.register.*;
 import net.minecraft.core.particles.ParticleType;
@@ -86,7 +87,7 @@ public class TinkersGolem {
 		// REGISTRATE.addDataGenerator(ProviderType.LOOT, GDLootGen::genLoot);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, TGRecipeGen::genRecipe);
 		// REGISTRATE.addDataGenerator(ProviderType.ADVANCEMENT, GDAdvGen::genAdv);
-		// REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, GDTagGen::genItemTag);
+		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TGTagGen::genItemTag);
 
 		var gen = event.getGenerator();
 		var output = gen.getPackOutput();
