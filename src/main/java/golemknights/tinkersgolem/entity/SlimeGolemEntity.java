@@ -124,9 +124,10 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	public boolean isTiny() {
 		return this.getSize() <= 1;
 	}
-    public boolean wasOnGround() {
-        return wasOnGround;
-    }
+
+	public boolean wasOnGround() {
+		return wasOnGround;
+	}
 
 	@Override
 	protected InteractionResult mobInteractImpl(Player player, InteractionHand hand) {
@@ -140,7 +141,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 				if (this.level().isClientSide()) {
 					return InteractionResult.SUCCESS;
 				}
-                dropHelmet();
+				dropHelmet();
 				this.setItemSlot(EquipmentSlot.HEAD, itemstack.split(1));
 
 				GolemTriggers.EQUIP.trigger((ServerPlayer) player, 1);
@@ -149,16 +150,17 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 				return super.mobInteractImpl(player, hand);
 			}
 		} else {
-            dropHelmet();
+			dropHelmet();
 
 			return InteractionResult.SUCCESS;
 		}
 	}
-    private void dropHelmet(){
-        if (!this.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {
-            this.dropSlot(EquipmentSlot.HEAD, false);
-        }
-    }
+
+	private void dropHelmet() {
+		if (!this.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {
+			this.dropSlot(EquipmentSlot.HEAD, false);
+		}
+	}
 
 	public void tick() {
 		this.squish += (this.targetSquish - this.squish) * 0.5F;
@@ -284,7 +286,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	@Override
 	public void remove(Entity.RemovalReason reason) {
 		int size = this.getSize();
-		if (!this.level().isClientSide && size > 1 && this.isDeadOrDying()) {
+		if (!this.level().isClientSide && size > 1 && this.isDeadOrDying() && reason == RemovalReason.KILLED) {
 			Component component = this.getCustomName();
 			boolean flag = this.isNoAi();
 			float offset = (float) size / 4.0F;
