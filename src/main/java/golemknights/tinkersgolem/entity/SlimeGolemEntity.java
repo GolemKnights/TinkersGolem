@@ -19,7 +19,6 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 import net.minecraft.world.DifficultyInstance;
@@ -32,7 +31,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -103,7 +101,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		tryAddAttribute(TGAttributes.MAX_OVERSLIME.get(), new AttributeModifier("tinkers_golem.size_overslime_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		if (resetHealth) {
 			this.setHealth(this.getMaxHealth());
-            GolemOverslimeEvents.setOverslime(this, 99999);
+			GolemOverslimeEvents.setOverslime(this, 99999);
 		}
 
 		this.xpReward = i;
@@ -159,22 +157,6 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 			return InteractionResult.SUCCESS;
 		}
 	}
-
-    @Override
-    protected void hurtArmor(DamageSource source, float damage) {
-        if (!(damage <= 0.0F)) {
-            damage /= 4.0F;
-            if (damage < 1.0F) {
-                damage = 1.0F;
-            }
-
-            ItemStack itemstack = this.getItemBySlot(EquipmentSlot.HEAD);
-            if ((!source.is(DamageTypeTags.IS_FIRE) || !itemstack.getItem().isFireResistant()) && itemstack.getItem() instanceof ArmorItem) {
-                itemstack.hurtAndBreak((int)damage, this, (entity) -> entity.broadcastBreakEvent(EquipmentSlot.HEAD));
-            }
-
-        }
-    }
 
 	public void tick() {
 		this.squish += (this.targetSquish - this.squish) * 0.5F;

@@ -12,12 +12,15 @@ import golemknights.tinkersgolem.register.TGAttributes;
 import golemknights.tinkersgolem.register.TGEntities;
 import golemknights.tinkersgolem.register.TGGolemModifiers;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.shared.TinkerMaterials;
 import slimeknights.tconstruct.shared.block.SlimeType;
+
+import java.util.List;
 
 public class TGConfigGen extends ConfigDataProvider {
 
@@ -53,34 +56,52 @@ public class TGConfigGen extends ConfigDataProvider {
 				.end()
 		);
 
+		Item[] slimeParts = new Item[]{TGEntities.SLIME_CORE.get(), TGEntities.SLIME_SHELL.get()};
+
 		map.add(ModularGolems.MATERIALS, TinkersGolem.getResource("slime"), new GolemMaterialConfig()
 				.addMaterial(TinkersGolem.getResource("earth_slime"), Ingredient.of(Items.SLIME_BALL))
-				.onlyFor(TGTagGen.SLIME_PART)
+				.onlyFor(slimeParts)
 				.addStat(GolemTypes.STAT_HEALTH.get(), 50)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 15)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 70)
 				.end()
 
 				.addMaterial(TinkersGolem.getResource("sky_slime"), Ingredient.of(TinkerCommons.slimeball.get(SlimeType.SKY)))
-				.onlyFor(TGTagGen.SLIME_PART)
+				.onlyFor(slimeParts)
 				.addStat(GolemTypes.STAT_HEALTH.get(), 40)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 10)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
 				.end()
 
-                .addMaterial(TinkersGolem.getResource("ichor"), Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ICHOR)))
-                .onlyFor(TGTagGen.SLIME_PART)
-                .addStat(GolemTypes.STAT_HEALTH.get(), 40)
-                .addStat(GolemTypes.STAT_ATTACK.get(), 10)
-                .addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
-                .end()
+				.addMaterial(TinkersGolem.getResource("ichor"), Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ICHOR)))
+				.onlyFor(slimeParts)
+				.addStat(GolemTypes.STAT_HEALTH.get(), 40)
+				.addStat(GolemTypes.STAT_ATTACK.get(), 10)
+				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
+				.end()
 
 				.addMaterial(TinkersGolem.getResource("ender_slime"), Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ENDER)))
-				.onlyFor(TGTagGen.SLIME_PART)
+				.onlyFor(slimeParts)
 				.addStat(GolemTypes.STAT_HEALTH.get(), 30)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 10)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
 				.end()
+
+				.supportsDefaultAnd(List.of(TGEntities.SLIME_CORE.get()),
+						ModularGolems.loc("copper"),
+						ModularGolems.loc("iron"),
+						ModularGolems.loc("gold"),
+						ModularGolems.loc("netherite"),
+						TConstruct.getResource("amethyst_bronze"),
+						TConstruct.getResource("manyullyn"),
+						TConstruct.getResource("hepatizon"),
+						TConstruct.getResource("cobalt"),
+						TConstruct.getResource("rose_gold"),
+						TConstruct.getResource("slimesteel"),
+						TConstruct.getResource("queens_slime"),
+						TConstruct.getResource("cinderslime")
+				)
+
 		);
 
 		map.add(ModularGolems.MATERIALS, TConstruct.getResource("extra"), new GolemMaterialConfig()
