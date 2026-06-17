@@ -11,9 +11,13 @@ import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.register.TGEntities;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
 import slimeknights.mantle.recipe.helper.ItemOutput;
 import slimeknights.mantle.registration.object.FlowingFluidObject;
@@ -50,6 +54,20 @@ public class TGRecipeGen {
 					.define('P', TGEntities.SLIME_SHELL.get())
 					.define('H', TGEntities.HOLDER_SLIME.get())
 					.save(pvd, TinkersGolem.getResource("slime_golem/replace_shell"));
+
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGEntities.SLIME_CORE.get(), 1)::unlockedBy,
+					Items.SLIME_BALL)
+					.pattern(" S ").pattern("SCS").pattern(" S ")
+					.define('C', Items.CLAY)
+					.define('S', Tags.Items.SLIMEBALLS)
+					.save(pvd);
+
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGEntities.SLIME_SHELL.get(), 1)::unlockedBy,
+					Items.SLIME_BALL)
+					.pattern("S S").pattern(" C ").pattern("S S")
+					.define('C', Items.CLAY)
+					.define('S', Tags.Items.SLIMEBALLS)
+					.save(pvd);
 
 		}
 
