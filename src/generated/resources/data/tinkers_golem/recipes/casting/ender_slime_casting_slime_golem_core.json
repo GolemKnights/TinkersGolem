@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:casting_basin",
+  "cast": {
+    "item": "tinkers_golem:slime_golem_core"
+  },
+  "cast_consumed": true,
+  "cooling_time": 159,
+  "fluid": {
+    "amount": 2250,
+    "tag": "tconstruct:ender_slime"
+  },
+  "result": {
+    "item": "tinkers_golem:slime_golem_core",
+    "nbt": {
+      "golem_material": "tinkers_golem:ender_slime"
+    }
+  }
+}

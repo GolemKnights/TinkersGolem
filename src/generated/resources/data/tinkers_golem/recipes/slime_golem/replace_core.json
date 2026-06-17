@@ -1,0 +1,20 @@
+{
+  "type": "modulargolems:golem_replace_part",
+  "category": "misc",
+  "key": {
+    "H": {
+      "item": "tinkers_golem:slime_golem_holder"
+    },
+    "P": {
+      "item": "tinkers_golem:slime_golem_core"
+    }
+  },
+  "pattern": [
+    "P",
+    "H"
+  ],
+  "result": {
+    "item": "tinkers_golem:slime_golem_holder"
+  },
+  "show_notification": false
+}

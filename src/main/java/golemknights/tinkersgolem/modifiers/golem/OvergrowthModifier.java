@@ -5,8 +5,6 @@ import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.modifier.base.GolemModifier;
 import golemknights.tinkersgolem.events.GolemOverslimeEvents;
 
-import java.util.Random;
-
 public class OvergrowthModifier extends GolemModifier {
     public OvergrowthModifier() {
         super(StatFilterType.MASS, 5);
