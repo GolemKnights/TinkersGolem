@@ -146,7 +146,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 				GolemTriggers.EQUIP.trigger((ServerPlayer) player, 1);
 				return InteractionResult.CONSUME;
 			} else {
-				return InteractionResult.FAIL;
+				return super.mobInteractImpl(player, hand);
 			}
 		} else {
             dropHelmet();

@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "C": {
-      "item": "minecraft:clay"
+      "item": "minecraft:clay_ball"
     },
     "S": {
       "tag": "forge:slimeballs"

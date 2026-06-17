@@ -58,14 +58,14 @@ public class TGRecipeGen {
 			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGEntities.SLIME_CORE.get(), 1)::unlockedBy,
 					Items.SLIME_BALL)
 					.pattern(" S ").pattern("SCS").pattern(" S ")
-					.define('C', Items.CLAY)
+					.define('C', Items.CLAY_BALL)
 					.define('S', Tags.Items.SLIMEBALLS)
 					.save(pvd);
 
 			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGEntities.SLIME_SHELL.get(), 1)::unlockedBy,
 					Items.SLIME_BALL)
 					.pattern("S S").pattern(" C ").pattern("S S")
-					.define('C', Items.CLAY)
+					.define('C', Items.CLAY_BALL)
 					.define('S', Tags.Items.SLIMEBALLS)
 					.save(pvd);
 
