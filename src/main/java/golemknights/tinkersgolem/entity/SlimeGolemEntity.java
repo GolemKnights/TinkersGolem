@@ -357,4 +357,10 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		return this.isTiny() ? SoundEvents.SLIME_SQUISH_SMALL : SoundEvents.SLIME_SQUISH;
 	}
 
+	@Override
+	public int getPreviewScale() {
+		if (!isAddedToWorld()) return 60;
+		return 60 / getSize();
+	}
+
 }
