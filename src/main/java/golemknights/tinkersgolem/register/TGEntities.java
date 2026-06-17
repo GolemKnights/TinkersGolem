@@ -13,10 +13,7 @@ import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.data.TGTagGen;
-import golemknights.tinkersgolem.entity.SlimeGolemEntity;
-import golemknights.tinkersgolem.entity.SlimeGolemModel;
-import golemknights.tinkersgolem.entity.SlimeGolemPartType;
-import golemknights.tinkersgolem.entity.SlimeGolemRenderer;
+import golemknights.tinkersgolem.entity.*;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Mob;
@@ -25,10 +22,11 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.ForgeMod;
 
+@SuppressWarnings("removal")
 public class TGEntities {
 
 	public static final EntityEntry<SlimeGolemEntity> ENTITY_SLIME;
-	public static final RegistryEntry<GolemType<SlimeGolemEntity, SlimeGolemPartType>> TYPE_SLIME;
+	public static final RegistryEntry<SlimeGolemType> TYPE_SLIME;
 	public static final ItemEntry<GolemPart<SlimeGolemEntity, SlimeGolemPartType>> SLIME_CORE, SLIME_SHELL;
 	public static final ItemEntry<GolemHolder<SlimeGolemEntity, SlimeGolemPartType>> HOLDER_SLIME;
 
@@ -40,7 +38,7 @@ public class TGEntities {
 				.attributes(() -> Mob.createMobAttributes()
 						.add(Attributes.MAX_HEALTH, 20)
 						.add(Attributes.ATTACK_DAMAGE, 4)
-                        //可能是因为寻路问题，史莱姆傀儡移动速度异常缓慢，为此适当提高了基础移速
+						//可能是因为寻路问题，史莱姆傀儡移动速度异常缓慢，为此适当提高了基础移速
 						.add(Attributes.MOVEMENT_SPEED, 0.8D)
 						.add(Attributes.KNOCKBACK_RESISTANCE, 0)
 						.add(Attributes.ATTACK_SPEED, 4)
@@ -55,7 +53,7 @@ public class TGEntities {
 		var cls = new L2Registrate.RegistryInstance<GolemType<?, ?>>(() -> null, ResourceKey.createRegistryKey(new ResourceLocation(ModularGolems.MODID, "golem_type")));
 
 		TYPE_SLIME = TinkersGolem.REGISTRATE.generic(cls, "slime_golem",
-						() -> new GolemType<>(ENTITY_SLIME, SlimeGolemPartType::values, SlimeGolemPartType.CORE, () -> SlimeGolemModel::new))
+						() -> new SlimeGolemType(ENTITY_SLIME, () -> SlimeGolemModel::new))
 				.defaultLang().register();
 
 

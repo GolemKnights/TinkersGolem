@@ -20,7 +20,6 @@ public class SlimeGolemModel extends HierarchicalModel<SlimeGolemEntity> impleme
 	private final ModelPart outer;
 
 	public SlimeGolemModel(EntityModelSet set) {
-		super(RenderType::entityTranslucent);
 		root = set.bakeLayer(ModelLayers.SLIME);
 		outer = set.bakeLayer(ModelLayers.SLIME_OUTER);
 	}
@@ -33,6 +32,11 @@ public class SlimeGolemModel extends HierarchicalModel<SlimeGolemEntity> impleme
 	@Override
 	public void setupAnim(SlimeGolemEntity e, float p_102619_, float p_102620_, float p_102621_, float p_102622_, float p_102623_) {
 
+	}
+
+	@Override
+	public RenderType renderType(SlimeGolemPartType part, ResourceLocation texture) {
+		return part == SlimeGolemPartType.SHELL ? RenderType.entityTranslucent(texture) : RenderType.entityCutout(texture);
 	}
 
 	@Override
