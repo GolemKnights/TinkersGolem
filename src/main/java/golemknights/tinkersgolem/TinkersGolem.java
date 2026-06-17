@@ -10,6 +10,7 @@ import golemknights.tinkersgolem.data.TGRecipeGen;
 import golemknights.tinkersgolem.events.TGAttackListener;
 import golemknights.tinkersgolem.register.*;
 import net.minecraft.core.particles.ParticleType;
+import golemknights.tinkersgolem.register.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -57,6 +58,7 @@ public class TinkersGolem {
         TGParticles.load();
 		TGAttributes.load();
 		TGGolemModifiers.load();
+		TGRecipes.load();
 		MinecraftForge.EVENT_BUS.register(this);
 		ITEMS.register(MOD_BUS);
         ENTITIES.register(MOD_BUS);
