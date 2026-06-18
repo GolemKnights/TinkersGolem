@@ -1,2 +1,6 @@
+TODO 合并后颤抖5秒并禁止攻击，使用timestamp实现
+TODO 饰品，饰品分裂/合并
+TODO 可变液体容量
+
 0.0.1
 - init
