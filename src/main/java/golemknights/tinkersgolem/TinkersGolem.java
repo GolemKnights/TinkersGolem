@@ -75,7 +75,7 @@ public class TinkersGolem {
 		TGParticles.load();
 		TGGolemModifiers.load();
 		TGRecipes.load();
-		TGTabs.load();MinecraftForge.EVENT_BUS.register(this);
+		TGTabs.load();
 		ITEMS.register(MOD_BUS);
 		ENTITIES.register(MOD_BUS);
 		PARTICLES.register(MOD_BUS);
@@ -92,10 +92,6 @@ public class TinkersGolem {
 		// GDConfig.init();
 		OverslimeCap.register();
 		AttackEventHandler.register(3516, new TGAttackListener());
-	}
-
-	@SubscribeEvent
-	public static void modifyAttributes(EntityAttributeModificationEvent event) {
 	}
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
