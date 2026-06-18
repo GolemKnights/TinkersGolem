@@ -28,8 +28,8 @@ public enum OverslimeProvider implements IEntityComponentProvider {
             var attr = golem.getAttribute(TGAttributes.MAX_OVERSLIME.get());
 			if (attr == null || attr.getValue() == 0) return;
             IElementHelper elements = IElementHelper.get();
-            IElement icon = elements.smallItem(new ItemStack(Items.SLIME_BALL));
-            tooltip.add(icon.translate(new Vec2(-0.75F, 0)));
+            IElement icon = elements.item(new ItemStack(Items.SLIME_BALL), 0.5F).size(new Vec2(10, 10)).translate(new Vec2(-0.75F, -1));
+            tooltip.add(icon);
 			int max = (int) attr.getValue();
 			var val = (int) OverslimeCap.HOLDER.get(golem).overslime;
 			tooltip.append(TGLang.OVERSLIME_INFO.get(val, max));
