@@ -12,6 +12,7 @@ import javax.annotation.Nullable;
 import java.util.Locale;
 
 public enum TGLang {
+	OVERSLIME_INFO("info.overslime","Overslime: %s/%s", 2, null)
 	;
 
 	private final String key, def;
@@ -19,7 +20,7 @@ public enum TGLang {
 	private final ChatFormatting format;
 
 	TGLang(String key, String def, int arg, @Nullable ChatFormatting format) {
-		this.key = ModularGolems.MODID + "." + key;
+		this.key = TinkersGolem.MODID + "." + key;
 		this.def = def;
 		this.arg = arg;
 		this.format = format;
