@@ -29,6 +29,7 @@ public class TGGolemModifiers {
 	public static final RegistryEntry<AttributeGolemModifier> OVERFORCED, OVERWORKED;
 	public static final RegistryEntry<OverlordModifier> OVERLORD;
     public static final RegistryEntry<OverburnModifier> OVERBURN;
+    public static final RegistryEntry<OversmeltModifier> OVERSMELT;
     public static final RegistryEntry<OvershockModifier> OVERSHOCK;
     public static final RegistryEntry<OverbonkingModifier> OVERBOKING;
     public static final RegistryEntry<OverteleportModifier> OVERTELEPORT;
@@ -41,8 +42,9 @@ public class TGGolemModifiers {
 
 		OVERGROWTH = reg("overgrowth", OvergrowthModifier::new, "Slowly recover overslime over time");
         OVERLORD = reg("overlord", OverlordModifier::new, "When taking damage, recover overslime by %s%% of damage taken");
-        OVERBURN = reg("overburn", OverburnModifier::new, "recover overslime over time");
-        OVERSHOCK = reg("overshock", OvershockModifier::new, "Has a chance to deal area damage upon landing");
+        OVERBURN = reg("overburn", OverburnModifier::new, "Consumes fluid fuel to recover overslime over time");
+        OVERSMELT = reg("oversmelt", OversmeltModifier::new, "Recover overslime over time");
+        OVERSHOCK = reg("overshock", OvershockModifier::new, "Recover overslime over time on blocks that warm striders");
         OVERBOKING = reg("overboking", OverbonkingModifier::new, "Has a chance to push away the target when dealing damage");
         OVERTELEPORT = reg("overteleport", OverteleportModifier::new, "Teleport target when dealing damage, or teleport itself when taking damage");
 	}

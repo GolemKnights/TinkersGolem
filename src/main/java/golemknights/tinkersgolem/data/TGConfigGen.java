@@ -132,6 +132,7 @@ public class TGConfigGen extends ConfigDataProvider {
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
 				.addModifier(GolemModifiers.FIRE_IMMUNE.get(), 1)
                 .addModifier(TGGolemModifiers.OVERBURN.get(), 1)
+                .addModifier(TGGolemModifiers.OVERSMELT.get(), 1)
 				.end()
 		);
 

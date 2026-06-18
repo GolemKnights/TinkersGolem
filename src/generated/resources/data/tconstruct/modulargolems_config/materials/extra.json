@@ -13,7 +13,8 @@
   "modifiers": {
     "tconstruct:cinderslime": {
       "modulargolems:fire_immune": 1,
-      "tinkers_golem:overburn": 1
+      "tinkers_golem:overburn": 1,
+      "tinkers_golem:oversmelt": 1
     },
     "tconstruct:queens_slime": {
       "tinkers_golem:overlord": 2
