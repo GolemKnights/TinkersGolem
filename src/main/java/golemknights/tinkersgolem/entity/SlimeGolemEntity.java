@@ -8,9 +8,11 @@ import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
 import dev.xkmc.modulargolems.init.advancement.GolemTriggers;
 import dev.xkmc.modulargolems.init.data.MGConfig;
+import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.client.DynamicBreakParticleOption;
 import golemknights.tinkersgolem.events.GolemOverslimeEvents;
 import golemknights.tinkersgolem.register.TGAttributes;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -37,9 +39,20 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.ForgeMod;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import slimeknights.mantle.fluid.FluidTransferHelper;
+import slimeknights.tconstruct.library.modifiers.fluid.FluidEffectContext;
+import slimeknights.tconstruct.library.modifiers.fluid.FluidEffectManager;
+import slimeknights.tconstruct.library.modifiers.fluid.FluidEffects;
 
 import javax.annotation.Nullable;
 import java.util.*;
+
+import static slimeknights.tconstruct.tools.modifiers.ability.fluid.UseFluidOnHitModifier.spawnParticles;
 
 
 @SerialClass
@@ -52,10 +65,16 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	public float oSquish;
 	private boolean wasOnGround;
 
+	@SerialClass.SerialField
+	protected SlimeTank tank = new SlimeTank(1, 10000);
+
 	public SlimeGolemEntity(EntityType<SlimeGolemEntity> type, Level level) {
 		super(type, level);
 		this.fixupDimensions();
 		this.moveControl = new SlimeMoveControl(this);
+        if (!level.isClientSide()) {
+            tank.add(() -> TinkersGolem.HANDLER.toTrackingPlayers(new SlimeTankSyncPacket(this, tank), this));
+        }
 	}
 
 	private void tryAddAttribute(Attribute attribute, AttributeModifier modifier) {
@@ -100,6 +119,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 			this.setGuardedDataImpl(this.getMaxHealth(), true, true);
 			float overslime = (float) getAttributeValue(TGAttributes.MAX_OVERSLIME.get());
 			GolemOverslimeEvents.setOverslime(this, overslime);
+            this.tank = new SlimeTank(1, 2500 * i);
 		}
 
 		this.xpReward = i;
@@ -137,30 +157,35 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		} else if (!this.canModify(player)) {
 			return super.mobInteractImpl(player, hand);
 		} else if (!player.isShiftKeyDown()) {
+            if (itemstack.isEmpty()){
+                return super.mobInteractImpl(player, hand);
+            }
+
+            boolean success = false;
+            if (!FluidTransferHelper.interactWithContainer(level(), this.getOnPos(), tank, player, hand).didTransfer()) {
+                success = true;
+                FluidTransferHelper.interactWithFilledBucket(level(), this.getOnPos(), tank, player, hand, player.getDirection().getOpposite());
+            }
+
 			if (itemstack.canEquip(EquipmentSlot.HEAD, this)) {
-				if (this.level().isClientSide()) {
-					return InteractionResult.SUCCESS;
-				}
-				dropHelmet();
+                success = true;
+                dropHelmet();
 				this.setItemSlot(EquipmentSlot.HEAD, itemstack.split(1));
-
-				GolemTriggers.EQUIP.trigger((ServerPlayer) player, 1);
-				return InteractionResult.CONSUME;
-			} else {
-				return super.mobInteractImpl(player, hand);
+                if (player instanceof ServerPlayer mp) {
+                    GolemTriggers.EQUIP.trigger(mp, 1);
+                }
 			}
-		} else {
-			dropHelmet();
 
-			return InteractionResult.SUCCESS;
+            return success ? (level().isClientSide() ? InteractionResult.SUCCESS : InteractionResult.CONSUME) : InteractionResult.FAIL;
 		}
+        dropHelmet();
+        return super.mobInteractImpl(player, hand);
 	}
-
-	private void dropHelmet() {
-		if (!this.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {
-			this.dropSlot(EquipmentSlot.HEAD, false);
-		}
-	}
+    private void dropHelmet(){
+        if (!this.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {
+            this.dropSlot(EquipmentSlot.HEAD, false);
+        }
+    }
 
 	public void tick() {
 		this.squish += (this.targetSquish - this.squish) * 0.5F;
@@ -304,14 +329,22 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 				float f2 = -0.5F * offset;
 				SlimeGolemEntity slime = this.getType().create(this.level());
 				if (slime == null) continue;
+
 				slime.onCreate(getMaterials(), split.get(i), getOwnerUUID());
 				slime.setCustomName(component);
 				slime.setNoAi(flag);
 				slime.setInvulnerable(this.isInvulnerable());
 				slime.setSize(nextSize, true);
+
+                FluidStack fluid = this.getFluid();
+                if (!fluid.isEmpty()){
+                    fluid.setAmount(fluid.getAmount() / 2);
+                }
 				if (i == helmetIndex) {
 					slime.setItemSlot(EquipmentSlot.HEAD, helmet.copy());
-				}
+                    slime.setFluid(fluid);
+				}else slime.setFluid(fluid);
+
 				slime.moveTo(this.getX() + (double) f1, this.getY() + (double) 0.5F, this.getZ() + (double) f2, this.random.nextFloat() * 360.0F, 0.0F);
 				this.level().addFreshEntity(slime);
 			}
@@ -340,6 +373,24 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		return this.getSize() > 0;
 	}
 
+    @Override
+    public void doEnchantDamageEffects(LivingEntity attacker, Entity target) {
+        FluidStack fluid = this.getFluid();
+        LivingEntity livingTarget = target instanceof LivingEntity living ? living : null;
+        if (!fluid.isEmpty()) {
+            FluidEffects recipe = FluidEffectManager.INSTANCE.find(fluid.getFluid());
+            if (recipe.hasEntityEffects()) {
+                int consumed = recipe.applyToEntity(fluid, this.getSize(), FluidEffectContext.builder(attacker.level()).user(attacker, null).target(target, livingTarget), IFluidHandler.FluidAction.EXECUTE);
+                if (consumed > 0) {
+                    spawnParticles(target, fluid);
+                    fluid.shrink(consumed);
+                    setFluid(fluid);
+                }
+            }
+        }
+        super.doEnchantDamageEffects(attacker, target);
+    }
+
 	@Override
 	protected float getStandingEyeHeight(Pose pose, EntityDimensions dimensions) {
 		return 0.625F * dimensions.height;
@@ -365,4 +416,20 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		return 60 / getSize();
 	}
 
+    public FluidStack getFluid() {
+        return this.tank.getFluidInTank(0);
+    }
+
+    public void setFluid(FluidStack fluid) {
+       this.tank.set(0 , 0, fluid);
+       //tank.setChanged();
+    }
+
+    @Override
+    public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction facing) {
+        if (capability == ForgeCapabilities.FLUID_HANDLER) {
+            return LazyOptional.of(() -> tank).cast();
+        }
+        return super.getCapability(capability, facing);
+    }
 }
