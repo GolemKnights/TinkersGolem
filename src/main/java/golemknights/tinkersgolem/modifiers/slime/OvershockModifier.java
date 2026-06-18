@@ -1,18 +1,18 @@
-package golemknights.tinkersgolem.modifiers.golem;
+package golemknights.tinkersgolem.modifiers.slime;
 
 import dev.xkmc.modulargolems.content.core.StatFilterType;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
-import dev.xkmc.modulargolems.content.modifier.base.GolemModifier;
 import golemknights.tinkersgolem.entity.SlimeGolemEntity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 
 import java.util.List;
 
-public class OvershockModifier extends GolemModifier {
-	public OvershockModifier() {
-		super(StatFilterType.MASS, 5);
-	}
+public class OvershockModifier extends SlimeModifier {
+
+    public OvershockModifier() {
+        super(StatFilterType.MASS, 5);
+    }
 
     @Override
     public void onAiStep(AbstractGolemEntity<?, ?> golem, int level) {
@@ -22,7 +22,6 @@ public class OvershockModifier extends GolemModifier {
             for (LivingEntity living : list) {
                 if (!(living instanceof AbstractGolemEntity)){
                     living.hurt(slime.damageSources().mobAttack(slime), (float) slime.getAttributeValue(Attributes.ATTACK_DAMAGE));
-                    golem.doEnchantDamageEffects(golem, living);
                 }
             }
         }
