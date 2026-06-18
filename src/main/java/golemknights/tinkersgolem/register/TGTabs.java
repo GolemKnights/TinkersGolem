@@ -16,6 +16,7 @@ import java.util.function.Consumer;
 import static golemknights.tinkersgolem.TinkersGolem.TABS;
 
 public class TGTabs {
+    public static void load(){}
     public static RegistryObject<CreativeModeTab> item_tab = TABS.register(
             "items",
             () -> CreativeModeTab.builder()
