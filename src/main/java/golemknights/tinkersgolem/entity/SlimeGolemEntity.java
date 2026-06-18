@@ -198,11 +198,11 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 				float f1 = this.random.nextFloat() * 0.5F + 0.5F;
 				float f2 = Mth.sin(f) * (float) i * 0.5F * f1;
 				float f3 = Mth.cos(f) * (float) i * 0.5F * f1;
-				GolemMaterial mat = getMaterials().get(1);
-				Item item = GolemMaterialConfig.get().getCraftIngredient(mat.id()).getItems()[0].getItem();
-
-				this.level().addParticle(new DynamicBreakParticleOption(item.getDefaultInstance()), this.getX() + (double) f2, this.getY(), this.getZ() + (double) f3, 0.0F, 0.0F, 0.0F);
-
+				ArrayList<GolemMaterial> mat = getMaterials();
+                if (!mat.isEmpty()) {
+                    Item item = GolemMaterialConfig.get().getCraftIngredient(mat.get(1).id()).getItems()[0].getItem();
+                    this.level().addParticle(new DynamicBreakParticleOption(item.getDefaultInstance()), this.getX() + (double) f2, this.getY(), this.getZ() + (double) f3, 0.0F, 0.0F, 0.0F);
+                }
 			}
 
 			this.playSound(this.getSquishSound(), this.getSoundVolume(), ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) / 0.8F);
