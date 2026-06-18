@@ -120,7 +120,7 @@ public class TGRecipeGen {
 		var part_rl = ForgeRegistries.ITEMS.getKey(part);
 		assert part_rl != null;
 		String item_name = part_rl.getPath();
-		var rl = new ResourceLocation(TinkersGolem.MODID, "casting/" + id.getPath() + "_casting_" + item_name);
+		var rl = TinkersGolem.getResource("casting/" + id.getPath() + "_casting_" + item_name);
 
 		ItemStack result = GolemPart.setMaterial(part.getDefaultInstance(), id);
 		var modid = id.getNamespace();
