@@ -1,4 +1,5 @@
 {
+  "config.jade.plugin_tinkers_golem.overslime": "Overslime",
   "entity.tinkers_golem.slime_golem": "Slime Golem",
   "golem_material.tinkers_golem.earth_slime": "Earth Slime",
   "golem_material.tinkers_golem.ender_slime": "Ender Slime",
