@@ -445,7 +445,8 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 
 		// size check
 		if (getSize() != other.getSize()) return;
-		if (getSize() > 2) return;
+		int nextSize = Math.min(getSize() + 2, getSize() * 2);
+		if (nextSize > 8) return;//TODO requires upgrade
 
 		// material check
 		for (int i = 0; i < getMaterials().size(); i++) {
@@ -467,7 +468,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 
 		// apply data merge
 		other.updateAttributes(other.getMaterials(), upgrades, other.getOwnerUUID());
-		other.setSize(getSize() * 2, false);
+		other.setSize(nextSize, false);
 		if (reforge > 0) other.updateReforge(reforge + otherReforge);
 		float hp = Math.min(other.getMaxHealth(), other.getGuardedDataImpl() + getGuardedDataImpl());
 		other.setGuardedDataImpl(hp, true, true);
