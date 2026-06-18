@@ -43,7 +43,7 @@ public class TGEntities {
                         .add(Attributes.KNOCKBACK_RESISTANCE, 0)
                         .add(Attributes.ATTACK_SPEED, 4)
                         .add(Attributes.ATTACK_KNOCKBACK, 1)
-                        .add(ForgeMod.ENTITY_REACH.get(), 1)
+                        .add(ForgeMod.ENTITY_REACH.get(), 0.6)
                         .add(Attributes.FOLLOW_RANGE, 35)
                         .add(GolemTypes.GOLEM_REGEN.get())
                         .add(GolemTypes.GOLEM_SIZE.get(), 3)
