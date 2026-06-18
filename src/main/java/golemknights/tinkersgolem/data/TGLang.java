@@ -12,8 +12,7 @@ import javax.annotation.Nullable;
 import java.util.Locale;
 
 public enum TGLang {
-	OVERSLIME_INFO("info.overslime","Overslime: %s/%s", 2, null)
-	;
+	OVERSLIME_INFO("info.overslime", "Overslime: %s/%s", 2, null);
 
 	private final String key, def;
 	private final int arg;
@@ -56,13 +55,15 @@ public enum TGLang {
 		pvd.add(TinkersGolem.MODID + ".max_overslime", "Max Overslime");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".earth_slime", "Earth Slime");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".sky_slime", "Sky Slime");
-        pvd.add("golem_material." + TinkersGolem.MODID + ".ichor", "Ichor");
+		pvd.add("golem_material." + TinkersGolem.MODID + ".ichor", "Ichor");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".ender_slime", "Ender Slime");
 
 		for (var type : SlimeGolemPartType.values()) {
 			String name = type.name().toLowerCase(Locale.ROOT);
 			pvd.add("golem_part.slime_golem." + name, RegistrateLangProvider.toEnglishName(name) + ": %s");
 		}
+
+		pvd.add("config.jade.plugin_tinkers_golem.overslime", "Overslime");
 
 	}
 

@@ -1,0 +1,7 @@
+{
+  "type": "tinkers_golem:overslime_recover",
+  "ingredient": {
+    "item": "minecraft:slime_ball"
+  },
+  "result": 20.0
+}
