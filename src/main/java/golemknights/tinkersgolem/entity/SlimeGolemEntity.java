@@ -13,6 +13,7 @@ import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.client.DynamicBreakParticleOption;
 import golemknights.tinkersgolem.events.GolemOverslimeEvents;
 import golemknights.tinkersgolem.register.TGAttributes;
+import golemknights.tinkersgolem.register.TGEntities;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -327,6 +328,11 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 				helmetIndex = this.random.nextInt(n);
 			}
 
+			FluidStack fluid = this.getFluid();
+			if (!fluid.isEmpty()) {
+				fluid.setAmount(fluid.getAmount() / n);
+			}
+
 			for (int i = 0; i < n; ++i) {
 				float f1 = ((i & 1) - 0.5F) * offset;
 				float f2 = -0.5F * offset;
@@ -339,14 +345,12 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 				slime.setInvulnerable(this.isInvulnerable());
 				slime.setSize(nextSize, true);
 
-				FluidStack fluid = this.getFluid();
-				if (!fluid.isEmpty()) {
-					fluid.setAmount(fluid.getAmount() / 2);
-				}
 				if (i == helmetIndex) {
 					slime.setItemSlot(EquipmentSlot.HEAD, helmet.copy());
-					slime.setFluid(fluid);
-				} else slime.setFluid(fluid);
+				}
+				slime.setFluid(fluid.copy());
+
+				//TODO curios split
 
 				slime.moveTo(this.getX() + (double) f1, this.getY() + (double) 0.5F, this.getZ() + (double) f2, this.random.nextFloat() * 360.0F, 0.0F);
 				this.level().addFreshEntity(slime);
@@ -435,4 +439,65 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		}
 		return super.getCapability(capability, facing);
 	}
+
+	@Override
+	public void checkRide(LivingEntity target) {
+		if (!(target instanceof SlimeGolemEntity other)) return;
+
+		// size check
+		if (getSize() != other.getSize()) return;
+		if (getSize() > 2) return;
+
+		// material check
+		for (int i = 0; i < getMaterials().size(); i++) {
+			if (!getMaterials().get(i).id().equals(other.getMaterials().get(i).id()))
+				return;
+		}
+
+		// upgrade check
+		var upgrades = new ArrayList<IUpgradeItem>();
+		for (var e : getUpgrades()) if (e instanceof IUpgradeItem item) upgrades.add(item);
+		for (var e : other.getUpgrades()) if (e instanceof IUpgradeItem item) upgrades.add(item);
+		int rem = TGEntities.HOLDER_SLIME.get().getRemaining(getMaterials(), upgrades);
+		if (rem < 0) return;
+
+		// reforge check
+		int reforge = getReforgeCount();
+		int otherReforge = other.getReforgeCount();
+		if (reforge + otherReforge > other.getMaxReforge()) return;
+
+		// apply data merge
+		other.updateAttributes(other.getMaterials(), upgrades, other.getOwnerUUID());
+		other.setSize(getSize() * 2, false);
+		if (reforge > 0) other.updateReforge(reforge + otherReforge);
+		float hp = Math.min(other.getMaxHealth(), other.getGuardedDataImpl() + getGuardedDataImpl());
+		other.setGuardedDataImpl(hp, true, true);
+		GolemOverslimeEvents.setOverslime(other, GolemOverslimeEvents.getOverslime(this) + GolemOverslimeEvents.getOverslime(other));
+
+		// equipment merge
+		for (var e : EquipmentSlot.values()) {
+			var stack = getItemBySlot(e);
+			if (stack.isEmpty()) continue;
+			if (other.getItemBySlot(e).isEmpty())
+				other.setItemSlot(e, stack);
+			else spawnAtLocation(stack);
+		}
+
+		var fluid = getFluid();
+		var otherFluid = other.getFluid();
+		if (!fluid.isEmpty()) {
+			if (otherFluid.isEmpty()) {
+				other.setFluid(fluid.copy());
+			} else if (fluid.isFluidEqual(otherFluid)) {
+				var ans = otherFluid.copy();
+				ans.setAmount(otherFluid.getAmount() + fluid.getAmount());
+				other.setFluid(ans);
+			}
+		}
+
+		// TODO curios merge
+
+		toItem(getOwner());
+	}
+
 }
