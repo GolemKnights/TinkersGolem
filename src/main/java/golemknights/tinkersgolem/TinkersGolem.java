@@ -75,7 +75,7 @@ public class TinkersGolem {
 		TGParticles.load();
 		TGGolemModifiers.load();
 		TGRecipes.load();
-		MinecraftForge.EVENT_BUS.register(this);
+		TGTabs.load();MinecraftForge.EVENT_BUS.register(this);
 		ITEMS.register(MOD_BUS);
 		ENTITIES.register(MOD_BUS);
 		PARTICLES.register(MOD_BUS);
