@@ -7,6 +7,8 @@ import dev.xkmc.modulargolems.content.item.golem.GolemPart;
 import dev.xkmc.modulargolems.content.recipe.GolemAssembleBuilder;
 import dev.xkmc.modulargolems.content.recipe.GolemReplaceBuilder;
 import dev.xkmc.modulargolems.init.ModularGolems;
+import dev.xkmc.modulargolems.init.data.RecipeGen;
+import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.register.TGEntities;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -68,6 +70,9 @@ public class TGRecipeGen {
 					.define('C', Items.CLAY_BALL)
 					.define('S', Tags.Items.SLIMEBALLS)
 					.save(pvd);
+
+			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, GolemItems.ADD_DIAMOND);
+			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, GolemItems.ADD_NETHERITE);
 
 		}
 
