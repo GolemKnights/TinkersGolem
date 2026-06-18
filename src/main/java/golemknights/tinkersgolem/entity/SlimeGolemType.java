@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 public class SlimeGolemType extends GolemType<SlimeGolemEntity, SlimeGolemPartType> {
 
-	public static float getSize(ItemStack stack) {
+	public static int getSize(ItemStack stack) {
 		return Optional.ofNullable(stack.getTag()).filter((e) -> e.contains("golem_entity")).map((e) -> e.getCompound("golem_entity")).map((e) -> e.getInt("Size") + 1).orElse(4);
 	}
 

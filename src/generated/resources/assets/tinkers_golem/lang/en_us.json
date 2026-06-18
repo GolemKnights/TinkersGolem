@@ -1,4 +1,5 @@
 {
+  "config.jade.plugin_tinkers_golem.overslime": "Overslime",
   "entity.tinkers_golem.slime_golem": "Slime Golem",
   "golem_material.tinkers_golem.earth_slime": "Earth Slime",
   "golem_material.tinkers_golem.ender_slime": "Ender Slime",
@@ -12,15 +13,20 @@
   "item.tinkers_golem.slime_golem_shell": "Slime Golem Shell",
   "modifier.tinkers_golem.overboking": "Overboking",
   "modifier.tinkers_golem.overboking.desc": "Has a chance to push away the target when dealing damage",
+  "modifier.tinkers_golem.overburn": "Overburn",
+  "modifier.tinkers_golem.overburn.desc": "Consumes fluid fuel to recover overslime over time",
   "modifier.tinkers_golem.overforced": "Overforced",
   "modifier.tinkers_golem.overgrowth": "Overgrowth",
   "modifier.tinkers_golem.overgrowth.desc": "Slowly recover overslime over time",
   "modifier.tinkers_golem.overlord": "Overlord",
   "modifier.tinkers_golem.overlord.desc": "When taking damage, recover overslime by %s%% of damage taken",
   "modifier.tinkers_golem.overshock": "Overshock",
-  "modifier.tinkers_golem.overshock.desc": "Has a chance to deal area damage upon landing",
+  "modifier.tinkers_golem.overshock.desc": "Recover overslime over time on blocks that warm striders",
+  "modifier.tinkers_golem.oversmelt": "Oversmelt",
+  "modifier.tinkers_golem.oversmelt.desc": "Recover overslime over time",
   "modifier.tinkers_golem.overteleport": "Overteleport",
   "modifier.tinkers_golem.overteleport.desc": "Teleport target when dealing damage, or teleport itself when taking damage",
   "modifier.tinkers_golem.overworked": "Overworked",
+  "tinkers_golem.info.overslime": "Overslime: %s/%s",
   "tinkers_golem.max_overslime": "Max Overslime"
 }

@@ -1,13 +1,20 @@
 package golemknights.tinkersgolem.events;
 
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
+import golemknights.tinkersgolem.TinkersGolem;
+import golemknights.tinkersgolem.cap.OverslimeCap;
+import golemknights.tinkersgolem.entity.SlimeGolemEntity;
+import golemknights.tinkersgolem.entity.SlimeTankSyncPacket;
 import golemknights.tinkersgolem.recipes.OverslimeRecoverRecipe;
 import golemknights.tinkersgolem.recipes.OverslimeRecoverRecipeCache;
 import golemknights.tinkersgolem.register.TGAttributes;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -25,20 +32,24 @@ public class GolemOverslimeEvents {
 	}
 
 	public static float getOverslime(LivingEntity entity) {
-		if (isGolem(entity)) {
-			return entity.getPersistentData().getFloat(OVERSLIME_KEY);
+		if (entity instanceof AbstractGolemEntity<?, ?> golem) {
+			return OverslimeCap.HOLDER.get(golem).overslime;
 		} else {
 			return 0;
 		}
 	}
 
 	public static void setOverslime(LivingEntity entity, float amount) {
-		if (isGolem(entity)) {
+		if (entity instanceof AbstractGolemEntity<?, ?> golem) {
 			AttributeInstance attribute = entity.getAttribute(TGAttributes.MAX_OVERSLIME.get());
 			if (attribute == null)
 				return;
 			float value = (float) attribute.getValue();
-			entity.getPersistentData().putFloat(OVERSLIME_KEY, Math.min(Math.max(amount, 0), value));
+			var cap = OverslimeCap.HOLDER.get(golem);
+			cap.overslime = Math.min(Math.max(amount, 0), value);
+			if (!entity.level().isClientSide()) {
+				cap.sync(golem);
+			}
 		}
 	}
 
@@ -89,6 +100,8 @@ public class GolemOverslimeEvents {
 
 				ItemStack remaining = item.getCraftingRemainingItem();
 				item.shrink(1);
+				event.setCanceled(true);
+				event.setCancellationResult(InteractionResult.SUCCESS);
 				if (remaining.isEmpty()) {
 					return;
 				}
@@ -103,4 +116,17 @@ public class GolemOverslimeEvents {
 			}
 		}
 	}
+
+	@SubscribeEvent
+	public static void onStartTracking(PlayerEvent.StartTracking event) {
+		if (event.getTarget() instanceof AbstractGolemEntity<?, ?> entity) {
+			if (event.getEntity() instanceof ServerPlayer player) {
+				OverslimeCap.HOLDER.get(entity).syncToPlayer(entity, player);
+				if (entity instanceof SlimeGolemEntity slime) {
+					TinkersGolem.HANDLER.toClientPlayer(new SlimeTankSyncPacket(slime, slime.tank), player);
+				}
+			}
+		}
+	}
+
 }

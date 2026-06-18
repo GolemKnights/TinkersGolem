@@ -2,12 +2,20 @@ package golemknights.tinkersgolem.data;
 
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
+import com.tterrag.registrate.util.entry.ItemEntry;
 import dev.xkmc.l2library.serial.recipe.ConditionalRecipeWrapper;
+import dev.xkmc.modulargolems.content.core.IGolemPart;
+import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
+import dev.xkmc.modulargolems.content.item.golem.GolemHolder;
 import dev.xkmc.modulargolems.content.item.golem.GolemPart;
 import dev.xkmc.modulargolems.content.recipe.GolemAssembleBuilder;
 import dev.xkmc.modulargolems.content.recipe.GolemReplaceBuilder;
+import dev.xkmc.modulargolems.content.recipe.GolemSmithBuilder;
 import dev.xkmc.modulargolems.init.ModularGolems;
+import dev.xkmc.modulargolems.init.data.RecipeGen;
+import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import golemknights.tinkersgolem.TinkersGolem;
+import golemknights.tinkersgolem.recipes.OverslimeRecoverBuilder;
 import golemknights.tinkersgolem.register.TGEntities;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -17,6 +25,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
 import slimeknights.mantle.recipe.helper.ItemOutput;
@@ -24,12 +33,22 @@ import slimeknights.mantle.registration.object.FlowingFluidObject;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.recipe.casting.ItemCastingRecipeBuilder;
+import slimeknights.tconstruct.shared.TinkerCommons;
+import slimeknights.tconstruct.shared.block.SlimeType;
 
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
 public class TGRecipeGen {
 	public static void genRecipe(RegistrateRecipeProvider pvd) {
+
+		// overslime
+		{
+			new OverslimeRecoverBuilder(Ingredient.of(Items.SLIME_BALL), 20).save(pvd, TinkersGolem.getResource("slime"));
+			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.SKY)), 20).save(pvd, TinkersGolem.getResource("sky_slime"));
+			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ICHOR)), 20).save(pvd, TinkersGolem.getResource("ichor"));
+			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ENDER)), 20).save(pvd, TinkersGolem.getResource("ender_slime"));
+		}
 
 		// slime golem
 		{
@@ -68,6 +87,9 @@ public class TGRecipeGen {
 					.define('C', Items.CLAY_BALL)
 					.define('S', Tags.Items.SLIMEBALLS)
 					.save(pvd);
+
+			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, GolemItems.ADD_DIAMOND);
+			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, GolemItems.ADD_NETHERITE);
 
 		}
 
@@ -120,7 +142,7 @@ public class TGRecipeGen {
 		var part_rl = ForgeRegistries.ITEMS.getKey(part);
 		assert part_rl != null;
 		String item_name = part_rl.getPath();
-		var rl = new ResourceLocation(TinkersGolem.MODID, "casting/" + id.getPath() + "_casting_" + item_name);
+		var rl = TinkersGolem.getResource("casting/" + id.getPath() + "_casting_" + item_name);
 
 		ItemStack result = GolemPart.setMaterial(part.getDefaultInstance(), id);
 		var modid = id.getNamespace();
@@ -131,8 +153,12 @@ public class TGRecipeGen {
 				.save(out, rl);
 	}
 
-	public static <T> T
-	unlock(RegistrateRecipeProvider pvd, BiFunction<String, InventoryChangeTrigger.TriggerInstance, T> func, Item item) {
+	public static <T extends AbstractGolemEntity<T, P>, P extends IGolemPart<P>> void expand(RegistrateRecipeProvider pvd, ItemEntry<GolemHolder<T, P>> holder, ItemEntry<?> template) {
+		var id = TinkersGolem.getResource(template.getId().getPath() + "_" + holder.getId().getPath());
+		unlock(pvd, new GolemSmithBuilder(holder.get(), template)::unlocks, template.get()).save(pvd, id);
+	}
+
+	public static <T> T unlock(RegistrateRecipeProvider pvd, BiFunction<String, InventoryChangeTrigger.TriggerInstance, T> func, Item item) {
 		return func.apply("has_" + pvd.safeName(item), DataIngredient.items(item).getCritereon(pvd));
 	}
 

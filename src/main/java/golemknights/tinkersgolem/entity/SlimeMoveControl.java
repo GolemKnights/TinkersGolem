@@ -35,7 +35,7 @@ class SlimeMoveControl extends MoveControl {
 		}
 		if (this.mob.onGround()) {
 			this.mob.setSpeed((float) (this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
-			if (this.jumpDelay-- <= 0) {
+			if (this.jumpDelay-- <= 0 && this.slime.isMovable()) {
 				this.jumpDelay = this.slime.getJumpDelay();
 				this.slime.getJumpControl().jump();
 				if (this.slime.doPlayJumpSound()) {

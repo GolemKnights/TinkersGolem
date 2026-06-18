@@ -1,23 +1,23 @@
-package golemknights.tinkersgolem.modifiers.golem;
+package golemknights.tinkersgolem.modifiers.slime;
 
 import dev.xkmc.modulargolems.content.core.StatFilterType;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
-import dev.xkmc.modulargolems.content.modifier.base.GolemModifier;
 import golemknights.tinkersgolem.entity.SlimeGolemEntity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 
 import java.util.List;
 
-public class OvershockModifier extends GolemModifier {
-	public OvershockModifier() {
-		super(StatFilterType.MASS, 5);
-	}
+public class OvershockModifier extends SlimeModifier {
+
+    public OvershockModifier() {
+        super(StatFilterType.MASS, 5);
+    }
 
     @Override
     public void onAiStep(AbstractGolemEntity<?, ?> golem, int level) {
         if (golem instanceof SlimeGolemEntity slime && slime.onGround() && !slime.wasOnGround() && golem.getRandom().nextInt(10) < level * 2) {
-            List<LivingEntity> list = golem.level().getEntitiesOfClass(LivingEntity.class, golem.getBoundingBox().inflate(level, 1, level));
+            List<LivingEntity> list = golem.level().getEntitiesOfClass(LivingEntity.class, golem.getBoundingBox().inflate(1.5, 1, 1.5));
             list.remove(golem.getOwner());
             for (LivingEntity living : list) {
                 if (!(living instanceof AbstractGolemEntity)){
