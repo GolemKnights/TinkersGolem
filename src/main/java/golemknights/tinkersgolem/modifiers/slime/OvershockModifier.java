@@ -1,4 +1,4 @@
-package golemknights.tinkersgolem.modifiers.golem;
+package golemknights.tinkersgolem.modifiers.slime;
 
 import dev.xkmc.modulargolems.content.core.StatFilterType;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
@@ -9,7 +9,8 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 
 import java.util.List;
 
-public class OvershockModifier extends GolemModifier {
+public class OvershockModifier extends SlimeModifier {
+
 	public OvershockModifier() {
 		super(StatFilterType.MASS, 5);
 	}
