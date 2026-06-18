@@ -16,9 +16,13 @@ public class SlimeGolemRenderer extends AbstractGolemRenderer<SlimeGolemEntity, 
 
 	public SlimeGolemRenderer(EntityRendererProvider.Context set) {
 		super(set, new SlimeGolemModel(set.getModelSet()), 0.25F, SlimeGolemPartType::values);
-        addLayer(new SlimeGolemArmorLayer<>(this, new HumanoidModel<>(set.bakeLayer(ModelLayers.PLAYER_OUTER_ARMOR)), set.getModelSet()));
+		addLayer(new SlimeGolemArmorLayer<>(this, new HumanoidModel<>(set.bakeLayer(ModelLayers.PLAYER_OUTER_ARMOR)), set.getModelSet()));
 
-    }
+	}
+
+	protected boolean isShaking(SlimeGolemEntity e) {
+		return e.isFullyFrozen() || e.isShaking();
+	}
 
 	@Override
 	public void render(SlimeGolemEntity entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {

@@ -61,11 +61,15 @@ import static slimeknights.tconstruct.tools.modifiers.ability.fluid.UseFluidOnHi
 public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, SlimeGolemPartType> {
 
 	private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(SlimeGolemEntity.class, EntityDataSerializers.INT);
+	private static final EntityDataAccessor<Boolean> ID_SHAKE = SynchedEntityData.defineId(SlimeGolemEntity.class, EntityDataSerializers.BOOLEAN);
 
 	public float targetSquish;
 	public float squish;
 	public float oSquish;
 	private boolean wasOnGround;
+
+	@SerialClass.SerialField
+	public long shakeTimestamp;
 
 	@SerialClass.SerialField
 	public SlimeTank tank = new SlimeTank(1, 10000);
@@ -97,6 +101,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	protected void defineSynchedData() {
 		super.defineSynchedData();
 		this.entityData.define(ID_SIZE, 1);
+		this.entityData.define(ID_SHAKE, false);
 	}
 
 	@Override
@@ -217,6 +222,18 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 
 		this.wasOnGround = this.onGround();
 		this.decreaseSquish();
+		if (!level().isClientSide()) {
+			entityData.set(ID_SHAKE, shakeTimestamp > level().getGameTime());
+		}
+	}
+
+	public boolean isShaking() {
+		return entityData.get(ID_SHAKE);
+	}
+
+	@Override
+	public boolean canAttackType(EntityType<?> type) {
+		return !isShaking() && super.canAttackType(type);
 	}
 
 	protected void decreaseSquish() {
@@ -495,6 +512,8 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		}
 
 		// TODO curios merge
+
+		other.shakeTimestamp = level().getGameTime() + 100;
 
 		toItem(getOwner());
 	}
