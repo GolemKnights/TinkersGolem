@@ -12,6 +12,7 @@ import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.modifiers.golem.*;
+import golemknights.tinkersgolem.modifiers.slime.OverburnModifier;
 import golemknights.tinkersgolem.modifiers.slime.OvershockModifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -27,6 +28,7 @@ public class TGGolemModifiers {
 	public static final RegistryEntry<OvergrowthModifier> OVERGROWTH;
 	public static final RegistryEntry<AttributeGolemModifier> OVERFORCED, OVERWORKED;
 	public static final RegistryEntry<OverlordModifier> OVERLORD;
+    public static final RegistryEntry<OverburnModifier> OVERBURN;
     public static final RegistryEntry<OvershockModifier> OVERSHOCK;
     public static final RegistryEntry<OverbonkingModifier> OVERBOKING;
     public static final RegistryEntry<OverteleportModifier> OVERTELEPORT;
@@ -38,7 +40,8 @@ public class TGGolemModifiers {
 				new AttributeGolemModifier.AttrEntry(TGAttributes.STAT_OVERSLIME, () -> 20)), null);
 
 		OVERGROWTH = reg("overgrowth", OvergrowthModifier::new, "Slowly recover overslime over time");
-		OVERLORD = reg("overlord", OverlordModifier::new, "When taking damage, recover overslime by %s%% of damage taken");
+        OVERLORD = reg("overlord", OverlordModifier::new, "When taking damage, recover overslime by %s%% of damage taken");
+        OVERBURN = reg("overburn", OverburnModifier::new, "recover overslime over time");
         OVERSHOCK = reg("overshock", OvershockModifier::new, "Has a chance to deal area damage upon landing");
         OVERBOKING = reg("overboking", OverbonkingModifier::new, "Has a chance to push away the target when dealing damage");
         OVERTELEPORT = reg("overteleport", OverteleportModifier::new, "Teleport target when dealing damage, or teleport itself when taking damage");

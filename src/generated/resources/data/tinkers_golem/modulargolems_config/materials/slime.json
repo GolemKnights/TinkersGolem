@@ -192,8 +192,10 @@
   "stats": {
     "tinkers_golem:earth_slime": {
       "modulargolems:attack": 15.0,
+      "modulargolems:jump_strength": 1.0,
       "modulargolems:max_health": 50.0,
-      "modulargolems:max_overslime": 70.0
+      "modulargolems:max_overslime": 70.0,
+      "modulargolems:speed": 0.2
     },
     "tinkers_golem:ender_slime": {
       "modulargolems:attack": 10.0,
@@ -203,10 +205,12 @@
     "tinkers_golem:ichor": {
       "modulargolems:attack": 10.0,
       "modulargolems:max_health": 40.0,
-      "modulargolems:max_overslime": 50.0
+      "modulargolems:max_overslime": 50.0,
+      "modulargolems:speed": 0.6
     },
     "tinkers_golem:sky_slime": {
       "modulargolems:attack": 10.0,
+      "modulargolems:jump_strength": 2.0,
       "modulargolems:max_health": 40.0,
       "modulargolems:max_overslime": 50.0
     }

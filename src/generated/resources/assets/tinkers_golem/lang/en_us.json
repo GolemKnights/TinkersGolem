@@ -12,6 +12,8 @@
   "item.tinkers_golem.slime_golem_shell": "Slime Golem Shell",
   "modifier.tinkers_golem.overboking": "Overboking",
   "modifier.tinkers_golem.overboking.desc": "Has a chance to push away the target when dealing damage",
+  "modifier.tinkers_golem.overburn": "Overburn",
+  "modifier.tinkers_golem.overburn.desc": "recover overslime over time",
   "modifier.tinkers_golem.overforced": "Overforced",
   "modifier.tinkers_golem.overgrowth": "Overgrowth",
   "modifier.tinkers_golem.overgrowth.desc": "Slowly recover overslime over time",

@@ -63,6 +63,8 @@ public class TGConfigGen extends ConfigDataProvider {
 				.onlyFor(slimeParts)
 				.addStat(GolemTypes.STAT_HEALTH.get(), 50)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 15)
+                .addStat(GolemTypes.STAT_JUMP.get(), 1)
+                .addStat(GolemTypes.STAT_SPEED.get(), 0.2)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 70)
 				.end()
 
@@ -70,6 +72,7 @@ public class TGConfigGen extends ConfigDataProvider {
 				.onlyFor(slimeParts)
 				.addStat(GolemTypes.STAT_HEALTH.get(), 40)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 10)
+                .addStat(GolemTypes.STAT_JUMP.get(), 2)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
                 .addModifier(TGGolemModifiers.OVERSHOCK.get(), 1)
 				.end()
@@ -78,6 +81,7 @@ public class TGConfigGen extends ConfigDataProvider {
 				.onlyFor(slimeParts)
 				.addStat(GolemTypes.STAT_HEALTH.get(), 40)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 10)
+                .addStat(GolemTypes.STAT_SPEED.get(), 0.6)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
                 .addModifier(TGGolemModifiers.OVERBOKING.get(), 1)
 				.end()
@@ -127,6 +131,7 @@ public class TGConfigGen extends ConfigDataProvider {
 				.addStat(GolemTypes.STAT_ATTACK.get(), 20)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
 				.addModifier(GolemModifiers.FIRE_IMMUNE.get(), 1)
+                .addModifier(TGGolemModifiers.OVERBURN.get(), 1)
 				.end()
 		);
 
