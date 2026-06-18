@@ -1,15 +1,18 @@
 package golemknights.tinkersgolem.events;
 
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
+import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.cap.OverslimeCap;
+import golemknights.tinkersgolem.entity.SlimeGolemEntity;
+import golemknights.tinkersgolem.entity.SlimeTankSyncPacket;
 import golemknights.tinkersgolem.recipes.OverslimeRecoverRecipe;
 import golemknights.tinkersgolem.recipes.OverslimeRecoverRecipeCache;
 import golemknights.tinkersgolem.register.TGAttributes;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -97,6 +100,8 @@ public class GolemOverslimeEvents {
 
 				ItemStack remaining = item.getCraftingRemainingItem();
 				item.shrink(1);
+				event.setCanceled(true);
+				event.setCancellationResult(InteractionResult.SUCCESS);
 				if (remaining.isEmpty()) {
 					return;
 				}
@@ -112,16 +117,16 @@ public class GolemOverslimeEvents {
 		}
 	}
 
-
 	@SubscribeEvent
 	public static void onStartTracking(PlayerEvent.StartTracking event) {
-		Entity var3 = event.getTarget();
-		if (var3 instanceof AbstractGolemEntity<?, ?> entity) {
-			Player var4 = event.getEntity();
-			if (var4 instanceof ServerPlayer player) {
+		if (event.getTarget() instanceof AbstractGolemEntity<?, ?> entity) {
+			if (event.getEntity() instanceof ServerPlayer player) {
 				OverslimeCap.HOLDER.get(entity).syncToPlayer(entity, player);
+				if (entity instanceof SlimeGolemEntity slime) {
+					TinkersGolem.HANDLER.toClientPlayer(new SlimeTankSyncPacket(slime, slime.tank), player);
+				}
 			}
 		}
-
 	}
+
 }

@@ -68,7 +68,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	private boolean wasOnGround;
 
 	@SerialClass.SerialField
-	protected SlimeTank tank = new SlimeTank(1, 10000);
+	public SlimeTank tank = new SlimeTank(1, 10000);
 
 	public SlimeGolemEntity(EntityType<SlimeGolemEntity> type, Level level) {
 		super(type, level);
