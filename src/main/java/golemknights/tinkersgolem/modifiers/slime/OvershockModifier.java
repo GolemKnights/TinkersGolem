@@ -17,7 +17,7 @@ public class OvershockModifier extends SlimeModifier {
     @Override
     public void onAiStep(AbstractGolemEntity<?, ?> golem, int level) {
         if (golem instanceof SlimeGolemEntity slime && slime.onGround() && !slime.wasOnGround() && golem.getRandom().nextInt(10) < level * 2) {
-            List<LivingEntity> list = golem.level().getEntitiesOfClass(LivingEntity.class, golem.getBoundingBox().inflate(level, 1, level));
+            List<LivingEntity> list = golem.level().getEntitiesOfClass(LivingEntity.class, golem.getBoundingBox().inflate(1.5, 1, 1.5));
             list.remove(golem.getOwner());
             for (LivingEntity living : list) {
                 if (!(living instanceof AbstractGolemEntity)){
