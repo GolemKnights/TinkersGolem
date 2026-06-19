@@ -45,9 +45,9 @@ public class TGRecipeGen {
 		// overslime
 		{
 			new OverslimeRecoverBuilder(Ingredient.of(Items.SLIME_BALL), 20).save(pvd, TinkersGolem.getResource("slime"));
-			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.SKY)), 20).save(pvd, TinkersGolem.getResource("sky_slime"));
-			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ICHOR)), 20).save(pvd, TinkersGolem.getResource("ichor"));
-			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ENDER)), 20).save(pvd, TinkersGolem.getResource("ender_slime"));
+			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.SKY)), 50).save(pvd, TinkersGolem.getResource("sky_slime"));
+			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ICHOR)), 100).save(pvd, TinkersGolem.getResource("ichor"));
+			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ENDER)), 80).save(pvd, TinkersGolem.getResource("ender_slime"));
 		}
 
 		// slime golem
@@ -59,6 +59,13 @@ public class TGRecipeGen {
 					.define('A', TGEntities.SLIME_CORE.get())
 					.define('B', TGEntities.SLIME_SHELL.get())
 					.save(pvd, TinkersGolem.getResource("slime_golem/assemble_holder"));
+
+            unlock(pvd, new GolemAssembleBuilder(TGEntities.HOLDER_SLIME.get(), 1)::unlockedBy,
+                    TGEntities.SLIME_CORE.get())
+                    .pattern("A").pattern("B")
+                    .define('A', TGEntities.SLIME_SHELL.get())
+                    .define('B', TGEntities.SLIME_CORE.get())
+                    .save(pvd, TinkersGolem.getResource("slime_golem/assemble_holder_inverted"));
 
 			unlock(pvd, new GolemReplaceBuilder(TGEntities.HOLDER_SLIME.get(), 1)::unlockedBy,
 					TGEntities.SLIME_CORE.get())
