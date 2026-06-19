@@ -13,6 +13,7 @@ import golemknights.tinkersgolem.data.TGTagGen;
 import golemknights.tinkersgolem.data.TGStationSlotLayoutProvider;
 import golemknights.tinkersgolem.data.TGToolDefinitionDataProvider;
 import golemknights.tinkersgolem.data.TGToolsRecipeProvider;
+import golemknights.tinkersgolem.entity.SlimeTankSyncPacket;
 import golemknights.tinkersgolem.events.TGAttackListener;
 import golemknights.tinkersgolem.register.*;
 import net.minecraft.core.particles.ParticleType;
@@ -47,15 +48,16 @@ import slimeknights.tconstruct.library.utils.Util;
 @SuppressWarnings("removal")
 public class TinkersGolem {
 
-    public static final String MODID = "tinkers_golem";
-    public static final Logger LOGGER = LogManager.getLogger();
-    public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
-    public static final IEventBus MOD_BUS = FMLJavaModLoadingContext.get().getModEventBus();
+	public static final String MODID = "tinkers_golem";
+	public static final Logger LOGGER = LogManager.getLogger();
+	public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
+	public static final IEventBus MOD_BUS = FMLJavaModLoadingContext.get().getModEventBus();
 
-    public static final PacketHandlerWithConfig HANDLER = new PacketHandlerWithConfig(
-            getResource("main"), 1,
-            e -> e.create(OverslimeSyncPacket.class, NetworkDirection.PLAY_TO_CLIENT)
-    );
+	public static final PacketHandlerWithConfig HANDLER = new PacketHandlerWithConfig(
+			getResource("main"), 1,
+			e -> e.create(OverslimeSyncPacket.class, NetworkDirection.PLAY_TO_CLIENT),
+			e -> e.create(SlimeTankSyncPacket.class, NetworkDirection.PLAY_TO_CLIENT)
+	);
 
 	public static final ItemDeferredRegisterExtension ITEMS = new ItemDeferredRegisterExtension(MODID);
 	public static final EntityTypeDeferredRegister ENTITIES = new EntityTypeDeferredRegister(MODID);
@@ -71,44 +73,39 @@ public class TinkersGolem {
 	// public static final ConfigTypeEntry<TrialConfig> TRIAL = new
 	// ConfigTypeEntry<>(HANDLER, "trial", TrialConfig.class);
 
-    public TinkersGolem() {
-        TGItems.load();
-        TGAttributes.load();
-        TGEntities.load();
-        TGParticles.load();
-        TGGolemModifiers.load();
-        TGRecipes.load();
-        TGTabs.load();
-        MinecraftForge.EVENT_BUS.register(this);
-        ITEMS.register(MOD_BUS);
-        ENTITIES.register(MOD_BUS);
-        PARTICLES.register(MOD_BUS);
-        RECIPE_TYPES.register(MOD_BUS);
-        RECIPE_SERIALIZERS.register(MOD_BUS);
-        ATTRIBUTES.register(MOD_BUS);
-        TABS.register(MOD_BUS);
-        TGTinkersModifiers.registers(MOD_BUS);
-        MOD_BUS.addListener(TGAttributes::setupAttributes);
-        // GDItems.register();
-        // GDModifiers.register();
-        // GDWorldGen.register();
-        // GDTriggers.register();
-        // GDConfig.init();
-        OverslimeCap.register();
-        AttackEventHandler.register(3516, new TGAttackListener());
-    }
+	public TinkersGolem() {
+		TGItems.load();
+		TGAttributes.load();
+		TGEntities.load();
+		TGParticles.load();
+		TGGolemModifiers.load();
+		TGRecipes.load();
+		TGTabs.load();
+		ITEMS.register(MOD_BUS);
+		ENTITIES.register(MOD_BUS);
+		PARTICLES.register(MOD_BUS);
+		RECIPE_TYPES.register(MOD_BUS);
+		RECIPE_SERIALIZERS.register(MOD_BUS);
+		ATTRIBUTES.register(MOD_BUS);
+		TABS.register(MOD_BUS);
+		TGTinkersModifiers.registers(MOD_BUS);
+		MOD_BUS.addListener(TGAttributes::setupAttributes);
+		// GDItems.register();
+		// GDModifiers.register();
+		// GDWorldGen.register();
+		// GDTriggers.register();
+		// GDConfig.init();
+		OverslimeCap.register();
+		AttackEventHandler.register(3516, new TGAttackListener());
+	}
 
-    @SubscribeEvent
-    public static void modifyAttributes(EntityAttributeModificationEvent event) {
-    }
-
-    @SubscribeEvent(priority = EventPriority.HIGH)
-    public static void gatherData(GatherDataEvent event) {
-        REGISTRATE.addDataGenerator(ProviderType.LANG, TGLang::genLang);
-        // REGISTRATE.addDataGenerator(ProviderType.LOOT, GDLootGen::genLoot);
-        REGISTRATE.addDataGenerator(ProviderType.RECIPE, TGRecipeGen::genRecipe);
-        // REGISTRATE.addDataGenerator(ProviderType.ADVANCEMENT, GDAdvGen::genAdv);
-        REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TGTagGen::genItemTag);
+	@SubscribeEvent(priority = EventPriority.HIGH)
+	public static void gatherData(GatherDataEvent event) {
+		REGISTRATE.addDataGenerator(ProviderType.LANG, TGLang::genLang);
+		// REGISTRATE.addDataGenerator(ProviderType.LOOT, GDLootGen::genLoot);
+		REGISTRATE.addDataGenerator(ProviderType.RECIPE, TGRecipeGen::genRecipe);
+		// REGISTRATE.addDataGenerator(ProviderType.ADVANCEMENT, GDAdvGen::genAdv);
+		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TGTagGen::genItemTag);
 
 		var gen = event.getGenerator();
 		var output = gen.getPackOutput();

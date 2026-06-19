@@ -446,6 +446,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 
 	public void setFluid(FluidStack fluid) {
 		this.tank.set(0, 0, fluid);
+		this.tank.setChanged();
 	}
 
 	@Override

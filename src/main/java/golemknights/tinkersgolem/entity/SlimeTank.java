@@ -58,7 +58,7 @@ public class SlimeTank implements IFluidHandler, AliasCollection<FluidStack> {
 	}
 
 	public @NotNull FluidStack getFluidInTank(int tank) {
-		return (FluidStack) this.list.get(tank);
+		return (FluidStack) this.list.get(tank).copy();
 	}
 
 	public int getTankCapacity(int tank) {
