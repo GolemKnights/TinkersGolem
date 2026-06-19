@@ -101,6 +101,7 @@ public class SlimeGolemArmorLayer <T extends SlimeGolemEntity, M extends Hierarc
         model.renderToBuffer(matrices, vertexconsumer, packedLight, OverlayTexture.NO_OVERLAY, red, green, blue, 1.0F);
     }
 
+    @SuppressWarnings({"removal"})
     public static ResourceLocation getArmorResource(Entity entity, ItemStack stack, ArmorItem armor, String type) {
         String texture = armor.getMaterial().getName();
         String domain = "minecraft";
