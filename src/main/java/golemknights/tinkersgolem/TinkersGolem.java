@@ -6,13 +6,7 @@ import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
 import golemknights.tinkersgolem.cap.OverslimeCap;
 import golemknights.tinkersgolem.cap.OverslimeSyncPacket;
-import golemknights.tinkersgolem.data.TGConfigGen;
-import golemknights.tinkersgolem.data.TGLang;
-import golemknights.tinkersgolem.data.TGRecipeGen;
-import golemknights.tinkersgolem.data.TGTagGen;
-import golemknights.tinkersgolem.data.TGStationSlotLayoutProvider;
-import golemknights.tinkersgolem.data.TGToolDefinitionDataProvider;
-import golemknights.tinkersgolem.data.TGToolsRecipeProvider;
+import golemknights.tinkersgolem.data.*;
 import golemknights.tinkersgolem.entity.SlimeTankSyncPacket;
 import golemknights.tinkersgolem.events.TGAttackListener;
 import golemknights.tinkersgolem.register.*;
@@ -23,9 +17,7 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -37,7 +29,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import slimeknights.mantle.registration.deferred.EntityTypeDeferredRegister;
-import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
 import slimeknights.tconstruct.common.registration.ItemDeferredRegisterExtension;
 import slimeknights.tconstruct.library.utils.Util;
@@ -116,6 +107,8 @@ public class TinkersGolem {
 		gen.addProvider(server, new TGToolDefinitionDataProvider(output));
 		gen.addProvider(server, new TGStationSlotLayoutProvider(output));
 		gen.addProvider(server, new TGToolsRecipeProvider(output));
+		gen.addProvider(server, new TGArmorModelProvider(output));
+		gen.addProvider(server, new TGToolItemModelProvider(output, helper));
 	}
 
 	/**

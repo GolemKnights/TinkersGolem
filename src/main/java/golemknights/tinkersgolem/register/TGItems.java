@@ -41,7 +41,9 @@ public class TGItems {
                     type -> new ModifiableMetalGolemArmorItem(UNSTACKABLE_PROPS, type,
                             GOLEM,
                             METAL_GOLEM_ARMOR_MODELS[type.ordinal()],
-                            getResource(METAL_GOLEM + "_" + type.getName())));
+                            getResource(METAL_GOLEM + "_" + type.getName())
+                    )
+            );
 
     public static final String DOG_GOLEM_ARMOR = "dog_golem_armor";
     //狗傀儡盔甲
