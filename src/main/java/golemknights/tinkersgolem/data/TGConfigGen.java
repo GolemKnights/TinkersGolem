@@ -116,7 +116,7 @@ public class TGConfigGen extends ConfigDataProvider {
 				.addStat(GolemTypes.STAT_HEALTH.get(), 200)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 20)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
-				.addStat(TGAttributes.STAT_OVERSLIME_BONUS.get(), 0.4)
+				.addStat(TGAttributes.STAT_OVERSLIME_BONUS.get(), 1)
 				.end()
 
 				.addMaterial(TConstruct.getResource("queens_slime"), Ingredient.of(TinkerMaterials.queensSlime.getIngotTag()))
