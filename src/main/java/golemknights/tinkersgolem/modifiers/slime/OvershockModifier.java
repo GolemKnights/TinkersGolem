@@ -3,6 +3,9 @@ package golemknights.tinkersgolem.modifiers.slime;
 import dev.xkmc.modulargolems.content.core.StatFilterType;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import golemknights.tinkersgolem.entity.SlimeGolemEntity;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 
@@ -27,4 +30,9 @@ public class OvershockModifier extends SlimeModifier {
         }
     }
 
+    @Override
+    public List<MutableComponent> getDetail(int v) {
+        int val = Math.round(0.2f * 100 * v);
+        return List.of(Component.translatable(this.getDescriptionId() + ".desc", val).withStyle(ChatFormatting.GREEN));
+    }
 }
