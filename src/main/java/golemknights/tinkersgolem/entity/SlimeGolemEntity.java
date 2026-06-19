@@ -459,7 +459,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 
 	@Override
 	public void checkRide(LivingEntity target) {
-		if (!(target instanceof SlimeGolemEntity other)) return;
+		if (!(target instanceof SlimeGolemEntity other) || !target.isAlive()) return;
 
 		// size check
 		if (getSize() != other.getSize()) return;
