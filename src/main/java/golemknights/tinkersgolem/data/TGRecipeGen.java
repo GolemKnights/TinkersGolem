@@ -44,10 +44,10 @@ public class TGRecipeGen {
 
 		// overslime
 		{
-			new OverslimeRecoverBuilder(Ingredient.of(Items.SLIME_BALL), 20).save(pvd, TinkersGolem.getResource("slime"));
-			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.SKY)), 50).save(pvd, TinkersGolem.getResource("sky_slime"));
-			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ICHOR)), 100).save(pvd, TinkersGolem.getResource("ichor"));
-			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ENDER)), 80).save(pvd, TinkersGolem.getResource("ender_slime"));
+			new OverslimeRecoverBuilder(Ingredient.of(Items.SLIME_BALL), 10).save(pvd, TinkersGolem.getResource("slime"));
+			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.SKY)), 25).save(pvd, TinkersGolem.getResource("sky_slime"));
+			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ICHOR)), 50).save(pvd, TinkersGolem.getResource("ichor"));
+			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ENDER)), 40).save(pvd, TinkersGolem.getResource("ender_slime"));
 		}
 
 		// slime golem
