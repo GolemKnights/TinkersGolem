@@ -11,5 +11,6 @@
     ]
   ],
   "result": "tinkers_golem:metal_golem_leggings",
-  "result_count": 1
+  "result_count": 1,
+  "slot_layout": "tinkers_golem:metal_golem_armor"
 }
