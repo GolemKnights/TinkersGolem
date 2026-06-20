@@ -109,6 +109,7 @@ public class TinkersGolem {
 		gen.addProvider(server, new TGToolsRecipeProvider(output));
 		gen.addProvider(server, new TGArmorModelProvider(output));
 		gen.addProvider(server, new TGToolItemModelProvider(output, helper));
+		gen.addProvider(server, new TGItemModelProvider(output, helper));
 	}
 
 	/**
