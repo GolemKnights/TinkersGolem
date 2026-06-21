@@ -30,12 +30,9 @@ public class TGToolsRecipeProvider extends BaseRecipeProvider implements IMateri
         String metalGolemFolder = armorFolder + "metal_golem/";
         TGItems.metalGolemArmor.forEach(
                 (item) -> ToolBuildingRecipeBuilder.toolBuildingRecipe(item)
-                        .addExtraRequirement(
-                                Ingredient.of(
-                                        GolemItems.GOLEM_TEMPLATE.get(),
-                                        GolemItems.GOLEM_TEMPLATE.get()
-                                )
-                        ).layoutSlot(TGItems.METAL_GOLEM_ARMOR)
+                        .addExtraRequirement(Ingredient.of(GolemItems.GOLEM_TEMPLATE.get()))
+                        .addExtraRequirement(Ingredient.of(GolemItems.GOLEM_TEMPLATE.get()))
+                        .layoutSlot(TGItems.METAL_GOLEM_ARMOR)
                         .save(consumer, this.prefix(id(item), metalGolemFolder))
         );
     }
