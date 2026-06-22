@@ -28,14 +28,14 @@ public class TGItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        TGItems.metal_golem_plating.forEach((slot, item) -> {
+        /*TGItems.metal_golem_plating.forEach((slot, item) -> {
             MaterialModelBuilder<ItemModelBuilder> b = this.part(item, "armor/metal_golem/" + slot.getName() + "/plating");
             if (slot == ArmorItem.Type.HELMET) {
                 b.offset(0, 2);
             } else if (slot == ArmorItem.Type.LEGGINGS) {
                 b.offset(0, 1);
             }
-        });
+        });*/
         this.cast(TGItems.bootsMetalGolemPlatingCast);
         this.cast(TGItems.leggingsMetalGolemPlatingCast);
         this.cast(TGItems.chestplateMetalGolemPlatingCast);
