@@ -3,8 +3,18 @@
     {
       "type": "tconstruct:part_stats",
       "parts": [
-        "tconstruct:leggings_plating",
-        "tconstruct:maille"
+        {
+          "item": "tinkers_golem:chestplate_metal_golem_plating",
+          "scale": 0.6
+        },
+        {
+          "item": "tconstruct:chestplate_plating",
+          "scale": 0.2
+        },
+        {
+          "item": "tconstruct:chestplate_plating",
+          "scale": 0.2
+        }
       ],
       "primary_part": 0
     },
@@ -28,15 +38,17 @@
       ]
     },
     {
-      "type": "tconstruct:modifier_slots",
-      "slots": {
-        "defense": 3,
-        "upgrades": 2
+      "type": "tconstruct:multiply_stats",
+      "multipliers": {
+        "tconstruct:attack_damage": 0.4
       }
     },
     {
-      "type": "tconstruct:fixed_material_name",
-      "index": 0
+      "type": "tconstruct:modifier_slots",
+      "slots": {
+        "defense": 2,
+        "upgrades": 2
+      }
     }
   ]
 }

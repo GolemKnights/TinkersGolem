@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tinkers_golem:item/cast/boots_metal_golem_plating"
+  }
+}

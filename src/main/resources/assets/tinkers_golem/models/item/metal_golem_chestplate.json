@@ -1,0 +1,22 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "forge:item/default",
+  "textures": {
+    "huge_plating": "tinkers_golem:item/tool/armor/metal_golem/chestplate/huge_plating",
+    "small_plating1": "tinkers_golem:item/tool/armor/metal_golem/chestplate/small_plating1",
+    "small_plating2": "tinkers_golem:item/tool/armor/metal_golem/chestplate/small_plating2"
+  },
+  "modifier_roots": [ "tinkers_golem:item/tool/armor/metal_golem/chestplate/modifiers/" ],
+  "first_modifiers": [ "tconstruct:trim" ],
+  "parts": [
+    { "name": "huge_plating", "index": 0 },
+    { "name": "small_plating1",  "index": 1 },
+    { "name": "small_plating2",  "index": 2 }
+  ],
+  "overrides": [
+    {
+      "predicate": { "tconstruct:broken": 1 },
+      "model": "tinkers_golem:item/armor/metal_golem/chestplate_broken"
+    }
+  ]
+}

@@ -6,10 +6,7 @@ import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
 import golemknights.tinkersgolem.cap.OverslimeCap;
 import golemknights.tinkersgolem.cap.OverslimeSyncPacket;
-import golemknights.tinkersgolem.data.TGConfigGen;
-import golemknights.tinkersgolem.data.TGLang;
-import golemknights.tinkersgolem.data.TGRecipeGen;
-import golemknights.tinkersgolem.data.TGTagGen;
+import golemknights.tinkersgolem.data.*;
 import golemknights.tinkersgolem.entity.SlimeTankSyncPacket;
 import golemknights.tinkersgolem.events.TGAttackListener;
 import golemknights.tinkersgolem.register.*;
@@ -20,9 +17,7 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -34,8 +29,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import slimeknights.mantle.registration.deferred.EntityTypeDeferredRegister;
-import slimeknights.mantle.registration.deferred.ItemDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
+import slimeknights.tconstruct.common.registration.ItemDeferredRegisterExtension;
+import slimeknights.tconstruct.library.utils.Util;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(TinkersGolem.MODID)
@@ -54,7 +50,7 @@ public class TinkersGolem {
 			e -> e.create(SlimeTankSyncPacket.class, NetworkDirection.PLAY_TO_CLIENT)
 	);
 
-	public static final ItemDeferredRegister ITEMS = new ItemDeferredRegister(MODID);
+	public static final ItemDeferredRegisterExtension ITEMS = new ItemDeferredRegisterExtension(MODID);
 	public static final EntityTypeDeferredRegister ENTITIES = new EntityTypeDeferredRegister(MODID);
 	public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, MODID);
 	public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, MODID);
@@ -108,6 +104,12 @@ public class TinkersGolem {
 		var helper = event.getExistingFileHelper();
 		var server = event.includeServer();
 		gen.addProvider(server, new TGConfigGen(gen));
+		gen.addProvider(server, new TGToolDefinitionDataProvider(output));
+		gen.addProvider(server, new TGStationSlotLayoutProvider(output));
+		gen.addProvider(server, new TGToolsRecipeProvider(output));
+		gen.addProvider(server, new TGArmorModelProvider(output));
+		gen.addProvider(server, new TGToolItemModelProvider(output, helper));
+		gen.addProvider(server, new TGItemModelProvider(output, helper));
 	}
 
 	/**
@@ -117,6 +119,9 @@ public class TinkersGolem {
 	 */
 	public static ResourceLocation getResource(String id) {
 		return new ResourceLocation(MODID, id);
+	}
+	public static String makeTranslationKey(String base, String name) {
+		return Util.makeTranslationKey(base, getResource(name));
 	}
 
 }
