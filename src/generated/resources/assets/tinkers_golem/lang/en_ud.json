@@ -11,6 +11,7 @@
   "item.tinkers_golem.slime_golem_core": "ǝɹoƆ ɯǝןo⅁ ǝɯıןS",
   "item.tinkers_golem.slime_golem_holder": "ɹǝpןoH ɯǝןo⅁ ǝɯıןS",
   "item.tinkers_golem.slime_golem_shell": "ןןǝɥS ɯǝןo⅁ ǝɯıןS",
+  "item.tinkers_golem.supercritical": "ןɐɔıʇıɹɔɹǝdnS",
   "modifier.tinkers_golem.overboking": "buıʞoqɹǝʌO",
   "modifier.tinkers_golem.overboking.desc": "ǝbɐɯɐp buıןɐǝp uǝɥʍ ʇǝbɹɐʇ ǝɥʇ ʎɐʍɐ ɥsnd oʇ ǝɔuɐɥɔ %s%% sɐH",
   "modifier.tinkers_golem.overburn": "uɹnqɹǝʌO",
@@ -27,6 +28,8 @@
   "modifier.tinkers_golem.overteleport": "ʇɹodǝןǝʇɹǝʌO",
   "modifier.tinkers_golem.overteleport.desc": "ǝbɐɯɐp buıʞɐʇ uǝɥʍ ɟןǝsʇı ʇɹodǝןǝʇ ɹo 'ǝbɐɯɐp buıןɐǝp uǝɥʍ ʇǝbɹɐʇ ʇɹodǝןǝ⟘",
   "modifier.tinkers_golem.overworked": "pǝʞɹoʍɹǝʌO",
+  "modifier.tinkers_golem.supercritical": "ןɐɔıʇıɹɔɹǝdnS",
+  "modifier.tinkers_golem.supercritical.desc": "ɹǝbɹɐן ʍoɹb oʇ ɹo ןɐǝɥ oʇ ǝɯıןsɹǝʌo ǝɯnsuoɔ :ɥʇןɐǝɥ xɐɯ ǝʌoqɐ sı ǝɯıןsɹǝʌo uǝɥM",
   "tinkers_golem.info.overslime": "%s/%s :ǝɯıןsɹǝʌO",
   "tinkers_golem.max_overslime": "ǝɯıןsɹǝʌO xɐW"
 }

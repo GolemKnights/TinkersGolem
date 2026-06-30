@@ -82,7 +82,7 @@ public class GolemOverslimeEvents {
 			float value = (float) attribute.getValue();
 			if (value <= 0)
 				return;
-			if (value == getOverslime(target))
+			if (value <= getOverslime(target))
 				return;
 			ItemStack item = event.getItemStack();
 			if (item.isEmpty())

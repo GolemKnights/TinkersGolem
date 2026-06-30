@@ -2,6 +2,7 @@ package golemknights.tinkersgolem.register;
 
 import com.tterrag.registrate.builders.ItemBuilder;
 import com.tterrag.registrate.providers.ProviderType;
+import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import dev.xkmc.l2library.base.L2Registrate;
@@ -14,6 +15,7 @@ import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.modifiers.golem.*;
 import golemknights.tinkersgolem.modifiers.slime.OverburnModifier;
 import golemknights.tinkersgolem.modifiers.slime.OvershockModifier;
+import golemknights.tinkersgolem.modifiers.slime.SupercriticalModifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -28,11 +30,14 @@ public class TGGolemModifiers {
 	public static final RegistryEntry<OvergrowthModifier> OVERGROWTH;
 	public static final RegistryEntry<AttributeGolemModifier> OVERFORCED, OVERWORKED;
 	public static final RegistryEntry<OverlordModifier> OVERLORD;
-    public static final RegistryEntry<OverburnModifier> OVERBURN;
-    public static final RegistryEntry<OversmeltModifier> OVERSMELT;
-    public static final RegistryEntry<OvershockModifier> OVERSHOCK;
-    public static final RegistryEntry<OverbonkingModifier> OVERBOKING;
-    public static final RegistryEntry<OverteleportModifier> OVERTELEPORT;
+	public static final RegistryEntry<OverburnModifier> OVERBURN;
+	public static final RegistryEntry<OversmeltModifier> OVERSMELT;
+	public static final RegistryEntry<OvershockModifier> OVERSHOCK;
+	public static final RegistryEntry<OverbonkingModifier> OVERBOKING;
+	public static final RegistryEntry<OverteleportModifier> OVERTELEPORT;
+	public static final RegistryEntry<SupercriticalModifier> SUPERCRITICAL;
+
+	public static final ItemEntry<SimpleUpgradeItem> ITEM_SUPERCRITICAL;
 
 	static {
 		OVERWORKED = reg("overworked", () -> new AttributeGolemModifier(3,
@@ -41,12 +46,16 @@ public class TGGolemModifiers {
 				new AttributeGolemModifier.AttrEntry(TGAttributes.STAT_OVERSLIME, () -> 20)), null);
 
 		OVERGROWTH = reg("overgrowth", OvergrowthModifier::new, "Slowly recover overslime over time");
-        OVERLORD = reg("overlord", OverlordModifier::new, "When taking damage, recover overslime by %s%% of damage taken");
-        OVERBURN = reg("overburn", OverburnModifier::new, "Consumes fluid fuel to recover overslime over time");
-        OVERSMELT = reg("oversmelt", OversmeltModifier::new, "Recover overslime over time on blocks that warm striders");
-        OVERSHOCK = reg("overshock", OvershockModifier::new, "Has %s%% chance to deal area damage upon landing");
-        OVERBOKING = reg("overboking", OverbonkingModifier::new, "Has %s%% chance to push away the target when dealing damage");
-        OVERTELEPORT = reg("overteleport", OverteleportModifier::new, "Teleport target when dealing damage, or teleport itself when taking damage");
+		OVERLORD = reg("overlord", OverlordModifier::new, "When taking damage, recover overslime by %s%% of damage taken");
+		OVERBURN = reg("overburn", OverburnModifier::new, "Consumes fluid fuel to recover overslime over time");
+		OVERSMELT = reg("oversmelt", OversmeltModifier::new, "Recover overslime over time on blocks that warm striders");
+		OVERSHOCK = reg("overshock", OvershockModifier::new, "Has %s%% chance to deal area damage upon landing");
+		OVERBOKING = reg("overboking", OverbonkingModifier::new, "Has %s%% chance to push away the target when dealing damage");
+		OVERTELEPORT = reg("overteleport", OverteleportModifier::new, "Teleport target when dealing damage, or teleport itself when taking damage");
+
+		SUPERCRITICAL = reg("supercritical", SupercriticalModifier::new, "When overslime is above max health: consume overslime to heal or to grow larger");
+
+		ITEM_SUPERCRITICAL = regUpgradeImpl("supercritical", () -> SUPERCRITICAL, 1, false, TinkersGolem.MODID).register();
 	}
 
 	@SuppressWarnings("removal")
