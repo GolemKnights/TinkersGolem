@@ -75,45 +75,37 @@ public class GolemOverslimeEvents {
 	@SubscribeEvent
 	public static void recoverOverslime(PlayerInteractEvent.EntityInteract event) {
 		Entity entity = event.getTarget();
-		if (entity instanceof LivingEntity target && isGolem(target)) {
-			AttributeInstance attribute = target.getAttribute(TGAttributes.MAX_OVERSLIME.get());
-			if (attribute == null)
-				return;
-			float value = (float) attribute.getValue();
-			if (value <= 0)
-				return;
-			if (value <= getOverslime(target))
-				return;
-			ItemStack item = event.getItemStack();
-			if (item.isEmpty())
-				return;
-			List<OverslimeRecoverRecipe> recipes = OverslimeRecoverRecipeCache.findRecipe(target.level().getRecipeManager(), item);
-			if (!recipes.isEmpty()) {
-				float amount = 0;
-				for (OverslimeRecoverRecipe recipe : recipes) {
-					if (!recipe.matches(item)) {
-						continue;
-					}
-					amount += recipe.getOutput();
-				}
-				addOverslime(target, amount);
-
-				ItemStack remaining = item.getCraftingRemainingItem();
-				item.shrink(1);
-				event.setCanceled(true);
-				event.setCancellationResult(InteractionResult.SUCCESS);
-				if (remaining.isEmpty()) {
-					return;
-				}
-				var player = event.getEntity();
-				if (item.isEmpty()) {
-					player.setItemInHand(event.getHand(), remaining);
-					return;
-				}
-				if (!player.getInventory().add(remaining)) {
-					player.drop(remaining, false);
-				}
+		if (!(entity instanceof AbstractGolemEntity<?, ?> target)) return;
+		AttributeInstance attribute = target.getAttribute(TGAttributes.MAX_OVERSLIME.get());
+		if (attribute == null) return;
+		float value = (float) attribute.getValue();
+		if (value <= 0) return;
+		if (value <= getOverslime(target)) return;
+		ItemStack item = event.getItemStack();
+		if (item.isEmpty()) return;
+		List<OverslimeRecoverRecipe> recipes = OverslimeRecoverRecipeCache.findRecipe(target.level().getRecipeManager(), item);
+		if (recipes.isEmpty()) return;
+		float amount = 0;
+		for (OverslimeRecoverRecipe recipe : recipes) {
+			if (!recipe.matches(item)) {
+				continue;
 			}
+			amount = Math.max(amount, recipe.getOutput());
+		}
+		if (amount <= 0) return;
+		addOverslime(target, amount);
+		ItemStack remaining = item.getCraftingRemainingItem();
+		item.shrink(1);
+		event.setCanceled(true);
+		event.setCancellationResult(InteractionResult.SUCCESS);
+		if (remaining.isEmpty()) return;
+		var player = event.getEntity();
+		if (item.isEmpty()) {
+			player.setItemInHand(event.getHand(), remaining);
+			return;
+		}
+		if (!player.getInventory().add(remaining)) {
+			player.drop(remaining, false);
 		}
 	}
 

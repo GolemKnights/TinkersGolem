@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "modulargolems:empty_upgrade"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "tconstruct:greenheart_planks"
+    },
+    {
+      "item": "tconstruct:skyroot_planks"
+    },
+    {
+      "item": "tconstruct:bloodshroom_planks"
+    },
+    {
+      "item": "tconstruct:enderbark_planks"
+    }
+  ],
+  "result": {
+    "item": "tinkers_golem:overworked"
+  }
+}

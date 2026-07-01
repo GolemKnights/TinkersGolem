@@ -37,7 +37,8 @@ public class TGGolemModifiers {
 	public static final RegistryEntry<OverteleportModifier> OVERTELEPORT;
 	public static final RegistryEntry<SupercriticalModifier> SUPERCRITICAL;
 
-	public static final ItemEntry<SimpleUpgradeItem> ITEM_SUPERCRITICAL;
+	public static final ItemEntry<SimpleUpgradeItem> ITEM_OVERGROWTH, ITEM_SUPER_OVERGROWTH,
+			ITEM_OVERWORKED,ITEM_OVERFORCED,ITEM_OVERLORD,ITEM_OVERBURN, ITEM_SUPERCRITICAL;
 
 	static {
 		OVERWORKED = reg("overworked", () -> new AttributeGolemModifier(3,
@@ -52,9 +53,14 @@ public class TGGolemModifiers {
 		OVERSHOCK = reg("overshock", OvershockModifier::new, "Has %s%% chance to deal area damage upon landing");
 		OVERBOKING = reg("overboking", OverbonkingModifier::new, "Has %s%% chance to push away the target when dealing damage");
 		OVERTELEPORT = reg("overteleport", OverteleportModifier::new, "Teleport target when dealing damage, or teleport itself when taking damage");
-
 		SUPERCRITICAL = reg("supercritical", SupercriticalModifier::new, "When overslime is above max health: consume overslime to heal or to grow larger");
 
+		ITEM_OVERGROWTH = regUpgradeImpl("overgrowth", () -> OVERGROWTH, 1, false, TinkersGolem.MODID).register();
+		ITEM_SUPER_OVERGROWTH = regUpgradeImpl("super_overgrowth", () -> OVERGROWTH, 4, true, TinkersGolem.MODID).register();
+		ITEM_OVERWORKED = regUpgradeImpl("overworked", () -> OVERWORKED, 1, false, TinkersGolem.MODID).register();
+		ITEM_OVERFORCED = regUpgradeImpl("overforced", () -> OVERFORCED, 1, false, TinkersGolem.MODID).register();
+		ITEM_OVERLORD = regUpgradeImpl("overlord", () -> OVERLORD, 1, false, TinkersGolem.MODID).register();
+		ITEM_OVERBURN = regUpgradeImpl("overburn", () -> OVERBURN, 1, false, TinkersGolem.MODID).register();
 		ITEM_SUPERCRITICAL = regUpgradeImpl("supercritical", () -> SUPERCRITICAL, 1, false, TinkersGolem.MODID).register();
 	}
 
