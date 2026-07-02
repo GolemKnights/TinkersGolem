@@ -114,11 +114,12 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	public void setSize(int size, boolean resetHealth) {
 		int i = Mth.clamp(size, 1, 127);
 		float p = i / 4F - 1;
+		float hp = i * i / 16f - 1;
 		this.entityData.set(ID_SIZE, i);
 		this.reapplyPosition();
 		this.refreshDimensions();
 		var uuid = MathHelper.getUUIDFromString("slime_golem_bonus");
-		tryAddAttribute(Attributes.MAX_HEALTH, new AttributeModifier(uuid, "tinkers_golem.size_health_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
+		tryAddAttribute(Attributes.MAX_HEALTH, new AttributeModifier(uuid, "tinkers_golem.size_health_bonus", hp, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		tryAddAttribute(Attributes.MOVEMENT_SPEED, new AttributeModifier(uuid, "tinkers_golem.size_speed_bonus", p / 2F, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		tryAddAttribute(Attributes.ATTACK_DAMAGE, new AttributeModifier(uuid, "tinkers_golem.size_damage_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		tryAddAttribute(TGAttributes.MAX_OVERSLIME.get(), new AttributeModifier(uuid, "tinkers_golem.size_overslime_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
@@ -332,7 +333,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	@Override
 	public void remove(Entity.RemovalReason reason) {
 		int size = this.getSize();
-		if (!this.level().isClientSide && size > 1 && this.isDeadOrDying() && reason == RemovalReason.KILLED) {
+		if (!this.level().isClientSide && size > 1 && this.isDeadOrDying() && reason == RemovalReason.KILLED && !getTags().contains("NoSplit")) {
 			Component component = this.getCustomName();
 			boolean flag = this.isNoAi();
 			float offset = (float) size / 4.0F;

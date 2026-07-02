@@ -17,10 +17,12 @@ import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.recipes.OverslimeRecoverBuilder;
 import golemknights.tinkersgolem.register.TGEntities;
+import golemknights.tinkersgolem.register.TGGolemModifiers;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -31,10 +33,14 @@ import net.minecraftforge.registries.ForgeRegistries;
 import slimeknights.mantle.recipe.helper.ItemOutput;
 import slimeknights.mantle.registration.object.FlowingFluidObject;
 import slimeknights.tconstruct.TConstruct;
+import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.recipe.casting.ItemCastingRecipeBuilder;
 import slimeknights.tconstruct.shared.TinkerCommons;
+import slimeknights.tconstruct.shared.TinkerMaterials;
 import slimeknights.tconstruct.shared.block.SlimeType;
+import slimeknights.tconstruct.tools.TinkerModifiers;
+import slimeknights.tconstruct.world.TinkerWorld;
 
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
@@ -60,12 +66,12 @@ public class TGRecipeGen {
 					.define('B', TGEntities.SLIME_SHELL.get())
 					.save(pvd, TinkersGolem.getResource("slime_golem/assemble_holder"));
 
-            unlock(pvd, new GolemAssembleBuilder(TGEntities.HOLDER_SLIME.get(), 1)::unlockedBy,
-                    TGEntities.SLIME_CORE.get())
-                    .pattern("A").pattern("B")
-                    .define('A', TGEntities.SLIME_SHELL.get())
-                    .define('B', TGEntities.SLIME_CORE.get())
-                    .save(pvd, TinkersGolem.getResource("slime_golem/assemble_holder_inverted"));
+			unlock(pvd, new GolemAssembleBuilder(TGEntities.HOLDER_SLIME.get(), 1)::unlockedBy,
+					TGEntities.SLIME_CORE.get())
+					.pattern("A").pattern("B")
+					.define('A', TGEntities.SLIME_SHELL.get())
+					.define('B', TGEntities.SLIME_CORE.get())
+					.save(pvd, TinkersGolem.getResource("slime_golem/assemble_holder_inverted"));
 
 			unlock(pvd, new GolemReplaceBuilder(TGEntities.HOLDER_SLIME.get(), 1)::unlockedBy,
 					TGEntities.SLIME_CORE.get())
@@ -126,6 +132,65 @@ public class TGRecipeGen {
 			genCasting(core, pvd, ModularGolems.loc("iron"), TinkerFluids.moltenIron, 90);
 			genCasting(core, pvd, ModularGolems.loc("gold"), TinkerFluids.moltenGold, 90);
 			genCasting(core, pvd, ModularGolems.loc("netherite"), TinkerFluids.moltenNetherite, 90);
+
+		}
+
+		// upgrades
+		{
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGGolemModifiers.ITEM_OVERGROWTH.get(), 1)::unlockedBy, GolemItems.EMPTY_UPGRADE.get())
+					.pattern(" A ").pattern("AEA").pattern(" A ")
+					.define('E', GolemItems.EMPTY_UPGRADE.get())
+					.define('A', TinkerTags.Items.SLIMY_LOGS)
+					.save(pvd);
+
+			unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGGolemModifiers.ITEM_SUPER_OVERGROWTH.get(), 1)::unlockedBy, TGGolemModifiers.ITEM_OVERGROWTH.get())
+					.requires(TGGolemModifiers.ITEM_OVERGROWTH.get())
+					.requires(TinkerWorld.greenheart.get())
+					.requires(TinkerWorld.skyroot.get())
+					.requires(TinkerWorld.bloodshroom.get())
+					.requires(TinkerWorld.enderbark.get())
+					.save(pvd);
+
+			unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGGolemModifiers.ITEM_OVERWORKED.get(), 1)::unlockedBy, GolemItems.EMPTY_UPGRADE.get())
+					.requires(GolemItems.EMPTY_UPGRADE.get())
+					.requires(Items.GOLD_INGOT, 4)
+					.requires(TinkerWorld.greenheart.get())
+					.requires(TinkerWorld.skyroot.get())
+					.requires(TinkerWorld.bloodshroom.get())
+					.requires(TinkerWorld.enderbark.get())
+					.save(pvd);
+
+			unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGGolemModifiers.ITEM_SUPERCRITICAL.get(), 1)::unlockedBy, GolemItems.EMPTY_UPGRADE.get())
+					.requires(GolemItems.EMPTY_UPGRADE.get())
+					.requires(TinkerWorld.greenheart.get())
+					.requires(TinkerWorld.skyroot.get())
+					.requires(TinkerWorld.bloodshroom.get())
+					.requires(TinkerWorld.enderbark.get())
+					.requires(TinkerWorld.earthGeode.get())
+					.requires(TinkerWorld.skyGeode.get())
+					.requires(TinkerWorld.ichorGeode.get())
+					.requires(TinkerWorld.enderGeode.get())
+					.save(pvd);
+
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGGolemModifiers.ITEM_OVERLORD.get(), 1)::unlockedBy, GolemItems.EMPTY_UPGRADE.get())
+					.pattern("BAB").pattern("AEA").pattern("BAB")
+					.define('E', GolemItems.EMPTY_UPGRADE.get())
+					.define('A', TinkerMaterials.queensSlime.getIngotTag())
+					.define('B', TinkerTags.Items.KNIGHTMETAL_SHARD)
+					.save(pvd);
+
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGGolemModifiers.ITEM_OVERBURN.get(), 1)::unlockedBy, GolemItems.EMPTY_UPGRADE.get())
+					.pattern("BAB").pattern("AEA").pattern("BAB")
+					.define('E', GolemItems.EMPTY_UPGRADE.get())
+					.define('A', TinkerMaterials.cinderslime.getIngotTag())
+					.define('B', TinkerWorld.cobaltShard.get())
+					.save(pvd);
+
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGGolemModifiers.ITEM_OVERFORCED.get(), 1)::unlockedBy, GolemItems.EMPTY_UPGRADE.get())
+					.pattern("AAA").pattern("AEA").pattern("AAA")
+					.define('E', GolemItems.EMPTY_UPGRADE.get())
+					.define('A', TinkerModifiers.slimesteelReinforcement.get())
+					.save(pvd);
 
 		}
 
