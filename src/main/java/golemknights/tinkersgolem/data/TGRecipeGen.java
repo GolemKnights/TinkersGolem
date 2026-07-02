@@ -103,6 +103,7 @@ public class TGRecipeGen {
 
 			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, GolemItems.ADD_DIAMOND);
 			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, GolemItems.ADD_NETHERITE);
+			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, TGGolemModifiers.ITEM_SUPERCRITICAL);
 
 		}
 

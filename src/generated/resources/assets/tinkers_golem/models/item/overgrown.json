@@ -2,19 +2,19 @@
   "parent": "minecraft:item/generated",
   "overrides": [
     {
-      "model": "tinkers_golem:item/super_overgrowth_purple",
+      "model": "tinkers_golem:item/overgrown_purple",
       "predicate": {
         "modulargolems:blue_arrow": 0.5
       }
     },
     {
-      "model": "tinkers_golem:item/super_overgrowth_blue",
+      "model": "tinkers_golem:item/overgrown_blue",
       "predicate": {
         "modulargolems:blue_arrow": 1.0
       }
     }
   ],
   "textures": {
-    "layer0": "tinkers_golem:item/upgrades/super_overgrowth"
+    "layer0": "tinkers_golem:item/upgrades/overgrown"
   }
 }
