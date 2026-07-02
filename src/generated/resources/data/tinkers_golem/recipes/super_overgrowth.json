@@ -6,16 +6,16 @@
       "item": "tinkers_golem:overgrowth"
     },
     {
-      "item": "tconstruct:greenheart_planks"
+      "tag": "tconstruct:greenheart_logs"
     },
     {
-      "item": "tconstruct:skyroot_planks"
+      "tag": "tconstruct:skyroot_logs"
     },
     {
-      "item": "tconstruct:bloodshroom_planks"
+      "tag": "tconstruct:bloodshroom_logs"
     },
     {
-      "item": "tconstruct:enderbark_planks"
+      "tag": "tconstruct:enderbark_logs"
     }
   ],
   "result": {

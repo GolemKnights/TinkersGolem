@@ -6,28 +6,28 @@
       "item": "modulargolems:empty_upgrade"
     },
     {
-      "item": "minecraft:gold_ingot"
+      "tag": "forge:ingots/rose_gold"
+    },
+    {
+      "tag": "forge:ingots/rose_gold"
+    },
+    {
+      "tag": "forge:ingots/rose_gold"
     },
     {
       "item": "minecraft:gold_ingot"
     },
     {
-      "item": "minecraft:gold_ingot"
+      "tag": "tconstruct:greenheart_logs"
     },
     {
-      "item": "minecraft:gold_ingot"
+      "tag": "tconstruct:skyroot_logs"
     },
     {
-      "item": "tconstruct:greenheart_planks"
+      "tag": "tconstruct:bloodshroom_logs"
     },
     {
-      "item": "tconstruct:skyroot_planks"
-    },
-    {
-      "item": "tconstruct:bloodshroom_planks"
-    },
-    {
-      "item": "tconstruct:enderbark_planks"
+      "tag": "tconstruct:enderbark_logs"
     }
   ],
   "result": {

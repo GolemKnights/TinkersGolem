@@ -6,28 +6,28 @@
       "item": "modulargolems:empty_upgrade"
     },
     {
-      "item": "tconstruct:greenheart_planks"
+      "tag": "tconstruct:greenheart_logs"
     },
     {
-      "item": "tconstruct:skyroot_planks"
+      "tag": "tconstruct:skyroot_logs"
     },
     {
-      "item": "tconstruct:bloodshroom_planks"
+      "tag": "tconstruct:bloodshroom_logs"
     },
     {
-      "item": "tconstruct:enderbark_planks"
+      "tag": "tconstruct:enderbark_logs"
     },
     {
-      "item": "tconstruct:earth_slime_crystal"
+      "item": "tconstruct:earth_slime_crystal_block"
     },
     {
-      "item": "tconstruct:sky_slime_crystal"
+      "item": "tconstruct:sky_slime_crystal_block"
     },
     {
-      "item": "tconstruct:ichor_slime_crystal"
+      "item": "tconstruct:ichor_slime_crystal_block"
     },
     {
-      "item": "tconstruct:ender_slime_crystal"
+      "item": "tconstruct:ender_slime_crystal_block"
     }
   ],
   "result": {
