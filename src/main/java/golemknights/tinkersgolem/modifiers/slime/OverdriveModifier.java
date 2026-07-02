@@ -5,9 +5,9 @@ import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import golemknights.tinkersgolem.entity.SlimeGolemEntity;
 import golemknights.tinkersgolem.events.GolemOverslimeEvents;
 
-public class SupercriticalModifier extends SlimeModifier {
+public class OverdriveModifier extends SlimeModifier {
 
-	public SupercriticalModifier() {
+	public OverdriveModifier() {
 		super(StatFilterType.MASS, 1);
 	}
 

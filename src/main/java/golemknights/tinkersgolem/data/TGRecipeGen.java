@@ -103,7 +103,7 @@ public class TGRecipeGen {
 
 			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, GolemItems.ADD_DIAMOND);
 			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, GolemItems.ADD_NETHERITE);
-			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, TGGolemModifiers.ITEM_SUPERCRITICAL);
+			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, TGGolemModifiers.ITEM_OVERDRIVE);
 
 		}
 
@@ -162,7 +162,7 @@ public class TGRecipeGen {
 					.requires(TinkerWorld.enderbark.getLogItemTag())
 					.save(pvd);
 
-			unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGGolemModifiers.ITEM_SUPERCRITICAL.get(), 1)::unlockedBy, GolemItems.EMPTY_UPGRADE.get())
+			unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGGolemModifiers.ITEM_OVERDRIVE.get(), 1)::unlockedBy, GolemItems.EMPTY_UPGRADE.get())
 					.requires(GolemItems.EMPTY_UPGRADE.get())
 					.requires(TinkerWorld.greenheart.getLogItemTag())
 					.requires(TinkerWorld.skyroot.getLogItemTag())

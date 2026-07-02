@@ -197,6 +197,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		}
 	}
 
+	@Override
 	public void tick() {
 		this.squish += (this.targetSquish - this.squish) * 0.5F;
 		this.oSquish = this.squish;
