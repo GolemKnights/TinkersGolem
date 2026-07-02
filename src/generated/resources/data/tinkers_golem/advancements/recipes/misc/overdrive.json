@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "tinkers_golem:supercritical"
+        "recipe": "tinkers_golem:overdrive"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "tinkers_golem:supercritical"
+      "tinkers_golem:overdrive"
     ]
   },
   "sends_telemetry_event": false

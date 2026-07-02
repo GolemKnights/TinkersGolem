@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "tinkers_golem:super_overgrowth"
+        "recipe": "tinkers_golem:overgrown"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "tinkers_golem:super_overgrowth"
+      "tinkers_golem:overgrown"
     ]
   },
   "sends_telemetry_event": false
