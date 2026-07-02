@@ -13,9 +13,7 @@ public class OvergrowthModifier extends GolemModifier {
     @Override
     public void onAiStep(AbstractGolemEntity<?, ?> golem, int level) {
         if (golem.tickCount % 20 == 0) {
-            if (golem.getRandom().nextFloat() < 0.05 * level) {
-                GolemOverslimeEvents.addOverslime(golem, 1);
-            }
+            GolemOverslimeEvents.addOverslime(golem, 0.5f * level);
         }
     }
 }
