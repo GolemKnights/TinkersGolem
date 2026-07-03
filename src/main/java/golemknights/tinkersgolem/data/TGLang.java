@@ -64,6 +64,8 @@ public enum TGLang {
 		}
 
 		pvd.add("config.jade.plugin_tinkers_golem.overslime", "Overslime");
+		pvd.add("config.jade.plugin_tinkers_golem.overslime_recovery", "Overslime Recovery Factor");
+		pvd.add("config.jade.plugin_tinkers_golem.tank_capacity", "Tank Capacity");
 
 	}
 

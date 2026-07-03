@@ -12,6 +12,7 @@ import dev.xkmc.modulargolems.content.modifier.base.GolemModifier;
 import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import golemknights.tinkersgolem.TinkersGolem;
+import golemknights.tinkersgolem.data.TGConfig;
 import golemknights.tinkersgolem.item.misc.SpecialUpgradeItem;
 import golemknights.tinkersgolem.modifiers.golem.*;
 import golemknights.tinkersgolem.modifiers.slime.OverburnModifier;
@@ -43,16 +44,16 @@ public class TGGolemModifiers {
 	public static final ItemEntry<SpecialUpgradeItem> ITEM_OVERDRIVE;
 
 	static {
-		OVERWORKED = reg("overworked", () -> new AttributeGolemModifier(3,
-				new AttributeGolemModifier.AttrEntry(TGAttributes.STAT_OVERSLIME_RECOVERY, () -> 1)), null);
+		OVERWORKED = reg("overworked", () -> new AttributeGolemModifier(4,
+				new AttributeGolemModifier.AttrEntry(TGAttributes.STAT_OVERSLIME_RECOVERY, TGConfig.COMMON.overworkedFactor::get)), null);
 		OVERFORCED = reg("overforced", () -> new AttributeGolemModifier(5,
-				new AttributeGolemModifier.AttrEntry(TGAttributes.STAT_OVERSLIME, () -> 20)), null);
+				new AttributeGolemModifier.AttrEntry(TGAttributes.STAT_OVERSLIME, TGConfig.COMMON.overforcedAmount::get)), null);
 
-		OVERGROWTH = reg("overgrowth", OvergrowthModifier::new, "Slowly recover overslime over time");
+		OVERGROWTH = reg("overgrowth", OvergrowthModifier::new, "Recover %s overslime per second");
 		OVERLORD = reg("overlord", OverlordModifier::new, "When taking damage, recover overslime by %s%% of damage taken");
 		OVERBURN = reg("overburn", OverburnModifier::new, "Consumes fluid fuel to recover overslime over time");
-		OVERSMELT = reg("oversmelt", OversmeltModifier::new, "Recover overslime over time on blocks that warm striders");
-		OVERSHOCK = reg("overshock", OvershockModifier::new, "Has %s%% chance to deal area damage upon landing");
+		OVERSMELT = reg("oversmelt", OversmeltModifier::new, "Recover %s overslime per second on warm blocks");
+		OVERSHOCK = reg("overshock", OvershockModifier::new, "Upon landing, deal %s%% of attack damage to surrounding targets");
 		OVERBOKING = reg("overboking", OverbonkingModifier::new, "Has %s%% chance to push away the target when dealing damage");
 		OVERTELEPORT = reg("overteleport", OverteleportModifier::new, "Teleport target when dealing damage, or teleport itself when taking damage");
 		OVERDRIVE = reg("overdrive", OverdriveModifier::new, "When overslime is above max health: consume overslime to heal or to grow larger");
