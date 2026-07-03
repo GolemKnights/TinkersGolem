@@ -47,7 +47,7 @@ public class TGGolemModifiers {
 	public static final ItemEntry<SimpleUpgradeItem> ITEM_OVERGROWTH, ITEM_SUPER_OVERGROWTH,
 			ITEM_OVERWORKED, ITEM_OVERFORCED, ITEM_OVERFILL, ITEM_OVERLORD, ITEM_OVERBURN;
 	public static final ItemEntry<SpecialUpgradeItem> ITEM_OVERDRIVE;
-	public static final ItemEntry<AddSlotTemplate> QUEENS_SLIME_EXPAND, CINDER_SLIME_EXPAND,SLIMESTEEL_EXPAND;
+	public static final ItemEntry<AddSlotTemplate> QUEENS_SLIME_EXPAND, CINDERSLIME_EXPAND, SLIMESTEEL_EXPAND;
 
 	static {
 		OVERWORKED = reg("overworked", () -> new AttributeGolemModifier(4,
@@ -76,9 +76,9 @@ public class TGGolemModifiers {
 		ITEM_OVERBURN = regUpgradeImpl("overburn", () -> OVERBURN, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
 		ITEM_OVERDRIVE = specialUpgrade("overdrive", () -> OVERDRIVE, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
 
-		SLIMESTEEL_EXPAND = addSlot("slimesteel_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Slimesteel").register();
+        SLIMESTEEL_EXPAND = addSlot("slimesteel_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Slimesteel").register();
 		QUEENS_SLIME_EXPAND = addSlot("queens_slime_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Queen's Slime").register();
-		CINDER_SLIME_EXPAND = addSlot("cinder_slime_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Cinder Slime").register();
+		CINDERSLIME_EXPAND = addSlot("cinderslime_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Cinderslime").register();
 
 	}
 

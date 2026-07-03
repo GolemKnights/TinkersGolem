@@ -106,7 +106,7 @@ public class TGRecipeGen {
 			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, TGGolemModifiers.ITEM_OVERDRIVE);
 			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, TGGolemModifiers.SLIMESTEEL_EXPAND);
 			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, TGGolemModifiers.QUEENS_SLIME_EXPAND);
-			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, TGGolemModifiers.CINDER_SLIME_EXPAND);
+			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, TGGolemModifiers.CINDERSLIME_EXPAND);
 
 		}
 
@@ -156,7 +156,7 @@ public class TGRecipeGen {
 					.define('B', TinkerTags.Items.CONGEALED_SLIME)
 					.save(pvd);
 
-			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGGolemModifiers.CINDER_SLIME_EXPAND.get(), 1)::unlockedBy, GolemItems.ADD_DIAMOND.get())
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGGolemModifiers.CINDERSLIME_EXPAND.get(), 1)::unlockedBy, GolemItems.ADD_DIAMOND.get())
 					.pattern("BAB").pattern("AEA").pattern("BAB")
 					.define('E', GolemItems.ADD_DIAMOND.get())
 					.define('A', TinkerMaterials.cinderslime.getIngotTag())

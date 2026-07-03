@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "tinkers_golem:cinder_slime_expand"
+        "recipe": "tinkers_golem:cinderslime_expand"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "tinkers_golem:cinder_slime_expand"
+      "tinkers_golem:cinderslime_expand"
     ]
   },
   "sends_telemetry_event": false
