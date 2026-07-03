@@ -3,19 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "modulargolems:empty_upgrade"
-    },
-    {
-      "tag": "forge:ingots/rose_gold"
-    },
-    {
-      "tag": "forge:ingots/rose_gold"
-    },
-    {
-      "tag": "forge:ingots/rose_gold"
-    },
-    {
-      "item": "minecraft:gold_ingot"
+      "item": "tinkers_golem:overgrowth"
     },
     {
       "tag": "tconstruct:greenheart_logs"
@@ -31,6 +19,6 @@
     }
   ],
   "result": {
-    "item": "tinkers_golem:overworked"
+    "item": "tinkers_golem:overgrown"
   }
 }

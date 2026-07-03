@@ -6,6 +6,7 @@ import dev.xkmc.modulargolems.content.config.GolemMaterial;
 import dev.xkmc.modulargolems.content.config.GolemMaterialConfig;
 import dev.xkmc.modulargolems.content.core.GolemType;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
+import dev.xkmc.modulargolems.content.item.upgrade.AddSlotTemplate;
 import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
 import dev.xkmc.modulargolems.init.advancement.GolemTriggers;
 import dev.xkmc.modulargolems.init.data.MGConfig;
@@ -72,7 +73,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	public long shakeTimestamp;
 
 	@SerialClass.SerialField
-	public SlimeTank tank = new SlimeTank(1, 10000);
+	public final SlimeTank tank = new SlimeTank(this, 1);
 
 	public SlimeGolemEntity(EntityType<SlimeGolemEntity> type, Level level) {
 		super(type, level);
@@ -89,6 +90,10 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 			instance.removeModifier(modifier.getId());
 			instance.addPermanentModifier(modifier);
 		}
+	}
+
+	public int getTankCapacity() {
+		return (int) getAttributeValue(TGAttributes.TANK_CAPACITY.get());
 	}
 
 	@Override
@@ -123,12 +128,12 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		tryAddAttribute(Attributes.MOVEMENT_SPEED, new AttributeModifier(uuid, "tinkers_golem.size_speed_bonus", p / 2F, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		tryAddAttribute(Attributes.ATTACK_DAMAGE, new AttributeModifier(uuid, "tinkers_golem.size_damage_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		tryAddAttribute(TGAttributes.MAX_OVERSLIME.get(), new AttributeModifier(uuid, "tinkers_golem.size_overslime_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
+		tryAddAttribute(TGAttributes.TANK_CAPACITY.get(), new AttributeModifier(uuid, "tinkers_golem.tank_capacity_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		tryAddAttribute(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(uuid, "tinkers_golem.size_reach_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		if (resetHealth) {
 			this.setGuardedDataImpl(this.getMaxHealth(), true, true);
 			float overslime = (float) getAttributeValue(TGAttributes.MAX_OVERSLIME.get());
 			GolemOverslimeEvents.setOverslime(this, overslime);
-			this.tank = new SlimeTank(1, 2500 * i);
 		}
 
 		this.xpReward = i;
@@ -197,6 +202,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		}
 	}
 
+	@Override
 	public void tick() {
 		this.squish += (this.targetSquish - this.squish) * 0.5F;
 		this.oSquish = this.squish;
@@ -405,7 +411,8 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		if (!fluid.isEmpty()) {
 			FluidEffects recipe = FluidEffectManager.INSTANCE.find(fluid.getFluid());
 			if (recipe.hasEntityEffects()) {
-				int consumed = recipe.applyToEntity(fluid, this.getSize(), FluidEffectContext.builder(attacker.level()).user(attacker, null).target(target, livingTarget), IFluidHandler.FluidAction.EXECUTE);
+				int lv = Mth.log2(getSize()) + 1;
+				int consumed = recipe.applyToEntity(fluid, lv, FluidEffectContext.builder(attacker.level()).user(attacker, null).target(target, livingTarget), IFluidHandler.FluidAction.EXECUTE);
 				if (consumed > 0) {
 					spawnParticles(target, fluid);
 					fluid.shrink(consumed);
@@ -446,6 +453,8 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	}
 
 	public void setFluid(FluidStack fluid) {
+		if (fluid.getAmount() > getTankCapacity())
+			fluid.setAmount(getTankCapacity());
 		this.tank.set(0, 0, fluid);
 		this.tank.setChanged();
 	}
@@ -478,6 +487,15 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		for (var e : other.getUpgrades()) if (e instanceof IUpgradeItem item) upgrades.add(item);
 		int rem = TGEntities.HOLDER_SLIME.get().getRemaining(getMaterials(), upgrades);
 		if (rem < 0) return;
+
+		// check for duplicate templates
+		Set<AddSlotTemplate> set = new LinkedHashSet<>();
+		for (var e : upgrades) {
+			if (e instanceof AddSlotTemplate t) {
+				if (set.contains(t)) return;
+				set.add(t);
+			}
+		}
 
 		// reforge check
 		int reforge = getReforgeCount();

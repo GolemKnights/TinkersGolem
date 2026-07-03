@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "tinkers_golem:item/upgrades/super_overgrowth",
+    "layer0": "tinkers_golem:item/upgrades/overfill",
     "layer1": "modulargolems:item/blue_arrow"
   }
 }

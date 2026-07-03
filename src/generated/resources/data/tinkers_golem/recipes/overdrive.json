@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "modulargolems:empty_upgrade"
+    },
+    {
+      "tag": "tconstruct:greenheart_logs"
+    },
+    {
+      "tag": "tconstruct:skyroot_logs"
+    },
+    {
+      "tag": "tconstruct:bloodshroom_logs"
+    },
+    {
+      "tag": "tconstruct:enderbark_logs"
+    },
+    {
+      "item": "tconstruct:earth_slime_crystal_block"
+    },
+    {
+      "item": "tconstruct:sky_slime_crystal_block"
+    },
+    {
+      "item": "tconstruct:ichor_slime_crystal_block"
+    },
+    {
+      "item": "tconstruct:ender_slime_crystal_block"
+    }
+  ],
+  "result": {
+    "item": "tinkers_golem:overdrive"
+  }
+}

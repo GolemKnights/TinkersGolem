@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_overgrowth": {
+    "has_queens_slime_expand": {
       "conditions": {
         "items": [
           {
             "items": [
-              "tinkers_golem:overgrowth"
+              "tinkers_golem:queens_slime_expand"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "tinkers_golem:super_overgrowth"
+        "recipe": "tinkers_golem:queens_slime_expand_slime_golem_holder"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_overgrowth",
+      "has_queens_slime_expand",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "tinkers_golem:super_overgrowth"
+      "tinkers_golem:queens_slime_expand_slime_golem_holder"
     ]
   },
   "sends_telemetry_event": false

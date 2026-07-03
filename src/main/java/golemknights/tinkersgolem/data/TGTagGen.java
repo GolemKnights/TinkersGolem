@@ -14,6 +14,7 @@ import slimeknights.tconstruct.shared.TinkerMaterials;
 public class TGTagGen {
 
 	public static final TagKey<Item> SLIME_PART = item("slime_part");
+	public static final TagKey<Item> SLIME_UPGRADE = item("slime_upgrade");
 
 	public static TagKey<Item> item(String id) {
 		return ItemTags.create(TinkersGolem.getResource(id));
@@ -21,9 +22,9 @@ public class TGTagGen {
 
 	public static void genItemTag(RegistrateItemTagsProvider pvd) {
 		pvd.addTag(MGTagGen.SPECIAL_CRAFT).add(
-				TinkerMaterials.slimesteel.asItem(),
-				TinkerMaterials.queensSlime.asItem(),
-				TinkerMaterials.cinderslime.asItem()
+				TinkerMaterials.slimesteel.getIngot(),
+				TinkerMaterials.queensSlime.getIngot(),
+				TinkerMaterials.cinderslime.getIngot()
 		);
 		//Tools
 		pvd.addTag(TinkerTags.Items.BONUS_SLOTS).add(

@@ -65,6 +65,7 @@ public class TinkersGolem {
 	// ConfigTypeEntry<>(HANDLER, "trial", TrialConfig.class);
 
 	public TinkersGolem() {
+		TGConfig.init();
 		TGItems.load();
 		TGAttributes.load();
 		TGEntities.load();

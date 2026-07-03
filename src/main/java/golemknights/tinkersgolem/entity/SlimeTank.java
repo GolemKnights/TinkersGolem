@@ -15,22 +15,17 @@ import java.util.function.Predicate;
 public class SlimeTank implements IFluidHandler, AliasCollection<FluidStack> {
 
 	private final int size;
-	private int capacity;
+	private final SlimeGolemEntity golem;
 	private final List<BaseContainerListener> listeners = new ArrayList<>();
 	private Predicate<FluidStack> allowInsert = (e) -> true;
 	private BooleanSupplier allowExtract = () -> true;
 	public NonNullList<FluidStack> list;
 	private int maxDrain;
 
-	public SlimeTank(int size, int capacity) {
+	public SlimeTank(SlimeGolemEntity golem, int size) {
 		this.size = size;
-		this.capacity = capacity;
+		this.golem = golem;
 		this.list = NonNullList.withSize(size, FluidStack.EMPTY);
-	}
-
-	public SlimeTank setCapacity(int capacity) {
-		this.capacity = capacity;
-		return this;
 	}
 
 	public SlimeTank add(BaseContainerListener listener) {
@@ -62,7 +57,7 @@ public class SlimeTank implements IFluidHandler, AliasCollection<FluidStack> {
 	}
 
 	public int getTankCapacity(int tank) {
-		return this.capacity;
+		return this.golem.getTankCapacity();
 	}
 
 	public boolean isFluidValid(int tank, @NotNull FluidStack stack) {

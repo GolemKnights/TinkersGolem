@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "forge:ingots/slimesteel"
+    },
+    "B": {
+      "tag": "tconstruct:congealed_slime"
+    },
+    "E": {
+      "item": "modulargolems:diamond_expansion_template"
+    }
+  },
+  "pattern": [
+    "BAB",
+    "AEA",
+    "BAB"
+  ],
+  "result": {
+    "item": "tinkers_golem:queens_slime_expand"
+  },
+  "show_notification": true
+}

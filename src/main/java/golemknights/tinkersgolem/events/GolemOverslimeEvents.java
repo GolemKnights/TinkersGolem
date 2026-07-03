@@ -62,16 +62,28 @@ public class GolemOverslimeEvents {
 		setOverslime(entity, getOverslime(entity) + amount);
 	}
 
+	public static void removeOverslime(LivingEntity entity, float amount) {
+		//TODO:可以在这里加一个消耗倍率
+		/*if (amount > 0) {
+			var ins = entity.getAttribute(TGAttributes.OVERSLIME_RECOVERY.get());
+			if (ins != null)
+				amount *= (float) ins.getValue();
+		}*/
+		setOverslime(entity, getOverslime(entity) - amount);
+	}
+
+	//傀儡受伤消耗黏液覆层
 	public static float onGolemHurt(LivingEntity entity, float damage) {
 		if (isGolem(entity)) {
 			float slime = getOverslime(entity);
 			float newDamage = Math.max(damage - slime, 0);
-			addOverslime(entity, newDamage - damage);
+			removeOverslime(entity, damage - newDamage);
 			return newDamage;
 		}
 		return damage;
 	}
 
+	//手持黏液球右键傀儡回复黏液覆层
 	@SubscribeEvent
 	public static void recoverOverslime(PlayerInteractEvent.EntityInteract event) {
 		Entity entity = event.getTarget();
@@ -95,7 +107,7 @@ public class GolemOverslimeEvents {
 		if (amount <= 0) return;
 		addOverslime(target, amount);
 		ItemStack remaining = item.getCraftingRemainingItem();
-		item.shrink(1);
+		if (!event.getEntity().isCreative())item.shrink(1);
 		event.setCanceled(true);
 		event.setCancellationResult(InteractionResult.SUCCESS);
 		if (remaining.isEmpty()) return;
