@@ -6,6 +6,7 @@ import com.tterrag.registrate.util.entry.ItemEntry;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import dev.xkmc.l2library.base.L2Registrate;
+import dev.xkmc.modulargolems.content.item.upgrade.AddSlotTemplate;
 import dev.xkmc.modulargolems.content.item.upgrade.SimpleUpgradeItem;
 import dev.xkmc.modulargolems.content.modifier.base.AttributeGolemModifier;
 import dev.xkmc.modulargolems.content.modifier.base.GolemModifier;
@@ -13,11 +14,13 @@ import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.data.TGConfig;
+import golemknights.tinkersgolem.data.TGTagGen;
 import golemknights.tinkersgolem.item.misc.SpecialUpgradeItem;
 import golemknights.tinkersgolem.modifiers.golem.*;
 import golemknights.tinkersgolem.modifiers.slime.OverburnModifier;
 import golemknights.tinkersgolem.modifiers.slime.OverdriveModifier;
 import golemknights.tinkersgolem.modifiers.slime.OvershockModifier;
+import golemknights.tinkersgolem.modifiers.slime.SlimeSlotModifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -39,9 +42,12 @@ public class TGGolemModifiers {
 	public static final RegistryEntry<OverteleportModifier> OVERTELEPORT;
 	public static final RegistryEntry<OverdriveModifier> OVERDRIVE;
 
+	public static final RegistryEntry<SlimeSlotModifier> OVERTALENTED;
+
 	public static final ItemEntry<SimpleUpgradeItem> ITEM_OVERGROWTH, ITEM_SUPER_OVERGROWTH,
 			ITEM_OVERWORKED, ITEM_OVERFORCED, ITEM_OVERFILL, ITEM_OVERLORD, ITEM_OVERBURN;
 	public static final ItemEntry<SpecialUpgradeItem> ITEM_OVERDRIVE;
+	public static final ItemEntry<AddSlotTemplate> QUEENS_SLIME_EXPAND, CINDER_SLIME_EXPAND;
 
 	static {
 		OVERWORKED = reg("overworked", () -> new AttributeGolemModifier(4,
@@ -59,15 +65,20 @@ public class TGGolemModifiers {
 		OVERBOKING = reg("overboking", OverbonkingModifier::new, "Has %s%% chance to push away the target when dealing damage");
 		OVERTELEPORT = reg("overteleport", OverteleportModifier::new, "Teleport target when dealing damage, or teleport itself when taking damage");
 		OVERDRIVE = reg("overdrive", OverdriveModifier::new, "When overslime is above max health: consume overslime to heal or to grow larger");
+		OVERTALENTED = reg("overtalented", SlimeSlotModifier::new, "Allows %s more slime upgrades");
 
-		ITEM_OVERGROWTH = regUpgradeImpl("overgrowth", () -> OVERGROWTH, 1, false, TinkersGolem.MODID).register();
-		ITEM_SUPER_OVERGROWTH = regUpgradeImpl("overgrown", () -> OVERGROWTH, 4, true, TinkersGolem.MODID).register();
-		ITEM_OVERWORKED = regUpgradeImpl("overworked", () -> OVERWORKED, 1, false, TinkersGolem.MODID).register();
-		ITEM_OVERFORCED = regUpgradeImpl("overforced", () -> OVERFORCED, 1, false, TinkersGolem.MODID).register();
-		ITEM_OVERFILL = regUpgradeImpl("overfill", () -> OVERFILL, 1, false, TinkersGolem.MODID).register();
-		ITEM_OVERLORD = regUpgradeImpl("overlord", () -> OVERLORD, 1, false, TinkersGolem.MODID).register();
-		ITEM_OVERBURN = regUpgradeImpl("overburn", () -> OVERBURN, 1, false, TinkersGolem.MODID).register();
+		ITEM_OVERGROWTH = regUpgradeImpl("overgrowth", () -> OVERGROWTH, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
+		ITEM_SUPER_OVERGROWTH = regUpgradeImpl("overgrown", () -> OVERGROWTH, 4, true, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
+		ITEM_OVERWORKED = regUpgradeImpl("overworked", () -> OVERWORKED, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
+		ITEM_OVERFORCED = regUpgradeImpl("overforced", () -> OVERFORCED, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
+		ITEM_OVERFILL = regUpgradeImpl("overfill", () -> OVERFILL, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
+		ITEM_OVERLORD = regUpgradeImpl("overlord", () -> OVERLORD, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
+		ITEM_OVERBURN = regUpgradeImpl("overburn", () -> OVERBURN, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
 		ITEM_OVERDRIVE = specialUpgrade("overdrive", () -> OVERDRIVE, TinkersGolem.MODID).register();
+
+		QUEENS_SLIME_EXPAND = addSlot("queens_slime_expand", () -> OVERTALENTED, TinkersGolem.MODID).register();
+		CINDER_SLIME_EXPAND = addSlot("cinder_slime_expand", () -> OVERTALENTED, TinkersGolem.MODID).register();
+
 	}
 
 	@SuppressWarnings("removal")
@@ -104,6 +115,13 @@ public class TGGolemModifiers {
 	@SuppressWarnings("removal")
 	public static ItemBuilder<SpecialUpgradeItem, L2Registrate> specialUpgrade(String id, Supplier<RegistryEntry<? extends GolemModifier>> mod, String modid) {
 		return TinkersGolem.REGISTRATE.item(id, (p) -> new SpecialUpgradeItem(p, mod.get()::get))
+				.model((ctx, pvd) -> pvd.generated(ctx, new ResourceLocation(modid, "item/upgrades/" + id)))
+				.tab(GolemItems.UPGRADES.getKey());
+	}
+
+	@SuppressWarnings("removal")
+	public static ItemBuilder<AddSlotTemplate, L2Registrate> addSlot(String id, Supplier<RegistryEntry<? extends GolemModifier>> mod, String modid) {
+		return TinkersGolem.REGISTRATE.item(id, (p) -> new AddSlotTemplate(p, mod.get()))
 				.model((ctx, pvd) -> pvd.generated(ctx, new ResourceLocation(modid, "item/upgrades/" + id)))
 				.tab(GolemItems.UPGRADES.getKey());
 	}

@@ -11,6 +11,7 @@ import slimeknights.tconstruct.shared.TinkerMaterials;
 public class TGTagGen {
 
 	public static final TagKey<Item> SLIME_PART = item("slime_part");
+	public static final TagKey<Item> SLIME_UPGRADE = item("slime_upgrade");
 
 	public static TagKey<Item> item(String id) {
 		return ItemTags.create(TinkersGolem.getResource(id));

@@ -104,6 +104,8 @@ public class TGRecipeGen {
 			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, GolemItems.ADD_DIAMOND);
 			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, GolemItems.ADD_NETHERITE);
 			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, TGGolemModifiers.ITEM_OVERDRIVE);
+			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, TGGolemModifiers.QUEENS_SLIME_EXPAND);
+			RecipeGen.expand(pvd, TGEntities.HOLDER_SLIME, TGGolemModifiers.CINDER_SLIME_EXPAND);
 
 		}
 
@@ -148,6 +150,20 @@ public class TGRecipeGen {
 					.pattern("BAB").pattern("AEA").pattern("BAB")
 					.define('E', GolemItems.EMPTY_UPGRADE.get())
 					.define('A', TinkerTags.Items.TANKS)
+					.define('B', TinkerTags.Items.CONGEALED_SLIME)
+					.save(pvd);
+
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGGolemModifiers.QUEENS_SLIME_EXPAND.get(), 1)::unlockedBy, GolemItems.ADD_DIAMOND.get())
+					.pattern("BAB").pattern("AEA").pattern("BAB")
+					.define('E', GolemItems.ADD_DIAMOND.get())
+					.define('A', TinkerMaterials.queensSlime.getIngotTag())
+					.define('B', TinkerTags.Items.CONGEALED_SLIME)
+					.save(pvd);
+
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGGolemModifiers.CINDER_SLIME_EXPAND.get(), 1)::unlockedBy, GolemItems.ADD_DIAMOND.get())
+					.pattern("BAB").pattern("AEA").pattern("BAB")
+					.define('E', GolemItems.ADD_DIAMOND.get())
+					.define('A', TinkerMaterials.cinderslime.getIngotTag())
 					.define('B', TinkerTags.Items.CONGEALED_SLIME)
 					.save(pvd);
 
