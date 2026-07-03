@@ -25,8 +25,9 @@ public class OvershockModifier extends SlimeModifier {
 			List<LivingEntity> list = golem.level().getEntitiesOfClass(LivingEntity.class, golem.getBoundingBox().inflate(1.5, 1, 1.5));
 			list.remove(golem.getOwner());
 			for (LivingEntity living : list) {
-				if (slime.predicateTarget(living)) {
-					living.hurt(slime.damageSources().mobAttack(slime), (float) (slime.getAttributeValue(Attributes.ATTACK_DAMAGE) * factor));
+				if (!slime.predicateTarget(living)) continue;
+				if (living.hurt(slime.damageSources().mobAttack(slime), (float) (slime.getAttributeValue(Attributes.ATTACK_DAMAGE) * factor))) {
+					slime.doEnchantDamageEffects(slime, living);
 				}
 			}
 		}

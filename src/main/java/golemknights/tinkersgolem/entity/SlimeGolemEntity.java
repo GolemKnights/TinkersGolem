@@ -411,7 +411,8 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		if (!fluid.isEmpty()) {
 			FluidEffects recipe = FluidEffectManager.INSTANCE.find(fluid.getFluid());
 			if (recipe.hasEntityEffects()) {
-				int consumed = recipe.applyToEntity(fluid, this.getSize(), FluidEffectContext.builder(attacker.level()).user(attacker, null).target(target, livingTarget), IFluidHandler.FluidAction.EXECUTE);
+				int lv = Mth.log2(getSize()) + 1;
+				int consumed = recipe.applyToEntity(fluid, lv, FluidEffectContext.builder(attacker.level()).user(attacker, null).target(target, livingTarget), IFluidHandler.FluidAction.EXECUTE);
 				if (consumed > 0) {
 					spawnParticles(target, fluid);
 					fluid.shrink(consumed);
