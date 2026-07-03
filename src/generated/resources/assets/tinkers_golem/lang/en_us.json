@@ -1,7 +1,5 @@
 {
   "config.jade.plugin_tinkers_golem.overslime": "Overslime",
-  "config.jade.plugin_tinkers_golem.overslime_recovery": "Overslime Recovery Factor",
-  "config.jade.plugin_tinkers_golem.tank_capacity": "Tank Capacity",
   "entity.tinkers_golem.slime_golem": "Slime Golem",
   "golem_material.tinkers_golem.earth_slime": "Earth Slime",
   "golem_material.tinkers_golem.ender_slime": "Ender Slime",
@@ -10,7 +8,7 @@
   "golem_part.slime_golem.core": "Core: %s",
   "golem_part.slime_golem.shell": "Shell: %s",
   "golem_type.tinkers_golem.slime_golem": "Slime Golem",
-  "item.tinkers_golem.cinder_slime_expand": "Cinder Slime Expand",
+  "item.tinkers_golem.cinder_slime_expand": "Slime Golem Expansion Template: Cinder Slime",
   "item.tinkers_golem.overburn": "Overburn",
   "item.tinkers_golem.overdrive": "Overdrive",
   "item.tinkers_golem.overfill": "Overfill",
@@ -19,10 +17,11 @@
   "item.tinkers_golem.overgrowth": "Overgrowth",
   "item.tinkers_golem.overlord": "Overlord",
   "item.tinkers_golem.overworked": "Overworked",
-  "item.tinkers_golem.queens_slime_expand": "Queens Slime Expand",
+  "item.tinkers_golem.queens_slime_expand": "Slime Golem Expansion Template: Queen's Slime",
   "item.tinkers_golem.slime_golem_core": "Slime Golem Core",
   "item.tinkers_golem.slime_golem_holder": "Slime Golem Holder",
   "item.tinkers_golem.slime_golem_shell": "Slime Golem Shell",
+  "item.tinkers_golem.slimesteel_expand": "Slime Golem Expansion Template: Slimesteel",
   "modifier.tinkers_golem.overboking": "Overboking",
   "modifier.tinkers_golem.overboking.desc": "Has %s%% chance to push away the target when dealing damage",
   "modifier.tinkers_golem.overburn": "Overburn",
@@ -45,5 +44,7 @@
   "modifier.tinkers_golem.overteleport.desc": "Teleport target when dealing damage, or teleport itself when taking damage",
   "modifier.tinkers_golem.overworked": "Overworked",
   "tinkers_golem.info.overslime": "Overslime: %s/%s",
-  "tinkers_golem.max_overslime": "Max Overslime"
+  "tinkers_golem.max_overslime": "Max Overslime",
+  "tinkers_golem.overslime_recovery": "Overslime Recovery Factor",
+  "tinkers_golem.tank_capacity": "Tank Capacity"
 }

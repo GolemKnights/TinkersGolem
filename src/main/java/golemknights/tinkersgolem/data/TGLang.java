@@ -53,6 +53,8 @@ public enum TGLang {
 		}
 
 		pvd.add(TinkersGolem.MODID + ".max_overslime", "Max Overslime");
+		pvd.add(TinkersGolem.MODID + ".overslime_recovery", "Overslime Recovery Factor");
+		pvd.add(TinkersGolem.MODID + ".tank_capacity", "Tank Capacity");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".earth_slime", "Earth Slime");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".sky_slime", "Sky Slime");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".ichor", "Ichor");
@@ -64,8 +66,6 @@ public enum TGLang {
 		}
 
 		pvd.add("config.jade.plugin_tinkers_golem.overslime", "Overslime");
-		pvd.add("config.jade.plugin_tinkers_golem.overslime_recovery", "Overslime Recovery Factor");
-		pvd.add("config.jade.plugin_tinkers_golem.tank_capacity", "Tank Capacity");
 
 	}
 

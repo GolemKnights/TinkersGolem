@@ -1,7 +1,5 @@
 {
   "config.jade.plugin_tinkers_golem.overslime": "ǝɯıןsɹǝʌO",
-  "config.jade.plugin_tinkers_golem.overslime_recovery": "ɹoʇɔɐℲ ʎɹǝʌoɔǝᴚ ǝɯıןsɹǝʌO",
-  "config.jade.plugin_tinkers_golem.tank_capacity": "ʎʇıɔɐdɐƆ ʞuɐ⟘",
   "entity.tinkers_golem.slime_golem": "ɯǝןo⅁ ǝɯıןS",
   "golem_material.tinkers_golem.earth_slime": "ǝɯıןS ɥʇɹɐƎ",
   "golem_material.tinkers_golem.ender_slime": "ǝɯıןS ɹǝpuƎ",
@@ -10,7 +8,7 @@
   "golem_part.slime_golem.core": "%s :ǝɹoƆ",
   "golem_part.slime_golem.shell": "%s :ןןǝɥS",
   "golem_type.tinkers_golem.slime_golem": "ɯǝןo⅁ ǝɯıןS",
-  "item.tinkers_golem.cinder_slime_expand": "puɐdxƎ ǝɯıןS ɹǝpuıƆ",
+  "item.tinkers_golem.cinder_slime_expand": "ǝɯıןS ɹǝpuıƆ :ǝʇɐןdɯǝ⟘ uoısuɐdxƎ ɯǝןo⅁ ǝɯıןS",
   "item.tinkers_golem.overburn": "uɹnqɹǝʌO",
   "item.tinkers_golem.overdrive": "ǝʌıɹpɹǝʌO",
   "item.tinkers_golem.overfill": "ןןıɟɹǝʌO",
@@ -19,10 +17,11 @@
   "item.tinkers_golem.overgrowth": "ɥʇʍoɹbɹǝʌO",
   "item.tinkers_golem.overlord": "pɹoןɹǝʌO",
   "item.tinkers_golem.overworked": "pǝʞɹoʍɹǝʌO",
-  "item.tinkers_golem.queens_slime_expand": "puɐdxƎ ǝɯıןS suǝǝnὉ",
+  "item.tinkers_golem.queens_slime_expand": "ǝɯıןS s,uǝǝnὉ :ǝʇɐןdɯǝ⟘ uoısuɐdxƎ ɯǝןo⅁ ǝɯıןS",
   "item.tinkers_golem.slime_golem_core": "ǝɹoƆ ɯǝןo⅁ ǝɯıןS",
   "item.tinkers_golem.slime_golem_holder": "ɹǝpןoH ɯǝןo⅁ ǝɯıןS",
   "item.tinkers_golem.slime_golem_shell": "ןןǝɥS ɯǝןo⅁ ǝɯıןS",
+  "item.tinkers_golem.slimesteel_expand": "ןǝǝʇsǝɯıןS :ǝʇɐןdɯǝ⟘ uoısuɐdxƎ ɯǝןo⅁ ǝɯıןS",
   "modifier.tinkers_golem.overboking": "buıʞoqɹǝʌO",
   "modifier.tinkers_golem.overboking.desc": "ǝbɐɯɐp buıןɐǝp uǝɥʍ ʇǝbɹɐʇ ǝɥʇ ʎɐʍɐ ɥsnd oʇ ǝɔuɐɥɔ %s%% sɐH",
   "modifier.tinkers_golem.overburn": "uɹnqɹǝʌO",
@@ -45,5 +44,7 @@
   "modifier.tinkers_golem.overteleport.desc": "ǝbɐɯɐp buıʞɐʇ uǝɥʍ ɟןǝsʇı ʇɹodǝןǝʇ ɹo 'ǝbɐɯɐp buıןɐǝp uǝɥʍ ʇǝbɹɐʇ ʇɹodǝןǝ⟘",
   "modifier.tinkers_golem.overworked": "pǝʞɹoʍɹǝʌO",
   "tinkers_golem.info.overslime": "%s/%s :ǝɯıןsɹǝʌO",
-  "tinkers_golem.max_overslime": "ǝɯıןsɹǝʌO xɐW"
+  "tinkers_golem.max_overslime": "ǝɯıןsɹǝʌO xɐW",
+  "tinkers_golem.overslime_recovery": "ɹoʇɔɐℲ ʎɹǝʌoɔǝᴚ ǝɯıןsɹǝʌO",
+  "tinkers_golem.tank_capacity": "ʎʇıɔɐdɐƆ ʞuɐ⟘"
 }

@@ -1,7 +1,7 @@
 {
   "values": [
-    "tconstruct:slimesteel_block",
-    "tconstruct:queens_slime_block",
-    "tconstruct:cinderslime_block"
+    "tconstruct:slimesteel_ingot",
+    "tconstruct:queens_slime_ingot",
+    "tconstruct:cinderslime_ingot"
   ]
 }
