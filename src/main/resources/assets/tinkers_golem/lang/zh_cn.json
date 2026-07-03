@@ -39,7 +39,7 @@
   "modifier.tinkers_golem.oversmelt": "黏液锻造",
   "modifier.tinkers_golem.oversmelt.desc": "在能温暖炽足兽的方块上随时间恢复黏液覆层",
   "modifier.tinkers_golem.overtalented": "黏液天赋",
-  "modifier.tinkers_golem.overtalented.desc": "Allows %s more slime upgrades",
+  "modifier.tinkers_golem.overtalented.desc": "接下来的%s个黏液升级不消耗槽位",
   "modifier.tinkers_golem.overteleport": "黏液传送",
   "modifier.tinkers_golem.overteleport.desc": "造成伤害时传送目标，或在受到伤害时传送自身",
   "modifier.tinkers_golem.overworked": "黏液过劳",
