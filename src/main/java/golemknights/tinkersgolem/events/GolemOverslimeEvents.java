@@ -107,7 +107,7 @@ public class GolemOverslimeEvents {
 		if (amount <= 0) return;
 		addOverslime(target, amount);
 		ItemStack remaining = item.getCraftingRemainingItem();
-		item.shrink(1);
+		if (!event.getEntity().isCreative())item.shrink(1);
 		event.setCanceled(true);
 		event.setCancellationResult(InteractionResult.SUCCESS);
 		if (remaining.isEmpty()) return;
