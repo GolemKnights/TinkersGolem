@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cinder_slime_expand": {
+    "has_cinderslime_expand": {
       "conditions": {
         "items": [
           {
             "items": [
-              "tinkers_golem:cinder_slime_expand"
+              "tinkers_golem:cinderslime_expand"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "tinkers_golem:cinder_slime_expand_slime_golem_holder"
+        "recipe": "tinkers_golem:cinderslime_expand_slime_golem_holder"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_cinder_slime_expand",
+      "has_cinderslime_expand",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "tinkers_golem:cinder_slime_expand_slime_golem_holder"
+      "tinkers_golem:cinderslime_expand_slime_golem_holder"
     ]
   },
   "sends_telemetry_event": false

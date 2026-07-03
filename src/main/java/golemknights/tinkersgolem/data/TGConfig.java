@@ -6,6 +6,7 @@ import net.minecraftforge.fml.config.IConfigSpec;
 import net.minecraftforge.fml.config.ModConfig;
 import org.apache.commons.lang3.tuple.Pair;
 
+@SuppressWarnings("removal")
 public class TGConfig {
 
 	public static class Client {
