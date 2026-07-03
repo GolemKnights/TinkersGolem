@@ -144,6 +144,13 @@ public class TGRecipeGen {
 					.define('A', TinkerTags.Items.SLIMY_LOGS)
 					.save(pvd);
 
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGGolemModifiers.ITEM_OVERFILL.get(), 1)::unlockedBy, GolemItems.EMPTY_UPGRADE.get())
+					.pattern("BAB").pattern("AEA").pattern("BAB")
+					.define('E', GolemItems.EMPTY_UPGRADE.get())
+					.define('A', TinkerTags.Items.TANKS)
+					.define('B', TinkerTags.Items.CONGEALED_SLIME)
+					.save(pvd);
+
 			unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGGolemModifiers.ITEM_SUPER_OVERGROWTH.get(), 1)::unlockedBy, TGGolemModifiers.ITEM_OVERGROWTH.get())
 					.requires(TGGolemModifiers.ITEM_OVERGROWTH.get())
 					.requires(TinkerWorld.greenheart.getLogItemTag())

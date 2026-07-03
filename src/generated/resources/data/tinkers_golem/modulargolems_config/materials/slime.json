@@ -202,6 +202,7 @@
       "modulargolems:attack": 10.0,
       "modulargolems:max_health": 30.0,
       "modulargolems:max_overslime": 50.0,
+      "modulargolems:range": 1.0,
       "modulargolems:tank_capacity": 8.0
     },
     "tinkers_golem:ichor": {

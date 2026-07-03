@@ -19,6 +19,7 @@ public class TGConfig {
 
 		public final ForgeConfigSpec.DoubleValue overgrowthRate;
 		public final ForgeConfigSpec.DoubleValue overforcedAmount;
+		public final ForgeConfigSpec.DoubleValue overfillFactor;
 		public final ForgeConfigSpec.DoubleValue overworkedFactor;
 		public final ForgeConfigSpec.DoubleValue overlordFactor;
 		public final ForgeConfigSpec.IntValue overburnConsumption;
@@ -33,6 +34,8 @@ public class TGConfig {
 					.defineInRange("overgrowthRate", 0.5d, 0, 10);
 			overforcedAmount = builder.comment("Overforced additional overslime per level")
 					.defineInRange("overforcedAmount", 20d, 0, 1000);
+			overfillFactor = builder.comment("overfill tank capacity factor per level")
+					.defineInRange("overfillFactor", 0.5d, 0, 10);
 			overworkedFactor = builder.comment("Overworked additional overslime recovery per level")
 					.defineInRange("overworkedFactor", 0.75d, 0, 1000);
 			overlordFactor = builder.comment("Overlord overslime recovery per damage taken per level")

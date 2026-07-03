@@ -128,7 +128,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		tryAddAttribute(Attributes.ATTACK_DAMAGE, new AttributeModifier(uuid, "tinkers_golem.size_damage_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		tryAddAttribute(TGAttributes.MAX_OVERSLIME.get(), new AttributeModifier(uuid, "tinkers_golem.size_overslime_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		tryAddAttribute(TGAttributes.TANK_CAPACITY.get(), new AttributeModifier(uuid, "tinkers_golem.tank_capacity_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
-		tryAddAttribute(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(uuid, "tinkers_golem.size_reach_bonus", hp, AttributeModifier.Operation.MULTIPLY_TOTAL));
+		tryAddAttribute(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(uuid, "tinkers_golem.size_reach_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		if (resetHealth) {
 			this.setGuardedDataImpl(this.getMaxHealth(), true, true);
 			float overslime = (float) getAttributeValue(TGAttributes.MAX_OVERSLIME.get());

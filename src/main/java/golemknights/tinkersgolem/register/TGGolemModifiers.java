@@ -16,8 +16,8 @@ import golemknights.tinkersgolem.data.TGConfig;
 import golemknights.tinkersgolem.item.misc.SpecialUpgradeItem;
 import golemknights.tinkersgolem.modifiers.golem.*;
 import golemknights.tinkersgolem.modifiers.slime.OverburnModifier;
-import golemknights.tinkersgolem.modifiers.slime.OvershockModifier;
 import golemknights.tinkersgolem.modifiers.slime.OverdriveModifier;
+import golemknights.tinkersgolem.modifiers.slime.OvershockModifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -30,7 +30,7 @@ import java.util.function.Supplier;
 public class TGGolemModifiers {
 
 	public static final RegistryEntry<OvergrowthModifier> OVERGROWTH;
-	public static final RegistryEntry<AttributeGolemModifier> OVERFORCED, OVERWORKED;
+	public static final RegistryEntry<AttributeGolemModifier> OVERFORCED, OVERWORKED, OVERFILL;
 	public static final RegistryEntry<OverlordModifier> OVERLORD;
 	public static final RegistryEntry<OverburnModifier> OVERBURN;
 	public static final RegistryEntry<OversmeltModifier> OVERSMELT;
@@ -40,7 +40,7 @@ public class TGGolemModifiers {
 	public static final RegistryEntry<OverdriveModifier> OVERDRIVE;
 
 	public static final ItemEntry<SimpleUpgradeItem> ITEM_OVERGROWTH, ITEM_SUPER_OVERGROWTH,
-			ITEM_OVERWORKED, ITEM_OVERFORCED, ITEM_OVERLORD, ITEM_OVERBURN;
+			ITEM_OVERWORKED, ITEM_OVERFORCED, ITEM_OVERFILL, ITEM_OVERLORD, ITEM_OVERBURN;
 	public static final ItemEntry<SpecialUpgradeItem> ITEM_OVERDRIVE;
 
 	static {
@@ -48,6 +48,8 @@ public class TGGolemModifiers {
 				new AttributeGolemModifier.AttrEntry(TGAttributes.STAT_OVERSLIME_RECOVERY, TGConfig.COMMON.overworkedFactor::get)), null);
 		OVERFORCED = reg("overforced", () -> new AttributeGolemModifier(5,
 				new AttributeGolemModifier.AttrEntry(TGAttributes.STAT_OVERSLIME, TGConfig.COMMON.overforcedAmount::get)), null);
+		OVERFILL = reg("overfill", () -> new AttributeGolemModifier(5,
+				new AttributeGolemModifier.AttrEntry(TGAttributes.STAT_TANK_CAPACITY, TGConfig.COMMON.overfillFactor::get)), null);
 
 		OVERGROWTH = reg("overgrowth", OvergrowthModifier::new, "Recover %s overslime per second");
 		OVERLORD = reg("overlord", OverlordModifier::new, "When taking damage, recover overslime by %s%% of damage taken");
@@ -62,6 +64,7 @@ public class TGGolemModifiers {
 		ITEM_SUPER_OVERGROWTH = regUpgradeImpl("overgrown", () -> OVERGROWTH, 4, true, TinkersGolem.MODID).register();
 		ITEM_OVERWORKED = regUpgradeImpl("overworked", () -> OVERWORKED, 1, false, TinkersGolem.MODID).register();
 		ITEM_OVERFORCED = regUpgradeImpl("overforced", () -> OVERFORCED, 1, false, TinkersGolem.MODID).register();
+		ITEM_OVERFILL = regUpgradeImpl("overfill", () -> OVERFILL, 1, false, TinkersGolem.MODID).register();
 		ITEM_OVERLORD = regUpgradeImpl("overlord", () -> OVERLORD, 1, false, TinkersGolem.MODID).register();
 		ITEM_OVERBURN = regUpgradeImpl("overburn", () -> OVERBURN, 1, false, TinkersGolem.MODID).register();
 		ITEM_OVERDRIVE = specialUpgrade("overdrive", () -> OVERDRIVE, TinkersGolem.MODID).register();

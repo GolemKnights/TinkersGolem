@@ -91,6 +91,7 @@ public class TGConfigGen extends ConfigDataProvider {
 				.onlyFor(slimeParts)
 				.addStat(GolemTypes.STAT_HEALTH.get(), 30)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 10)
+				.addStat(GolemTypes.STAT_RANGE.get(), 1)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
 				.addStat(TGAttributes.STAT_TANK_CAPACITY.get(), 8)
                 .addModifier(TGGolemModifiers.OVERTELEPORT.get(), 1)
