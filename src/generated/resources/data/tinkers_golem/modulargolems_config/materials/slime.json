@@ -19,6 +19,7 @@
       "tinkers_golem:overteleport": 1
     },
     "tinkers_golem:ichor": {
+      "modulargolems:fire_immune": 1,
       "tinkers_golem:overboking": 1
     },
     "tinkers_golem:sky_slime": {
@@ -200,7 +201,9 @@
     "tinkers_golem:ender_slime": {
       "modulargolems:attack": 10.0,
       "modulargolems:max_health": 30.0,
-      "modulargolems:max_overslime": 50.0
+      "modulargolems:max_overslime": 50.0,
+      "modulargolems:range": 1.0,
+      "modulargolems:tank_capacity": 8.0
     },
     "tinkers_golem:ichor": {
       "modulargolems:attack": 10.0,

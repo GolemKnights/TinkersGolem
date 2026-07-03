@@ -84,13 +84,16 @@ public class TGConfigGen extends ConfigDataProvider {
                 .addStat(GolemTypes.STAT_SPEED.get(), 0.6)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
                 .addModifier(TGGolemModifiers.OVERBOKING.get(), 1)
+				.addModifier(GolemModifiers.FIRE_IMMUNE.get(), 1)
 				.end()
 
 				.addMaterial(TinkersGolem.getResource("ender_slime"), Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ENDER)))
 				.onlyFor(slimeParts)
 				.addStat(GolemTypes.STAT_HEALTH.get(), 30)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 10)
+				.addStat(GolemTypes.STAT_RANGE.get(), 1)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
+				.addStat(TGAttributes.STAT_TANK_CAPACITY.get(), 8)
                 .addModifier(TGGolemModifiers.OVERTELEPORT.get(), 1)
 				.end()
 

@@ -6,6 +6,9 @@ import dev.xkmc.modulargolems.content.core.GolemOverlayControl;
 import dev.xkmc.modulargolems.content.core.GolemType;
 import dev.xkmc.modulargolems.content.core.ModelProvider;
 import dev.xkmc.modulargolems.content.menu.equipment.EquipmentsMenu;
+import golemknights.tinkersgolem.TinkersGolem;
+import golemknights.tinkersgolem.data.TGConfig;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
@@ -33,6 +36,11 @@ public class SlimeGolemType extends GolemType<SlimeGolemEntity, SlimeGolemPartTy
 	}
 
 	@Override
+	public ResourceLocation defaultMaterial() {
+		return TinkersGolem.getResource("earth_slime");
+	}
+
+	@Override
 	public ItemStack getMenuIcon(SlimeGolemEntity golem) {
 		return Items.DIAMOND_HELMET.getDefaultInstance();
 	}
@@ -40,6 +48,11 @@ public class SlimeGolemType extends GolemType<SlimeGolemEntity, SlimeGolemPartTy
 	@Override
 	public boolean mayEdit(ItemStack stack) {
 		return getSize(stack) == 4;
+	}
+
+	@Override
+	public int getUpgradeSlots() {
+		return TGConfig.COMMON.slimeGolemSlot.get();
 	}
 
 }

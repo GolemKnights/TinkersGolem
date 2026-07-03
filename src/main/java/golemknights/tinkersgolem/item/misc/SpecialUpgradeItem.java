@@ -1,6 +1,5 @@
 package golemknights.tinkersgolem.item.misc;
 
-import dev.xkmc.modulargolems.content.core.GolemType;
 import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
 import dev.xkmc.modulargolems.content.modifier.base.GolemModifier;
 import dev.xkmc.modulargolems.content.modifier.base.ModifierInstance;
@@ -31,10 +30,6 @@ public class SpecialUpgradeItem extends Item implements IUpgradeItem {
 	public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag flag) {
 		list.add(mod.get().getTooltip(1));
 		list.addAll(mod.get().getDetail(1));
-	}
-
-	public boolean fitsOn(GolemType<?, ?> type) {
-		return mod.get().fitsOn(type);
 	}
 
 }

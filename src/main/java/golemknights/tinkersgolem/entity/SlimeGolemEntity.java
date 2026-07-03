@@ -72,7 +72,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	public long shakeTimestamp;
 
 	@SerialClass.SerialField
-	public SlimeTank tank = new SlimeTank(1, 10000);
+	public final SlimeTank tank = new SlimeTank(this, 1);
 
 	public SlimeGolemEntity(EntityType<SlimeGolemEntity> type, Level level) {
 		super(type, level);
@@ -89,6 +89,10 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 			instance.removeModifier(modifier.getId());
 			instance.addPermanentModifier(modifier);
 		}
+	}
+
+	public int getTankCapacity() {
+		return (int) getAttributeValue(TGAttributes.TANK_CAPACITY.get());
 	}
 
 	@Override
@@ -123,12 +127,12 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		tryAddAttribute(Attributes.MOVEMENT_SPEED, new AttributeModifier(uuid, "tinkers_golem.size_speed_bonus", p / 2F, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		tryAddAttribute(Attributes.ATTACK_DAMAGE, new AttributeModifier(uuid, "tinkers_golem.size_damage_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		tryAddAttribute(TGAttributes.MAX_OVERSLIME.get(), new AttributeModifier(uuid, "tinkers_golem.size_overslime_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
+		tryAddAttribute(TGAttributes.TANK_CAPACITY.get(), new AttributeModifier(uuid, "tinkers_golem.tank_capacity_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		tryAddAttribute(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(uuid, "tinkers_golem.size_reach_bonus", p, AttributeModifier.Operation.MULTIPLY_TOTAL));
 		if (resetHealth) {
 			this.setGuardedDataImpl(this.getMaxHealth(), true, true);
 			float overslime = (float) getAttributeValue(TGAttributes.MAX_OVERSLIME.get());
 			GolemOverslimeEvents.setOverslime(this, overslime);
-			this.tank = new SlimeTank(1, 2500 * i);
 		}
 
 		this.xpReward = i;
@@ -447,6 +451,8 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	}
 
 	public void setFluid(FluidStack fluid) {
+		if (fluid.getAmount() > getTankCapacity())
+			fluid.setAmount(getTankCapacity());
 		this.tank.set(0, 0, fluid);
 		this.tank.setChanged();
 	}

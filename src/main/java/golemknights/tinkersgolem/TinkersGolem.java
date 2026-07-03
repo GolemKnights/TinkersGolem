@@ -6,10 +6,7 @@ import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
 import golemknights.tinkersgolem.cap.OverslimeCap;
 import golemknights.tinkersgolem.cap.OverslimeSyncPacket;
-import golemknights.tinkersgolem.data.TGConfigGen;
-import golemknights.tinkersgolem.data.TGLang;
-import golemknights.tinkersgolem.data.TGRecipeGen;
-import golemknights.tinkersgolem.data.TGTagGen;
+import golemknights.tinkersgolem.data.*;
 import golemknights.tinkersgolem.entity.SlimeTankSyncPacket;
 import golemknights.tinkersgolem.events.TGAttackListener;
 import golemknights.tinkersgolem.register.*;
@@ -69,6 +66,7 @@ public class TinkersGolem {
 	// ConfigTypeEntry<>(HANDLER, "trial", TrialConfig.class);
 
 	public TinkersGolem() {
+		TGConfig.init();
 		TGItems.load();
 		TGAttributes.load();
 		TGEntities.load();
