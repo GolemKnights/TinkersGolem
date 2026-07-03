@@ -19,9 +19,9 @@ public class TGTagGen {
 
 	public static void genItemTag(RegistrateItemTagsProvider pvd) {
 		pvd.addTag(MGTagGen.SPECIAL_CRAFT).add(
-				TinkerMaterials.slimesteel.asItem(),
-				TinkerMaterials.queensSlime.asItem(),
-				TinkerMaterials.cinderslime.asItem()
+				TinkerMaterials.slimesteel.getIngot(),
+				TinkerMaterials.queensSlime.getIngot(),
+				TinkerMaterials.cinderslime.getIngot()
 		);
 	}
 

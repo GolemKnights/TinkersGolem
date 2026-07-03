@@ -6,6 +6,7 @@ import dev.xkmc.modulargolems.content.config.GolemMaterial;
 import dev.xkmc.modulargolems.content.config.GolemMaterialConfig;
 import dev.xkmc.modulargolems.content.core.GolemType;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
+import dev.xkmc.modulargolems.content.item.upgrade.AddSlotTemplate;
 import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
 import dev.xkmc.modulargolems.init.advancement.GolemTriggers;
 import dev.xkmc.modulargolems.init.data.MGConfig;
@@ -485,6 +486,15 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		for (var e : other.getUpgrades()) if (e instanceof IUpgradeItem item) upgrades.add(item);
 		int rem = TGEntities.HOLDER_SLIME.get().getRemaining(getMaterials(), upgrades);
 		if (rem < 0) return;
+
+		// check for duplicate templates
+		Set<AddSlotTemplate> set = new LinkedHashSet<>();
+		for (var e : upgrades) {
+			if (e instanceof AddSlotTemplate t) {
+				if (set.contains(t)) return;
+				set.add(t);
+			}
+		}
 
 		// reforge check
 		int reforge = getReforgeCount();
