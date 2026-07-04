@@ -59,7 +59,8 @@ public class OverburnModifier extends SlimeModifier {
 	@Override
 	public void onAiStep(AbstractGolemEntity<?, ?> golem, int level) {
 		SlimeGolemEntity slime = (SlimeGolemEntity) golem;
-		int updateInterval = 5 << (6 - level);
+		int interval = TGConfig.COMMON.overburnInterval.get();
+		int updateInterval = interval << (6 - level);
 		if (golem.tickCount % updateInterval == 0 && GolemOverslimeEvents.getOverslime(golem) < golem.getAttribute(TGAttributes.MAX_OVERSLIME.get()).getValue()) {
 			// find current fuel info
 			ResourceLocation key = this.getRegistryName();
@@ -81,7 +82,8 @@ public class OverburnModifier extends SlimeModifier {
 						// if we didn't do this, lower levels would consume way more than higher ones
 						// this works out to equivalent to the alloyer/melter at level 4
 						// note this does mean changing trait levels multiplies fuel efficiency, but the part swap costs more than just adding a slimeball so its fine
-						int duration = fuel.getDuration() * updateInterval / 5;
+						int burnRate = TGConfig.COMMON.overburnSpeed.get();
+						int duration = fuel.getDuration() * updateInterval / burnRate;
 						// if we don't have a full recipe, use what is left but scale down the duration
 						if (amount > fluid.getAmount()) {
 							slime.setFluid(FluidStack.EMPTY);
@@ -102,11 +104,10 @@ public class OverburnModifier extends SlimeModifier {
 				}
 			}
 			if (info != null) {
-				// restore 1 per 10 rate. For the remainder, treat it as a chance
-				int rate = TGConfig.COMMON.overburnConsumption.get();
-				int restore = info.rate / rate;
-				int remainder = info.rate % rate;
-				if (remainder > 0 && Modifier.RANDOM.nextInt(rate) < remainder) {
+				double rate = TGConfig.COMMON.overburnHealRate.get();
+				double amount = info.rate * rate;
+				int restore = (int) amount;
+				if (Modifier.RANDOM.nextDouble() < amount - restore) {
 					restore++;
 				}
 				GolemOverslimeEvents.addOverslime(golem, restore);

@@ -59,12 +59,12 @@ public class TGGolemModifiers {
 
 		OVERGROWTH = reg("overgrowth", OvergrowthModifier::new, "Recover %s overslime per second");
 		OVERLORD = reg("overlord", OverlordModifier::new, "When taking damage, recover overslime by %s%% of damage taken");
-		OVERBURN = reg("overburn", OverburnModifier::new, "Consumes fluid fuel to recover overslime over time");
+		OVERBURN = reg("overburn", OverburnModifier::new, "Consumes fluid fuel to recover overslime over time; only effective for slime golems");
 		OVERSMELT = reg("oversmelt", OversmeltModifier::new, "Recover %s overslime per second on warm blocks");
 		OVERSHOCK = reg("overshock", OvershockModifier::new, "Upon landing, deal %s%% of attack damage to surrounding targets");
 		OVERBOKING = reg("overboking", OverbonkingModifier::new, "Has %s%% chance to push away the target when dealing damage");
 		OVERTELEPORT = reg("overteleport", OverteleportModifier::new, "Teleport target when dealing damage, or teleport itself when taking damage");
-		OVERDRIVE = reg("overdrive", OverdriveModifier::new, "When overslime is above max health: consume overslime to heal or to grow larger");
+		OVERDRIVE = reg("overdrive", OverdriveModifier::new, "When overslime is above max health: consume overslime to heal or to grow larger; only effective for slime golems");
 		OVERTALENTED = reg("overtalented", SlimeSlotModifier::new, "Allows %s more slime upgrades");
 
 		ITEM_OVERGROWTH = regUpgradeImpl("overgrowth", () -> OVERGROWTH, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();

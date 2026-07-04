@@ -25,7 +25,9 @@ public class TGConfig {
 		public final ForgeConfigSpec.DoubleValue overfillFactor;
 		public final ForgeConfigSpec.DoubleValue overworkedFactor;
 		public final ForgeConfigSpec.DoubleValue overlordFactor;
-		public final ForgeConfigSpec.IntValue overburnConsumption;
+		public final ForgeConfigSpec.IntValue overburnInterval;
+		public final ForgeConfigSpec.IntValue overburnSpeed;
+		public final ForgeConfigSpec.DoubleValue overburnHealRate;
 		public final ForgeConfigSpec.DoubleValue oversmeltRate;
 		public final ForgeConfigSpec.DoubleValue overshockFactor;
 		public final ForgeConfigSpec.DoubleValue overbonkingChance;
@@ -48,8 +50,12 @@ public class TGConfig {
 						.defineInRange("overworkedFactor", 0.75d, 0, 1000);
 				overlordFactor = builder.comment("Overlord overslime recovery per damage taken per level")
 						.defineInRange("overlordFactor", 0.1d, 0, 1000);
-				overburnConsumption = builder.comment("Overburn fuel rate consumption per overslime restored")
-						.defineInRange("overburnConsumption", 2, 1, 100);
+				overburnInterval = builder.comment("Overburn overslime recovery interval at max level")
+						.defineInRange("overburnInterval", 5, 1, 100);
+				overburnSpeed = builder.comment("Overburn fuel consumption speed")
+						.defineInRange("overburnSpeed", 10, 1, 100);
+				overburnHealRate = builder.comment("Overburn overslime recovery rate per fuel rate")
+						.defineInRange("overburnHealRate", 2d, 0, 100);
 				oversmeltRate = builder.comment("Oversmelt recovery per second per level")
 						.defineInRange("oversmeltRate", 1d, 0, 10);
 				overshockFactor = builder.comment("Overshock damage factor per level")
