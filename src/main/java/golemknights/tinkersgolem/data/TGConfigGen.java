@@ -59,7 +59,7 @@ public class TGConfigGen extends ConfigDataProvider {
 		Item[] slimeParts = new Item[]{TGEntities.SLIME_CORE.get(), TGEntities.SLIME_SHELL.get()};
 
 		map.add(ModularGolems.MATERIALS, TinkersGolem.getResource("slime"), new GolemMaterialConfig()
-				.addMaterial(TinkersGolem.getResource("earth_slime"), Ingredient.of(Items.SLIME_BALL))
+				.addMaterial(TinkersGolem.getResource("earthslime"), Ingredient.of(Items.SLIME_BALL))
 				.onlyFor(slimeParts)
 				.addStat(GolemTypes.STAT_HEALTH.get(), 50)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 15)
@@ -68,7 +68,7 @@ public class TGConfigGen extends ConfigDataProvider {
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 70)
 				.end()
 
-				.addMaterial(TinkersGolem.getResource("sky_slime"), Ingredient.of(TinkerCommons.slimeball.get(SlimeType.SKY)))
+				.addMaterial(TinkersGolem.getResource("skyslime"), Ingredient.of(TinkerCommons.slimeball.get(SlimeType.SKY)))
 				.onlyFor(slimeParts)
 				.addStat(GolemTypes.STAT_HEALTH.get(), 40)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 10)
@@ -87,7 +87,7 @@ public class TGConfigGen extends ConfigDataProvider {
 				.addModifier(GolemModifiers.FIRE_IMMUNE.get(), 1)
 				.end()
 
-				.addMaterial(TinkersGolem.getResource("ender_slime"), Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ENDER)))
+				.addMaterial(TinkersGolem.getResource("enderslime"), Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ENDER)))
 				.onlyFor(slimeParts)
 				.addStat(GolemTypes.STAT_HEALTH.get(), 30)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 10)

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_slime_golem_core": {
+    "has_slime_golem_shell": {
       "conditions": {
         "items": [
           {
             "items": [
-              "tinkers_golem:slime_golem_core"
+              "tinkers_golem:slime_golem_shell"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "tinkers_golem:casting/ender_slime_casting_slime_golem_core"
+        "recipe": "tinkers_golem:casting/earthslime_casting_slime_golem_shell"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_slime_golem_core",
+      "has_slime_golem_shell",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "tinkers_golem:casting/ender_slime_casting_slime_golem_core"
+      "tinkers_golem:casting/earthslime_casting_slime_golem_shell"
     ]
   },
   "sends_telemetry_event": true

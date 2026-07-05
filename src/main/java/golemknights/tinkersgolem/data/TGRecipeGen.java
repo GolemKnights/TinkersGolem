@@ -50,10 +50,10 @@ public class TGRecipeGen {
 
 		// overslime
 		{
-			new OverslimeRecoverBuilder(Ingredient.of(Items.SLIME_BALL), 10).save(pvd, TinkersGolem.getResource("slime"));
-			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.SKY)), 25).save(pvd, TinkersGolem.getResource("sky_slime"));
-			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ICHOR)), 50).save(pvd, TinkersGolem.getResource("ichor"));
-			new OverslimeRecoverBuilder(Ingredient.of(TinkerCommons.slimeball.get(SlimeType.ENDER)), 40).save(pvd, TinkersGolem.getResource("ender_slime"));
+			new OverslimeRecoverBuilder(Ingredient.of(SlimeType.EARTH.getSlimeballTag()), 10).save(pvd, TinkersGolem.getResource("earthslime"));
+			new OverslimeRecoverBuilder(Ingredient.of(SlimeType.SKY.getSlimeballTag()), 25).save(pvd, TinkersGolem.getResource("skyslime"));
+			new OverslimeRecoverBuilder(Ingredient.of(SlimeType.ICHOR.getSlimeballTag()), 50).save(pvd, TinkersGolem.getResource("ichor"));
+			new OverslimeRecoverBuilder(Ingredient.of(SlimeType.ENDER.getSlimeballTag()), 40).save(pvd, TinkersGolem.getResource("enderslime"));
 		}
 
 		// slime golem
@@ -112,10 +112,10 @@ public class TGRecipeGen {
 
 		// materials
 		{
-			genSlime(pvd, TinkersGolem.getResource("earth_slime"), TinkerFluids.earthSlime, 250);
-			genSlime(pvd, TinkersGolem.getResource("sky_slime"), TinkerFluids.skySlime, 250);
+			genSlime(pvd, TinkersGolem.getResource("earthslime"), TinkerFluids.earthSlime, 250);
+			genSlime(pvd, TinkersGolem.getResource("skyslime"), TinkerFluids.skySlime, 250);
 			genSlime(pvd, TinkersGolem.getResource("ichor"), TinkerFluids.ichor, 250);
-			genSlime(pvd, TinkersGolem.getResource("ender_slime"), TinkerFluids.enderSlime, 250);
+			genSlime(pvd, TinkersGolem.getResource("enderslime"), TinkerFluids.enderSlime, 250);
 
 			genAll(pvd, TConstruct.getResource("slimesteel"), TinkerFluids.moltenSlimesteel, 90);
 			genAll(pvd, TConstruct.getResource("queens_slime"), TinkerFluids.moltenQueensSlime, 90);
