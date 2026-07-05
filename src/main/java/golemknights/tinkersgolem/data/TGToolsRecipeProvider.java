@@ -1,7 +1,6 @@
 package golemknights.tinkersgolem.data;
 
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
-import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.register.TGItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -32,7 +31,7 @@ public class TGToolsRecipeProvider extends BaseRecipeProvider implements IMateri
                 (item) -> ToolBuildingRecipeBuilder.toolBuildingRecipe(item)
                         .addExtraRequirement(Ingredient.of(GolemItems.GOLEM_TEMPLATE.get()))
                         .addExtraRequirement(Ingredient.of(GolemItems.GOLEM_TEMPLATE.get()))
-                        .layoutSlot(TGItems.METAL_GOLEM_ARMOR)
+                        .layoutSlot(TGItems.METAL_GOLEM_ARMOR_PATTERN)
                         .save(consumer, this.prefix(id(item), metalGolemFolder))
         );
     }

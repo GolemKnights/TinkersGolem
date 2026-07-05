@@ -18,6 +18,7 @@ import slimeknights.tconstruct.common.registration.CastItemObject;
 import slimeknights.tconstruct.library.tools.part.MaterialItem;
 
 import static golemknights.tinkersgolem.TinkersGolem.MODID;
+import static golemknights.tinkersgolem.register.TGItems.METAL_GOLEM_PLATING;
 
 @SuppressWarnings("removal")
 public class TGItemModelProvider extends ItemModelProvider {
@@ -28,14 +29,7 @@ public class TGItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        /*TGItems.metal_golem_plating.forEach((slot, item) -> {
-            MaterialModelBuilder<ItemModelBuilder> b = this.part(item, "armor/metal_golem/" + slot.getName() + "/plating");
-            if (slot == ArmorItem.Type.HELMET) {
-                b.offset(0, 2);
-            } else if (slot == ArmorItem.Type.LEGGINGS) {
-                b.offset(0, 1);
-            }
-        });*/
+        TGItems.metal_golem_plating.forEach((slot, item) -> this.part(item, "parts/" + slot.getName() + "_" + METAL_GOLEM_PLATING));
         this.cast(TGItems.bootsMetalGolemPlatingCast);
         this.cast(TGItems.leggingsMetalGolemPlatingCast);
         this.cast(TGItems.chestplateMetalGolemPlatingCast);

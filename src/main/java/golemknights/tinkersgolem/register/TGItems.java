@@ -28,6 +28,7 @@ public class TGItems {
         return new Pattern(MODID, name);
     }
     public static final String METAL_GOLEM = "metal_golem";
+    public static final String METAL_GOLEM_PLATING = "metal_golem_plating";
     public static final ModifiableArmorMaterial GOLEM = ModifiableArmorMaterial.create(getResource(METAL_GOLEM),
             Sounds.EQUIP_PLATE.getSound());
     protected static final Item.Properties UNSTACKABLE_PROPS = new Item.Properties().stacksTo(1);
@@ -53,12 +54,12 @@ public class TGItems {
     //大傀儡盔甲镶板
     public static final EnumObject<ArmorItem.Type, ToolPartItem> metal_golem_plating = ITEMS.registerEnum(
             ArmorItem.Type.values(),
-            "metal_golem_plating",
+            METAL_GOLEM_PLATING,
             (type) -> new ToolPartItem(ITEM_PROPS, PlatingMaterialStats.TYPES.get(type.ordinal()).getId())
     );
-    public static final Pattern METAL_GOLEM_ARMOR = pattern("metal_golem_armor");
-    public static final Pattern METAL_GOLEM_PLATING = pattern("metal_golem_plating");
-    public static final Pattern GOLEM_TEMPLATE = pattern("golem_template");
+    public static final Pattern METAL_GOLEM_ARMOR_PATTERN = pattern("metal_golem_armor");
+    public static final Pattern METAL_GOLEM_PLATING_PATTERN = pattern(METAL_GOLEM_PLATING);
+    public static final Pattern GOLEM_TEMPLATE_PATTERN = pattern("golem_template");
     public static final CastItemObject helmetMetalGolemPlatingCast = ITEMS.registerCast(
             "helmet_metal_golem_plating",
             () -> new PartCastItem(ITEM_PROPS, () -> metal_golem_plating.get(ArmorItem.Type.HELMET))
