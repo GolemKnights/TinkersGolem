@@ -52,6 +52,8 @@ public enum TGLang {
 			pvd.add(lang.key, lang.def);
 		}
 
+		pvd.add("tabs." + TinkersGolem.MODID + ".items", "Tinkers' Golem: Items");
+		pvd.add("tabs." + TinkersGolem.MODID + ".tools", "Tinkers' Golem: Tools");
 		pvd.add(TinkersGolem.MODID + ".max_overslime", "Max Overslime");
 		pvd.add(TinkersGolem.MODID + ".overslime_recovery", "Overslime Recovery Factor");
 		pvd.add(TinkersGolem.MODID + ".tank_capacity", "Tank Capacity");
@@ -62,6 +64,22 @@ public enum TGLang {
 		pvd.add("golem_material." + TinkersGolem.MODID + ".slimesteel", "Slimesteel");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".cinderslime", "Cinderslime");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".queens_slime", "Queen's Slime");
+		pvd.add("pattern." + TinkersGolem.MODID + ".metal_golem_plating", "Metal Golem Plating");
+		pvd.add("pattern." + TinkersGolem.MODID + ".helmet_metal_golem_plating", "Metal Golem Helmet Plating");
+		pvd.add("pattern." + TinkersGolem.MODID + ".chestplate_metal_golem_plating", "Metal Golem Chestplate Plating");
+		pvd.add("pattern." + TinkersGolem.MODID + ".leggings_metal_golem_plating", "Metal Golem Leggings Plating");
+		pvd.add("pattern." + TinkersGolem.MODID + ".boots_metal_golem_plating", "Metal Golem Boots Plating");
+		pvd.add("pattern." + TinkersGolem.MODID + ".golem_template", "Metal Golem Template");
+		pvd.add("gui." + TinkersGolem.MODID + ".metal_golem_armor", "Metal Golem Armor");
+		pvd.add("gui." + TinkersGolem.MODID + ".metal_golem_armor.description", "Metal golem armor is a defensive armor for metal golems.");
+		pvd.add("item." + TinkersGolem.MODID + ".helmet_metal_golem_plating", "Metal Golem Helmet Plating");
+		pvd.add("item." + TinkersGolem.MODID + ".chestplate_metal_golem_plating", "Metal Golem Chestplate Plating");
+		pvd.add("item." + TinkersGolem.MODID + ".leggings_metal_golem_plating", "Metal Golem Leggings Plating");
+		pvd.add("item." + TinkersGolem.MODID + ".boots_metal_golem_plating", "Metal Golem Boots Plating");
+		pvd.add("item." + TinkersGolem.MODID + ".metal_golem_helmet", "Metal Golem Helmet");
+		pvd.add("item." + TinkersGolem.MODID + ".metal_golem_chestplate", "Metal Golem Chestplate");
+		pvd.add("item." + TinkersGolem.MODID + ".metal_golem_leggings", "Metal Golem Leggings");
+		pvd.add("item." + TinkersGolem.MODID + ".metal_golem_boots", "Metal Golem Boots");
 
 		for (var type : SlimeGolemPartType.values()) {
 			String name = type.name().toLowerCase(Locale.ROOT);

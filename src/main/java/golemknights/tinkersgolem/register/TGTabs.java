@@ -1,5 +1,6 @@
 package golemknights.tinkersgolem.register;
 
+import golemknights.tinkersgolem.TinkersGolem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -20,9 +21,10 @@ public class TGTabs {
     public static RegistryObject<CreativeModeTab> item_tab = TABS.register(
             "items",
             () -> CreativeModeTab.builder()
-                    .title(Component.translatable("tabs.tinkerdgolem.items"))
+                    .title(Component.translatable("tabs." + TinkersGolem.MODID + ".items"))
                     .icon(()->TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).getRenderTool())
-                    .displayItems((displayParameters, output) ->{
+                    .displayItems(
+                            (displayParameters, output) ->{
                                 ;
                             }
                     )
@@ -32,10 +34,16 @@ public class TGTabs {
     public static RegistryObject<CreativeModeTab> tool_tab = TABS.register(
             "tools",
             () -> CreativeModeTab.builder()
-                    .title(Component.translatable("tabs.tinkerdgolem.tools"))
+                    .title(Component.translatable("tabs." + TinkersGolem.MODID + ".tools"))
                     .icon(()->TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).getRenderTool())
-                    .displayItems((displayParameters, output) ->{
-                                TGItems.metalGolemArmor.forEach((item)-> acceptTool(output::accept, item));
+                    .displayItems(
+                            (displayParameters, output) -> {
+                                acceptCast(output, TGItems.helmetMetalGolemPlatingCast);
+                                acceptCast(output, TGItems.chestplateMetalGolemPlatingCast);
+                                acceptCast(output, TGItems.leggingsMetalGolemPlatingCast);
+                                acceptCast(output, TGItems.bootsMetalGolemPlatingCast);
+                                TGItems.metal_golem_plating.forEach((item) -> acceptPart(output::accept, item));
+                                TGItems.metalGolemArmor.forEach((item) -> acceptTool(output::accept, item));
                             }
                     )
                     .withTabsBefore(TinkerTools.tabTools.getId())

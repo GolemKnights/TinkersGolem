@@ -177,19 +177,6 @@ public class ModifiableMetalGolemArmorItem extends GolemEquipmentItem
 		ToolStack.ensureInitialized(stack, getToolDefinition());
 	}
 
-	@Override
-	public InteractionResultHolder<ItemStack> use(Level levelIn, Player playerIn, InteractionHand handIn) {
-		if (playerIn.isCrouching()) {
-			ItemStack stack = playerIn.getItemInHand(handIn);
-			InteractionResult result = ToolInventoryCapability.tryOpenContainer(stack, null, getToolDefinition(),
-					playerIn, Util.getSlotType(handIn));
-			if (result.consumesAction()) {
-				return new InteractionResultHolder<>(result, stack);
-			}
-		}
-		return super.use(levelIn, playerIn, handIn);
-	}
-
 	/* Display */
 
 	@Override
