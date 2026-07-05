@@ -31,7 +31,11 @@ import org.apache.logging.log4j.Logger;
 import slimeknights.mantle.registration.deferred.EntityTypeDeferredRegister;
 import slimeknights.mantle.registration.deferred.SynchronizedDeferredRegister;
 import slimeknights.tconstruct.common.registration.ItemDeferredRegisterExtension;
+import slimeknights.tconstruct.library.client.data.material.GeneratorPartTextureJsonGenerator;
+import slimeknights.tconstruct.library.client.data.material.MaterialPartTextureGenerator;
 import slimeknights.tconstruct.library.utils.Util;
+import slimeknights.tconstruct.tools.data.sprite.TinkerMaterialSpriteProvider;
+import slimeknights.tconstruct.tools.data.sprite.TinkerPartSpriteProvider;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(TinkersGolem.MODID)
@@ -104,13 +108,19 @@ public class TinkersGolem {
 		var pvd = event.getLookupProvider();
 		var helper = event.getExistingFileHelper();
 		var server = event.includeServer();
+		var client = event.includeClient();
 		gen.addProvider(server, new TGConfigGen(gen));
 		gen.addProvider(server, new TGToolDefinitionDataProvider(output));
 		gen.addProvider(server, new TGStationSlotLayoutProvider(output));
 		gen.addProvider(server, new TGToolsRecipeProvider(output));
-		gen.addProvider(server, new TGArmorModelProvider(output));
-		gen.addProvider(server, new TGToolItemModelProvider(output, helper));
-		gen.addProvider(server, new TGItemModelProvider(output, helper));
+		gen.addProvider(client, new TGArmorModelProvider(output));
+		gen.addProvider(client, new TGToolItemModelProvider(output, helper));
+		gen.addProvider(client, new TGItemModelProvider(output, helper));
+		TinkerMaterialSpriteProvider materialSpritesTiC = new TinkerMaterialSpriteProvider();
+		TinkerPartSpriteProvider partSpritesTiC = new TinkerPartSpriteProvider();
+		TGPartSpriteProvider partSpritesTG = new TGPartSpriteProvider();
+		gen.addProvider(client, new GeneratorPartTextureJsonGenerator(output, MODID, partSpritesTG));
+		gen.addProvider(client, new MaterialPartTextureGenerator(output, helper, partSpritesTG, materialSpritesTiC));
 	}
 
 	/**

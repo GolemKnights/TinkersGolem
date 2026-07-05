@@ -52,6 +52,8 @@ public enum TGLang {
 			pvd.add(lang.key, lang.def);
 		}
 
+		pvd.add("tabs." + TinkersGolem.MODID + ".items", "Tinkers' Golem: Items");
+		pvd.add("tabs." + TinkersGolem.MODID + ".tools", "Tinkers' Golem: Tools");
 		pvd.add(TinkersGolem.MODID + ".max_overslime", "Max Overslime");
 		pvd.add(TinkersGolem.MODID + ".overslime_recovery", "Overslime Recovery Factor");
 		pvd.add(TinkersGolem.MODID + ".tank_capacity", "Tank Capacity");

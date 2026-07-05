@@ -62,6 +62,8 @@
   "pattern.tinkers_golem.helmet_metal_golem_plating": "Metal Golem Helmet Plating",
   "pattern.tinkers_golem.leggings_metal_golem_plating": "Metal Golem Leggings Plating",
   "pattern.tinkers_golem.metal_golem_plating": "Metal Golem Plating",
+  "tabs.tinkers_golem.items": "Tinkers' Golem: Items",
+  "tabs.tinkers_golem.tools": "Tinkers' Golem: Tools",
   "tinkers_golem.info.overslime": "Overslime: %s/%s",
   "tinkers_golem.max_overslime": "Max Overslime",
   "tinkers_golem.overslime_recovery": "Overslime Recovery Factor",
