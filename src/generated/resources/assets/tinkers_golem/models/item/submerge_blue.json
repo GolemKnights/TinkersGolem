@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tinkers_golem:item/upgrades/submerge",
+    "layer1": "modulargolems:item/blue_arrow"
+  }
+}
