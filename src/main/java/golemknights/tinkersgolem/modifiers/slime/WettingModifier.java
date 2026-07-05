@@ -2,9 +2,9 @@ package golemknights.tinkersgolem.modifiers.slime;
 
 import dev.xkmc.modulargolems.content.core.StatFilterType;
 
-public class SubmergeModifier extends SlimeModifier {
+public class WettingModifier extends SlimeModifier {
 
-	public SubmergeModifier() {
+	public WettingModifier() {
 		super(StatFilterType.MASS, 3);
 	}
 

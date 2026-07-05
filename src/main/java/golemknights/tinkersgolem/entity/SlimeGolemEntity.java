@@ -407,7 +407,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 
 	@Override
 	public void doEnchantDamageEffects(LivingEntity attacker, Entity target) {
-		int lv = getModifiers().getOrDefault(TGGolemModifiers.SPILL.get(), 0) * getSize();
+		int lv = getModifiers().getOrDefault(TGGolemModifiers.SPILLING.get(), 0) * getSize();
 		if (lv > 0) {
 			FluidStack fluid = this.getFluid();
 			LivingEntity livingTarget = target instanceof LivingEntity living ? living : null;
@@ -430,7 +430,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	protected void postHurt(DamageSource source) {
 		super.postHurt(source);
 		if (isRemoved() || getGuardedDataImpl() <= 0) return;
-		int lv = getModifiers().getOrDefault(TGGolemModifiers.SUBMERGE.get(), 0) * getSize();
+		int lv = getModifiers().getOrDefault(TGGolemModifiers.WETTING.get(), 0) * getSize();
 		if (lv == 0) return;
 		FluidStack fluid = getFluid();
 		if (fluid.isEmpty()) return;

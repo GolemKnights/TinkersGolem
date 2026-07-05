@@ -38,14 +38,14 @@ public class TGGolemModifiers {
 	public static final RegistryEntry<OverbonkingModifier> OVERBOKING;
 	public static final RegistryEntry<OverteleportModifier> OVERTELEPORT;
 	public static final RegistryEntry<OverdriveModifier> OVERDRIVE;
-	public static final RegistryEntry<SpillModifier> SPILL;
-	public static final RegistryEntry<SubmergeModifier> SUBMERGE;
+	public static final RegistryEntry<SpillingModifier> SPILLING;
+	public static final RegistryEntry<WettingModifier> WETTING;
 
 	public static final RegistryEntry<SlimeSlotModifier> OVERTALENTED;
 
 	public static final ItemEntry<SimpleUpgradeItem> ITEM_OVERGROWTH, ITEM_SUPER_OVERGROWTH,
 			ITEM_OVERWORKED, ITEM_OVERFORCED, ITEM_OVERFILL, ITEM_OVERLORD, ITEM_OVERBURN,
-			ITEM_SPILL, ITEM_SUBMERGE;
+			ITEM_SPILLING, ITEM_WETTING;
 	public static final ItemEntry<SpecialUpgradeItem> ITEM_OVERDRIVE;
 	public static final ItemEntry<AddSlotTemplate> QUEENS_SLIME_EXPAND, CINDERSLIME_EXPAND, SLIMESTEEL_EXPAND;
 
@@ -66,8 +66,8 @@ public class TGGolemModifiers {
 		OVERTELEPORT = reg("overteleport", OverteleportModifier::new, "Teleport target when dealing damage, or teleport itself when taking damage");
 		OVERDRIVE = reg("overdrive", OverdriveModifier::new, "When overslime is above max health: consume overslime to heal or to grow larger; only effective for slime golems");
 		OVERTALENTED = reg("overtalented", SlimeSlotModifier::new, "Allows %s more slime upgrades");
-		SPILL = reg("spill", SpillModifier::new, "Slime golem splash fluid on target while attacking");
-		SUBMERGE = reg("submerge", SubmergeModifier::new, "Splash fluid on slime golem when attacked");
+		SPILLING = reg("spilling", SpillingModifier::new, "Slime golem spills fluid on target while attacking");
+		WETTING = reg("wetting", WettingModifier::new, "Slime golem is wetted by fluids when attacked");
 
 		ITEM_OVERGROWTH = regUpgradeImpl("overgrowth", () -> OVERGROWTH, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
 		ITEM_SUPER_OVERGROWTH = regUpgradeImpl("overgrown", () -> OVERGROWTH, 4, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
@@ -76,8 +76,8 @@ public class TGGolemModifiers {
 		ITEM_OVERFILL = regUpgradeImpl("overfill", () -> OVERFILL, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
 		ITEM_OVERLORD = regUpgradeImpl("overlord", () -> OVERLORD, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
 		ITEM_OVERBURN = regUpgradeImpl("overburn", () -> OVERBURN, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
-		ITEM_SPILL = regUpgradeImpl("spill", () -> SPILL, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
-		ITEM_SUBMERGE = regUpgradeImpl("submerge", () -> SUBMERGE, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
+		ITEM_SPILLING = regUpgradeImpl("spilling", () -> SPILLING, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
+		ITEM_WETTING = regUpgradeImpl("wetting", () -> WETTING, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
 		ITEM_OVERDRIVE = specialUpgrade("overdrive", () -> OVERDRIVE, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
 
 		SLIMESTEEL_EXPAND = addSlot("slimesteel_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Slimesteel").register();
