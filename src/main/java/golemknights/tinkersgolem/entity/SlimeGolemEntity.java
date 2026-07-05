@@ -15,6 +15,7 @@ import golemknights.tinkersgolem.client.DynamicBreakParticleOption;
 import golemknights.tinkersgolem.events.GolemOverslimeEvents;
 import golemknights.tinkersgolem.register.TGAttributes;
 import golemknights.tinkersgolem.register.TGEntities;
+import golemknights.tinkersgolem.register.TGGolemModifiers;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -406,22 +407,44 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 
 	@Override
 	public void doEnchantDamageEffects(LivingEntity attacker, Entity target) {
-		FluidStack fluid = this.getFluid();
-		LivingEntity livingTarget = target instanceof LivingEntity living ? living : null;
-		if (!fluid.isEmpty()) {
-			FluidEffects recipe = FluidEffectManager.INSTANCE.find(fluid.getFluid());
-			if (recipe.hasEntityEffects()) {
-				int lv = Mth.log2(getSize()) + 1;
-				int consumed = recipe.applyToEntity(fluid, lv, FluidEffectContext.builder(attacker.level()).user(attacker, null).target(target, livingTarget), IFluidHandler.FluidAction.EXECUTE);
-				if (consumed > 0) {
-					spawnParticles(target, fluid);
-					fluid.shrink(consumed);
-					setFluid(fluid);
+		int lv = getModifiers().getOrDefault(TGGolemModifiers.SPILL.get(), 0) * getSize();
+		if (lv > 0) {
+			FluidStack fluid = this.getFluid();
+			LivingEntity livingTarget = target instanceof LivingEntity living ? living : null;
+			if (!fluid.isEmpty()) {
+				FluidEffects recipe = FluidEffectManager.INSTANCE.find(fluid.getFluid());
+				if (recipe.hasEntityEffects()) {
+					int consumed = recipe.applyToEntity(fluid, lv, FluidEffectContext.builder(attacker.level()).user(attacker, null).target(target, livingTarget), IFluidHandler.FluidAction.EXECUTE);
+					if (consumed > 0) {
+						spawnParticles(target, fluid);
+						fluid.shrink(consumed);
+						setFluid(fluid);
+					}
 				}
 			}
 		}
 		super.doEnchantDamageEffects(attacker, target);
 	}
+
+	@Override
+	protected void postHurt(DamageSource source) {
+		super.postHurt(source);
+		if (isRemoved() || getGuardedDataImpl() <= 0) return;
+		int lv = getModifiers().getOrDefault(TGGolemModifiers.SUBMERGE.get(), 0) * getSize();
+		if (lv == 0) return;
+		FluidStack fluid = getFluid();
+		if (fluid.isEmpty()) return;
+		FluidEffects recipe = FluidEffectManager.INSTANCE.find(fluid.getFluid());
+		if (recipe.hasBlockEffects()) {
+			int consumed = recipe.applyToEntity(fluid, lv, FluidEffectContext.builder(level()).user(this, null).target(this, this), IFluidHandler.FluidAction.EXECUTE);
+			if (consumed > 0) {
+				spawnParticles(this, fluid);
+				fluid.shrink(consumed);
+				setFluid(fluid);
+			}
+		}
+	}
+
 
 	@Override
 	protected float getStandingEyeHeight(Pose pose, EntityDimensions dimensions) {
