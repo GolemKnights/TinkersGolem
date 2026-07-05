@@ -4,15 +4,15 @@
     "item": "tinkers_golem:slime_golem_core"
   },
   "cast_consumed": true,
-  "cooling_time": 154,
+  "cooling_time": 143,
   "fluid": {
     "amount": 2250,
-    "tag": "forge:slime"
+    "tag": "tconstruct:sky_slime"
   },
   "result": {
     "item": "tinkers_golem:slime_golem_core",
     "nbt": {
-      "golem_material": "tinkers_golem:earth_slime"
+      "golem_material": "tinkers_golem:skyslime"
     }
   }
 }

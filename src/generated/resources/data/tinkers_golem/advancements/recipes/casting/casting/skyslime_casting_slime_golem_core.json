@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "tinkers_golem:casting/sky_slime_casting_slime_golem_core"
+        "recipe": "tinkers_golem:casting/skyslime_casting_slime_golem_core"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "tinkers_golem:casting/sky_slime_casting_slime_golem_core"
+      "tinkers_golem:casting/skyslime_casting_slime_golem_core"
     ]
   },
   "sends_telemetry_event": true

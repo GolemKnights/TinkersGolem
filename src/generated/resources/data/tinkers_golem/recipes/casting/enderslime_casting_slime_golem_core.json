@@ -12,7 +12,7 @@
   "result": {
     "item": "tinkers_golem:slime_golem_core",
     "nbt": {
-      "golem_material": "tinkers_golem:ender_slime"
+      "golem_material": "tinkers_golem:enderslime"
     }
   }
 }

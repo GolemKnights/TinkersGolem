@@ -1,7 +1,7 @@
 {
   "type": "tinkers_golem:overslime_recover",
   "ingredient": {
-    "item": "minecraft:slime_ball"
+    "tag": "forge:slimeball/ender"
   },
-  "result": 10.0
+  "result": 40.0
 }

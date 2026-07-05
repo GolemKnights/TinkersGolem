@@ -55,10 +55,13 @@ public enum TGLang {
 		pvd.add(TinkersGolem.MODID + ".max_overslime", "Max Overslime");
 		pvd.add(TinkersGolem.MODID + ".overslime_recovery", "Overslime Recovery Factor");
 		pvd.add(TinkersGolem.MODID + ".tank_capacity", "Tank Capacity");
-		pvd.add("golem_material." + TinkersGolem.MODID + ".earth_slime", "Earth Slime");
-		pvd.add("golem_material." + TinkersGolem.MODID + ".sky_slime", "Sky Slime");
+		pvd.add("golem_material." + TinkersGolem.MODID + ".earthslime", "Earthslime");
+		pvd.add("golem_material." + TinkersGolem.MODID + ".skyslime", "Skyslime");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".ichor", "Ichor");
-		pvd.add("golem_material." + TinkersGolem.MODID + ".ender_slime", "Ender Slime");
+		pvd.add("golem_material." + TinkersGolem.MODID + ".ender_slime", "Enderslime");
+		pvd.add("golem_material." + TinkersGolem.MODID + ".slimesteel", "Slimesteel");
+		pvd.add("golem_material." + TinkersGolem.MODID + ".cinderslime", "Cinderslime");
+		pvd.add("golem_material." + TinkersGolem.MODID + ".queens_slime", "Queen's Slime");
 
 		for (var type : SlimeGolemPartType.values()) {
 			String name = type.name().toLowerCase(Locale.ROOT);

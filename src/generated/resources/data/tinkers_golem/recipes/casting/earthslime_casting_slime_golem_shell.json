@@ -4,15 +4,15 @@
     "item": "tinkers_golem:slime_golem_shell"
   },
   "cast_consumed": true,
-  "cooling_time": 159,
+  "cooling_time": 154,
   "fluid": {
     "amount": 2250,
-    "tag": "tconstruct:ender_slime"
+    "tag": "forge:slime"
   },
   "result": {
     "item": "tinkers_golem:slime_golem_shell",
     "nbt": {
-      "golem_material": "tinkers_golem:ender_slime"
+      "golem_material": "tinkers_golem:earthslime"
     }
   }
 }
