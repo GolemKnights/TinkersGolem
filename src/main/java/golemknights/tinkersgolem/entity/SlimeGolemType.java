@@ -37,7 +37,7 @@ public class SlimeGolemType extends GolemType<SlimeGolemEntity, SlimeGolemPartTy
 
 	@Override
 	public ResourceLocation defaultMaterial() {
-		return TinkersGolem.getResource("earth_slime");
+		return TinkersGolem.getResource("earthslime");
 	}
 
 	@Override
