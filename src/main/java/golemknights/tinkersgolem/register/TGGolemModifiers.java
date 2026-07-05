@@ -17,10 +17,7 @@ import golemknights.tinkersgolem.data.TGConfig;
 import golemknights.tinkersgolem.data.TGTagGen;
 import golemknights.tinkersgolem.item.misc.SpecialUpgradeItem;
 import golemknights.tinkersgolem.modifiers.golem.*;
-import golemknights.tinkersgolem.modifiers.slime.OverburnModifier;
-import golemknights.tinkersgolem.modifiers.slime.OverdriveModifier;
-import golemknights.tinkersgolem.modifiers.slime.OvershockModifier;
-import golemknights.tinkersgolem.modifiers.slime.SlimeSlotModifier;
+import golemknights.tinkersgolem.modifiers.slime.*;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -41,11 +38,14 @@ public class TGGolemModifiers {
 	public static final RegistryEntry<OverbonkingModifier> OVERBOKING;
 	public static final RegistryEntry<OverteleportModifier> OVERTELEPORT;
 	public static final RegistryEntry<OverdriveModifier> OVERDRIVE;
+	public static final RegistryEntry<SpillModifier> SPILL;
+	public static final RegistryEntry<SubmergeModifier> SUBMERGE;
 
 	public static final RegistryEntry<SlimeSlotModifier> OVERTALENTED;
 
 	public static final ItemEntry<SimpleUpgradeItem> ITEM_OVERGROWTH, ITEM_SUPER_OVERGROWTH,
-			ITEM_OVERWORKED, ITEM_OVERFORCED, ITEM_OVERFILL, ITEM_OVERLORD, ITEM_OVERBURN;
+			ITEM_OVERWORKED, ITEM_OVERFORCED, ITEM_OVERFILL, ITEM_OVERLORD, ITEM_OVERBURN,
+			ITEM_SPILL, ITEM_SUBMERGE;
 	public static final ItemEntry<SpecialUpgradeItem> ITEM_OVERDRIVE;
 	public static final ItemEntry<AddSlotTemplate> QUEENS_SLIME_EXPAND, CINDERSLIME_EXPAND, SLIMESTEEL_EXPAND;
 
@@ -66,17 +66,21 @@ public class TGGolemModifiers {
 		OVERTELEPORT = reg("overteleport", OverteleportModifier::new, "Teleport target when dealing damage, or teleport itself when taking damage");
 		OVERDRIVE = reg("overdrive", OverdriveModifier::new, "When overslime is above max health: consume overslime to heal or to grow larger; only effective for slime golems");
 		OVERTALENTED = reg("overtalented", SlimeSlotModifier::new, "Allows %s more slime upgrades");
+		SPILL = reg("spill", SpillModifier::new, "Slime golem splash fluid on target while attacking");
+		SUBMERGE = reg("submerge", SubmergeModifier::new, "Splash fluid on slime golem when attacked");
 
 		ITEM_OVERGROWTH = regUpgradeImpl("overgrowth", () -> OVERGROWTH, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
-		ITEM_SUPER_OVERGROWTH = regUpgradeImpl("overgrown", () -> OVERGROWTH, 4, true, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
+		ITEM_SUPER_OVERGROWTH = regUpgradeImpl("overgrown", () -> OVERGROWTH, 4, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
 		ITEM_OVERWORKED = regUpgradeImpl("overworked", () -> OVERWORKED, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
 		ITEM_OVERFORCED = regUpgradeImpl("overforced", () -> OVERFORCED, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
 		ITEM_OVERFILL = regUpgradeImpl("overfill", () -> OVERFILL, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
 		ITEM_OVERLORD = regUpgradeImpl("overlord", () -> OVERLORD, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
 		ITEM_OVERBURN = regUpgradeImpl("overburn", () -> OVERBURN, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
+		ITEM_SPILL = regUpgradeImpl("spill", () -> SPILL, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
+		ITEM_SUBMERGE = regUpgradeImpl("submerge", () -> SUBMERGE, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
 		ITEM_OVERDRIVE = specialUpgrade("overdrive", () -> OVERDRIVE, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
 
-        SLIMESTEEL_EXPAND = addSlot("slimesteel_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Slimesteel").register();
+		SLIMESTEEL_EXPAND = addSlot("slimesteel_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Slimesteel").register();
 		QUEENS_SLIME_EXPAND = addSlot("queens_slime_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Queen's Slime").register();
 		CINDERSLIME_EXPAND = addSlot("cinderslime_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Cinderslime").register();
 

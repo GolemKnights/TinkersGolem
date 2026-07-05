@@ -50,7 +50,7 @@ public class TGEntities {
 						.add(GolemTypes.DYNAMIC_REDUCTION.get())
 						.add(TGAttributes.MAX_OVERSLIME.get())
 						.add(TGAttributes.OVERSLIME_RECOVERY.get())
-						.add(TGAttributes.TANK_CAPACITY.get(), 2000)
+						.add(TGAttributes.TANK_CAPACITY.get(), 4000)
 				).tag(MGTagGen.GOLEM_FRIENDLY).register();
 
 		var cls = new L2Registrate.RegistryInstance<GolemType<?, ?>>(() -> null, ResourceKey.createRegistryKey(new ResourceLocation(ModularGolems.MODID, "golem_type")));
