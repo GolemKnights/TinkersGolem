@@ -18,6 +18,7 @@ import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.recipes.OverslimeRecoverBuilder;
 import golemknights.tinkersgolem.register.TGEntities;
 import golemknights.tinkersgolem.register.TGGolemModifiers;
+import golemknights.tinkersgolem.register.TGRecipes;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -30,7 +31,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
+import slimeknights.mantle.recipe.data.AbstractRecipeBuilder;
 import slimeknights.mantle.recipe.helper.ItemOutput;
+import slimeknights.mantle.recipe.helper.SimpleFinishedRecipe;
 import slimeknights.mantle.registration.object.FlowingFluidObject;
 import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.common.TinkerTags;
@@ -54,6 +57,11 @@ public class TGRecipeGen {
 			new OverslimeRecoverBuilder(Ingredient.of(SlimeType.SKY.getSlimeballTag()), 25).save(pvd, TinkersGolem.getResource("skyslime"));
 			new OverslimeRecoverBuilder(Ingredient.of(SlimeType.ICHOR.getSlimeballTag()), 50).save(pvd, TinkersGolem.getResource("ichor"));
 			new OverslimeRecoverBuilder(Ingredient.of(SlimeType.ENDER.getSlimeballTag()), 40).save(pvd, TinkersGolem.getResource("enderslime"));
+		}
+
+		// severing
+		{
+			pvd.accept(new SimpleFinishedRecipe(TinkersGolem.getResource("tools/severing/golems"), TGRecipes.GOLEM_SEVERING_SERIALIZER.get()));
 		}
 
 		// slime golem
