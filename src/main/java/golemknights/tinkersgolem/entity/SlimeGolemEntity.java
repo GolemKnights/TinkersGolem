@@ -427,26 +427,6 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	}
 
 	@Override
-	protected void postHurt(DamageSource source) {
-		super.postHurt(source);
-		if (isRemoved() || getGuardedDataImpl() <= 0) return;
-		int lv = getModifiers().getOrDefault(TGGolemModifiers.WETTING.get(), 0) * getSize();
-		if (lv == 0) return;
-		FluidStack fluid = getFluid();
-		if (fluid.isEmpty()) return;
-		FluidEffects recipe = FluidEffectManager.INSTANCE.find(fluid.getFluid());
-		if (recipe.hasBlockEffects()) {
-			int consumed = recipe.applyToEntity(fluid, lv, FluidEffectContext.builder(level()).user(this, null).target(this, this), IFluidHandler.FluidAction.EXECUTE);
-			if (consumed > 0) {
-				spawnParticles(this, fluid);
-				fluid.shrink(consumed);
-				setFluid(fluid);
-			}
-		}
-	}
-
-
-	@Override
 	protected float getStandingEyeHeight(Pose pose, EntityDimensions dimensions) {
 		return 0.625F * dimensions.height;
 	}
