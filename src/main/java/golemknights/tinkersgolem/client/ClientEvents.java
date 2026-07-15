@@ -10,6 +10,8 @@ import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import static dev.xkmc.modulargolems.content.client.armor.GolemEquipmentModels.regAndAdd;
+
 @Mod.EventBusSubscriber(modid = TinkersGolem.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientEvents {
 	@SubscribeEvent
@@ -25,4 +27,11 @@ public class ClientEvents {
 	public static void registerItemDeco(RegisterItemDecorationsEvent event) {
 		event.register(TGEntities.HOLDER_SLIME.get(), new SlimeItemDeco());
 	}
+
+	@SubscribeEvent
+	public static void dispatchEntityLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
+		regAndAdd(event, ModifiableMetalGolemArmorModel.LAYER_LOCATION,
+				ModifiableMetalGolemArmorModel::createBodyLayer);
+	}
+
 }
