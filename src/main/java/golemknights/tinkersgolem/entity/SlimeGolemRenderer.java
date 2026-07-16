@@ -31,13 +31,15 @@ public class SlimeGolemRenderer extends AbstractGolemRenderer<SlimeGolemEntity, 
 	}
 
 	@Override
-	protected void scale(SlimeGolemEntity e, PoseStack poseStack, float partialTickTime) {
-		poseStack.scale(0.999F, 0.999F, 0.999F);
-		poseStack.translate(0.0F, 0.001F, 0.0F);
+	protected void scale(SlimeGolemEntity e, PoseStack pose, float partialTickTime) {
+		float r = e.getScale();
+		pose.scale(r, r, r);
+		pose.scale(0.999F, 0.999F, 0.999F);
+		pose.translate(0.0F, 0.001F, 0.0F);
 		float f1 = e.isAddedToWorld() ? e.getSize() : 1;
 		float f2 = Mth.lerp(partialTickTime, e.oSquish, e.squish) / (f1 * 0.5F + 1.0F);
 		float f3 = 1.0F / (f2 + 1.0F);
-		poseStack.scale(f3 * f1, 1.0F / f3 * f1, f3 * f1);
+		pose.scale(f3 * f1, 1.0F / f3 * f1, f3 * f1);
 	}
 
 }
