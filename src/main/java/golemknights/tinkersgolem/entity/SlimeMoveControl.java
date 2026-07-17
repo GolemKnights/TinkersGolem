@@ -1,13 +1,13 @@
 package golemknights.tinkersgolem.entity;
 
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
+import net.minecraftforge.common.ForgeMod;
 
 class SlimeMoveControl extends MoveControl {
 	private int jumpDelay;
-	private final SlimeGolemEntity slime;
+	protected final SlimeGolemEntity slime;
 
 	public SlimeMoveControl(SlimeGolemEntity golem) {
 		super(golem);
@@ -21,32 +21,10 @@ class SlimeMoveControl extends MoveControl {
 
 	@Override
 	public void tick() {
-		LivingEntity livingentity = this.slime.getTarget();
-		if (this.slime.isInWater()) {
-			if (livingentity != null && livingentity.getY() > this.slime.getY()) {
-				this.slime.setDeltaMovement(this.slime.getDeltaMovement().add(0.0D, 0.002D, 0.0D));
-			}
-			if (this.operation != MoveControl.Operation.MOVE_TO || this.slime.getNavigation().isDone()) {
-				this.slime.setSpeed(0.0F);
-				return;
-			}
+		double d = slime.getToTargetDist();
+		boolean arrived = !slime.isAggressive() && d < 0.5f;
 
-			double d0 = this.wantedX - this.slime.getX();
-			double d1 = this.wantedY - this.slime.getY();
-			double d2 = this.wantedZ - this.slime.getZ();
-			double d3 = Math.sqrt(d0 * d0 + d1 * d1 + d2 * d2);
-			d1 /= d3;
-			float f = (float) (Mth.atan2(d2, d0) * (double) (180F / (float) Math.PI)) - 90.0F;
-			this.slime.setYRot(this.rotlerp(this.slime.getYRot(), f, 90.0F));
-			this.slime.yBodyRot = this.slime.getYRot();
-			float f1 = (float) (this.speedModifier * this.slime.getAttributeValue(Attributes.MOVEMENT_SPEED));
-			float f2 = Mth.lerp(0.125F, this.slime.getSpeed(), f1);
-			this.slime.setSpeed(f2);
-			this.slime.setDeltaMovement(this.slime.getDeltaMovement().add((double) f2 * d0 * 0.005D, (double) f2 * d1 * 0.1D, (double) f2 * d2 * 0.005D));
-			return;
-		}
-
-		if (this.operation == Operation.MOVE_TO) {
+		if (this.operation == Operation.MOVE_TO && !arrived) {
 			double d0 = this.wantedX - this.mob.getX();
 			double d1 = this.wantedZ - this.mob.getZ();
 			float targetYRot = (float) (Mth.atan2(d1, d0) * (180F / Math.PI)) - 90.0F;
@@ -60,9 +38,17 @@ class SlimeMoveControl extends MoveControl {
 			return;
 		}
 		if (this.mob.onGround()) {
-			this.mob.setSpeed((float) (this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
 			if (this.jumpDelay-- <= 0 && this.slime.isMovable()) {
 				this.jumpDelay = this.slime.getJumpDelay();
+				double g = mob.getAttributeValue(ForgeMod.ENTITY_GRAVITY.get());
+				var speed = (float) (this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED));
+				var power = slime.getJumpPower() * speed * 2;
+				double arc = d * g;
+				if (arc < power && power > 1e-8) {
+					speed *= (float) (arc / power);
+				}
+				if (arrived) speed = 0;
+				this.mob.setSpeed(speed);
 				this.slime.getJumpControl().jump();
 				if (this.slime.doPlayJumpSound()) {
 					this.slime.playSound(this.slime.getJumpSound(), this.slime.getSoundVolume(), this.slime.getSoundPitch());

@@ -80,7 +80,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		super(type, level);
 		this.fixupDimensions();
 		this.moveControl = new SlimeMoveControl(this);
-		this.waterMoveControl = moveControl;
+		this.waterMoveControl = new SlimeSwimMoveControl(this);
 		if (!level.isClientSide()) {
 			tank.add(() -> TinkersGolem.HANDLER.toTrackingPlayers(new SlimeTankSyncPacket(this, tank), this));
 		}
@@ -249,7 +249,16 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		this.targetSquish *= 0.6F;
 	}
 
+	public double getToTargetDist() {
+		if (navigation.isDone()) return 0;
+		var path = navigation.getPath();
+		if (path == null) return 0;
+		return path.getTarget().getCenter().distanceTo(position());
+	}
+
 	protected int getJumpDelay() {
+		if (getToTargetDist() > 4)
+			return this.random.nextInt(5) + 5;
 		return this.random.nextInt(20) + 10;
 	}
 
@@ -261,6 +270,10 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	@Override
 	public int getMaxHeadXRot() {
 		return 0;
+	}
+
+	public float getJumpPower() {
+		return 0.42F * this.getBlockJumpFactor() + this.getJumpBoostPower();
 	}
 
 	@Override
