@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "tinkers_golem:item/cast/chestplate_metal_golem_plating"
-  }
-}

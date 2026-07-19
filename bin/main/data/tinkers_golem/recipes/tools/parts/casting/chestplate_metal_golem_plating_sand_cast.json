@@ -1,9 +1,0 @@
-{
-  "type": "tconstruct:table_casting_material",
-  "cast": {
-    "tag": "tinkers_golem:casts/single_use/chestplate_metal_golem_plating"
-  },
-  "cast_consumed": true,
-  "item_cost": 44,
-  "result": "tinkers_golem:chestplate_metal_golem_plating"
-}

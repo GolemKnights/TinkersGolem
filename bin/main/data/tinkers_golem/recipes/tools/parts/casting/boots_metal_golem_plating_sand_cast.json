@@ -1,9 +1,0 @@
-{
-  "type": "tconstruct:table_casting_material",
-  "cast": {
-    "tag": "tinkers_golem:casts/single_use/boots_metal_golem_plating"
-  },
-  "cast_consumed": true,
-  "item_cost": 4,
-  "result": "tinkers_golem:boots_metal_golem_plating"
-}

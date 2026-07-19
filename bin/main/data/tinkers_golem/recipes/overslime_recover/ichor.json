@@ -1,7 +1,0 @@
-{
-  "type": "tinkers_golem:overslime_recover",
-  "ingredient": {
-    "tag": "forge:slimeball/ichor"
-  },
-  "result": 50.0
-}

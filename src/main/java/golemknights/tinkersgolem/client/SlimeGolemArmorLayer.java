@@ -47,7 +47,7 @@ public class SlimeGolemArmorLayer <T extends SlimeGolemEntity, M extends Hierarc
         ItemStack helmet = entity.getItemBySlot(EquipmentSlot.HEAD);
         if (!helmet.isEmpty()) {
             matrices.pushPose();
-            matrices.translate(0, 1.5, 0);
+            matrices.translate(0, 1.5 - 0.02083333333, 0);
             matrices.scale(0.9f, 0.9f, 0.9f);
 
             Item item = helmet.getItem();

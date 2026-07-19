@@ -62,6 +62,7 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 
@@ -625,7 +626,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	}
 
 	@Nonnull
-	private Multimap<Attribute, AttributeModifier> cachedHelmetModifiers = HashMultimap.create();;
+	private Multimap<Attribute, AttributeModifier> cachedHelmetModifiers = ImmutableSetMultimap.of();
 
 	@Override
 	@Nullable
@@ -656,8 +657,10 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 
 				map.put(equipmentslot, itemstack1);
 				if (!itemstack.isEmpty()) {
-					if (equipmentslot == EquipmentSlot.HEAD && !cachedHelmetModifiers.isEmpty())
+					if (equipmentslot == EquipmentSlot.HEAD && !cachedHelmetModifiers.isEmpty()){
 						this.getAttributes().removeAttributeModifiers(cachedHelmetModifiers);
+						cachedHelmetModifiers=ImmutableSetMultimap.of();
+					}
 					else if (itemstack.getItem() instanceof IGolemEquipmentItem gItem)
 						this.getAttributes()
 								.removeAttributeModifiers(gItem.getGolemModifiers(itemstack, this, equipmentslot));

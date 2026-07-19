@@ -1,7 +1,0 @@
-{
-  "parent": "forge:item/default",
-  "loader": "tconstruct:material",
-  "textures": {
-    "texture": "tinkers_golem:item/tool/parts/leggings_metal_golem_plating"
-  }
-}
