@@ -1,0 +1,14 @@
+{
+  "type": "tconstruct:tool_building",
+  "extra_requirements": [
+    {
+      "item": "modulargolems:metal_golem_template"
+    },
+    {
+      "item": "modulargolems:metal_golem_template"
+    }
+  ],
+  "result": "tinkers_golem:metal_golem_helmet",
+  "result_count": 1,
+  "slot_layout": "tinkers_golem:metal_golem_armor"
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "forge:ingots/cinderslime"
+    },
+    "B": {
+      "item": "tconstruct:cobalt_shard"
+    },
+    "E": {
+      "item": "modulargolems:empty_upgrade"
+    }
+  },
+  "pattern": [
+    "BAB",
+    "AEA",
+    "BAB"
+  ],
+  "result": {
+    "item": "tinkers_golem:overburn"
+  },
+  "show_notification": true
+}

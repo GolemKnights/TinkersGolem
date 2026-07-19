@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tinkers_golem:item/upgrades/overforced",
+    "layer1": "modulargolems:item/purple_arrow"
+  }
+}

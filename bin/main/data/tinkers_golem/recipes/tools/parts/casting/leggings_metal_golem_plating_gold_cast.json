@@ -1,0 +1,8 @@
+{
+  "type": "tconstruct:table_casting_material",
+  "cast": {
+    "tag": "tinkers_golem:casts/multi_use/leggings_metal_golem_plating"
+  },
+  "item_cost": 11,
+  "result": "tinkers_golem:leggings_metal_golem_plating"
+}

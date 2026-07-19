@@ -1,0 +1,46 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All rights reserved"
+[[mods]]
+modId="tinkers_golem"
+version="${file.jarVersion}" #mandatory
+displayName="Tinkers Golem" #mandatory
+#logoFile="tinkers_golem.png" #optional
+credits="GolemKnights" #optional
+authors="Qikahome" #optional
+description='''
+
+'''
+[[dependencies.tinkers_golem]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47.1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.tinkers_golem]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20,1.21)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.tinkers_golem]]
+    modId="l2library"
+    mandatory=true
+    versionRange="[2.5.3,)"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.tinkers_golem]]
+    modId="modulargolems"
+    mandatory=true
+    versionRange="[2.6.34,)"
+    side="BOTH"
+[[dependencies.tinkers_golem]]
+    modId="mantle"
+    mandatory=true
+    versionRange="[1.11.104,)"
+    side="BOTH"
+[[dependencies.tinkers_golem]]
+    modId="tconstruct"
+    mandatory=true
+    versionRange="[3.11.2.166,)"
+    side="BOTH"

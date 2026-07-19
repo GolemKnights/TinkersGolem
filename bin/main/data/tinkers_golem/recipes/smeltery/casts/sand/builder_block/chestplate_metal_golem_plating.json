@@ -1,0 +1,11 @@
+{
+  "type": "tconstruct:item_part_builder",
+  "pattern": "tinkers_golem:chestplate_metal_golem_plating",
+  "pattern_item": {
+    "tag": "forge:sand/colorless"
+  },
+  "result": {
+    "count": 4,
+    "item": "tinkers_golem:chestplate_metal_golem_plating_sand_cast"
+  }
+}

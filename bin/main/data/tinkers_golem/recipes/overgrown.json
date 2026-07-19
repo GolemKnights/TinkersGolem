@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tinkers_golem:overgrowth"
+    },
+    {
+      "tag": "tconstruct:greenheart_logs"
+    },
+    {
+      "tag": "tconstruct:skyroot_logs"
+    },
+    {
+      "tag": "tconstruct:bloodshroom_logs"
+    },
+    {
+      "tag": "tconstruct:enderbark_logs"
+    }
+  ],
+  "result": {
+    "item": "tinkers_golem:overgrown"
+  }
+}
