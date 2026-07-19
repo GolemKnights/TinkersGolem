@@ -1,0 +1,7 @@
+{
+  "type": "tinkers_golem:overslime_recover",
+  "ingredient": {
+    "tag": "forge:slimeball/earth"
+  },
+  "result": 10.0
+}

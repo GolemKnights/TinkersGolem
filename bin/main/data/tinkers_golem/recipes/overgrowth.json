@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "tconstruct:slimy_logs"
+    },
+    "E": {
+      "item": "modulargolems:empty_upgrade"
+    }
+  },
+  "pattern": [
+    " A ",
+    "AEA",
+    " A "
+  ],
+  "result": {
+    "item": "tinkers_golem:overgrowth"
+  },
+  "show_notification": true
+}

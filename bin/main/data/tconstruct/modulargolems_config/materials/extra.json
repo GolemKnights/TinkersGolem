@@ -1,0 +1,54 @@
+{
+  "ingredients": {
+    "tconstruct:cinderslime": {
+      "tag": "forge:ingots/cinderslime"
+    },
+    "tconstruct:queens_slime": {
+      "tag": "forge:ingots/queens_slime"
+    },
+    "tconstruct:slimesteel": {
+      "tag": "forge:ingots/slimesteel"
+    }
+  },
+  "modifiers": {
+    "tconstruct:cinderslime": {
+      "modulargolems:fire_immune": 1,
+      "tinkers_golem:overburn": 1,
+      "tinkers_golem:oversmelt": 1
+    },
+    "tconstruct:queens_slime": {
+      "tinkers_golem:overlord": 2
+    },
+    "tconstruct:slimesteel": {}
+  },
+  "partLimitation": {},
+  "repairIngredients": {
+    "tconstruct:cinderslime": {
+      "tag": "forge:ingots/cinderslime"
+    },
+    "tconstruct:queens_slime": {
+      "tag": "forge:ingots/queens_slime"
+    },
+    "tconstruct:slimesteel": {
+      "tag": "forge:ingots/slimesteel"
+    }
+  },
+  "stats": {
+    "tconstruct:cinderslime": {
+      "modulargolems:attack": 20.0,
+      "modulargolems:max_health": 200.0,
+      "modulargolems:max_overslime": 50.0
+    },
+    "tconstruct:queens_slime": {
+      "modulargolems:attack": 20.0,
+      "modulargolems:max_health": 200.0,
+      "modulargolems:max_overslime": 100.0
+    },
+    "tconstruct:slimesteel": {
+      "modulargolems:attack": 20.0,
+      "modulargolems:max_health": 200.0,
+      "modulargolems:max_overslime": 50.0,
+      "modulargolems:overslime_bonus": 1.0
+    }
+  }
+}

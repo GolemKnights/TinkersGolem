@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "forge:ingots/queens_slime"
+    },
+    "B": {
+      "tag": "forge:raw_nuggets/knightmetal"
+    },
+    "E": {
+      "item": "modulargolems:empty_upgrade"
+    }
+  },
+  "pattern": [
+    "BAB",
+    "AEA",
+    "BAB"
+  ],
+  "result": {
+    "item": "tinkers_golem:overlord"
+  },
+  "show_notification": true
+}

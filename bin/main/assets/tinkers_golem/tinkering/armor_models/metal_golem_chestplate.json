@@ -1,0 +1,19 @@
+{
+  "layers": [
+    {
+      "type": "tconstruct:material",
+      "index": 0,
+      "prefix": "tinkers_golem:metal_golem_chestplate/huge_plating_"
+    },
+    {
+      "type": "tconstruct:material",
+      "index": 1,
+      "prefix": "tinkers_golem:metal_golem_chestplate/small_plating1_"
+    },
+    {
+      "type": "tconstruct:material",
+      "index": 2,
+      "prefix": "tinkers_golem:metal_golem_chestplate/small_plating2_"
+    }
+  ]
+}

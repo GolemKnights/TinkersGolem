@@ -1,0 +1,221 @@
+{
+  "ingredients": {
+    "tinkers_golem:earthslime": {
+      "item": "minecraft:slime_ball"
+    },
+    "tinkers_golem:enderslime": {
+      "item": "tconstruct:ender_slime_ball"
+    },
+    "tinkers_golem:ichor": {
+      "item": "tconstruct:ichor_slime_ball"
+    },
+    "tinkers_golem:skyslime": {
+      "item": "tconstruct:sky_slime_ball"
+    }
+  },
+  "modifiers": {
+    "tinkers_golem:earthslime": {},
+    "tinkers_golem:enderslime": {
+      "tinkers_golem:overteleport": 1
+    },
+    "tinkers_golem:ichor": {
+      "modulargolems:fire_immune": 1,
+      "tinkers_golem:overboking": 1
+    },
+    "tinkers_golem:skyslime": {
+      "tinkers_golem:overshock": 1
+    }
+  },
+  "partLimitation": {
+    "modulargolems:copper": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
+    "modulargolems:gold": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
+    "modulargolems:iron": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
+    "modulargolems:netherite": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
+    "tconstruct:amethyst_bronze": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
+    "tconstruct:cinderslime": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
+    "tconstruct:cobalt": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
+    "tconstruct:hepatizon": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
+    "tconstruct:manyullyn": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
+    "tconstruct:queens_slime": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
+    "tconstruct:rose_gold": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
+    "tconstruct:slimesteel": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
+    "tinkers_golem:earthslime": [
+      "tinkers_golem:slime_golem_core",
+      "tinkers_golem:slime_golem_shell"
+    ],
+    "tinkers_golem:enderslime": [
+      "tinkers_golem:slime_golem_core",
+      "tinkers_golem:slime_golem_shell"
+    ],
+    "tinkers_golem:ichor": [
+      "tinkers_golem:slime_golem_core",
+      "tinkers_golem:slime_golem_shell"
+    ],
+    "tinkers_golem:skyslime": [
+      "tinkers_golem:slime_golem_core",
+      "tinkers_golem:slime_golem_shell"
+    ]
+  },
+  "repairIngredients": {
+    "tinkers_golem:earthslime": {
+      "item": "minecraft:slime_ball"
+    },
+    "tinkers_golem:enderslime": {
+      "item": "tconstruct:ender_slime_ball"
+    },
+    "tinkers_golem:ichor": {
+      "item": "tconstruct:ichor_slime_ball"
+    },
+    "tinkers_golem:skyslime": {
+      "item": "tconstruct:sky_slime_ball"
+    }
+  },
+  "stats": {
+    "tinkers_golem:earthslime": {
+      "modulargolems:attack": 15.0,
+      "modulargolems:jump_strength": 1.0,
+      "modulargolems:max_health": 50.0,
+      "modulargolems:max_overslime": 70.0,
+      "modulargolems:speed": 0.2
+    },
+    "tinkers_golem:enderslime": {
+      "modulargolems:attack": 10.0,
+      "modulargolems:max_health": 30.0,
+      "modulargolems:max_overslime": 50.0,
+      "modulargolems:range": 1.0,
+      "modulargolems:tank_capacity": 8.0
+    },
+    "tinkers_golem:ichor": {
+      "modulargolems:attack": 10.0,
+      "modulargolems:max_health": 40.0,
+      "modulargolems:max_overslime": 50.0,
+      "modulargolems:speed": 0.6
+    },
+    "tinkers_golem:skyslime": {
+      "modulargolems:attack": 10.0,
+      "modulargolems:jump_strength": 2.0,
+      "modulargolems:max_health": 40.0,
+      "modulargolems:max_overslime": 50.0
+    }
+  }
+}
