@@ -37,17 +37,17 @@ class SlimeMoveControl extends MoveControl {
 			this.mob.setZza(0.0F);
 			return;
 		}
+		var speed = (float) (this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED));
+		if (arrived) speed = 0;
 		if (this.mob.onGround()) {
 			if (this.jumpDelay-- <= 0 && this.slime.isMovable()) {
 				this.jumpDelay = this.slime.getJumpDelay();
 				double g = mob.getAttributeValue(ForgeMod.ENTITY_GRAVITY.get());
-				var speed = (float) (this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED));
 				var power = slime.getJumpPower() * speed * 2;
 				double arc = d * g;
 				if (arc < power && power > 1e-8) {
 					speed *= (float) (arc / power);
 				}
-				if (arrived) speed = 0;
 				this.mob.setSpeed(speed);
 				this.slime.getJumpControl().jump();
 				if (this.slime.doPlayJumpSound()) {
@@ -59,7 +59,8 @@ class SlimeMoveControl extends MoveControl {
 				this.mob.setSpeed(0.0F);
 			}
 		} else {
-			this.mob.setSpeed((float) (this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
+			this.mob.setSpeed(speed);
+			if (arrived && jumpDelay < 10) jumpDelay = slime.getJumpDelay();
 		}
 	}
 }

@@ -79,6 +79,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	public SlimeGolemEntity(EntityType<SlimeGolemEntity> type, Level level) {
 		super(type, level);
 		this.fixupDimensions();
+		this.lookControl = new SlimeLookControl(this);
 		this.moveControl = new SlimeMoveControl(this);
 		this.waterMoveControl = new SlimeSwimMoveControl(this);
 		if (!level.isClientSide()) {
