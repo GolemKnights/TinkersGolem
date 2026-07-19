@@ -34,6 +34,13 @@
             "max": 2,
             "min": 1
           }
+        },
+        {
+          "type": "tconstruct:random",
+          "tier": {
+            "max": 2,
+            "min": 1
+          }
         }
       ]
     },

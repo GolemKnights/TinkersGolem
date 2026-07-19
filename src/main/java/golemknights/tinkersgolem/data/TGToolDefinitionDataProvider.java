@@ -24,7 +24,7 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
     @Override
     protected void addToolDefinitions() {
         RandomMaterial tier2Material = RandomMaterial.random().tier(1, 2).build();
-        DefaultMaterialsModule metalGolemMaterials = DefaultMaterialsModule.builder().material(new RandomMaterial[]{tier2Material, tier2Material}).build();;
+        DefaultMaterialsModule metalGolemMaterials = DefaultMaterialsModule.builder().material(new RandomMaterial[]{tier2Material, tier2Material, tier2Material}).build();;
         defineArmor(TGItems.GOLEM).modules(
                 (slots) -> PartStatsModule
                         .armor(slots)
