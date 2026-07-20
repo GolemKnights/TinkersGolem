@@ -1,5 +1,6 @@
-TODO 饰品，饰品分裂/合并
-TODO 可变液体容量
-
-0.0.1
-- init
+1.0.0
+- Slimy materials
+- Tinker Golem Armors
+- Slime Golems
+- Overslime
+- Upgrades
