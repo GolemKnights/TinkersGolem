@@ -1,0 +1,13 @@
+{
+  "tool": "tinkers_golem:metal_golem_boots",
+  "text": [
+    { "text": "Metal Golem Boots are boots for metal golems, with high protection, and low ability slots and high defense slots." }
+  ],
+  "properties": [
+    "For metal golems",
+    "Material controlled stats",
+    "2 Upgrade Slot",
+    "2 Defense Slots",
+    "3 Material Traits"
+  ]
+}

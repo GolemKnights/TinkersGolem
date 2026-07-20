@@ -51,12 +51,8 @@ public class TGTagGen {
 				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem()
 		);
-		pvd.addTag(TinkerTags.Items.BROAD_TOOLS).add(
-				TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).asItem(),
-				TGItems.metalGolemArmor.get(ArmorItem.Type.CHESTPLATE).asItem(),
-				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem(),
-				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem()
-		);
+		/*pvd.addTag(TinkerTags.Items.BROAD_TOOLS).add(
+		);*/
 		pvd.addTag(TinkerTags.Items.BOOTS).add(
 				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem()
 		);

@@ -1,0 +1,16 @@
+{
+  "tool": "tinkers_golem:metal_golem_helmet",
+  "text": [
+    { "text": "Metal Golem Helmet is a helmet for metal golems, with high protection, and low ability slots and high defense slots." }
+  ],
+  "properties": [
+    "Material controlled stats",
+    "400% Durability Multiplier",
+    "200% Armor Multiplier",
+    "300% Armor Toughness Multiplier",
+    "200% Knockback Resistance Multiplier",
+    "2 Upgrade Slot",
+    "2 Defense Slots",
+    "3 Material Traits"
+  ]
+}
