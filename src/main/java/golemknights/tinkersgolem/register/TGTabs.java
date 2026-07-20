@@ -18,7 +18,7 @@ import static golemknights.tinkersgolem.TinkersGolem.TABS;
 
 public class TGTabs {
     public static void load(){}
-    public static RegistryObject<CreativeModeTab> item_tab = TABS.register(
+    /*public static RegistryObject<CreativeModeTab> item_tab = TABS.register(
             "items",
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("tabs." + TinkersGolem.MODID + ".items"))
@@ -30,7 +30,7 @@ public class TGTabs {
                     )
                     .withTabsBefore(TinkerTools.tabTools.getId())
                     .build()
-    );
+    );*/
     public static RegistryObject<CreativeModeTab> tool_tab = TABS.register(
             "tools",
             () -> CreativeModeTab.builder()
