@@ -37,7 +37,7 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 .module(
                         ArmorItem.Type.CHESTPLATE,
                         new SetStatsModule(StatsNBT.builder()
-                                .set(ToolStats.ATTACK_DAMAGE, 2)
+                                .set(ToolStats.ATTACK_DAMAGE, 3)
                                 .build()
                         )
                 )
@@ -47,7 +47,6 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                         .setAll(ToolStats.ARMOR, 2)
                         .setAll(ToolStats.ARMOR_TOUGHNESS, 3)
                         .setAll(ToolStats.KNOCKBACK_RESISTANCE, 2)
-                        .set(ArmorItem.Type.CHESTPLATE, ToolStats.ATTACK_DAMAGE, 1.5F)
                 )
                 .module(
                         ToolSlotsModule.builder()
