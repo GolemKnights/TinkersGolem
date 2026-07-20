@@ -7,10 +7,11 @@ import slimeknights.tconstruct.library.data.tinkering.AbstractToolDefinitionData
 import slimeknights.tconstruct.library.materials.RandomMaterial;
 import slimeknights.tconstruct.library.tools.SlotType;
 import slimeknights.tconstruct.library.tools.definition.module.build.MultiplyStatsModule;
+import slimeknights.tconstruct.library.tools.definition.module.build.SetStatsModule;
 import slimeknights.tconstruct.library.tools.definition.module.build.ToolSlotsModule;
 import slimeknights.tconstruct.library.tools.definition.module.material.DefaultMaterialsModule;
 import slimeknights.tconstruct.library.tools.definition.module.material.PartStatsModule;
-import slimeknights.tconstruct.library.tools.nbt.MultiplierNBT;
+import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.tools.TinkerToolParts;
 
@@ -35,10 +36,18 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 .module(metalGolemMaterials)
                 .module(
                         ArmorItem.Type.CHESTPLATE,
-                        new MultiplyStatsModule(MultiplierNBT.builder()
-                                .set(ToolStats.ATTACK_DAMAGE, 0.4F)
+                        new SetStatsModule(StatsNBT.builder()
+                                .set(ToolStats.ATTACK_DAMAGE, 2)
                                 .build()
                         )
+                )
+                .modules((slots) -> MultiplyStatsModule
+                        .armor(slots)
+                        .setAll(ToolStats.DURABILITY, 4)
+                        .setAll(ToolStats.ARMOR, 2)
+                        .setAll(ToolStats.ARMOR_TOUGHNESS, 3)
+                        .setAll(ToolStats.KNOCKBACK_RESISTANCE, 2)
+                        .set(ArmorItem.Type.CHESTPLATE, ToolStats.ATTACK_DAMAGE, 1.5F)
                 )
                 .module(
                         ToolSlotsModule.builder()
