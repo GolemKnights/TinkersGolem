@@ -26,6 +26,12 @@ public class TGTagGen {
 				TinkerMaterials.queensSlime.getIngot(),
 				TinkerMaterials.cinderslime.getIngot()
 		);
+		pvd.addTag(MGTagGen.GOLEM_DAMAGEABLE).add(
+				TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).asItem(),
+				TGItems.metalGolemArmor.get(ArmorItem.Type.CHESTPLATE).asItem(),
+				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem(),
+				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem()
+		);
 		//Tools
 		pvd.addTag(TinkerTags.Items.BONUS_SLOTS).add(
 				TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).asItem(),
