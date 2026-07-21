@@ -1,10 +1,6 @@
 package golemknights.tinkersgolem.client;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
-
 import dev.xkmc.modulargolems.content.client.armor.GolemModelPath;
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -13,19 +9,14 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
-import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemModel;
-import static golemknights.tinkersgolem.TinkersGolem.getResource;
 
 import java.util.List;
 
 @SuppressWarnings({"unused","null"})
 public class ModifiableMetalGolemArmorModel {
-    public static final ResourceLocation LOC = getResource("metal_golem_armor");
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(LOC, "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(TGModelPaths.LOC, "main");
 
-    public static final GolemModelPath PATH = GolemModelPath.register(LOC,
+    public static final GolemModelPath PATH = GolemModelPath.register(TGModelPaths.LOC,
             new GolemModelPath(LAYER_LOCATION,
                     List.of(List.of("body", "body1"),
                             List.of("body", "legs1"),

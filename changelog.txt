@@ -1,3 +1,6 @@
+1.0.2
+- Fix server crash
+
 1.0.1
 - Fix tinker golem armor not taking durability damage
 
