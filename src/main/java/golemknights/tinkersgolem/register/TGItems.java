@@ -1,6 +1,6 @@
 package golemknights.tinkersgolem.register;
 
-import net.minecraft.resources.ResourceLocation;
+import golemknights.tinkersgolem.client.TGModelPaths;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import slimeknights.mantle.registration.object.EnumObject;
@@ -16,8 +16,6 @@ import slimeknights.tconstruct.library.tools.part.ToolPartItem;
 import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 
 import static golemknights.tinkersgolem.TinkersGolem.*;
-
-import golemknights.tinkersgolem.client.ModifiableMetalGolemArmorModel;
 
 public class TGItems {
     public static void load() {
@@ -39,7 +37,7 @@ public class TGItems {
                     METAL_GOLEM, ArmorItem.Type.values(),
                     type -> new ModifiableMetalGolemArmorItem(UNSTACKABLE_PROPS, type,
                             GOLEM,
-                            ModifiableMetalGolemArmorModel.LOC,
+                            TGModelPaths.LOC,
                             getResource(METAL_GOLEM + "_" + type.getName())));
 
     public static final String DOG_GOLEM_ARMOR = "dog_golem_armor";
