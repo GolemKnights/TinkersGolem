@@ -6,14 +6,19 @@ import net.minecraft.world.item.ArmorItem;
 import slimeknights.tconstruct.library.data.tinkering.AbstractToolDefinitionDataProvider;
 import slimeknights.tconstruct.library.materials.RandomMaterial;
 import slimeknights.tconstruct.library.tools.SlotType;
+import slimeknights.tconstruct.library.tools.definition.module.ToolHooks;
 import slimeknights.tconstruct.library.tools.definition.module.build.MultiplyStatsModule;
 import slimeknights.tconstruct.library.tools.definition.module.build.SetStatsModule;
 import slimeknights.tconstruct.library.tools.definition.module.build.ToolSlotsModule;
 import slimeknights.tconstruct.library.tools.definition.module.material.DefaultMaterialsModule;
+import slimeknights.tconstruct.library.tools.definition.module.material.MaterialStatsModule;
 import slimeknights.tconstruct.library.tools.definition.module.material.PartStatsModule;
 import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.tools.TinkerToolParts;
+import slimeknights.tconstruct.tools.stats.GripMaterialStats;
+import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
+import slimeknights.tconstruct.tools.stats.StatlessMaterialStats;
 
 import static golemknights.tinkersgolem.TinkersGolem.MODID;
 
@@ -32,6 +37,15 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                         .part(TGItems.metal_golem_plating, 0.6F)
                         .part(TinkerToolParts.plating, 0.2F)
                         .part(TinkerToolParts.plating, 0.2F)
+                )
+                .module(
+                        ArmorItem.Type.CHESTPLATE,
+                        MaterialStatsModule.stats()
+                                .stat(StatlessMaterialStats.MAILLE)
+                                .stat(GripMaterialStats.ID, 0.5F)
+                                .stat(GripMaterialStats.ID, 0.5F)
+                                .build(),
+                        ToolHooks.TOOL_STATS
                 )
                 .module(metalGolemMaterials)
                 .module(

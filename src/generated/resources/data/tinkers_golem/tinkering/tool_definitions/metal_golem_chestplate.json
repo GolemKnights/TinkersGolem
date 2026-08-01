@@ -19,6 +19,24 @@
       "primary_part": 0
     },
     {
+      "type": "tconstruct:material_stats",
+      "hooks": [
+        "tconstruct:tool_stats"
+      ],
+      "primary_part": 0,
+      "stat_types": [
+        "tconstruct:maille",
+        {
+          "scale": 0.5,
+          "stat": "tconstruct:grip"
+        },
+        {
+          "scale": 0.5,
+          "stat": "tconstruct:grip"
+        }
+      ]
+    },
+    {
       "type": "tconstruct:default_materials",
       "materials": [
         {
