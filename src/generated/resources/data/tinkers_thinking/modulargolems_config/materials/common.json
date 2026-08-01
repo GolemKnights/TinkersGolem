@@ -1,0 +1,25 @@
+{
+  "ingredients": {
+    "tinkers_thinking:ardite": {
+      "tag": "forge:ingots/ardite"
+    }
+  },
+  "modifiers": {
+    "tinkers_thinking:ardite": {
+      "tinkers_golem:crazy_bone": 1
+    }
+  },
+  "partLimitation": {},
+  "repairIngredients": {
+    "tinkers_thinking:ardite": {
+      "tag": "forge:ingots/ardite"
+    }
+  },
+  "stats": {
+    "tinkers_thinking:ardite": {
+      "modulargolems:attack": 16.0,
+      "modulargolems:max_health": 240.0,
+      "modulargolems:speed": -0.1
+    }
+  }
+}

@@ -44,3 +44,8 @@ description='''
     mandatory=true
     versionRange="[3.11.2.166,)"
     side="BOTH"
+[[dependencies.tinkers_golem]]
+    modId="tinkers_thinking"
+    mandatory=false
+    versionRange="*"
+    side="BOTH"

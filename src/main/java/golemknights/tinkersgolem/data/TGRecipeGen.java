@@ -31,7 +31,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.registries.ForgeRegistries;
-import slimeknights.mantle.recipe.data.AbstractRecipeBuilder;
 import slimeknights.mantle.recipe.helper.ItemOutput;
 import slimeknights.mantle.recipe.helper.SimpleFinishedRecipe;
 import slimeknights.mantle.registration.object.FlowingFluidObject;
@@ -39,7 +38,6 @@ import slimeknights.tconstruct.TConstruct;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.recipe.casting.ItemCastingRecipeBuilder;
-import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.shared.TinkerMaterials;
 import slimeknights.tconstruct.shared.block.SlimeType;
 import slimeknights.tconstruct.tools.TinkerModifiers;
@@ -125,14 +123,11 @@ public class TGRecipeGen {
 			genSlime(pvd, TinkersGolem.getResource("ichor"), TinkerFluids.ichor, 250);
 			genSlime(pvd, TinkersGolem.getResource("enderslime"), TinkerFluids.enderSlime, 250);
 
-			genAll(pvd, TConstruct.getResource("slimesteel"), TinkerFluids.moltenSlimesteel, 90);
-			genAll(pvd, TConstruct.getResource("queens_slime"), TinkerFluids.moltenQueensSlime, 90);
-			genAll(pvd, TConstruct.getResource("cinderslime"), TinkerFluids.moltenCinderslime, 90);
+			genMetal(pvd, TConstruct.getResource("slimesteel"), TinkerFluids.moltenSlimesteel, 90);
+			genMetal(pvd, TConstruct.getResource("queens_slime"), TinkerFluids.moltenQueensSlime, 90);
+			genMetal(pvd, TConstruct.getResource("cinderslime"), TinkerFluids.moltenCinderslime, 90);
 
 			var core = TGEntities.SLIME_CORE.get();
-			genCasting(core, pvd, TConstruct.getResource("slimesteel"), TinkerFluids.moltenSlimesteel, 90);
-			genCasting(core, pvd, TConstruct.getResource("queens_slime"), TinkerFluids.moltenQueensSlime, 90);
-			genCasting(core, pvd, TConstruct.getResource("cinderslime"), TinkerFluids.moltenCinderslime, 90);
 
 			genCasting(core, pvd, TConstruct.getResource("amethyst_bronze"), TinkerFluids.moltenAmethystBronze, 90);
 			genCasting(core, pvd, TConstruct.getResource("manyullyn"), TinkerFluids.moltenManyullyn, 90);
@@ -238,14 +233,14 @@ public class TGRecipeGen {
 
 	}
 
-	private static void genAll(RegistrateRecipeProvider pvd, ResourceLocation id, FlowingFluidObject<?> fluid, int ingot) {
+	public static void genMetal(RegistrateRecipeProvider pvd, ResourceLocation id, FlowingFluidObject<?> fluid, int ingot) {
 		for (var e : GolemPart.LIST) {
-			if (e.getEntityType() == TGEntities.TYPE_SLIME.get()) continue;
+			if (e == TGEntities.SLIME_SHELL.get()) continue;
 			genCasting(e, pvd, id, fluid, ingot);
 		}
 	}
 
-	private static void genSlime(RegistrateRecipeProvider pvd, ResourceLocation id, FlowingFluidObject<?> fluid, int ingot) {
+	public static void genSlime(RegistrateRecipeProvider pvd, ResourceLocation id, FlowingFluidObject<?> fluid, int ingot) {
 		for (var e : GolemPart.LIST) {
 			if (e.getEntityType() != TGEntities.TYPE_SLIME.get()) continue;
 			genCasting(e, pvd, id, fluid, ingot);

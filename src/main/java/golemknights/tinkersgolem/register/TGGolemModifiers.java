@@ -40,6 +40,7 @@ public class TGGolemModifiers {
 	public static final RegistryEntry<OverdriveModifier> OVERDRIVE;
 	public static final RegistryEntry<SpillingModifier> SPILLING;
 	public static final RegistryEntry<WettingModifier> WETTING;
+	public static final RegistryEntry<CrazyBoneModifier> CRAZYBONE;
 
 	public static final RegistryEntry<SlimeSlotModifier> OVERTALENTED;
 
@@ -68,6 +69,7 @@ public class TGGolemModifiers {
 		OVERTALENTED = reg("overtalented", SlimeSlotModifier::new, "Allows %s more slime upgrades");
 		SPILLING = reg("spilling", SpillingModifier::new, "Slime golem spills fluid on target while attacking");
 		WETTING = reg("wetting", WettingModifier::new, "Slime golem is wetted by fluids when attacked");
+		CRAZYBONE = reg("crazy_bone", CrazyBoneModifier::new, "Upon attacking, has a 10% chance per level to recover 5*damage health");
 
 		ITEM_OVERGROWTH = regUpgradeImpl("overgrowth", () -> OVERGROWTH, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();
 		ITEM_SUPER_OVERGROWTH = regUpgradeImpl("overgrown", () -> OVERGROWTH, 4, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADE).register();

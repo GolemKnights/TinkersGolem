@@ -241,6 +241,8 @@ dependencies {
     //implementation fg.deobf("curse.maven:lendercataclysm-551586:6832543")
     //implementation fg.deobf("curse.maven:the-twilight-forest-227639:5468648")
 
+    implementation fg.deobf("curse.maven:tinkers-thinking-850772:8067373")
+
 }
 
 // tasks.register('publishCurseForge', TaskPublishCurseForge) {
