@@ -2,24 +2,54 @@
   "ingredients": {
     "tinkers_thinking:ardite": {
       "tag": "forge:ingots/ardite"
+    },
+    "tinkers_thinking:chlorophyte": {
+      "tag": "forge:ingots/chlorophyte"
+    },
+    "tinkers_thinking:tinkers_bronze": {
+      "tag": "forge:ingots/tinkers_bronze"
     }
   },
   "modifiers": {
     "tinkers_thinking:ardite": {
-      "tinkers_golem:crazy_bone": 1
+      "tinkers_golem:crazy_metal": 1
+    },
+    "tinkers_thinking:chlorophyte": {
+      "tinkers_golem:symbionic": 1
+    },
+    "tinkers_thinking:tinkers_bronze": {
+      "tinkers_golem:countermeasures": 1
     }
   },
   "partLimitation": {},
   "repairIngredients": {
     "tinkers_thinking:ardite": {
       "tag": "forge:ingots/ardite"
+    },
+    "tinkers_thinking:chlorophyte": {
+      "tag": "forge:ingots/chlorophyte"
+    },
+    "tinkers_thinking:tinkers_bronze": {
+      "tag": "forge:ingots/tinkers_bronze"
     }
   },
   "stats": {
     "tinkers_thinking:ardite": {
       "modulargolems:attack": 16.0,
       "modulargolems:max_health": 240.0,
-      "modulargolems:speed": -0.1
+      "modulargolems:weight": 0.2
+    },
+    "tinkers_thinking:chlorophyte": {
+      "modulargolems:attack": 14.0,
+      "modulargolems:max_health": 225.0,
+      "modulargolems:regen": 2.0,
+      "modulargolems:weight": -0.3
+    },
+    "tinkers_thinking:tinkers_bronze": {
+      "modulargolems:attack": 22.0,
+      "modulargolems:max_health": 150.0,
+      "modulargolems:speed": -0.15,
+      "modulargolems:tank_capacity": 0.3
     }
   }
 }

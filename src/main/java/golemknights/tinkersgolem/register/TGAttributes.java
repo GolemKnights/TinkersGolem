@@ -9,6 +9,7 @@ import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.registries.RegistryObject;
@@ -28,6 +29,9 @@ public class TGAttributes {
 	public static final RegistryEntry<GolemStatType> STAT_OVERSLIME_BONUS = regStat("overslime_bonus", MAX_OVERSLIME, GolemStatType.Kind.PERCENT, StatFilterType.MASS);
 	public static final RegistryEntry<GolemStatType> STAT_OVERSLIME_RECOVERY = regStat("overslime_recovery", OVERSLIME_RECOVERY, GolemStatType.Kind.PERCENT, StatFilterType.MASS);
 	public static final RegistryEntry<GolemStatType> STAT_TANK_CAPACITY = regStat("tank_capacity", TANK_CAPACITY, GolemStatType.Kind.PERCENT, StatFilterType.MASS);
+	// TODO:将STAT_ATTACK_P写入本体
+	public static final RegistryEntry<GolemStatType> STAT_ATTACK_P = regStat("tank_capacity", () -> Attributes.ATTACK_DAMAGE, GolemStatType.Kind.PERCENT, StatFilterType.ATTACK);
+
 
 	@SuppressWarnings("removal")
 	private static RegistryEntry<GolemStatType> regStat(String id, Supplier<Attribute> sup, GolemStatType.Kind kind, StatFilterType type) {

@@ -5,8 +5,8 @@ import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.modifier.base.GolemModifier;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
-public class CrazyBoneModifier extends GolemModifier {
-    public CrazyBoneModifier() {
+public class CrazyMetalModifier extends GolemModifier {
+    public CrazyMetalModifier() {
         super(StatFilterType.MASS, 5);
     }
     @Override
