@@ -4,6 +4,7 @@ import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import golemknights.tinkersgolem.register.TGGolemModifiers;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -12,13 +13,13 @@ import slimeknights.tconstruct.shared.TinkerEffects;
 
 @Mixin(LivingEntityRenderer.class)
 public class DinnerBoneRendererMixin {
-    @Inject(method = "isEntityUpsideDown", at = @At("RETURN"))
+    @Inject(method = "isEntityUpsideDown", at = @At("RETURN"), cancellable = true)
     private static void upsideDown(LivingEntity p_194454_, CallbackInfoReturnable<Boolean> cir){
         if (p_194454_ instanceof AbstractGolemEntity<?,?> golem){
             if (golem.getModifiers().containsKey(TGGolemModifiers.ANTIGRAVITY.get())){
                 cir.setReturnValue(true);
             }
-        } else if (p_194454_.hasEffect(TinkerEffects.antigravity.get())) {
+        } else if (!(p_194454_ instanceof Player) && p_194454_.hasEffect(TinkerEffects.antigravity.get())) {
             cir.setReturnValue(true);
         }
     }
