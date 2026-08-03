@@ -26,7 +26,7 @@ public final class TinkersThinkingPlugin extends BaseTinkersPlugin{
                 .addStat(GolemTypes.STAT_HEALTH.get(), 240)
                 .addStat(GolemTypes.STAT_ATTACK.get(), 16)
                 .addStat(GolemTypes.STAT_WEIGHT.get(), -0.2)
-                .addModifier(TGGolemModifiers.CRAZYMETAL.get(), 1)
+                .addModifier(TGGolemModifiers.CRAZY_METAL.get(), 1)
                 .end()
 
                 .addMaterial(this.getResource("tinkers_bronze"), Ingredient.of(ModCommonItems.tinkers_bronze.getIngotTag()))
@@ -46,10 +46,11 @@ public final class TinkersThinkingPlugin extends BaseTinkersPlugin{
                 .end()
 
                 .addMaterial(this.getResource("lightite"), Ingredient.of(ModCommonItems.lightite.getIngotTag()))
-                .addStat(GolemTypes.STAT_HEALTH.get(), 225)
-                .addStat(GolemTypes.STAT_ATTACK.get(), 14)
-                .addStat(TGAttributes.STAT_GRAVITY.get(), -0.1)
+                .addStat(GolemTypes.STAT_HEALTH.get(), 100)
+                .addStat(GolemTypes.STAT_ATTACK.get(), 22)
+                .addStat(TGAttributes.STAT_GRAVITY.get(), -0.2)
                 .addStat(GolemTypes.STAT_WEIGHT.get(), 0.6)
+                .addModifier(TGGolemModifiers.LIGHTLY_ATTACK.get(), 1)
                 .end()
         );
     }

@@ -11,7 +11,6 @@ import dev.xkmc.modulargolems.content.item.upgrade.SimpleUpgradeItem;
 import dev.xkmc.modulargolems.content.modifier.base.AttributeGolemModifier;
 import dev.xkmc.modulargolems.content.modifier.base.GolemModifier;
 import dev.xkmc.modulargolems.init.ModularGolems;
-import dev.xkmc.modulargolems.init.data.MGTagGen;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.data.TGConfig;
@@ -41,9 +40,10 @@ public class TGGolemModifiers {
 	public static final RegistryEntry<OverdriveModifier> OVERDRIVE;
 	public static final RegistryEntry<SpillingModifier> SPILLING;
 	public static final RegistryEntry<WettingModifier> WETTING;
-	public static final RegistryEntry<CrazyMetalModifier> CRAZYMETAL;
+	public static final RegistryEntry<CrazyMetalModifier> CRAZY_METAL;
 	public static final RegistryEntry<CountermeasuresModifier> COUNTERMEASURES;
 	public static final RegistryEntry<SymbionicModifier> SYMBIONIC;
+	public static final RegistryEntry<LightlyAttackModifier> LIGHTLY_ATTACK;
 
 	public static final RegistryEntry<SlimeSlotModifier> OVERTALENTED;
 
@@ -72,9 +72,10 @@ public class TGGolemModifiers {
 		OVERTALENTED = reg("overtalented", SlimeSlotModifier::new, "Allows %s more slime upgrades");
 		SPILLING = reg("spilling", SpillingModifier::new, "Slime golem spills fluid on target while attacking");
 		WETTING = reg("wetting", WettingModifier::new, "Slime golem is wetted by fluids when attacked");
-		CRAZYMETAL = reg("crazy_metal", CrazyMetalModifier::new, "Upon attacking, has a 10% chance per level to recover 5*damage health");
+		CRAZY_METAL = reg("crazy_metal", CrazyMetalModifier::new, "Upon attacking, has a 10% chance per level to recover 5*damage health");
 		COUNTERMEASURES = reg("countermeasures", CountermeasuresModifier::new, "When taking damage bypass armor, reduce it 10% per level");
 		SYMBIONIC = reg("symbionic", SymbionicModifier::new, "When it is healed, heal its owner 20% amount per level");
+		LIGHTLY_ATTACK = reg("lightly_attack", LightlyAttackModifier::new, "Upon attacking, improve movement speed");
 
 		ITEM_OVERGROWTH = regUpgradeImpl("overgrowth", () -> OVERGROWTH, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
 		ITEM_SUPER_OVERGROWTH = regUpgradeImpl("overgrown", () -> OVERGROWTH, 4, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
