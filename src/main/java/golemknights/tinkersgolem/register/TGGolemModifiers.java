@@ -44,13 +44,12 @@ public class TGGolemModifiers {
 	public static final RegistryEntry<CrazyMetalModifier> CRAZYMETAL;
 	public static final RegistryEntry<CountermeasuresModifier> COUNTERMEASURES;
 	public static final RegistryEntry<SymbionicModifier> SYMBIONIC;
-	public static final RegistryEntry<AntiGravityModifier> ANTIGRAVITY;
 
 	public static final RegistryEntry<SlimeSlotModifier> OVERTALENTED;
 
 	public static final ItemEntry<SimpleUpgradeItem> ITEM_OVERGROWTH, ITEM_SUPER_OVERGROWTH,
 			ITEM_OVERWORKED, ITEM_OVERFORCED, ITEM_OVERFILL, ITEM_OVERLORD, ITEM_OVERBURN,
-			ITEM_SPILLING, ITEM_WETTING, ITEM_ANTIGRAVITY;
+			ITEM_SPILLING, ITEM_WETTING;
 	public static final ItemEntry<SpecialUpgradeItem> ITEM_OVERDRIVE;
 	public static final ItemEntry<AddSlotTemplate> QUEENS_SLIME_EXPAND, CINDERSLIME_EXPAND, SLIMESTEEL_EXPAND;
 
@@ -76,7 +75,6 @@ public class TGGolemModifiers {
 		CRAZYMETAL = reg("crazy_metal", CrazyMetalModifier::new, "Upon attacking, has a 10% chance per level to recover 5*damage health");
 		COUNTERMEASURES = reg("countermeasures", CountermeasuresModifier::new, "When taking damage bypass armor, reduce it 10% per level");
 		SYMBIONIC = reg("symbionic", SymbionicModifier::new, "When it is healed, heal its owner 20% amount per level");
-		ANTIGRAVITY = reg("antigravity", AntiGravityModifier::new, "Gravity reverse");
 
 		ITEM_OVERGROWTH = regUpgradeImpl("overgrowth", () -> OVERGROWTH, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
 		ITEM_SUPER_OVERGROWTH = regUpgradeImpl("overgrown", () -> OVERGROWTH, 4, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
@@ -88,7 +86,6 @@ public class TGGolemModifiers {
 		ITEM_SPILLING = regUpgradeImpl("spilling", () -> SPILLING, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
 		ITEM_WETTING = regUpgradeImpl("wetting", () -> WETTING, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
 		ITEM_OVERDRIVE = specialUpgrade("overdrive", () -> OVERDRIVE, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
-		ITEM_ANTIGRAVITY = regUpgradeImpl("antigravity", () -> ANTIGRAVITY, 1, false, TinkersGolem.MODID).tag(MGTagGen.BLUE_UPGRADES).register();
 
 		SLIMESTEEL_EXPAND = addSlot("slimesteel_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Slimesteel").register();
 		QUEENS_SLIME_EXPAND = addSlot("queens_slime_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Queen's Slime").register();

@@ -15,11 +15,7 @@ import slimeknights.tconstruct.shared.TinkerEffects;
 public class DinnerBoneRendererMixin {
     @Inject(method = "isEntityUpsideDown", at = @At("RETURN"), cancellable = true)
     private static void upsideDown(LivingEntity p_194454_, CallbackInfoReturnable<Boolean> cir){
-        if (p_194454_ instanceof AbstractGolemEntity<?,?> golem){
-            if (golem.getModifiers().containsKey(TGGolemModifiers.ANTIGRAVITY.get())){
-                cir.setReturnValue(true);
-            }
-        } else if (!(p_194454_ instanceof Player) && p_194454_.hasEffect(TinkerEffects.antigravity.get())) {
+        if (!(p_194454_ instanceof Player) && p_194454_.hasEffect(TinkerEffects.antigravity.get())) {
             cir.setReturnValue(true);
         }
     }
