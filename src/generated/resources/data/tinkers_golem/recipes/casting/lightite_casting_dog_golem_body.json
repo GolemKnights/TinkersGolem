@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:casting_basin",
+  "cast": {
+    "item": "modulargolems:dog_golem_body"
+  },
+  "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tinkers_thinking"
+    }
+  ],
+  "cooling_time": 87,
+  "fluid": {
+    "amount": 540,
+    "tag": "tinkers_thinking:molten_lightite"
+  },
+  "result": {
+    "item": "modulargolems:dog_golem_body",
+    "nbt": {
+      "golem_material": "tinkers_thinking:lightite"
+    }
+  }
+}

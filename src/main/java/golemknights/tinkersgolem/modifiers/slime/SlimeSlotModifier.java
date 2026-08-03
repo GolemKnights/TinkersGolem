@@ -20,7 +20,7 @@ public class SlimeSlotModifier extends SlimeModifier {
 	public int addSlot(List<IUpgradeItem> upgrades, int lv) {
 		int count = 0;
 		for (var e : upgrades) {
-			if (e instanceof Item item && item.getDefaultInstance().is(TGTagGen.SLIME_UPGRADE))
+			if (e instanceof Item item && item.getDefaultInstance().is(TGTagGen.SLIME_UPGRADES))
 				count++;
 		}
 		return Math.min(count, lv);

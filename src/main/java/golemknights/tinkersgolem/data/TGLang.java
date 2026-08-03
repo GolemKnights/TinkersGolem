@@ -58,6 +58,8 @@ public enum TGLang {
 		pvd.add(TinkersGolem.MODID + ".max_overslime", "Max Overslime");
 		pvd.add(TinkersGolem.MODID + ".overslime_recovery", "Overslime Recovery Factor");
 		pvd.add(TinkersGolem.MODID + ".tank_capacity", "Tank Capacity");
+		pvd.add(TinkersGolem.MODID + ".attack_percent", "Attack");
+		pvd.add(TinkersGolem.MODID + ".gravity", "Gravity");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".earthslime", "Earthslime");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".skyslime", "Skyslime");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".ichor", "Ichor");

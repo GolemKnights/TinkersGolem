@@ -6,6 +6,9 @@
     "tinkers_thinking:chlorophyte": {
       "tag": "forge:ingots/chlorophyte"
     },
+    "tinkers_thinking:lightite": {
+      "tag": "forge:ingots/lightite"
+    },
     "tinkers_thinking:tinkers_bronze": {
       "tag": "forge:ingots/tinkers_bronze"
     }
@@ -17,6 +20,7 @@
     "tinkers_thinking:chlorophyte": {
       "tinkers_golem:symbionic": 1
     },
+    "tinkers_thinking:lightite": {},
     "tinkers_thinking:tinkers_bronze": {
       "tinkers_golem:countermeasures": 1
     }
@@ -28,6 +32,9 @@
     },
     "tinkers_thinking:chlorophyte": {
       "tag": "forge:ingots/chlorophyte"
+    },
+    "tinkers_thinking:lightite": {
+      "tag": "forge:ingots/lightite"
     },
     "tinkers_thinking:tinkers_bronze": {
       "tag": "forge:ingots/tinkers_bronze"
@@ -45,11 +52,17 @@
       "modulargolems:regen": 2.0,
       "modulargolems:weight": -0.3
     },
+    "tinkers_thinking:lightite": {
+      "modulargolems:attack": 14.0,
+      "modulargolems:gravity": -0.1,
+      "modulargolems:max_health": 225.0,
+      "modulargolems:weight": -0.6
+    },
     "tinkers_thinking:tinkers_bronze": {
       "modulargolems:attack": 22.0,
+      "modulargolems:attack_percent": 0.3,
       "modulargolems:max_health": 150.0,
-      "modulargolems:speed": -0.15,
-      "modulargolems:tank_capacity": 0.3
+      "modulargolems:speed": -0.15
     }
   }
 }

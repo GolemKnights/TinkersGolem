@@ -7,7 +7,6 @@ import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2library.serial.config.ConfigDataProvider;
 import dev.xkmc.modulargolems.content.config.GolemMaterialConfig;
 import dev.xkmc.modulargolems.init.ModularGolems;
-import dev.xkmc.modulargolems.init.registrate.GolemModifiers;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import golemknights.tinkersgolem.data.TGRecipeGen;
 import golemknights.tinkersgolem.register.TGAttributes;
@@ -45,6 +44,13 @@ public final class TinkersThinkingPlugin extends BaseTinkersPlugin{
                 .addStat(GolemTypes.STAT_WEIGHT.get(), -0.3)
                 .addModifier(TGGolemModifiers.SYMBIONIC.get(), 1)
                 .end()
+
+                .addMaterial(this.getResource("lightite"), Ingredient.of(ModCommonItems.lightite.getIngotTag()))
+                .addStat(GolemTypes.STAT_HEALTH.get(), 225)
+                .addStat(GolemTypes.STAT_ATTACK.get(), 14)
+                .addStat(TGAttributes.STAT_GRAVITY.get(), -0.1)
+                .addStat(GolemTypes.STAT_WEIGHT.get(), -0.6)
+                .end()
         );
     }
 
@@ -53,6 +59,7 @@ public final class TinkersThinkingPlugin extends BaseTinkersPlugin{
         pvd.add(this.getGolemMaterialsKey("ardite"), "Ardite");
         pvd.add(this.getGolemMaterialsKey("tinkers_bronze"), "Tinkers' Bronze");
         pvd.add(this.getGolemMaterialsKey("chlorophyte"), "Chlorophyte");
+        pvd.add(this.getGolemMaterialsKey("lightite"), "Lightite");
     }
 
     @Override
@@ -60,5 +67,6 @@ public final class TinkersThinkingPlugin extends BaseTinkersPlugin{
         TGRecipeGen.genMetal(pvd, this.getResource("ardite"), ModFluids.molten_ardite, 90);
         TGRecipeGen.genMetal(pvd, this.getResource("tinkers_bronze"), ModFluids.molten_tinkers_bronze, 90);
         TGRecipeGen.genMetal(pvd, this.getResource("chlorophyte"), ModFluids.molten_chlorophyte, 90);
+        TGRecipeGen.genMetal(pvd, this.getResource("lightite"), ModFluids.molten_lightite, 90);
     }
 }

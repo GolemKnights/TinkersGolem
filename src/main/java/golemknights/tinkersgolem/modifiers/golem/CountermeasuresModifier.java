@@ -17,7 +17,7 @@ public class CountermeasuresModifier extends GolemModifier {
     @Override
     public void onDamaged(AbstractGolemEntity<?, ?> entity, LivingDamageEvent event, int level) {
         if (event.getSource().is(DamageTypeTags.BYPASSES_ARMOR)){
-            event.setAmount(event.getAmount() * Math.max(0, 1 - 0.05f * level));
+            event.setAmount(event.getAmount() * Math.max(0, 1 - 0.1f * level));
         }
     }
 }

@@ -11,8 +11,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
+import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.registries.RegistryObject;
+import slimeknights.tconstruct.shared.TinkerAttributes;
 
 import java.util.function.Supplier;
 
@@ -30,7 +32,10 @@ public class TGAttributes {
 	public static final RegistryEntry<GolemStatType> STAT_OVERSLIME_RECOVERY = regStat("overslime_recovery", OVERSLIME_RECOVERY, GolemStatType.Kind.PERCENT, StatFilterType.MASS);
 	public static final RegistryEntry<GolemStatType> STAT_TANK_CAPACITY = regStat("tank_capacity", TANK_CAPACITY, GolemStatType.Kind.PERCENT, StatFilterType.MASS);
 	// TODO:将STAT_ATTACK_P写入本体
-	public static final RegistryEntry<GolemStatType> STAT_ATTACK_P = regStat("tank_capacity", () -> Attributes.ATTACK_DAMAGE, GolemStatType.Kind.PERCENT, StatFilterType.ATTACK);
+	public static final RegistryEntry<GolemStatType> STAT_ATTACK_P = regStat("attack_percent", () -> Attributes.ATTACK_DAMAGE, GolemStatType.Kind.PERCENT, StatFilterType.ATTACK);
+	public static final RegistryEntry<GolemStatType> STAT_GRAVITY = regStat("gravity", ForgeMod.ENTITY_GRAVITY, GolemStatType.Kind.PERCENT, StatFilterType.MASS);
+	//public static final RegistryEntry<GolemStatType> STAT_GOOD_EFFECT_DURATION = regStat("good_effect_duration_multiplier", TinkerAttributes.GOOD_EFFECT_DURATION, GolemStatType.Kind.ADD, StatFilterType.MASS);
+	//public static final RegistryEntry<GolemStatType> STAT_BAD_EFFECT_DURATION = regStat("bad_effect_duration_multiplier", TinkerAttributes.BAD_EFFECT_DURATION, GolemStatType.Kind.ADD, StatFilterType.MASS);
 
 
 	@SuppressWarnings("removal")
