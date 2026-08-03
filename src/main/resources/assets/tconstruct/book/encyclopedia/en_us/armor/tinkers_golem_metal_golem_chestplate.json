@@ -4,7 +4,8 @@
     { "text": "Metal Golem Chestplate is a chestplate for metal golems, with high protection, and low ability slots and high defense slots." }
   ],
   "properties": [
-    "Material controlled stats",
+    "All materials controlled armor stats",
+    "Materials from gloves controlled grip stats",
     "400% Durability Multiplier",
     "200% Armor Multiplier",
     "300% Armor Toughness Multiplier",
