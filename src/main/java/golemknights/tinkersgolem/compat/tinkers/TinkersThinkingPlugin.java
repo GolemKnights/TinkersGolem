@@ -52,6 +52,20 @@ public final class TinkersThinkingPlugin extends BaseTinkersPlugin{
                 .addStat(GolemTypes.STAT_WEIGHT.get(), 0.6)
                 .addModifier(TGGolemModifiers.LIGHTLY_ATTACK.get(), 1)
                 .end()
+
+                .addMaterial(this.getResource("obsidian_bronze"), Ingredient.of(ModCommonItems.obsidian_bronze.getIngotTag()))
+                .addStat(GolemTypes.STAT_HEALTH.get(), 185)
+                .addStat(GolemTypes.STAT_ATTACK.get(), 24)
+                .addStat(GolemTypes.STAT_SPEED.get(), -0.1)
+                .addModifier(TGGolemModifiers.DURITAE.get(), 1)
+                .end()
+
+                .addMaterial(this.getResource("electrical_steel"), Ingredient.of(ModCommonItems.electrical_steel.getIngotTag()))
+                .addStat(GolemTypes.STAT_HEALTH.get(), 200)
+                .addStat(GolemTypes.STAT_ATTACK.get(), 22)
+                .addStat(GolemTypes.STAT_SIZE.get(), 1)
+                .addModifier(TGGolemModifiers.REPULSIVE.get(), 1)
+                .end()
         );
     }
 
@@ -61,6 +75,8 @@ public final class TinkersThinkingPlugin extends BaseTinkersPlugin{
         pvd.add(this.getGolemMaterialsKey("tinkers_bronze"), "Tinkers' Bronze");
         pvd.add(this.getGolemMaterialsKey("chlorophyte"), "Chlorophyte");
         pvd.add(this.getGolemMaterialsKey("lightite"), "Lightite");
+        pvd.add(this.getGolemMaterialsKey("obsidian_bronze"), "Obsidian Bronze");
+        pvd.add(this.getGolemMaterialsKey("electrical_steel"), "Electrical Steel");
     }
 
     @Override
@@ -69,5 +85,7 @@ public final class TinkersThinkingPlugin extends BaseTinkersPlugin{
         TGRecipeGen.genMetal(pvd, this.getResource("tinkers_bronze"), ModFluids.molten_tinkers_bronze, 90);
         TGRecipeGen.genMetal(pvd, this.getResource("chlorophyte"), ModFluids.molten_chlorophyte, 90);
         TGRecipeGen.genMetal(pvd, this.getResource("lightite"), ModFluids.molten_lightite, 90);
+        TGRecipeGen.genMetal(pvd, this.getResource("obsidian_bronze"), ModFluids.molten_obsidian_bronze, 90);
+        TGRecipeGen.genMetal(pvd, this.getResource("electrical_steel"), ModFluids.molten_electrical_steel, 90);
     }
 }

@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:casting_basin",
+  "cast": {
+    "item": "modulargolems:dog_golem_legs"
+  },
+  "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "tinkers_thinking"
+    }
+  ],
+  "cooling_time": 96,
+  "fluid": {
+    "amount": 270,
+    "tag": "tinkers_thinking:molten_obsidian_bronze"
+  },
+  "result": {
+    "item": "modulargolems:dog_golem_legs",
+    "nbt": {
+      "golem_material": "tinkers_thinking:obsidian_bronze"
+    }
+  }
+}

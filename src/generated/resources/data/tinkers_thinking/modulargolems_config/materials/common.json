@@ -6,8 +6,14 @@
     "tinkers_thinking:chlorophyte": {
       "tag": "forge:ingots/chlorophyte"
     },
+    "tinkers_thinking:electrical_steel": {
+      "tag": "forge:ingots/electrical_steel"
+    },
     "tinkers_thinking:lightite": {
       "tag": "forge:ingots/lightite"
+    },
+    "tinkers_thinking:obsidian_bronze": {
+      "tag": "forge:ingots/obsidian_bronze"
     },
     "tinkers_thinking:tinkers_bronze": {
       "tag": "forge:ingots/tinkers_bronze"
@@ -20,7 +26,15 @@
     "tinkers_thinking:chlorophyte": {
       "tinkers_golem:symbionic": 1
     },
-    "tinkers_thinking:lightite": {},
+    "tinkers_thinking:electrical_steel": {
+      "tinkers_golem:repulsive": 1
+    },
+    "tinkers_thinking:lightite": {
+      "tinkers_golem:lightly_attack": 1
+    },
+    "tinkers_thinking:obsidian_bronze": {
+      "tinkers_golem:duritae": 1
+    },
     "tinkers_thinking:tinkers_bronze": {
       "tinkers_golem:countermeasures": 1
     }
@@ -33,8 +47,14 @@
     "tinkers_thinking:chlorophyte": {
       "tag": "forge:ingots/chlorophyte"
     },
+    "tinkers_thinking:electrical_steel": {
+      "tag": "forge:ingots/electrical_steel"
+    },
     "tinkers_thinking:lightite": {
       "tag": "forge:ingots/lightite"
+    },
+    "tinkers_thinking:obsidian_bronze": {
+      "tag": "forge:ingots/obsidian_bronze"
     },
     "tinkers_thinking:tinkers_bronze": {
       "tag": "forge:ingots/tinkers_bronze"
@@ -44,19 +64,29 @@
     "tinkers_thinking:ardite": {
       "modulargolems:attack": 16.0,
       "modulargolems:max_health": 240.0,
-      "modulargolems:weight": 0.2
+      "modulargolems:weight": -0.2
     },
     "tinkers_thinking:chlorophyte": {
       "modulargolems:attack": 14.0,
       "modulargolems:max_health": 225.0,
       "modulargolems:regen": 2.0,
-      "modulargolems:weight": -0.3
+      "modulargolems:weight": 0.3
+    },
+    "tinkers_thinking:electrical_steel": {
+      "modulargolems:attack": 22.0,
+      "modulargolems:max_health": 200.0,
+      "modulargolems:max_size": 1.0
     },
     "tinkers_thinking:lightite": {
-      "modulargolems:attack": 14.0,
-      "modulargolems:gravity": -0.1,
-      "modulargolems:max_health": 225.0,
-      "modulargolems:weight": -0.6
+      "modulargolems:attack": 22.0,
+      "modulargolems:gravity": -0.2,
+      "modulargolems:max_health": 100.0,
+      "modulargolems:weight": 0.6
+    },
+    "tinkers_thinking:obsidian_bronze": {
+      "modulargolems:attack": 24.0,
+      "modulargolems:max_health": 185.0,
+      "modulargolems:speed": -0.1
     },
     "tinkers_thinking:tinkers_bronze": {
       "modulargolems:attack": 22.0,
