@@ -104,8 +104,8 @@ public class TGGolemModifiers {
 		ITEM_OVERLORD = regUpgradeImpl("overlord", () -> OVERLORD, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
 		ITEM_OVERBURN = regUpgradeImpl("overburn", () -> OVERBURN, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
 		ITEM_SPILLING = regUpgradeImpl("spilling", () -> SPILLING, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
-		ITEM_WETTING = regUpgradeImpl("wetting", () -> WETTING, 1, false, TinkersGolem.MODID).tag(MGTagGen.POTION_UPGRADES).register();
-		ITEM_ENDERFERENCE = regUpgradeImpl("enderference", () -> ENDERFERENCE, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
+		ITEM_WETTING = regUpgradeImpl("wetting", () -> WETTING, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
+		ITEM_ENDERFERENCE = regUpgradeImpl("enderference", () -> ENDERFERENCE, 1, false, TinkersGolem.MODID).tag(MGTagGen.POTION_UPGRADES).register();
 		ITEM_OVERDRIVE = specialUpgrade("overdrive", () -> OVERDRIVE, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
 
 		SLIMESTEEL_EXPAND = addSlot("slimesteel_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Slimesteel").register();
