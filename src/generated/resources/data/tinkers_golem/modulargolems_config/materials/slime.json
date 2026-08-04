@@ -6,6 +6,9 @@
     "tinkers_golem:enderslime": {
       "item": "tconstruct:ender_slime_ball"
     },
+    "tinkers_golem:honey": {
+      "item": "minecraft:honey_bottle"
+    },
     "tinkers_golem:ichor": {
       "item": "tconstruct:ichor_slime_ball"
     },
@@ -20,6 +23,9 @@
     "tinkers_golem:earthslime": {},
     "tinkers_golem:enderslime": {
       "tinkers_golem:overteleport": 1
+    },
+    "tinkers_golem:honey": {
+      "tinkers_golem:swallow": 1
     },
     "tinkers_golem:ichor": {
       "modulargolems:fire_immune": 1,
@@ -174,6 +180,10 @@
       "tinkers_golem:slime_golem_core",
       "tinkers_golem:slime_golem_shell"
     ],
+    "tinkers_golem:honey": [
+      "tinkers_golem:slime_golem_core",
+      "tinkers_golem:slime_golem_shell"
+    ],
     "tinkers_golem:ichor": [
       "tinkers_golem:slime_golem_core",
       "tinkers_golem:slime_golem_shell"
@@ -193,6 +203,9 @@
     },
     "tinkers_golem:enderslime": {
       "item": "tconstruct:ender_slime_ball"
+    },
+    "tinkers_golem:honey": {
+      "item": "minecraft:honey_bottle"
     },
     "tinkers_golem:ichor": {
       "item": "tconstruct:ichor_slime_ball"
@@ -219,6 +232,12 @@
       "modulargolems:range": 1.0,
       "modulargolems:tank_capacity": 8.0
     },
+    "tinkers_golem:honey": {
+      "modulargolems:attack": 12.0,
+      "modulargolems:max_health": 30.0,
+      "modulargolems:max_overslime": 70.0,
+      "modulargolems:speed": -0.2
+    },
     "tinkers_golem:ichor": {
       "modulargolems:attack": 10.0,
       "modulargolems:max_health": 40.0,
@@ -226,7 +245,7 @@
       "modulargolems:speed": 0.6
     },
     "tinkers_golem:magma": {
-      "modulargolems:attack": 12.0,
+      "modulargolems:attack": 20.0,
       "modulargolems:max_health": 40.0,
       "modulargolems:max_overslime": 50.0
     },

@@ -64,9 +64,12 @@ public enum TGLang {
 		pvd.add("golem_material." + TinkersGolem.MODID + ".skyslime", "Skyslime");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".ichor", "Ichor");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".enderslime", "Enderslime");
+		pvd.add("golem_material." + TinkersGolem.MODID + ".mamga", "Mamga");
+		pvd.add("golem_material." + TinkersGolem.MODID + ".honey", "Honey");
 		pvd.add("golem_material." + TConstruct.MOD_ID + ".slimesteel", "Slimesteel");
 		pvd.add("golem_material." + TConstruct.MOD_ID + ".cinderslime", "Cinderslime");
 		pvd.add("golem_material." + TConstruct.MOD_ID + ".queens_slime", "Queen's Slime");
+		pvd.add("golem_material." + TConstruct.MOD_ID + ".knightslime", "Knightslime");
 		pvd.add("pattern." + TinkersGolem.MODID + ".metal_golem_plating", "Metal Golem Plating");
 		pvd.add("pattern." + TinkersGolem.MODID + ".helmet_metal_golem_plating", "Metal Golem Helmet Plating");
 		pvd.add("pattern." + TinkersGolem.MODID + ".chestplate_metal_golem_plating", "Metal Golem Chestplate Plating");

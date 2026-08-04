@@ -100,10 +100,19 @@ public class TGConfigGen extends ConfigDataProvider {
 				.addMaterial(TinkersGolem.getResource("magma"), Ingredient.of(Items.MAGMA_CREAM))
 				.onlyFor(slimeParts)
 				.addStat(GolemTypes.STAT_HEALTH.get(), 40)
-				.addStat(GolemTypes.STAT_ATTACK.get(), 12)
+				.addStat(GolemTypes.STAT_ATTACK.get(), 20)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
 				.addModifier(TGGolemModifiers.FIERY_EXPLOSION.get(), 1)
 				.addModifier(GolemModifiers.FIRE_IMMUNE.get(), 1)
+				.end()
+
+				.addMaterial(TinkersGolem.getResource("honey"), Ingredient.of(Items.HONEY_BOTTLE))
+				.onlyFor(slimeParts)
+				.addStat(GolemTypes.STAT_HEALTH.get(), 30)
+				.addStat(GolemTypes.STAT_ATTACK.get(), 12)
+				.addStat(GolemTypes.STAT_SPEED.get(), -0.2)
+				.addStat(TGAttributes.STAT_OVERSLIME.get(), 70)
+				.addModifier(TGGolemModifiers.SWALLOW.get(), 1)
 				.end()
 
 				.supportsDefaultAnd(List.of(TGEntities.SLIME_CORE.get()),

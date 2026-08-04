@@ -56,6 +56,7 @@ public class TGGolemModifiers {
 	public static final RegistryEntry<DuritaeModifier> DURITAE;
 	public static final RegistryEntry<RepulsiveModifier> REPULSIVE;
 	public static final RegistryEntry<FieryExplosionModifier> FIERY_EXPLOSION;
+	public static final RegistryEntry<SwallowModifier> SWALLOW;
 
 	public static final RegistryEntry<SlimeSlotModifier> OVERTALENTED;
 
@@ -92,9 +93,10 @@ public class TGGolemModifiers {
 		COUNTERMEASURES = reg("countermeasures", CountermeasuresModifier::new, "When taking damage bypass armor, reduce it 10% per level");
 		SYMBIONIC = reg("symbionic", SymbionicModifier::new, "When it is healed, heal its owner 20% amount per level");
 		LIGHTLY_ATTACK = reg("lightly_attack", LightlyAttackModifier::new, "Upon attacking, improve movement speed");
-		DURITAE = reg("duritae", DuritaeModifier::new, null);
-		REPULSIVE = reg("repulsive", RepulsiveModifier::new, null);
-		FIERY_EXPLOSION = reg("fiery_explosion", FieryExplosionModifier::new, null);
+		DURITAE = reg("duritae", DuritaeModifier::new, "");
+		REPULSIVE = reg("repulsive", RepulsiveModifier::new, "");
+		FIERY_EXPLOSION = reg("fiery_explosion", FieryExplosionModifier::new, "");
+		SWALLOW = reg("swallow", SwallowModifier::new, "");
 
 		ITEM_OVERGROWTH = regUpgradeImpl("overgrowth", () -> OVERGROWTH, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
 		ITEM_SUPER_OVERGROWTH = regUpgradeImpl("overgrown", () -> OVERGROWTH, 4, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
