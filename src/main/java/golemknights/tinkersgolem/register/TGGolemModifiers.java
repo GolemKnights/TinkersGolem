@@ -13,7 +13,6 @@ import dev.xkmc.modulargolems.content.item.upgrade.SimpleUpgradeItem;
 import dev.xkmc.modulargolems.content.modifier.base.AttributeGolemModifier;
 import dev.xkmc.modulargolems.content.modifier.base.GolemModifier;
 import dev.xkmc.modulargolems.content.modifier.base.PotionAttackModifier;
-import dev.xkmc.modulargolems.content.modifier.base.PotionDefenseModifier;
 import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.data.MGTagGen;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
@@ -27,7 +26,6 @@ import golemknights.tinkersgolem.modifiers.slime.*;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraftforge.client.model.generators.ModelFile;
 import org.apache.commons.lang3.mutable.Mutable;
 import org.apache.commons.lang3.mutable.MutableObject;
@@ -57,6 +55,7 @@ public class TGGolemModifiers {
 	public static final RegistryEntry<LightlyAttackModifier> LIGHTLY_ATTACK;
 	public static final RegistryEntry<DuritaeModifier> DURITAE;
 	public static final RegistryEntry<RepulsiveModifier> REPULSIVE;
+	public static final RegistryEntry<FieryExplosionModifier> FIERY_EXPLOSION;
 
 	public static final RegistryEntry<SlimeSlotModifier> OVERTALENTED;
 
@@ -75,7 +74,7 @@ public class TGGolemModifiers {
 				new AttributeGolemModifier.AttrEntry(TGAttributes.STAT_TANK_CAPACITY, TGConfig.COMMON.overfillFactor::get)), null);
 
 		ENDERFERENCE = reg("enderference", () -> new PotionAttackModifier(StatFilterType.MASS, 3,
-				(i) -> new MobEffectInstance(TinkerEffects.enderference.get(), 100 * i, 1)
+				(i) -> new MobEffectInstance(TinkerEffects.enderference.get(), 100 * i, 0)
 		), "Potion Upgrade: Enderference", null);
 
 		OVERGROWTH = reg("overgrowth", OvergrowthModifier::new, "Recover %s overslime per second");
@@ -95,6 +94,7 @@ public class TGGolemModifiers {
 		LIGHTLY_ATTACK = reg("lightly_attack", LightlyAttackModifier::new, "Upon attacking, improve movement speed");
 		DURITAE = reg("duritae", DuritaeModifier::new, null);
 		REPULSIVE = reg("repulsive", RepulsiveModifier::new, null);
+		FIERY_EXPLOSION = reg("fiery_explosion", FieryExplosionModifier::new, null);
 
 		ITEM_OVERGROWTH = regUpgradeImpl("overgrowth", () -> OVERGROWTH, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
 		ITEM_SUPER_OVERGROWTH = regUpgradeImpl("overgrown", () -> OVERGROWTH, 4, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();

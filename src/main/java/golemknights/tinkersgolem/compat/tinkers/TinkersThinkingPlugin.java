@@ -10,8 +10,11 @@ import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import golemknights.tinkersgolem.data.TGRecipeGen;
 import golemknights.tinkersgolem.register.TGAttributes;
+import golemknights.tinkersgolem.register.TGEntities;
 import golemknights.tinkersgolem.register.TGGolemModifiers;
 import net.minecraft.world.item.crafting.Ingredient;
+
+import java.util.List;
 
 public final class TinkersThinkingPlugin extends BaseTinkersPlugin{
     @Override
@@ -63,9 +66,18 @@ public final class TinkersThinkingPlugin extends BaseTinkersPlugin{
                 .addMaterial(this.getResource("electrical_steel"), Ingredient.of(ModCommonItems.electrical_steel.getIngotTag()))
                 .addStat(GolemTypes.STAT_HEALTH.get(), 200)
                 .addStat(GolemTypes.STAT_ATTACK.get(), 22)
-                .addStat(GolemTypes.STAT_SIZE.get(), 1)
+                .addStat(GolemTypes.STAT_SWEEP.get(), 1)
                 .addModifier(TGGolemModifiers.REPULSIVE.get(), 1)
                 .end()
+
+                .supportsDefaultAnd(List.of(TGEntities.SLIME_CORE.get()),
+                        this.getResource("ardite"),
+                        this.getResource("tinkers_bronze"),
+                        this.getResource("chlorophyte"),
+                        this.getResource("lightite"),
+                        this.getResource("obsidian_bronze"),
+                        this.getResource("electrical_steel")
+                )
         );
     }
 

@@ -39,7 +39,74 @@
       "tinkers_golem:countermeasures": 1
     }
   },
-  "partLimitation": {},
+  "partLimitation": {
+    "tinkers_thinking:ardite": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
+    "tinkers_thinking:chlorophyte": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
+    "tinkers_thinking:electrical_steel": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
+    "tinkers_thinking:lightite": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
+    "tinkers_thinking:obsidian_bronze": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
+    "tinkers_thinking:tinkers_bronze": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ]
+  },
   "repairIngredients": {
     "tinkers_thinking:ardite": {
       "tag": "forge:ingots/ardite"
@@ -75,7 +142,7 @@
     "tinkers_thinking:electrical_steel": {
       "modulargolems:attack": 22.0,
       "modulargolems:max_health": 200.0,
-      "modulargolems:max_size": 1.0
+      "modulargolems:sweep": 1.0
     },
     "tinkers_thinking:lightite": {
       "modulargolems:attack": 22.0,

@@ -97,6 +97,15 @@ public class TGConfigGen extends ConfigDataProvider {
                 .addModifier(TGGolemModifiers.OVERTELEPORT.get(), 1)
 				.end()
 
+				.addMaterial(TinkersGolem.getResource("magma"), Ingredient.of(Items.MAGMA_CREAM))
+				.onlyFor(slimeParts)
+				.addStat(GolemTypes.STAT_HEALTH.get(), 40)
+				.addStat(GolemTypes.STAT_ATTACK.get(), 12)
+				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
+				.addModifier(TGGolemModifiers.FIERY_EXPLOSION.get(), 1)
+				.addModifier(GolemModifiers.FIRE_IMMUNE.get(), 1)
+				.end()
+
 				.supportsDefaultAnd(List.of(TGEntities.SLIME_CORE.get()),
 						ModularGolems.loc("copper"),
 						ModularGolems.loc("iron"),

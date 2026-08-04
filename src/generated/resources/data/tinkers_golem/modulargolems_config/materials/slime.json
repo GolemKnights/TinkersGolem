@@ -9,6 +9,9 @@
     "tinkers_golem:ichor": {
       "item": "tconstruct:ichor_slime_ball"
     },
+    "tinkers_golem:magma": {
+      "item": "minecraft:magma_cream"
+    },
     "tinkers_golem:skyslime": {
       "item": "tconstruct:sky_slime_ball"
     }
@@ -21,6 +24,10 @@
     "tinkers_golem:ichor": {
       "modulargolems:fire_immune": 1,
       "tinkers_golem:overboking": 1
+    },
+    "tinkers_golem:magma": {
+      "modulargolems:fire_immune": 1,
+      "tinkers_golem:fiery_explosion": 1
     },
     "tinkers_golem:skyslime": {
       "tinkers_golem:overshock": 1
@@ -171,6 +178,10 @@
       "tinkers_golem:slime_golem_core",
       "tinkers_golem:slime_golem_shell"
     ],
+    "tinkers_golem:magma": [
+      "tinkers_golem:slime_golem_core",
+      "tinkers_golem:slime_golem_shell"
+    ],
     "tinkers_golem:skyslime": [
       "tinkers_golem:slime_golem_core",
       "tinkers_golem:slime_golem_shell"
@@ -185,6 +196,9 @@
     },
     "tinkers_golem:ichor": {
       "item": "tconstruct:ichor_slime_ball"
+    },
+    "tinkers_golem:magma": {
+      "item": "minecraft:magma_cream"
     },
     "tinkers_golem:skyslime": {
       "item": "tconstruct:sky_slime_ball"
@@ -210,6 +224,11 @@
       "modulargolems:max_health": 40.0,
       "modulargolems:max_overslime": 50.0,
       "modulargolems:speed": 0.6
+    },
+    "tinkers_golem:magma": {
+      "modulargolems:attack": 12.0,
+      "modulargolems:max_health": 40.0,
+      "modulargolems:max_overslime": 50.0
     },
     "tinkers_golem:skyslime": {
       "modulargolems:attack": 10.0,
