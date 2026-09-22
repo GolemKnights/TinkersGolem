@@ -25,7 +25,7 @@ public class GolemSeveringRecipe extends SeveringRecipe {
                         GolemTypes.ENTITY_HUMANOID.get(),
                         GolemTypes.ENTITY_DOG.get()
                 )
-        ), ItemOutput.fromStack(ItemStack.EMPTY));
+        ), ItemOutput.fromStack(ItemStack.EMPTY), 0, 0);
     }
 
     @Override
