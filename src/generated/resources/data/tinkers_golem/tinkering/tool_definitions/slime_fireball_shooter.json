@@ -1,0 +1,13 @@
+{
+  "modules": [
+    {
+      "type": "tconstruct:traits",
+      "traits": [
+        {
+          "level": 1,
+          "name": "tconstruct:slimeball"
+        }
+      ]
+    }
+  ]
+}

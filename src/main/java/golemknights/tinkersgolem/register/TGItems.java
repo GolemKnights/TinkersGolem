@@ -9,8 +9,10 @@ import slimeknights.tconstruct.common.Sounds;
 import slimeknights.tconstruct.common.registration.CastItemObject;
 import slimeknights.tconstruct.library.recipe.partbuilder.Pattern;
 import slimeknights.tconstruct.library.tools.definition.ModifiableArmorMaterial;
+import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 import golemknights.tinkersgolem.item.armor.ModifiableDogGolemArmorItem;
 import golemknights.tinkersgolem.item.armor.ModifiableMetalGolemArmorItem;
+import golemknights.tinkersgolem.item.weapon.SlimeFireballShooterItem;
 import slimeknights.tconstruct.library.tools.part.PartCastItem;
 import slimeknights.tconstruct.library.tools.part.ToolPartItem;
 import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
@@ -45,6 +47,12 @@ public class TGItems {
     public static final ItemObject<ModifiableDogGolemArmorItem> dogGolemArmor = ITEMS.register(
             DOG_GOLEM_ARMOR,
             () -> new ModifiableDogGolemArmorItem(UNSTACKABLE_PROPS, GOLEM, getResource(DOG_GOLEM_ARMOR)));
+
+    public static final String SLIME_FIREBALL_SHOOTER = "slime_fireball_shooter";
+    public static final ToolDefinition SLIME_FIREBALL_SHOOTER_TOOL = ToolDefinition.create(getResource(SLIME_FIREBALL_SHOOTER));
+    public static final ItemObject<SlimeFireballShooterItem> slimeFireballShooter = ITEMS.register(
+            SLIME_FIREBALL_SHOOTER,
+            () -> new SlimeFireballShooterItem(UNSTACKABLE_PROPS, SLIME_FIREBALL_SHOOTER_TOOL));
     // 大傀儡盔甲镶板
     public static final EnumObject<ArmorItem.Type, ToolPartItem> metal_golem_plating = ITEMS.registerEnum(
             ArmorItem.Type.values(),

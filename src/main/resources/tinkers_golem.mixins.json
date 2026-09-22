@@ -5,6 +5,8 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "tinkers_golem.refmap.json",
   "mixins": [
+    "FireballModuleMixin",
+    "FireballTypeMixin"
   ],
   "client": [
     "DinnerBoneRendererMixin"
