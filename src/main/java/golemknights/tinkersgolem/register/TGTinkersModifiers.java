@@ -14,13 +14,12 @@ public class TGTinkersModifiers {
     @SubscribeEvent
     void registerSerializers(RegisterEvent event) {
         if (event.getRegistryKey() == Registries.RECIPE_SERIALIZER) {
-
         }
     }
 
     public static final ModuleHook<ShoulderWeaponModifierHook> SHOLDER_WEAPON_MODIFIER_HOOK = ModifierHooks.register(
             getResource("shoulder_weapon"), ShoulderWeaponModifierHook.class, ShoulderWeaponModifierHook.AllMerger::new,
-            (t, m, g, i, h) -> { });
+            (t, m, g, i, h) -> {});
 
     public static void registers(IEventBus bus) {
         bus.register(new TGTinkersModifiers());

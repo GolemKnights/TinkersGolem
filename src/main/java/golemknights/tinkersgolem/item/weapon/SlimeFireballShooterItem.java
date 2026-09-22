@@ -20,19 +20,9 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import org.jetbrains.annotations.Nullable;
 
-public class SlimeFireballShooterItem extends ModifiableLauncherItem implements IShoulderCannonAnimated {
+public class SlimeFireballShooterItem extends ModifiableShoulderCannonItem implements IShoulderCannonAnimated {
    public SlimeFireballShooterItem(Properties properties, ToolDefinition toolDefinition) {
       super(properties, toolDefinition);
-   }
-
-   public void onTick(MetalGolemEntity e, ItemStack stack, InteractionHand hand) {
-      if (stack.getItem() instanceof IModifiable) {
-         ToolStack tool = ToolStack.from(stack);
-         if(tool.isBroken()) return;
-         for (ModifierEntry modifier : tool.getModifierList()) {
-            modifier.getHook(TGTinkersModifiers.SHOLDER_WEAPON_MODIFIER_HOOK).onTick(tool, modifier, e, stack, hand);
-         }
-      }
    }
 
    private static boolean supports(ItemStack stack) {
@@ -49,10 +39,6 @@ public class SlimeFireballShooterItem extends ModifiableLauncherItem implements 
 
    public @Nullable ResourceLocation getAnimBaseId(MetalGolemEntity user, ItemStack stack, InteractionHand hand) {
       return hand == InteractionHand.MAIN_HAND ? GolemModelPaths.BEACON_RIGHT : GolemModelPaths.BEACON_LEFT;
-   }
-
-   public boolean emissive() {
-      return true;
    }
 
    public ResourceLocation getEmissiveTexture(MetalGolemEntity entity, ItemStack stack, InteractionHand hand) {
@@ -72,12 +58,7 @@ public class SlimeFireballShooterItem extends ModifiableLauncherItem implements 
    }
 
    @Override
-   public UseAnim getUseAnimation(ItemStack pStack) {
-      return UseAnim.CUSTOM;
-   }
-
-   @Override
    public int getDefaultProjectileRange() {
-      return 15;
+       return super.getDefaultProjectileRange();
    }
 }
