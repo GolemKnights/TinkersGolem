@@ -80,10 +80,10 @@ public class TGTagGen {
 		//pvd.addTag(TinkerTags.Items.TRIM);
 		//Parts
 		pvd.addTag(TinkerTags.Items.BARTERED_PARTS).add(
-				TGItems.metal_golem_plating.get(ArmorItem.Type.HELMET).asItem(),
-				TGItems.metal_golem_plating.get(ArmorItem.Type.CHESTPLATE).asItem(),
-				TGItems.metal_golem_plating.get(ArmorItem.Type.LEGGINGS).asItem(),
-				TGItems.metal_golem_plating.get(ArmorItem.Type.BOOTS).asItem()
+				TGItems.metalGolemPlating.get(ArmorItem.Type.HELMET).asItem(),
+				TGItems.metalGolemPlating.get(ArmorItem.Type.CHESTPLATE).asItem(),
+				TGItems.metalGolemPlating.get(ArmorItem.Type.LEGGINGS).asItem(),
+				TGItems.metalGolemPlating.get(ArmorItem.Type.BOOTS).asItem()
 		);
 		//Casts
 		pvd.addTag(TinkerTags.Items.GOLD_CASTS).add(

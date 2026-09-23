@@ -3,7 +3,7 @@ package golemknights.tinkersgolem.client;
 import com.mojang.authlib.GameProfile;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import golemknights.tinkersgolem.entity.SlimeGolemEntity;
+import golemknights.tinkersgolem.content.entity.SlimeGolemEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.HumanoidModel;

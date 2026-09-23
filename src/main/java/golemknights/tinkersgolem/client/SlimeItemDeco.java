@@ -1,7 +1,7 @@
 package golemknights.tinkersgolem.client;
 
 import dev.xkmc.modulargolems.content.item.golem.GolemHolder;
-import golemknights.tinkersgolem.entity.SlimeGolemType;
+import golemknights.tinkersgolem.content.entity.SlimeGolemType;
 import golemknights.tinkersgolem.register.TGEntities;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;

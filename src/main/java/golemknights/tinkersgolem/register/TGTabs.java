@@ -42,7 +42,7 @@ public class TGTabs {
                                 acceptCast(output, TGItems.chestplateMetalGolemPlatingCast);
                                 acceptCast(output, TGItems.leggingsMetalGolemPlatingCast);
                                 acceptCast(output, TGItems.bootsMetalGolemPlatingCast);
-                                TGItems.metal_golem_plating.forEach((item) -> acceptPart(output::accept, item));
+                                TGItems.metalGolemPlating.forEach((item) -> acceptPart(output::accept, item));
                                 TGItems.metalGolemArmor.forEach((item) -> acceptTool(output::accept, item));
                             }
                     )

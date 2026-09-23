@@ -1,6 +1,6 @@
 package golemknights.tinkersgolem.register;
 
-import golemknights.tinkersgolem.hooks.ShoulderWeaponModifierHook;
+import golemknights.tinkersgolem.library.hooks.ShoulderWeaponModifierHook;
 import net.minecraft.core.registries.Registries;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

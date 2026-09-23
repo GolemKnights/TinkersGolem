@@ -23,7 +23,7 @@ public class TGStationSlotLayoutProvider extends AbstractStationSlotLayoutProvid
                 .addInputPattern(
                         TGItems.METAL_GOLEM_PLATING_PATTERN,
                         33, 53,
-                        Ingredient.of(TGItems.metal_golem_plating.values().toArray(new Item[0]))
+                        Ingredient.of(TGItems.metalGolemPlating.values().toArray(new Item[0]))
                 ).addInputPattern(
                         Patterns.PLATING,
                         23, 29,

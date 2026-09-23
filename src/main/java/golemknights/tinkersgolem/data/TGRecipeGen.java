@@ -15,7 +15,7 @@ import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.data.RecipeGen;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import golemknights.tinkersgolem.TinkersGolem;
-import golemknights.tinkersgolem.recipes.OverslimeRecoverBuilder;
+import golemknights.tinkersgolem.library.recipes.OverslimeRecoverBuilder;
 import golemknights.tinkersgolem.register.TGEntities;
 import golemknights.tinkersgolem.register.TGGolemModifiers;
 import golemknights.tinkersgolem.register.TGRecipes;

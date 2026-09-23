@@ -38,10 +38,10 @@ public class TGToolsRecipeProvider extends BaseRecipeProvider implements IMateri
     private void addPartRecipes(Consumer<FinishedRecipe> consumer) {
         String partFolder = "tools/parts/";
         String castFolder = "smeltery/casts/";
-        this.partRecipes(consumer, TGItems.metal_golem_plating.get(ArmorItem.Type.HELMET), TGItems.helmetMetalGolemPlatingCast, 19, partFolder, castFolder);
-        this.partRecipes(consumer, TGItems.metal_golem_plating.get(ArmorItem.Type.CHESTPLATE), TGItems.chestplateMetalGolemPlatingCast, 44, partFolder, castFolder);
-        this.partRecipes(consumer, TGItems.metal_golem_plating.get(ArmorItem.Type.LEGGINGS), TGItems.leggingsMetalGolemPlatingCast, 11, partFolder, castFolder);
-        this.partRecipes(consumer, TGItems.metal_golem_plating.get(ArmorItem.Type.BOOTS), TGItems.bootsMetalGolemPlatingCast, 4, partFolder, castFolder);
+        this.partRecipes(consumer, TGItems.metalGolemPlating.get(ArmorItem.Type.HELMET), TGItems.helmetMetalGolemPlatingCast, 19, partFolder, castFolder);
+        this.partRecipes(consumer, TGItems.metalGolemPlating.get(ArmorItem.Type.CHESTPLATE), TGItems.chestplateMetalGolemPlatingCast, 44, partFolder, castFolder);
+        this.partRecipes(consumer, TGItems.metalGolemPlating.get(ArmorItem.Type.LEGGINGS), TGItems.leggingsMetalGolemPlatingCast, 11, partFolder, castFolder);
+        this.partRecipes(consumer, TGItems.metalGolemPlating.get(ArmorItem.Type.BOOTS), TGItems.bootsMetalGolemPlatingCast, 4, partFolder, castFolder);
     }
     private void addRecycleRecipes(Consumer<FinishedRecipe> consumer) {
         String folder = "tools/recycling/";

@@ -5,10 +5,8 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.ArmorItem;
 import slimeknights.tconstruct.library.data.tinkering.AbstractToolDefinitionDataProvider;
 import slimeknights.tconstruct.library.materials.RandomMaterial;
-import slimeknights.tconstruct.library.modifiers.ModifierManager;
 import slimeknights.tconstruct.library.tools.SlotType;
 import slimeknights.tconstruct.library.tools.definition.module.ToolHooks;
-import slimeknights.tconstruct.library.tools.definition.module.ToolModule;
 import slimeknights.tconstruct.library.tools.definition.module.build.MultiplyStatsModule;
 import slimeknights.tconstruct.library.tools.definition.module.build.SetStatsModule;
 import slimeknights.tconstruct.library.tools.definition.module.build.ToolSlotsModule;
@@ -18,16 +16,12 @@ import slimeknights.tconstruct.library.tools.definition.module.material.Material
 import slimeknights.tconstruct.library.tools.definition.module.material.PartStatsModule;
 import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
-import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.TinkerToolParts;
 import slimeknights.tconstruct.tools.data.ModifierIds;
 import slimeknights.tconstruct.tools.stats.GripMaterialStats;
-import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 import slimeknights.tconstruct.tools.stats.StatlessMaterialStats;
 
 import static golemknights.tinkersgolem.TinkersGolem.MODID;
-
-import java.util.List;
 
 public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProvider {
     public TGToolDefinitionDataProvider(PackOutput packOutput) {
@@ -41,7 +35,7 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
         defineArmor(TGItems.GOLEM).modules(
                 (slots) -> PartStatsModule
                         .armor(slots)
-                        .part(TGItems.metal_golem_plating, 0.6F)
+                        .part(TGItems.metalGolemPlating, 0.6F)
                         .part(TinkerToolParts.plating, 0.2F)
                         .part(TinkerToolParts.plating, 0.2F)
                 )
@@ -75,7 +69,18 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                                 .slots(SlotType.DEFENSE, 2)
                                 .build()
                 );
-        define(TGItems.SLIME_FIREBALL_SHOOTER_TOOL).module(ToolTraitsModule.builder().trait(ModifierIds.slimeball).build());
+        define(TGItems.CANNON_TOOL)
+                .module(
+                        PartStatsModule.parts()
+                                .part(TinkerToolParts.bowLimb)
+                                .part(TinkerToolParts.bowLimb)
+                                .build()
+                )
+                .module(
+                        ToolTraitsModule.builder()
+                                .trait(ModifierIds.slimeball)
+                                .build()
+                );
     }
 
     @Override

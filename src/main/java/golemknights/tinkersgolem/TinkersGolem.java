@@ -8,7 +8,7 @@ import golemknights.tinkersgolem.cap.OverslimeCap;
 import golemknights.tinkersgolem.cap.OverslimeSyncPacket;
 import golemknights.tinkersgolem.compat.tinkers.TinkersThinkingPlugin;
 import golemknights.tinkersgolem.data.*;
-import golemknights.tinkersgolem.entity.SlimeTankSyncPacket;
+import golemknights.tinkersgolem.content.entity.SlimeTankSyncPacket;
 import golemknights.tinkersgolem.events.TGAttackListener;
 import golemknights.tinkersgolem.register.*;
 import net.minecraft.core.particles.ParticleType;

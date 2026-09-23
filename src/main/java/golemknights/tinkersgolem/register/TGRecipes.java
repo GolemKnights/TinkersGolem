@@ -1,7 +1,7 @@
 package golemknights.tinkersgolem.register;
 
-import golemknights.tinkersgolem.recipes.GolemSeveringRecipe;
-import golemknights.tinkersgolem.recipes.OverslimeRecoverRecipe;
+import golemknights.tinkersgolem.library.recipes.GolemSeveringRecipe;
+import golemknights.tinkersgolem.library.recipes.OverslimeRecoverRecipe;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;

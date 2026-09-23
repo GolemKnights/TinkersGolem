@@ -1,7 +1,7 @@
 package golemknights.tinkersgolem.events;
 
 import dev.xkmc.modulargolems.events.event.GolemEquipItemEvent;
-import golemknights.tinkersgolem.entity.SlimeGolemEntity;
+import golemknights.tinkersgolem.content.entity.SlimeGolemEntity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

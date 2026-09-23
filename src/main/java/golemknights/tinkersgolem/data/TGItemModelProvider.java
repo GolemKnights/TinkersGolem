@@ -28,7 +28,7 @@ public class TGItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        TGItems.metal_golem_plating.forEach((slot, item) -> this.part(item, "parts/" + slot.getName() + "_" + METAL_GOLEM_PLATING));
+        TGItems.metalGolemPlating.forEach((slot, item) -> this.part(item, "parts/" + slot.getName() + "_" + METAL_GOLEM_PLATING));
         this.cast(TGItems.bootsMetalGolemPlatingCast);
         this.cast(TGItems.leggingsMetalGolemPlatingCast);
         this.cast(TGItems.chestplateMetalGolemPlatingCast);

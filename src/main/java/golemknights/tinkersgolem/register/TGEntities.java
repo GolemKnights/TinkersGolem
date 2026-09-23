@@ -12,6 +12,7 @@ import dev.xkmc.modulargolems.init.data.MGTagGen;
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import golemknights.tinkersgolem.TinkersGolem;
+import golemknights.tinkersgolem.content.entity.*;
 import golemknights.tinkersgolem.data.TGTagGen;
 import golemknights.tinkersgolem.entity.*;
 import net.minecraft.resources.ResourceKey;

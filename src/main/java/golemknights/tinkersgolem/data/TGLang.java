@@ -3,7 +3,7 @@ package golemknights.tinkersgolem.data;
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import dev.xkmc.modulargolems.init.ModularGolems;
 import golemknights.tinkersgolem.TinkersGolem;
-import golemknights.tinkersgolem.entity.SlimeGolemPartType;
+import golemknights.tinkersgolem.content.entity.SlimeGolemPartType;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;

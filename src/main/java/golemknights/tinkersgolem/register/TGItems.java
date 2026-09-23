@@ -1,6 +1,9 @@
 package golemknights.tinkersgolem.register;
 
 import golemknights.tinkersgolem.client.TGModelPaths;
+import golemknights.tinkersgolem.content.item.armor.ModifiableDogGolemArmorItem;
+import golemknights.tinkersgolem.content.item.armor.ModifiableMetalGolemArmorItem;
+import golemknights.tinkersgolem.content.item.weapon.ModifiableShoulderCannonItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import slimeknights.mantle.registration.object.EnumObject;
@@ -10,9 +13,6 @@ import slimeknights.tconstruct.common.registration.CastItemObject;
 import slimeknights.tconstruct.library.recipe.partbuilder.Pattern;
 import slimeknights.tconstruct.library.tools.definition.ModifiableArmorMaterial;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
-import golemknights.tinkersgolem.item.armor.ModifiableDogGolemArmorItem;
-import golemknights.tinkersgolem.item.armor.ModifiableMetalGolemArmorItem;
-import golemknights.tinkersgolem.item.weapon.SlimeFireballShooterItem;
 import slimeknights.tconstruct.library.tools.part.PartCastItem;
 import slimeknights.tconstruct.library.tools.part.ToolPartItem;
 import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
@@ -48,13 +48,14 @@ public class TGItems {
             DOG_GOLEM_ARMOR,
             () -> new ModifiableDogGolemArmorItem(UNSTACKABLE_PROPS, GOLEM, getResource(DOG_GOLEM_ARMOR)));
 
-    public static final String SLIME_FIREBALL_SHOOTER = "slime_fireball_shooter";
-    public static final ToolDefinition SLIME_FIREBALL_SHOOTER_TOOL = ToolDefinition.create(getResource(SLIME_FIREBALL_SHOOTER));
-    public static final ItemObject<SlimeFireballShooterItem> slimeFireballShooter = ITEMS.register(
-            SLIME_FIREBALL_SHOOTER,
-            () -> new SlimeFireballShooterItem(UNSTACKABLE_PROPS, SLIME_FIREBALL_SHOOTER_TOOL));
+    // 炮
+    public static final String CANNON = "slimeball_cannon";
+    public static final ToolDefinition CANNON_TOOL = ToolDefinition.create(getResource(CANNON));
+    public static final ItemObject<ModifiableShoulderCannonItem> cannonItem = ITEMS.register(
+            CANNON,
+            () -> new ModifiableShoulderCannonItem(UNSTACKABLE_PROPS, CANNON_TOOL));
     // 大傀儡盔甲镶板
-    public static final EnumObject<ArmorItem.Type, ToolPartItem> metal_golem_plating = ITEMS.registerEnum(
+    public static final EnumObject<ArmorItem.Type, ToolPartItem> metalGolemPlating = ITEMS.registerEnum(
             ArmorItem.Type.values(),
             METAL_GOLEM_PLATING,
             (type) -> new ToolPartItem(ITEM_PROPS, PlatingMaterialStats.TYPES.get(type.ordinal()).getId()));
@@ -63,14 +64,14 @@ public class TGItems {
     public static final Pattern GOLEM_TEMPLATE_PATTERN = pattern("golem_template");
     public static final CastItemObject helmetMetalGolemPlatingCast = ITEMS.registerCast(
             "helmet_metal_golem_plating",
-            () -> new PartCastItem(ITEM_PROPS, () -> metal_golem_plating.get(ArmorItem.Type.HELMET)));
+            () -> new PartCastItem(ITEM_PROPS, () -> metalGolemPlating.get(ArmorItem.Type.HELMET)));
     public static final CastItemObject chestplateMetalGolemPlatingCast = ITEMS.registerCast(
             "chestplate_metal_golem_plating",
-            () -> new PartCastItem(ITEM_PROPS, () -> metal_golem_plating.get(ArmorItem.Type.CHESTPLATE)));
+            () -> new PartCastItem(ITEM_PROPS, () -> metalGolemPlating.get(ArmorItem.Type.CHESTPLATE)));
     public static final CastItemObject leggingsMetalGolemPlatingCast = ITEMS.registerCast(
             "leggings_metal_golem_plating",
-            () -> new PartCastItem(ITEM_PROPS, () -> metal_golem_plating.get(ArmorItem.Type.LEGGINGS)));
+            () -> new PartCastItem(ITEM_PROPS, () -> metalGolemPlating.get(ArmorItem.Type.LEGGINGS)));
     public static final CastItemObject bootsMetalGolemPlatingCast = ITEMS.registerCast(
             "boots_metal_golem_plating",
-            () -> new PartCastItem(ITEM_PROPS, () -> metal_golem_plating.get(ArmorItem.Type.BOOTS)));
+            () -> new PartCastItem(ITEM_PROPS, () -> metalGolemPlating.get(ArmorItem.Type.BOOTS)));
 }
