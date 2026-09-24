@@ -126,6 +126,10 @@ public class TinkersGolem {
 		TGPartSpriteProvider partSpritesTG = new TGPartSpriteProvider();
 		gen.addProvider(client, new GeneratorPartTextureJsonGenerator(output, MODID, partSpritesTG));
 		gen.addProvider(client, new MaterialPartTextureGenerator(output, helper, partSpritesTG, materialSpritesTiC));
+		var materials = new TGMaterialProvider(output);
+		gen.addProvider(server, materials);
+		gen.addProvider(server, new TGMaterialProvider.Stats(output, materials));
+		gen.addProvider(server, new TGMaterialProvider.Traits(output, materials));
 	}
 
 	/**

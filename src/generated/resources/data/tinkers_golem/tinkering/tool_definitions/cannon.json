@@ -1,0 +1,19 @@
+{
+  "modules": [
+    {
+      "type": "tconstruct:material_stats",
+      "primary_part": 0,
+      "stat_types": [
+        "tinkers_golem:cannon_core",
+        "tconstruct:limb",
+        "tconstruct:limb"
+      ]
+    },
+    {
+      "type": "tconstruct:multiply_stats",
+      "multipliers": {
+        "tconstruct:durability": 2.0
+      }
+    }
+  ]
+}

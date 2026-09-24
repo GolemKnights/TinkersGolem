@@ -49,7 +49,7 @@ public class TGItems {
             () -> new ModifiableDogGolemArmorItem(UNSTACKABLE_PROPS, GOLEM, getResource(DOG_GOLEM_ARMOR)));
 
     // 炮
-    public static final String CANNON = "slimeball_cannon";
+    public static final String CANNON = "cannon";
     public static final ToolDefinition CANNON_TOOL = ToolDefinition.create(getResource(CANNON));
     public static final ItemObject<ModifiableShoulderCannonItem> cannonItem = ITEMS.register(
             CANNON,

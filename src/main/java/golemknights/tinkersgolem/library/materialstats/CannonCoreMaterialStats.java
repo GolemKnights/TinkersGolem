@@ -19,13 +19,13 @@ import java.util.List;
 import static slimeknights.tconstruct.tools.stats.HandleMaterialStats.formatDurability;
 
 public record CannonCoreMaterialStats(float durability, float drawSpeed, float cannonRange) implements IMaterialStats.ScaledTooltip {
-    public static final MaterialStatsId ID = new MaterialStatsId(TConstruct.getResource("handle"));
+    public static final MaterialStatsId ID = new MaterialStatsId(TinkersGolem.getResource("cannon_core"));
     public static final MaterialStatType<CannonCoreMaterialStats> TYPE = new MaterialStatType<>(
             ID, new CannonCoreMaterialStats(0.0F, 0.0F, 0.0F),
             RecordLoadable.create(
                     FloatLoadable.ANY.defaultField("durability", 0.0F, true, CannonCoreMaterialStats::durability),
-                    FloatLoadable.ANY.defaultField("mining_speed", 0.0F, true, CannonCoreMaterialStats::drawSpeed),
-                    FloatLoadable.ANY.defaultField("melee_speed", 0.0F, true, CannonCoreMaterialStats::cannonRange),
+                    FloatLoadable.ANY.defaultField("draw_speed", 0.0F, true, CannonCoreMaterialStats::drawSpeed),
+                    FloatLoadable.ANY.defaultField("cannon_range", 0.0F, true, CannonCoreMaterialStats::cannonRange),
                     CannonCoreMaterialStats::new
             )
     );

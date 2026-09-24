@@ -1,5 +1,6 @@
 package golemknights.tinkersgolem.data;
 
+import golemknights.tinkersgolem.library.materialstats.CannonCoreMaterialStats;
 import golemknights.tinkersgolem.register.TGItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.ArmorItem;
@@ -14,11 +15,13 @@ import slimeknights.tconstruct.library.tools.definition.module.build.ToolTraitsM
 import slimeknights.tconstruct.library.tools.definition.module.material.DefaultMaterialsModule;
 import slimeknights.tconstruct.library.tools.definition.module.material.MaterialStatsModule;
 import slimeknights.tconstruct.library.tools.definition.module.material.PartStatsModule;
+import slimeknights.tconstruct.library.tools.nbt.MultiplierNBT;
 import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.tools.TinkerToolParts;
 import slimeknights.tconstruct.tools.data.ModifierIds;
 import slimeknights.tconstruct.tools.stats.GripMaterialStats;
+import slimeknights.tconstruct.tools.stats.LimbMaterialStats;
 import slimeknights.tconstruct.tools.stats.StatlessMaterialStats;
 
 import static golemknights.tinkersgolem.TinkersGolem.MODID;
@@ -71,15 +74,17 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 );
         define(TGItems.CANNON_TOOL)
                 .module(
-                        PartStatsModule.parts()
-                                .part(TinkerToolParts.bowLimb)
-                                .part(TinkerToolParts.bowLimb)
+                        MaterialStatsModule.stats()
+                                .stat(CannonCoreMaterialStats.ID)
+                                .stat(LimbMaterialStats.ID)
+                                .stat(LimbMaterialStats.ID)
                                 .build()
                 )
                 .module(
-                        ToolTraitsModule.builder()
-                                .trait(ModifierIds.slimeball)
+                        new MultiplyStatsModule(MultiplierNBT.builder()
+                                .set(ToolStats.DURABILITY, 2)
                                 .build()
+                        )
                 );
     }
 

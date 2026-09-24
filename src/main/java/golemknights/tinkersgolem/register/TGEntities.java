@@ -14,7 +14,6 @@ import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.content.entity.*;
 import golemknights.tinkersgolem.data.TGTagGen;
-import golemknights.tinkersgolem.entity.*;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Mob;
