@@ -23,6 +23,7 @@ import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.registries.DeferredRegister;
@@ -87,13 +88,13 @@ public class TinkersGolem {
 		TABS.register(MOD_BUS);
 		TGTinkersModifiers.registers(MOD_BUS);
 		MOD_BUS.addListener(TGAttributes::setupAttributes);
-		// GDItems.register();
-		// GDModifiers.register();
-		// GDWorldGen.register();
-		// GDTriggers.register();
-		// GDConfig.init();
+		MOD_BUS.addListener(this::setup);
 		OverslimeCap.register();
 		AttackEventHandler.register(3516, new TGAttackListener());
+	}
+
+	private void setup(FMLCommonSetupEvent event) {
+		event.enqueueWork(TGStats::setup);
 	}
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
