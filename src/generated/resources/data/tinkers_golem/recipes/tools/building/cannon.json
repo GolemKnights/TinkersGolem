@@ -1,0 +1,62 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": [
+      {
+        "type": "tconstruct:material_value",
+        "material": {
+          "type": "tconstruct:stat_type",
+          "stat_type": "tconstruct:limb"
+        },
+        "value": 1.0
+      },
+      {
+        "type": "tconstruct:material",
+        "item": "tconstruct:fake_ingot",
+        "material": {
+          "type": "tconstruct:stat_type",
+          "stat_type": "tconstruct:limb"
+        }
+      }
+    ],
+    "B": [
+      {
+        "type": "tconstruct:material_value",
+        "material": {
+          "type": "tconstruct:stat_type",
+          "stat_type": "tconstruct:limb"
+        },
+        "value": 1.0
+      },
+      {
+        "type": "tconstruct:material",
+        "item": "tconstruct:fake_ingot",
+        "material": {
+          "type": "tconstruct:stat_type",
+          "stat_type": "tconstruct:limb"
+        }
+      }
+    ],
+    "C": {
+      "type": "tconstruct:material_value",
+      "material": {
+        "type": "tconstruct:stat_type",
+        "stat_type": "tinkers_golem:cannon_core"
+      },
+      "value": 1.0
+    },
+    "T": {
+      "item": "modulargolems:metal_golem_template"
+    }
+  },
+  "pattern": [
+    " AA",
+    "C  ",
+    "TBB"
+  ],
+  "result": {
+    "item": "tinkers_golem:cannon"
+  },
+  "show_notification": true
+}

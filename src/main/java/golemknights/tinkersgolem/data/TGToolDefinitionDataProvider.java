@@ -12,6 +12,8 @@ import slimeknights.tconstruct.library.tools.definition.module.build.MultiplySta
 import slimeknights.tconstruct.library.tools.definition.module.build.SetStatsModule;
 import slimeknights.tconstruct.library.tools.definition.module.build.ToolSlotsModule;
 import slimeknights.tconstruct.library.tools.definition.module.build.ToolTraitsModule;
+import slimeknights.tconstruct.library.tools.definition.module.display.MaterialToolNameModule;
+import slimeknights.tconstruct.library.tools.definition.module.display.UniqueMaterialToolName;
 import slimeknights.tconstruct.library.tools.definition.module.material.DefaultMaterialsModule;
 import slimeknights.tconstruct.library.tools.definition.module.material.MaterialStatsModule;
 import slimeknights.tconstruct.library.tools.definition.module.material.PartStatsModule;
@@ -33,8 +35,9 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
 
     @Override
     protected void addToolDefinitions() {
+        RandomMaterial tier1Material = RandomMaterial.random().tier(1).build();
         RandomMaterial tier2Material = RandomMaterial.random().tier(1, 2).build();
-        DefaultMaterialsModule metalGolemMaterials = DefaultMaterialsModule.builder().material(new RandomMaterial[]{tier2Material, tier2Material, tier2Material}).build();;
+        RandomMaterial nonHiddenMaterial = RandomMaterial.random().build();
         defineArmor(TGItems.GOLEM).modules(
                 (slots) -> PartStatsModule
                         .armor(slots)
@@ -51,7 +54,11 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                                 .build(),
                         ToolHooks.TOOL_STATS
                 )
-                .module(metalGolemMaterials)
+                .module(
+                        DefaultMaterialsModule.builder()
+                                .material(tier2Material, tier2Material, tier2Material)
+                                .build()
+                )
                 .module(
                         ArmorItem.Type.CHESTPLATE,
                         new SetStatsModule(StatsNBT.builder()
@@ -71,7 +78,8 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                                 .slots(SlotType.UPGRADE, 2)
                                 .slots(SlotType.DEFENSE, 2)
                                 .build()
-                );
+                )
+        ;
         define(TGItems.CANNON_TOOL)
                 .module(
                         MaterialStatsModule.stats()
@@ -81,11 +89,29 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                                 .build()
                 )
                 .module(
+                        DefaultMaterialsModule.builder()
+                                .material(nonHiddenMaterial, tier1Material, tier1Material)
+                                .build()
+                )
+                .module(
                         new MultiplyStatsModule(MultiplierNBT.builder()
                                 .set(ToolStats.DURABILITY, 2)
                                 .build()
                         )
-                );
+                )
+                .module(
+                        ToolSlotsModule.builder()
+                            .slots(SlotType.UPGRADE, 3)
+                            .slots(SlotType.ABILITY, 1)
+                            .build()
+                )
+                .module(
+                        UniqueMaterialToolName.FIRST
+                )
+                .module(
+                        MaterialToolNameModule.REPAIRABLE
+                )
+        ;
     }
 
     @Override

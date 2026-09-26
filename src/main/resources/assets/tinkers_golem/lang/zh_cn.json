@@ -114,5 +114,12 @@
   "tinkers_golem.info.overslime": "黏液覆层: %s/%s",
   "tinkers_golem.max_overslime": "最大黏液覆层",
   "tinkers_golem.overslime_recovery": "黏液覆层回复倍率",
-  "tinkers_golem.tank_capacity": "最大储罐容量"
+  "tinkers_golem.tank_capacity": "最大储罐容量",
+
+  "item.tinkers_golem.cannon": "炮",
+  "item.tinkers_golem.cannon.material.tconstruct.ui_render": "任意炮",
+  "item.tinkers_golem.cannon.material.tinkers_golem.slimecore": "黏液炮",
+  "item.tinkers_golem.cannon.material.tinkers_golem.fluidcore": "流体炮",
+  "item.tinkers_golem.cannon.material.tinkers_golem.arrowcore": "弩炮",
+  "item.tinkers_golem.cannon.material.tinkers_golem.beaconcore": "信标炮"
 }

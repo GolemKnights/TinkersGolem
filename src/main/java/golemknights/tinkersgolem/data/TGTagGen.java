@@ -37,28 +37,30 @@ public class TGTagGen {
 				TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.CHESTPLATE).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem(),
-				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem()
+				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem(),
+				TGItems.cannonItem.asItem()
 		);
 		pvd.addTag(TinkerTags.Items.MULTIPART_TOOL).add(
 				TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.CHESTPLATE).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem(),
-				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem()
+				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem(),
+				TGItems.cannonItem.asItem()
 		);
 		pvd.addTag(TinkerTags.Items.AOE).add(
 				TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.CHESTPLATE).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem(),
-				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem()
+				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem(),
+				TGItems.cannonItem.asItem()
 		);
 		pvd.addTag(TinkerTags.Items.DURABILITY).add(
 				TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.CHESTPLATE).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem(),
-				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem()
+				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem(),
+				TGItems.cannonItem.asItem()
 		);
-		/*pvd.addTag(TinkerTags.Items.BROAD_TOOLS).add(
-		);*/
 		pvd.addTag(TinkerTags.Items.BOOTS).add(
 				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem()
 		);
@@ -78,6 +80,21 @@ public class TGTagGen {
 				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem()
 		);
 		//pvd.addTag(TinkerTags.Items.TRIM);
+		pvd.addTag(TinkerTags.Items.BROAD_RANGED).add(
+				TGItems.cannonItem.asItem()
+		);
+		pvd.addTag(TinkerTags.Items.RANGED_QUICK_CHARGE).add(
+				TGItems.cannonItem.asItem()
+		);
+		pvd.addTag(TinkerTags.Items.RANGED_BOUNCE).add(
+				TGItems.cannonItem.asItem()
+		);
+		pvd.addTag(TinkerTags.Items.RANGED_POWER).add(
+				TGItems.cannonItem.asItem()
+		);
+		pvd.addTag(TinkerTags.Items.LAUNCHERS).add(
+				TGItems.cannonItem.asItem()
+		);
 		//Parts
 		pvd.addTag(TinkerTags.Items.BARTERED_PARTS).add(
 				TGItems.metalGolemPlating.get(ArmorItem.Type.HELMET).asItem(),
