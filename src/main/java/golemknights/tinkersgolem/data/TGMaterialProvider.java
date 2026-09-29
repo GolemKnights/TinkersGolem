@@ -1,6 +1,7 @@
 package golemknights.tinkersgolem.data;
 
 import golemknights.tinkersgolem.library.materialstats.CannonCoreMaterialStats;
+import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -9,10 +10,12 @@ import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataPr
 import slimeknights.tconstruct.library.data.material.AbstractMaterialTraitDataProvider;
 import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
 import slimeknights.tconstruct.shared.TinkerMaterials;
+import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.tools.data.ModifierIds;
 
 import java.util.function.Consumer;
 
+import static golemknights.tinkersgolem.register.TGMaterials.fluidcore;
 import static golemknights.tinkersgolem.register.TGMaterials.slimecore;
 
 public class TGMaterialProvider extends AbstractMaterialDataProvider {
@@ -23,6 +26,7 @@ public class TGMaterialProvider extends AbstractMaterialDataProvider {
     @Override
     protected void addMaterials() {
         material(slimecore).tier(3).sort(1).craftable();
+        material(fluidcore).tier(2).sort(1).craftable();
     }
 
     @Override
@@ -38,6 +42,7 @@ public class TGMaterialProvider extends AbstractMaterialDataProvider {
         @Override
         protected void addMaterialStats() {
             addMaterialStats(slimecore, new CannonCoreMaterialStats(0, 0, 15));
+            addMaterialStats(fluidcore, new CannonCoreMaterialStats(0, 0, 15));
         }
 
         @Override
@@ -54,6 +59,7 @@ public class TGMaterialProvider extends AbstractMaterialDataProvider {
         @Override
         protected void addMaterialTraits() {
             addDefaultTraits(slimecore, ModifierIds.slimeball);
+            addDefaultTraits(fluidcore, TGTinkersModifiers.spewing);
         }
 
         @Override
@@ -72,6 +78,7 @@ public class TGMaterialProvider extends AbstractMaterialDataProvider {
         protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
             String folder = "tools/materials/";
             materialRecipe(consumer, slimecore, Ingredient.of(TinkerMaterials.slimesteel.getBlockItemTag()), 1, 1, folder + "slimecore");
+            materialRecipe(consumer, fluidcore, Ingredient.of(TinkerSmeltery.searedFluidCannon), 1, 1, folder + "fluidcore");
         }
 
         @Override

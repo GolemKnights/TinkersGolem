@@ -131,6 +131,7 @@ public class TinkersGolem {
 		gen.addProvider(server, new TGMaterialProvider.Stats(output, materials));
 		gen.addProvider(server, new TGMaterialProvider.Traits(output, materials));
 		gen.addProvider(server, new TGMaterialProvider.Recipes(output));
+		gen.addProvider(server, new TGTinkersModifierProvider(output));
 	}
 
 	/**

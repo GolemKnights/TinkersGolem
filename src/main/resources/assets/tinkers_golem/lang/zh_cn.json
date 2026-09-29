@@ -121,5 +121,8 @@
   "item.tinkers_golem.cannon.material.tinkers_golem.slimecore": "黏液炮",
   "item.tinkers_golem.cannon.material.tinkers_golem.fluidcore": "流体炮",
   "item.tinkers_golem.cannon.material.tinkers_golem.arrowcore": "弩炮",
-  "item.tinkers_golem.cannon.material.tinkers_golem.beaconcore": "信标炮"
+  "item.tinkers_golem.cannon.material.tinkers_golem.beaconcore": "信标炮",
+  "modifier.tinkers_golem.spewing": "喷射",
+  "modifier.tinkers_golem.spewing.flavor": "你家羊驼多大口径的？",
+  "modifier.tinkers_golem.spewing.description": "可从储罐中喷出流体，并对目标造成效果。受炮的数值影响。"
 }
