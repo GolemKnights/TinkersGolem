@@ -78,13 +78,19 @@ public record SpewingModule(LevelingInt shots) implements ModifierModule, Should
                                 int primaryIndex = shots / 2;
                                 Level world = golem.level();
 
+                                Vec3 pos = CannonPoseUtil.FLAME_THROWER.getOrigin(golem, hand);
+
+                                Vec3 dst = target.position().add(0.0F, target.getBbHeight() / 2.0F,
+                                        0.0F);
+                                Vec3 dir = dst.subtract(pos).normalize();
+
                                 for (int shotIndex = 0; shotIndex < shots; ++shotIndex) {
                                     FluidEffectProjectile spit = new FluidEffectProjectile(world, golem, new FluidStack(fluid, amount), power);
                                     spit.setWaterInertia(ConditionalStatModifierHook.getModifiedStat(tool, golem, ToolStats.WATER_INERTIA));
                                     Vec3 upVector = golem.getUpVector(1.0F);
                                     float angle = startAngle + (float) (10 * shotIndex);
                                     Vector3f targetVector = golem.getViewVector(1.0F).toVector3f().rotate((new Quaternionf()).setAngleAxis((double) angle * Math.PI / 180.0, upVector.x, upVector.y, upVector.z));
-                                    spit.shoot(targetVector.x(), targetVector.y(), targetVector.z(), velocity, inaccuracy);
+                                    spit.shoot(dir.x(), dir.y(), dir.z(), velocity, inaccuracy);
                                     EntityModifierCapability.getCapability(spit).setModifiers(tool.getModifiers());
                                     ModDataNBT arrowData = PersistentDataCapability.getOrWarn(spit);
 

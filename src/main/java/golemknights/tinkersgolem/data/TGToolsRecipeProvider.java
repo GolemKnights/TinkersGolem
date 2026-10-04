@@ -10,14 +10,13 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.crafting.CompoundIngredient;
-import slimeknights.mantle.data.predicate.IJsonPredicate;
 import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
 import slimeknights.tconstruct.library.data.recipe.IToolRecipeHelper;
-import slimeknights.tconstruct.library.json.predicate.material.MaterialPredicate;
 import slimeknights.tconstruct.library.json.predicate.material.MaterialStatTypePredicate;
 import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
 import slimeknights.tconstruct.library.recipe.ingredient.MaterialIngredient;
 import slimeknights.tconstruct.library.recipe.ingredient.MaterialValueIngredient;
+import slimeknights.tconstruct.library.recipe.material.MaterialsConsumerBuilder;
 import slimeknights.tconstruct.library.recipe.tinkerstation.building.ToolBuildingRecipeBuilder;
 import slimeknights.tconstruct.tools.TinkerToolParts;
 import slimeknights.tconstruct.tools.stats.LimbMaterialStats;
@@ -58,7 +57,7 @@ public class TGToolsRecipeProvider extends BaseRecipeProvider implements IMateri
                 .define('A', material.apply(LimbMaterialStats.ID))
                 .define('B', material.apply(LimbMaterialStats.ID))
                 .unlockedBy("has_template", has(GolemItems.GOLEM_TEMPLATE.get()))
-                .save(consumer, this.prefix(id(TGItems.cannonItem.get()), folder))
+                .save(MaterialsConsumerBuilder.shaped("CAB").build(consumer), this.prefix(id(TGItems.cannonItem.get()), folder))
         ;
     }
     private void addPartRecipes(Consumer<FinishedRecipe> consumer) {

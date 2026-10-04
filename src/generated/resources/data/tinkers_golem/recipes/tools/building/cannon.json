@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "tconstruct:crafting_shaped_materials",
   "category": "equipment",
   "key": {
     "A": [
@@ -50,6 +50,7 @@
       "item": "modulargolems:metal_golem_template"
     }
   },
+  "parts": "CAB",
   "pattern": [
     " AA",
     "C  ",

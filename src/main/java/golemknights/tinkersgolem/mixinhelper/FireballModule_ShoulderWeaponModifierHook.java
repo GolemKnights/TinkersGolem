@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
 import dev.xkmc.modulargolems.content.item.ranged.CannonPoseUtil;
 import golemknights.tinkersgolem.library.hooks.ShoulderWeaponModifierHook;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -19,6 +20,7 @@ import slimeknights.tconstruct.library.modifiers.fluid.entity.DamageFluidEffect.
 import slimeknights.tconstruct.library.modifiers.hook.build.ConditionalStatModifierHook;
 import slimeknights.tconstruct.library.tools.capability.EntityModifierCapability;
 import slimeknights.tconstruct.library.tools.capability.PersistentDataCapability;
+import slimeknights.tconstruct.library.tools.helper.ModifierUtil;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
@@ -79,8 +81,14 @@ public interface FireballModule_ShoulderWeaponModifierHook extends ShoulderWeapo
                         float power = ConditionalStatModifierHook.getModifiedStat(tool, entity,
                                 ToolStats.PROJECTILE_DAMAGE);
                         float velocity = ConditionalStatModifierHook.getModifiedStat(tool, entity, ToolStats.VELOCITY);
+                        float inaccuracy = ModifierUtil.getInaccuracy(tool, entity) / 16.0F;
+                        RandomSource random = entity.getRandom();
 
-                        CustomFireball projectile = new CustomFireball(level, entity, dir.x, dir.y, dir.z);
+                        CustomFireball projectile = new CustomFireball(level, entity,
+                                dir.x + random.nextGaussian() * inaccuracy,
+                                dir.y,
+                                dir.z + random.nextGaussian() * inaccuracy
+                        );
                         projectile.xPower *= velocity;
                         projectile.yPower *= velocity;
                         projectile.zPower *= velocity;
