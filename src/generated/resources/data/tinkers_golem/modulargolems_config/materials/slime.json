@@ -20,7 +20,9 @@
     }
   },
   "modifiers": {
-    "tinkers_golem:earthslime": {},
+    "tinkers_golem:earthslime": {
+      "tinkers_golem:overgrowth": 2
+    },
     "tinkers_golem:enderslime": {
       "tinkers_golem:overteleport": 1
     },
@@ -219,41 +221,41 @@
   },
   "stats": {
     "tinkers_golem:earthslime": {
-      "modulargolems:attack": 15.0,
-      "modulargolems:jump_strength": 1.0,
-      "modulargolems:max_health": 50.0,
-      "modulargolems:max_overslime": 70.0,
-      "modulargolems:speed": 0.2
+      "modulargolems:attack": 10.0,
+      "modulargolems:max_health": 20.0,
+      "modulargolems:max_overslime": 120.0
     },
     "tinkers_golem:enderslime": {
       "modulargolems:attack": 10.0,
-      "modulargolems:max_health": 30.0,
-      "modulargolems:max_overslime": 50.0,
+      "modulargolems:max_health": 20.0,
+      "modulargolems:max_overslime": 100.0,
       "modulargolems:range": 1.0,
       "modulargolems:tank_capacity": 8.0
     },
     "tinkers_golem:honey": {
-      "modulargolems:attack": 12.0,
-      "modulargolems:max_health": 30.0,
-      "modulargolems:max_overslime": 70.0,
+      "modulargolems:attack": 10.0,
+      "modulargolems:max_health": 40.0,
+      "modulargolems:max_overslime": 50.0,
       "modulargolems:speed": -0.2
     },
     "tinkers_golem:ichor": {
       "modulargolems:attack": 10.0,
-      "modulargolems:max_health": 40.0,
-      "modulargolems:max_overslime": 50.0,
+      "modulargolems:max_health": 20.0,
+      "modulargolems:max_overslime": 100.0,
       "modulargolems:speed": 0.6
     },
     "tinkers_golem:magma": {
-      "modulargolems:attack": 20.0,
-      "modulargolems:max_health": 40.0,
-      "modulargolems:max_overslime": 50.0
+      "modulargolems:armor": 12.0,
+      "modulargolems:attack": 15.0,
+      "modulargolems:jump_strength": 1.0,
+      "modulargolems:max_health": 20.0,
+      "modulargolems:max_overslime": 80.0
     },
     "tinkers_golem:skyslime": {
       "modulargolems:attack": 10.0,
       "modulargolems:jump_strength": 2.0,
-      "modulargolems:max_health": 40.0,
-      "modulargolems:max_overslime": 50.0
+      "modulargolems:max_health": 20.0,
+      "modulargolems:max_overslime": 100.0
     }
   }
 }

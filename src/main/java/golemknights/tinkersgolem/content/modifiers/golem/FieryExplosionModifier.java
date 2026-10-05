@@ -5,9 +5,11 @@ import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.modifier.base.GolemModifier;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.AreaEffectCloud;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.entity.EntityTypeTest;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import slimeknights.mantle.util.CombatHelper;
 import slimeknights.tconstruct.common.TinkerDamageTypes;
@@ -26,22 +28,34 @@ public class FieryExplosionModifier extends GolemModifier {
             LivingEntity target = event.getEntity();
             if (target.isOnFire()) {
                 float damage = event.getAmount();
+                int radius = 3 * level;
                 Level world = target.level();
-                new CustomExplosion(world, target.position(), 3 * level, entity,
+                new CustomExplosion(world, target.position(), radius, entity,
                         CustomExplosion.DEFAULT_ENTITY_PREDICATE.and(e -> e != entity), damage,
                         CombatHelper.damageSource(TinkerDamageTypes.MOB_EXPLOSION.melee(), entity), 1,
                         null, true, Explosion.BlockInteraction.KEEP, true
                 ).handleServer();
+                for (Entity entity1: world.getEntities(target, target.getBoundingBox().inflate(radius),
+                        e -> e instanceof LivingEntity l && l.isAlive() && !l.equals(entity)
+                )) {
+                    if (entity1 instanceof LivingEntity living) {
+                        for (MobEffectInstance effect: target.getActiveEffects()) {
+                            living.addEffect(new MobEffectInstance(effect));
+                        }
+                    }
+                }
+                /*
                 AreaEffectCloud cloud = new AreaEffectCloud(world, target.getX(), target.getY(), target.getZ());
                 cloud.setRadius(3 * level);
                 cloud.setDuration(30 * 20);
                 cloud.setRadiusPerTick(-0.5f / 10);
                 cloud.setOwner(entity);
-                for (MobEffectInstance effect: target.getActiveEffects()){
+                for (MobEffectInstance effect: target.getActiveEffects()) {
                     cloud.addEffect(new MobEffectInstance(effect));
                 }
                 target.removeAllEffects();
                 world.addFreshEntity(cloud);
+                */
             }
             recursive = false;
         }
