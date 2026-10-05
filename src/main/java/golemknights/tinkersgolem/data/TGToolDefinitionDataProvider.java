@@ -46,25 +46,9 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                         .part(TinkerToolParts.plating, 0.2F)
                 )
                 .module(
-                        ArmorItem.Type.CHESTPLATE,
-                        MaterialStatsModule.stats()
-                                .stat(StatlessMaterialStats.MAILLE)
-                                .stat(GripMaterialStats.ID, 0.5F)
-                                .stat(GripMaterialStats.ID, 0.5F)
-                                .build(),
-                        ToolHooks.TOOL_STATS
-                )
-                .module(
                         DefaultMaterialsModule.builder()
                                 .material(tier2Material, tier2Material, tier2Material)
                                 .build()
-                )
-                .module(
-                        ArmorItem.Type.CHESTPLATE,
-                        new SetStatsModule(StatsNBT.builder()
-                                .set(ToolStats.ATTACK_DAMAGE, 3)
-                                .build()
-                        )
                 )
                 .modules((slots) -> MultiplyStatsModule
                         .armor(slots)
@@ -72,6 +56,7 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                         .setAll(ToolStats.ARMOR, 2)
                         .setAll(ToolStats.ARMOR_TOUGHNESS, 3)
                         .setAll(ToolStats.KNOCKBACK_RESISTANCE, 2)
+                        .set(ArmorItem.Type.CHESTPLATE, ToolStats.ATTACK_DAMAGE, 0.6f)
                 )
                 .module(
                         ToolSlotsModule.builder()

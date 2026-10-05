@@ -19,24 +19,6 @@
       "primary_part": 0
     },
     {
-      "type": "tconstruct:material_stats",
-      "hooks": [
-        "tconstruct:tool_stats"
-      ],
-      "primary_part": 0,
-      "stat_types": [
-        "tconstruct:maille",
-        {
-          "scale": 0.5,
-          "stat": "tconstruct:grip"
-        },
-        {
-          "scale": 0.5,
-          "stat": "tconstruct:grip"
-        }
-      ]
-    },
-    {
       "type": "tconstruct:default_materials",
       "materials": [
         {
@@ -63,16 +45,11 @@
       ]
     },
     {
-      "type": "tconstruct:base_stats",
-      "stats": {
-        "tconstruct:attack_damage": 3.0
-      }
-    },
-    {
       "type": "tconstruct:multiply_stats",
       "multipliers": {
         "tconstruct:armor": 2.0,
         "tconstruct:armor_toughness": 3.0,
+        "tconstruct:attack_damage": 0.6,
         "tconstruct:durability": 4.0,
         "tconstruct:knockback_resistance": 2.0
       }
