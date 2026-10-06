@@ -1,0 +1,12 @@
+{
+  "tool": "tinkers_golem:metal_golem_gloves",
+  "text": [
+    { "text": "你以为是什么好东西，其实只是一块升级的钢板。" }
+  ],
+  "properties": [
+    "专用于大型金属傀儡",
+    "2 升级槽",
+    "2 防御槽",
+    "三种材料特性"
+  ]
+}
