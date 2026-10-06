@@ -2,21 +2,22 @@ package golemknights.tinkersgolem.client.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-
 import dev.xkmc.modulargolems.content.client.armor.GolemModelPath;
 import dev.xkmc.modulargolems.content.entity.metalgolem.GolemEquipmentRenderer;
 import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
 import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemModel;
 import dev.xkmc.modulargolems.content.item.equipments.GolemItemSpecialRenderer;
+import golemknights.tinkersgolem.content.item.armor.ModifiableMetalGolemArmorItem;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import golemknights.tinkersgolem.content.item.armor.ModifiableMetalGolemArmorItem;
+import slimeknights.tconstruct.library.client.armor.ArmorModelManager.ArmorModel;
 import slimeknights.tconstruct.library.client.armor.texture.ArmorTextureSupplier;
 import slimeknights.tconstruct.library.client.armor.texture.ArmorTextureSupplier.ArmorTexture;
+import slimeknights.tconstruct.library.client.armor.texture.TintedArmorTexture;
 
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
@@ -24,9 +25,6 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 import static golemknights.tinkersgolem.TinkersGolem.LOGGER;
-
-import slimeknights.tconstruct.library.client.armor.ArmorModelManager.ArmorModel;
-import slimeknights.tconstruct.library.client.armor.texture.TintedArmorTexture;
 
 public class ModifiableMetalGolemArmorRender implements GolemItemSpecialRenderer {
 
@@ -53,8 +51,8 @@ public class ModifiableMetalGolemArmorRender implements GolemItemSpecialRenderer
             float pTick, GolemEquipmentRenderer renderer) {
         if (stack.getItem() instanceof ModifiableMetalGolemArmorItem mgaitem) {
             GolemModelPath gmpath = GolemModelPath.get(mgaitem.getModelPath());
-            MetalGolemModel model = (MetalGolemModel) renderer.map.get(gmpath.models());
-            model.copyFrom((MetalGolemModel) renderer.getParentModel());
+            MetalGolemModel model = renderer.map.get(gmpath.models());
+            model.copyFrom(renderer.getParentModel());
             ArmorModel armorModel = mgaitem.getModel(stack);
             var registryAccess = entity.level().registryAccess();
             for (ArmorTextureSupplier textureSupplier : armorModel.layers()) {

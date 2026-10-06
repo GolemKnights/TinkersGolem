@@ -5,6 +5,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import slimeknights.tconstruct.library.client.armor.texture.MaterialArmorTextureSupplier;
 import slimeknights.tconstruct.library.client.data.AbstractArmorModelProvider;
+
 import static golemknights.tinkersgolem.TinkersGolem.getResource;
 
 public class TGArmorModelProvider extends AbstractArmorModelProvider {

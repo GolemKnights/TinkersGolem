@@ -1,7 +1,5 @@
 package golemknights.tinkersgolem.mixin;
 
-import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
-import golemknights.tinkersgolem.register.TGGolemModifiers;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;

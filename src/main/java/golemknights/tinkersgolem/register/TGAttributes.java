@@ -14,7 +14,6 @@ import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.registries.RegistryObject;
-import slimeknights.tconstruct.shared.TinkerAttributes;
 
 import java.util.function.Supplier;
 

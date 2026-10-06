@@ -1,15 +1,14 @@
 package golemknights.tinkersgolem.mixin;
 
-import java.util.Arrays;
-
+import golemknights.tinkersgolem.mixinhelper.FireballModule_ShoulderWeaponModifierHook;
+import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
-
-import golemknights.tinkersgolem.mixinhelper.FireballModule_ShoulderWeaponModifierHook;
-import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import slimeknights.tconstruct.library.module.ModuleHook;
 import slimeknights.tconstruct.tools.modules.interaction.FireballModule;
+
+import java.util.Arrays;
 
 @Mixin(value = FireballModule.class, remap = false)
 public abstract class FireballModuleMixin implements FireballModule_ShoulderWeaponModifierHook {

@@ -1,9 +1,5 @@
 package golemknights.tinkersgolem.mixinhelper;
 
-import java.util.function.Predicate;
-
-import javax.annotation.Nullable;
-
 import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
 import dev.xkmc.modulargolems.content.item.ranged.CannonPoseUtil;
 import golemknights.tinkersgolem.library.hooks.ShoulderWeaponModifierHook;
@@ -28,6 +24,9 @@ import slimeknights.tconstruct.library.tools.nbt.ModifierNBT;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import slimeknights.tconstruct.tools.entity.CustomFireball;
 import slimeknights.tconstruct.tools.modules.interaction.FireballModule;
+
+import javax.annotation.Nullable;
+import java.util.function.Predicate;
 
 public interface FireballModule_ShoulderWeaponModifierHook extends ShoulderWeaponModifierHook {
 

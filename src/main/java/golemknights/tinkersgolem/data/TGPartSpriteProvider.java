@@ -3,8 +3,6 @@ package golemknights.tinkersgolem.data;
 import golemknights.tinkersgolem.TinkersGolem;
 import net.minecraft.world.item.ArmorItem;
 import slimeknights.tconstruct.library.client.data.material.AbstractPartSpriteProvider;
-import slimeknights.tconstruct.library.materials.stats.MaterialStatType;
-import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
 import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 
 public class TGPartSpriteProvider extends AbstractPartSpriteProvider {

@@ -2,8 +2,8 @@ package golemknights.tinkersgolem.content.modifiers.slime;
 
 import dev.xkmc.modulargolems.content.core.StatFilterType;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
-import golemknights.tinkersgolem.data.TGConfig;
 import golemknights.tinkersgolem.content.entity.SlimeGolemEntity;
+import golemknights.tinkersgolem.data.TGConfig;
 import golemknights.tinkersgolem.events.GolemOverslimeEvents;
 import golemknights.tinkersgolem.register.TGAttributes;
 import net.minecraft.nbt.CompoundTag;

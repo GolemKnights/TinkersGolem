@@ -1,7 +1,6 @@
 package golemknights.tinkersgolem.content.modifiers;
 
 import dev.xkmc.l2library.base.effects.EffectUtil;
-import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;

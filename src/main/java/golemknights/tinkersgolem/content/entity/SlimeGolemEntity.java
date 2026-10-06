@@ -1,5 +1,6 @@
 package golemknights.tinkersgolem.content.entity;
 
+import com.google.common.collect.*;
 import dev.xkmc.l2library.util.math.MathHelper;
 import dev.xkmc.l2serial.serialization.SerialClass;
 import dev.xkmc.modulargolems.content.config.GolemMaterial;
@@ -59,13 +60,6 @@ import slimeknights.tconstruct.library.modifiers.fluid.FluidEffects;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.ImmutableSetMultimap;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Multimap;
-
 import java.util.*;
 
 import static slimeknights.tconstruct.tools.modifiers.ability.fluid.UseFluidOnHitModifier.spawnParticles;

@@ -2,7 +2,6 @@ package golemknights.tinkersgolem.register;
 
 import golemknights.tinkersgolem.TinkersGolem;
 import slimeknights.tconstruct.library.materials.definition.MaterialId;
-import slimeknights.tconstruct.library.materials.definition.MaterialVariantId;
 
 public class TGMaterials {
     public static final MaterialId slimecore = id("slimecore");

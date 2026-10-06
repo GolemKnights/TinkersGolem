@@ -1,11 +1,11 @@
 package golemknights.tinkersgolem.mixinhelper;
 
+import net.minecraft.world.item.ItemStack;
+import slimeknights.tconstruct.tools.modules.interaction.FireballModule;
+
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.reflect.Method;
-
-import net.minecraft.world.item.ItemStack;
-import slimeknights.tconstruct.tools.modules.interaction.FireballModule;
 
 public class FireballTypeHelper {
     /** 缓存的 getFireballType 方法句柄 */
