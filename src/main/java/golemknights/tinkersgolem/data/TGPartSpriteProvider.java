@@ -14,6 +14,7 @@ public class TGPartSpriteProvider extends AbstractPartSpriteProvider {
 
     @Override
     protected void addAllSpites() {
+        String gloves = "gloves";
         for (ArmorItem.Type slot : ArmorItem.Type.values()) {
             buildTool("armor/metal_golem/" + slot.getName()).disallowAnimated()
                     .addBreakablePart("huge_plating", PlatingMaterialStats.TYPES.get(slot.ordinal()).getId())
@@ -25,6 +26,13 @@ public class TGPartSpriteProvider extends AbstractPartSpriteProvider {
             addPart(slot.getName() + "_metal_golem_plating",
                     PlatingMaterialStats.TYPES.get(slot.ordinal()).getId());
         }
+        buildTool("armor/metal_golem/" + gloves).disallowAnimated()
+                .addBreakablePart("huge_plating", PlatingMaterialStats.TYPES.get(1).getId())
+                .addBreakablePart("small_plating1", PlatingMaterialStats.TYPES.get(1).getId())
+                .addBreakablePart("small_plating2", PlatingMaterialStats.TYPES.get(1).getId());
+        addTexture("tinker_armor/metal_golem_"+gloves+"/huge_plating_armor", PlatingMaterialStats.TYPES.get(1).getId()).disallowAnimated();
+        addTexture("tinker_armor/metal_golem_"+gloves+"/small_plating1_armor", PlatingMaterialStats.TYPES.get(1).getId()).disallowAnimated();
+        addTexture("tinker_armor/metal_golem_"+gloves+"/small_plating2_armor", PlatingMaterialStats.TYPES.get(1).getId()).disallowAnimated();
     }
 
     @Override

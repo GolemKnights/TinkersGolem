@@ -1,0 +1,66 @@
+{
+  "modules": [
+    {
+      "type": "tconstruct:part_stats",
+      "parts": [
+        {
+          "item": "tinkers_golem:chestplate_metal_golem_plating",
+          "scale": 0.4
+        },
+        {
+          "item": "tconstruct:large_plate",
+          "scale": 0.3
+        },
+        {
+          "item": "tconstruct:large_plate",
+          "scale": 0.3
+        }
+      ],
+      "primary_part": 0
+    },
+    {
+      "type": "tconstruct:default_materials",
+      "materials": [
+        {
+          "type": "tconstruct:random",
+          "tier": {
+            "max": 2,
+            "min": 1
+          }
+        },
+        {
+          "type": "tconstruct:random",
+          "tier": 1
+        },
+        {
+          "type": "tconstruct:random",
+          "tier": 1
+        }
+      ]
+    },
+    {
+      "type": "tconstruct:base_stats",
+      "stats": {
+        "tconstruct:attack_damage": 2.0
+      }
+    },
+    {
+      "type": "tconstruct:multiply_stats",
+      "multipliers": {
+        "tconstruct:armor": 2.0,
+        "tconstruct:armor_toughness": 3.0,
+        "tconstruct:attack_damage": 1.8,
+        "tconstruct:durability": 4.0,
+        "tconstruct:knockback_resistance": 2.0
+      }
+    },
+    {
+      "type": "tconstruct:modifier_slots",
+      "slots": {
+        "abilities": 1,
+        "defense": 1,
+        "upgrades": 1
+      }
+    }
+  ]
+}

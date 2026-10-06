@@ -36,6 +36,9 @@
         },
         {
           "item": "tconstruct:boots_plating"
+        },
+        {
+          "item": "tconstruct:large_plate"
         }
       ],
       "icon": "tconstruct:plating",
@@ -56,6 +59,9 @@
         },
         {
           "item": "tconstruct:boots_plating"
+        },
+        {
+          "item": "tconstruct:large_plate"
         }
       ],
       "icon": "tconstruct:plating",

@@ -44,6 +44,7 @@ public class TGTabs {
                                 acceptCast(output, TGItems.bootsMetalGolemPlatingCast);
                                 TGItems.metalGolemPlating.forEach((item) -> acceptPart(output::accept, item));
                                 TGItems.metalGolemArmor.forEach((item) -> acceptTool(output::accept, item));
+                                acceptTool(output::accept, TGItems.metalGolemGloves.get());
                                 acceptTool(output::accept, TGItems.cannonItem.get());
                             }
                     )

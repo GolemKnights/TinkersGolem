@@ -98,6 +98,16 @@ public enum TGLang {
 		pvd.add("item." + TinkersGolem.MODID + ".metal_golem_chestplate", "Metal Golem Chestplate");
 		pvd.add("item." + TinkersGolem.MODID + ".metal_golem_leggings", "Metal Golem Leggings");
 		pvd.add("item." + TinkersGolem.MODID + ".metal_golem_boots", "Metal Golem Boots");
+		pvd.add("item." + TinkersGolem.MODID + ".metal_golem_gloves", "Metal Golem Gloves");
+		pvd.add("item." + TinkersGolem.MODID + ".cannon", "Cannon");
+		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tconstruct.ui_render", "Cannon");
+		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.slimecore", "Slimecannon");
+		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.fluidcore", "Fluidcannon");
+		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.arrowcore", "Cannon");
+		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.beaconcore", "Cannon");
+		pvd.add("modifier." + TinkersGolem.MODID + ".spewing", "Spewing");
+		pvd.add("modifier." + TinkersGolem.MODID + ".spewing.flavor", "");
+		pvd.add("modifier." + TinkersGolem.MODID + ".spewing.description", "");
 
 		for (var type : SlimeGolemPartType.values()) {
 			String name = type.name().toLowerCase(Locale.ROOT);

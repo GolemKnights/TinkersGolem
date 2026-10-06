@@ -48,6 +48,11 @@ public class TGToolsRecipeProvider extends BaseRecipeProvider implements IMateri
                         .layoutSlot(TGItems.METAL_GOLEM_ARMOR_PATTERN)
                         .save(consumer, this.prefix(id(item), metalGolemFolder))
         );
+        ToolBuildingRecipeBuilder.toolBuildingRecipe(TGItems.metalGolemGloves.get())
+                .addExtraRequirement(Ingredient.of(GolemItems.GOLEM_TEMPLATE.get()))
+                .addExtraRequirement(Ingredient.of(GolemItems.GOLEM_TEMPLATE.get()))
+                .layoutSlot(TGItems.METAL_GOLEM_ARMOR_PATTERN)
+                .save(consumer, this.prefix(id(TGItems.metalGolemGloves.get()), metalGolemFolder));
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, TGItems.cannonItem)
                 .pattern(" AA")
                 .pattern("C  ")

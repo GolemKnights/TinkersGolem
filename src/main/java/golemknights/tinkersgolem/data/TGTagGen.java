@@ -30,7 +30,8 @@ public class TGTagGen {
 				TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.CHESTPLATE).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem(),
-				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem()
+				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem(),
+				TGItems.metalGolemGloves.asItem()
 		);
 		//Tools
 		pvd.addTag(TinkerTags.Items.BONUS_SLOTS).add(
@@ -38,6 +39,7 @@ public class TGTagGen {
 				TGItems.metalGolemArmor.get(ArmorItem.Type.CHESTPLATE).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem(),
+				TGItems.metalGolemGloves.asItem(),
 				TGItems.cannonItem.asItem()
 		);
 		pvd.addTag(TinkerTags.Items.MULTIPART_TOOL).add(
@@ -45,13 +47,10 @@ public class TGTagGen {
 				TGItems.metalGolemArmor.get(ArmorItem.Type.CHESTPLATE).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem(),
+				TGItems.metalGolemGloves.asItem(),
 				TGItems.cannonItem.asItem()
 		);
 		pvd.addTag(TinkerTags.Items.AOE).add(
-				TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).asItem(),
-				TGItems.metalGolemArmor.get(ArmorItem.Type.CHESTPLATE).asItem(),
-				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem(),
-				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem(),
 				TGItems.cannonItem.asItem()
 		);
 		pvd.addTag(TinkerTags.Items.DURABILITY).add(
@@ -59,6 +58,7 @@ public class TGTagGen {
 				TGItems.metalGolemArmor.get(ArmorItem.Type.CHESTPLATE).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem(),
+				TGItems.metalGolemGloves.asItem(),
 				TGItems.cannonItem.asItem()
 		);
 		pvd.addTag(TinkerTags.Items.BOOTS).add(
@@ -68,7 +68,8 @@ public class TGTagGen {
 				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem()
 		);
 		pvd.addTag(TinkerTags.Items.CHESTPLATES).add(
-				TGItems.metalGolemArmor.get(ArmorItem.Type.CHESTPLATE).asItem()
+				TGItems.metalGolemArmor.get(ArmorItem.Type.CHESTPLATE).asItem(),
+				TGItems.metalGolemGloves.asItem()
 		);
 		pvd.addTag(TinkerTags.Items.HELMETS).add(
 				TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).asItem()
@@ -77,7 +78,8 @@ public class TGTagGen {
 				TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.CHESTPLATE).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem(),
-				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem()
+				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem(),
+				TGItems.metalGolemGloves.asItem()
 		);
 		//pvd.addTag(TinkerTags.Items.TRIM);
 		pvd.addTag(TinkerTags.Items.BROAD_RANGED).add(

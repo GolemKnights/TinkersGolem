@@ -56,12 +56,50 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                         .setAll(ToolStats.ARMOR, 2)
                         .setAll(ToolStats.ARMOR_TOUGHNESS, 3)
                         .setAll(ToolStats.KNOCKBACK_RESISTANCE, 2)
-                        .set(ArmorItem.Type.CHESTPLATE, ToolStats.ATTACK_DAMAGE, 0.6f)
+                        .set(ArmorItem.Type.CHESTPLATE, ToolStats.ATTACK_DAMAGE, 0.8f)
                 )
                 .module(
                         ToolSlotsModule.builder()
                                 .slots(SlotType.UPGRADE, 2)
                                 .slots(SlotType.DEFENSE, 2)
+                                .build()
+                )
+        ;
+        define(TGItems.GLOVES_TOOL)
+                .module(
+                        PartStatsModule
+                                .parts()
+                                .part(TGItems.metalGolemPlating.get(ArmorItem.Type.CHESTPLATE), 0.4F)
+                                .part(TinkerToolParts.largePlate, 0.3F)
+                                .part(TinkerToolParts.largePlate, 0.3F)
+                                .build()
+                )
+                .module(
+                        DefaultMaterialsModule.builder()
+                                .material(tier2Material, tier1Material, tier1Material)
+                                .build()
+                )
+                .module(
+                        new SetStatsModule(StatsNBT.builder()
+                                .set(ToolStats.ATTACK_DAMAGE, 2)
+                                .build()
+                        )
+                )
+                .module(
+                        new MultiplyStatsModule(MultiplierNBT.builder()
+                                .set(ToolStats.DURABILITY, 4)
+                                .set(ToolStats.ARMOR, 2)
+                                .set(ToolStats.ARMOR_TOUGHNESS, 3)
+                                .set(ToolStats.KNOCKBACK_RESISTANCE, 2)
+                                .set(ToolStats.ATTACK_DAMAGE, 1.8f)
+                                .build()
+                        )
+                )
+                .module(
+                        ToolSlotsModule.builder()
+                                .slots(SlotType.UPGRADE, 1)
+                                .slots(SlotType.DEFENSE, 1)
+                                .slots(SlotType.ABILITY, 1)
                                 .build()
                 )
         ;

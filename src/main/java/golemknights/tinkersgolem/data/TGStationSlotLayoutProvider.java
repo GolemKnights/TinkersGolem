@@ -8,7 +8,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import slimeknights.tconstruct.library.data.tinkering.AbstractStationSlotLayoutProvider;
 import slimeknights.tconstruct.library.tools.layout.Patterns;
+import slimeknights.tconstruct.library.tools.part.ToolPartItem;
 import slimeknights.tconstruct.tools.TinkerToolParts;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TGStationSlotLayoutProvider extends AbstractStationSlotLayoutProvider {
     public TGStationSlotLayoutProvider(PackOutput packOutput) {
@@ -17,6 +21,8 @@ public class TGStationSlotLayoutProvider extends AbstractStationSlotLayoutProvid
 
     @Override
     protected void addLayouts() {
+        List<ToolPartItem> platings = new ArrayList<>(TinkerToolParts.plating.values());
+        platings.add(TinkerToolParts.largePlate.get());
         this.definePattern(TGItems.METAL_GOLEM_ARMOR_PATTERN)
                 .sortIndex(17)
                 .translationKey(TinkersGolem.makeTranslationKey("gui", "metal_golem_armor"))
@@ -27,11 +33,11 @@ public class TGStationSlotLayoutProvider extends AbstractStationSlotLayoutProvid
                 ).addInputPattern(
                         Patterns.PLATING,
                         23, 29,
-                        Ingredient.of(TinkerToolParts.plating.values().toArray(new Item[0]))
+                        Ingredient.of(platings.toArray(new Item[0]))
                 ).addInputPattern(
                         Patterns.PLATING,
                         43, 29,
-                        Ingredient.of(TinkerToolParts.plating.values().toArray(new Item[0]))
+                        Ingredient.of(platings.toArray(new Item[0]))
                 ).addInputPattern(
                         TGItems.GOLEM_TEMPLATE_PATTERN,
                         13, 49,

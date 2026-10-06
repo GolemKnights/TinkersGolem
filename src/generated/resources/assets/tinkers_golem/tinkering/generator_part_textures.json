@@ -78,6 +78,21 @@
     },
     {
       "allow_animated": false,
+      "path": "tinkers_golem:tinker_armor/metal_golem_gloves/huge_plating_armor",
+      "stat_type": "tconstruct:plating_chestplate"
+    },
+    {
+      "allow_animated": false,
+      "path": "tinkers_golem:tinker_armor/metal_golem_gloves/small_plating1_armor",
+      "stat_type": "tconstruct:plating_chestplate"
+    },
+    {
+      "allow_animated": false,
+      "path": "tinkers_golem:tinker_armor/metal_golem_gloves/small_plating2_armor",
+      "stat_type": "tconstruct:plating_chestplate"
+    },
+    {
+      "allow_animated": false,
       "path": "tinkers_golem:item/tool/armor/metal_golem/helmet/huge_plating",
       "stat_type": "tconstruct:plating_helmet"
     },
@@ -195,6 +210,36 @@
       "allow_animated": false,
       "path": "tinkers_golem:item/tool/armor/metal_golem/boots/small_plating2_broken",
       "stat_type": "tconstruct:plating_boots"
+    },
+    {
+      "allow_animated": false,
+      "path": "tinkers_golem:item/tool/armor/metal_golem/gloves/huge_plating",
+      "stat_type": "tconstruct:plating_chestplate"
+    },
+    {
+      "allow_animated": false,
+      "path": "tinkers_golem:item/tool/armor/metal_golem/gloves/huge_plating_broken",
+      "stat_type": "tconstruct:plating_chestplate"
+    },
+    {
+      "allow_animated": false,
+      "path": "tinkers_golem:item/tool/armor/metal_golem/gloves/small_plating1",
+      "stat_type": "tconstruct:plating_chestplate"
+    },
+    {
+      "allow_animated": false,
+      "path": "tinkers_golem:item/tool/armor/metal_golem/gloves/small_plating1_broken",
+      "stat_type": "tconstruct:plating_chestplate"
+    },
+    {
+      "allow_animated": false,
+      "path": "tinkers_golem:item/tool/armor/metal_golem/gloves/small_plating2",
+      "stat_type": "tconstruct:plating_chestplate"
+    },
+    {
+      "allow_animated": false,
+      "path": "tinkers_golem:item/tool/armor/metal_golem/gloves/small_plating2_broken",
+      "stat_type": "tconstruct:plating_chestplate"
     }
   ],
   "replace": false

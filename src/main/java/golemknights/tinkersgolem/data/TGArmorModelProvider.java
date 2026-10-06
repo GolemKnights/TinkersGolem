@@ -14,7 +14,7 @@ public class TGArmorModelProvider extends AbstractArmorModelProvider {
 
     @Override
     protected void addModels() {
-        for (String part : new String[] { "_helmet", "_chestplate", "_leggings", "_boots" }) {
+        for (String part : new String[] { "_helmet", "_chestplate", "_leggings", "_boots", "_gloves" }) {
             ResourceLocation res = getResource(TGItems.METAL_GOLEM + part);
             this.addModel(
                     res,

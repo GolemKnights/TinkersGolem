@@ -20,6 +20,9 @@ public class TGToolItemModelProvider extends AbstractToolItemModelProvider {
         this.armor(METAL_GOLEM, TGItems.metalGolemArmor,
                 "huge_plating", "small_plating1", "small_plating2"
         );
+        this.armor(METAL_GOLEM + "/gloves", TGItems.metalGolemGloves,
+                "huge_plating", "small_plating1", "small_plating2"
+        );
     }
 
     @Override

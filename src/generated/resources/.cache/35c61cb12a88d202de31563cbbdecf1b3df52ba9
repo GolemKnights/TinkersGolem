@@ -1,6 +1,6 @@
-// 1.20.1	2026-09-25T16:17:54.0972338	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (enchantments), Tags (mob_effects), Tags (attributes)]
-e8f192e73b963b3ebc9fb286ee337bcdf05a50ff assets/tinkers_golem/lang/en_ud.json
-655277e22e63954050a3ce078118142cfbc4a171 assets/tinkers_golem/lang/en_us.json
+// 1.20.1	2026-10-06T12:02:51.5197912	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (enchantments), Tags (mob_effects), Tags (attributes)]
+6d8b84654401ee4dee3649c156e243bc4ccc4aa5 assets/tinkers_golem/lang/en_ud.json
+8930bcaf5168fd6637dc8a22adc05a7d15708c6f assets/tinkers_golem/lang/en_us.json
 203af4551a77473a1609ef1a9c4c6930e386d9f7 assets/tinkers_golem/models/item/cinderslime_expand.json
 0bd4bd9c7a958a5794212a3f11e6c36bedbb87b6 assets/tinkers_golem/models/item/enderference.json
 cb710003784ca666969f4c4b887628e2aee32488 assets/tinkers_golem/models/item/enderference_blue.json
@@ -43,7 +43,7 @@ dec23362149052d8ee8e89b6e98fa0fddac56d3e data/modulargolems/advancements/recipes
 b46b0a4d2e4424f63a73465bb6b43fe3c75df3c7 data/modulargolems/recipes/diamond_expansion_template_slime_golem_holder.json
 0a02bf3e2b4c1f5543b5456ff0adfd19e2c9c20b data/modulargolems/recipes/netherite_expansion_template_slime_golem_holder.json
 02c377636cfa83a463c3a7a6dd5cfba02fe7c821 data/modulargolems/tags/entity_types/friendly.json
-72abeb4578c07c1961c0b00ff815ec3c5d9bcfd9 data/modulargolems/tags/items/golem_damageable.json
+6c8e3f778b2b7f3543997b034dcc08a9b0ed7734 data/modulargolems/tags/items/golem_damageable.json
 1a370d0aa358a8b47def2948173e712b65a4af06 data/modulargolems/tags/items/holders.json
 ba2bd0463bcc1a93805421a6ffe079a8a8e3f728 data/modulargolems/tags/items/parts.json
 eba1d13ad2df4d6ad86aba85e2c75c4ae3fe9526 data/modulargolems/tags/items/potion_upgrades.json
@@ -52,15 +52,15 @@ bed7adcda3927e22a08aae59a2309f2f1f507a9b data/tconstruct/tags/items/casts/gold.j
 cfb44f1dff4bb09b702e0b6e4e7a4251b8b3b7af data/tconstruct/tags/items/casts/multi_use.json
 ad4fa5f8b8c9cde63d48ab2962fd925a987b6036 data/tconstruct/tags/items/casts/red_sand.json
 d815f44259dae84cf4de3ad76c6163517a74e6fd data/tconstruct/tags/items/casts/sand.json
-8a1e14870ce01af90ff48c6e2715130cea27816d data/tconstruct/tags/items/modifiable/aoe.json
+e13d49b5029f63046699085ff56eb17114608c8b data/tconstruct/tags/items/modifiable/aoe.json
 8b9a0ccdbcc0850143180cef2d7175c111503399 data/tconstruct/tags/items/modifiable/armor/boots.json
-d7bfbde3280d1017909bea2043d2c0f3066723cc data/tconstruct/tags/items/modifiable/armor/chestplate.json
+cde2e77361b0affd2ceee108ac1409c1438b3b69 data/tconstruct/tags/items/modifiable/armor/chestplate.json
 fabc6c0a0d0e1965bbc9aae065be9eb397521641 data/tconstruct/tags/items/modifiable/armor/helmets.json
 d76b2bdf7182c93cb4bb98f4cc17674e6d699334 data/tconstruct/tags/items/modifiable/armor/leggings.json
-8a1e14870ce01af90ff48c6e2715130cea27816d data/tconstruct/tags/items/modifiable/bonus_slots.json
-72abeb4578c07c1961c0b00ff815ec3c5d9bcfd9 data/tconstruct/tags/items/modifiable/book_armor/mighty_smelting.json
-8a1e14870ce01af90ff48c6e2715130cea27816d data/tconstruct/tags/items/modifiable/durability.json
-8a1e14870ce01af90ff48c6e2715130cea27816d data/tconstruct/tags/items/modifiable/multipart.json
+4b94140d5a270197067c40dc35808970ab028454 data/tconstruct/tags/items/modifiable/bonus_slots.json
+6c8e3f778b2b7f3543997b034dcc08a9b0ed7734 data/tconstruct/tags/items/modifiable/book_armor/mighty_smelting.json
+4b94140d5a270197067c40dc35808970ab028454 data/tconstruct/tags/items/modifiable/durability.json
+4b94140d5a270197067c40dc35808970ab028454 data/tconstruct/tags/items/modifiable/multipart.json
 e13d49b5029f63046699085ff56eb17114608c8b data/tconstruct/tags/items/modifiable/ranged/bounce.json
 e13d49b5029f63046699085ff56eb17114608c8b data/tconstruct/tags/items/modifiable/ranged/broad.json
 e13d49b5029f63046699085ff56eb17114608c8b data/tconstruct/tags/items/modifiable/ranged/launcher.json

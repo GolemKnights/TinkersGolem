@@ -49,7 +49,7 @@
       "multipliers": {
         "tconstruct:armor": 2.0,
         "tconstruct:armor_toughness": 3.0,
-        "tconstruct:attack_damage": 0.6,
+        "tconstruct:attack_damage": 0.8,
         "tconstruct:durability": 4.0,
         "tconstruct:knockback_resistance": 2.0
       }
