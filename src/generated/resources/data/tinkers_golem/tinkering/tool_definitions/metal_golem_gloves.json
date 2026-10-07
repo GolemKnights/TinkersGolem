@@ -41,7 +41,7 @@
     {
       "type": "tconstruct:base_stats",
       "stats": {
-        "tconstruct:attack_damage": 2.0
+        "tconstruct:attack_damage": 3.0
       }
     },
     {
@@ -49,7 +49,7 @@
       "multipliers": {
         "tconstruct:armor": 2.0,
         "tconstruct:armor_toughness": 3.0,
-        "tconstruct:attack_damage": 1.8,
+        "tconstruct:attack_damage": 1.6,
         "tconstruct:durability": 4.0,
         "tconstruct:knockback_resistance": 2.0
       }

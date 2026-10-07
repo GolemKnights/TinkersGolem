@@ -1,12 +1,13 @@
 {
   "tool": "tinkers_golem:metal_golem_gloves",
   "text": [
-    { "text": "Metal Golem Chestplate is a chestplate for metal golems, with high protection, and low ability slots and high defense slots." }
+    { "text": "Metal Golem Gloves is a chestplate for metal golems, with high protection, and low ability slots and high defense slots." }
   ],
   "properties": [
     "For metal golems",
-    "2 Upgrade Slot",
-    "2 Defense Slots",
+    "1 Upgrade Slot",
+    "1 Defense Slot",
+    "1 Ability Slot",
     "3 Material Traits"
   ]
 }

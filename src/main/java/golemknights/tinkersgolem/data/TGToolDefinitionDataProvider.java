@@ -76,7 +76,7 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 )
                 .module(
                         new SetStatsModule(StatsNBT.builder()
-                                .set(ToolStats.ATTACK_DAMAGE, 2)
+                                .set(ToolStats.ATTACK_DAMAGE, 3)
                                 .build()
                         )
                 )
@@ -86,7 +86,7 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                                 .set(ToolStats.ARMOR, 2)
                                 .set(ToolStats.ARMOR_TOUGHNESS, 3)
                                 .set(ToolStats.KNOCKBACK_RESISTANCE, 2)
-                                .set(ToolStats.ATTACK_DAMAGE, 1.8f)
+                                .set(ToolStats.ATTACK_DAMAGE, 1.6f)
                                 .build()
                         )
                 )
