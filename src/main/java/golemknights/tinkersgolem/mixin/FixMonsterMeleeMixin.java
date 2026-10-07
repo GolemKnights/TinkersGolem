@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import slimeknights.tconstruct.tools.logic.ToolEvents;
 
-@Mixin(ToolEvents.class)
+@Mixin(value = ToolEvents.class, remap = false)
 public abstract class FixMonsterMeleeMixin {
     @Redirect(
             method = "livingHurt",
