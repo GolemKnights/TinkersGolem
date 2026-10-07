@@ -7,6 +7,7 @@ import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import slimeknights.tconstruct.library.data.tinkering.AbstractModifierProvider;
 import slimeknights.tconstruct.library.json.LevelingInt;
 import slimeknights.tconstruct.library.modifiers.modules.build.StatBoostModule;
+import slimeknights.tconstruct.library.modifiers.util.ModifierLevelDisplay;
 import slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper;
 
 public class TGTinkersModifierProvider extends AbstractModifierProvider implements IConditionBuilder {
@@ -16,7 +17,8 @@ public class TGTinkersModifierProvider extends AbstractModifierProvider implemen
 
     @Override
     protected void addModifiers() {
-        buildModifier(TGTinkersModifiers.spewing).priority(120)
+        buildModifier(TGTinkersModifiers.spewing)
+                .priority(120).levelDisplay(ModifierLevelDisplay.SINGLE_LEVEL)
                 .addModule(new SpewingModule(LevelingInt.eachLevel(1)))
                 .addModule(ToolTankHelper.TANK_HANDLER)
                 .addModule(StatBoostModule.add(ToolTankHelper.CAPACITY_STAT).eachLevel(1000.0F))
