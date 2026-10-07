@@ -1,6 +1,6 @@
 package golemknights.tinkersgolem.register;
 
-import golemknights.tinkersgolem.content.recipe.ExtendedShapedMaterialsRecipe;
+import golemknights.tinkersgolem.library.recipes.ExtendedShapedMaterialsRecipe;
 import golemknights.tinkersgolem.library.recipes.GolemSeveringRecipe;
 import golemknights.tinkersgolem.library.recipes.OverslimeRecoverRecipe;
 import net.minecraft.world.item.crafting.Recipe;

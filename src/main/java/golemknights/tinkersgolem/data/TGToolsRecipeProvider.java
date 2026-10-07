@@ -1,19 +1,17 @@
 package golemknights.tinkersgolem.data;
 
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
-import golemknights.tinkersgolem.content.recipe.ExtendedShapedMaterialsRecipe;
-import golemknights.tinkersgolem.content.recipe.ExtendedShapedMaterialsRecipe.ExtendedMaterialIngredient;
-import golemknights.tinkersgolem.content.recipe.ExtendedShapedMaterialsRecipe.ExtendedMaterialValueIngredient;
+import golemknights.tinkersgolem.library.recipes.ExtendedShapedMaterialsRecipe;
+import golemknights.tinkersgolem.library.recipes.ExtendedShapedMaterialsRecipe.ExtendedMaterialIngredient;
+import golemknights.tinkersgolem.library.recipes.ExtendedShapedMaterialsRecipe.ExtendedMaterialValueIngredient;
 import golemknights.tinkersgolem.library.materialstats.CannonCoreMaterialStats;
 import golemknights.tinkersgolem.register.TGItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.common.crafting.CompoundIngredient;
 import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
 import slimeknights.tconstruct.library.data.recipe.IToolRecipeHelper;
@@ -21,18 +19,12 @@ import slimeknights.tconstruct.library.json.predicate.material.MaterialStatTypeP
 import slimeknights.tconstruct.library.materials.stats.MaterialStatsId;
 import slimeknights.tconstruct.library.recipe.ingredient.MaterialIngredient;
 import slimeknights.tconstruct.library.recipe.ingredient.MaterialValueIngredient;
-import slimeknights.tconstruct.library.recipe.material.MaterialsConsumerBuilder;
 import slimeknights.tconstruct.library.recipe.tinkerstation.building.ToolBuildingRecipeBuilder;
 import slimeknights.tconstruct.tools.TinkerToolParts;
 import slimeknights.tconstruct.tools.stats.LimbMaterialStats;
 
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
-import java.util.function.Function;
-
-import javax.annotation.Nullable;
-
-import com.google.gson.JsonObject;
 
 public class TGToolsRecipeProvider extends BaseRecipeProvider implements IMaterialRecipeHelper, IToolRecipeHelper {
     public TGToolsRecipeProvider(PackOutput generator) {
