@@ -104,6 +104,7 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                                 .stat(CannonCoreMaterialStats.ID)
                                 .stat(LimbMaterialStats.ID)
                                 .stat(LimbMaterialStats.ID)
+                                .primaryPart(1)
                                 .build()
                 )
                 .module(
