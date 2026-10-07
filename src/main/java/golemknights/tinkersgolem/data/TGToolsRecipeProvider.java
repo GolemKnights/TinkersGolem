@@ -1,14 +1,19 @@
 package golemknights.tinkersgolem.data;
 
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
+import golemknights.tinkersgolem.content.recipe.ExtendedShapedMaterialsRecipe;
+import golemknights.tinkersgolem.content.recipe.ExtendedShapedMaterialsRecipe.ExtendedMaterialIngredient;
+import golemknights.tinkersgolem.content.recipe.ExtendedShapedMaterialsRecipe.ExtendedMaterialValueIngredient;
 import golemknights.tinkersgolem.library.materialstats.CannonCoreMaterialStats;
 import golemknights.tinkersgolem.register.TGItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.common.crafting.CompoundIngredient;
 import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
 import slimeknights.tconstruct.library.data.recipe.IToolRecipeHelper;
@@ -21,8 +26,13 @@ import slimeknights.tconstruct.library.recipe.tinkerstation.building.ToolBuildin
 import slimeknights.tconstruct.tools.TinkerToolParts;
 import slimeknights.tconstruct.tools.stats.LimbMaterialStats;
 
+import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
+
+import javax.annotation.Nullable;
+
+import com.google.gson.JsonObject;
 
 public class TGToolsRecipeProvider extends BaseRecipeProvider implements IMaterialRecipeHelper, IToolRecipeHelper {
     public TGToolsRecipeProvider(PackOutput generator) {
@@ -39,8 +49,8 @@ public class TGToolsRecipeProvider extends BaseRecipeProvider implements IMateri
         String folder = "tools/building/";
         String armorFolder = "tools/armor/";
         String metalGolemFolder = armorFolder + "metal_golem/";
-        Function<MaterialStatsId, Ingredient> material = (type) -> CompoundIngredient.of(MaterialValueIngredient.of(new MaterialStatTypePredicate(type), 1.0F), MaterialIngredient.of(TinkerToolParts.fakeIngot, new MaterialStatTypePredicate(type)));
-        Function<MaterialStatsId, Ingredient> cannonCoreMaterial = (type) -> MaterialValueIngredient.of(new MaterialStatTypePredicate(type), 1.0F);
+        BiFunction<MaterialStatsId, Integer, Ingredient> material = (type, slot) -> new ExtendedMaterialIngredient(CompoundIngredient.of(MaterialValueIngredient.of(new MaterialStatTypePredicate(type), 1.0F), MaterialIngredient.of(TinkerToolParts.fakeIngot, new MaterialStatTypePredicate(type))), slot);
+        BiFunction<MaterialStatsId, Integer, Ingredient> cannonCoreMaterial = (type, slot) -> new ExtendedMaterialIngredient(new ExtendedMaterialValueIngredient(new MaterialStatTypePredicate(type), 1.0F, 1.0F), slot, new MaterialStatTypePredicate(type));
         TGItems.metalGolemArmor.forEach(
                 (item) -> ToolBuildingRecipeBuilder.toolBuildingRecipe(item)
                         .addExtraRequirement(Ingredient.of(GolemItems.GOLEM_TEMPLATE.get()))
@@ -58,12 +68,11 @@ public class TGToolsRecipeProvider extends BaseRecipeProvider implements IMateri
                 .pattern("C  ")
                 .pattern("TBB")
                 .define('T', GolemItems.GOLEM_TEMPLATE.get())
-                .define('C', cannonCoreMaterial.apply(CannonCoreMaterialStats.ID))
-                .define('A', material.apply(LimbMaterialStats.ID))
-                .define('B', material.apply(LimbMaterialStats.ID))
+                .define('C', cannonCoreMaterial.apply(CannonCoreMaterialStats.ID, 0))
+                .define('A', material.apply(LimbMaterialStats.ID, 1))
+                .define('B', material.apply(LimbMaterialStats.ID, 2))
                 .unlockedBy("has_template", has(GolemItems.GOLEM_TEMPLATE.get()))
-                .save(MaterialsConsumerBuilder.shaped("CAB").build(consumer), this.prefix(id(TGItems.cannonItem.get()), folder))
-        ;
+                .save(ExtendedShapedMaterialsRecipe.ConsumerBuilder.createConsumer(consumer), this.prefix(id(TGItems.cannonItem.get()), folder));
     }
     private void addPartRecipes(Consumer<FinishedRecipe> consumer) {
         String partFolder = "tools/parts/";

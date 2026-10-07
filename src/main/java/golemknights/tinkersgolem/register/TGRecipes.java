@@ -1,5 +1,6 @@
 package golemknights.tinkersgolem.register;
 
+import golemknights.tinkersgolem.content.recipe.ExtendedShapedMaterialsRecipe;
 import golemknights.tinkersgolem.library.recipes.GolemSeveringRecipe;
 import golemknights.tinkersgolem.library.recipes.OverslimeRecoverRecipe;
 import net.minecraft.world.item.crafting.Recipe;
@@ -15,6 +16,7 @@ public class TGRecipes {
 	public static final RegistryObject<RecipeType<OverslimeRecoverRecipe>> OVERSLIME_RECOVER = register("overslime_recover");
 	public static final RegistryObject<RecipeSerializer<OverslimeRecoverRecipe>> OVERSLIME_RECOVER_SERIALIZER = RECIPE_SERIALIZERS.register("overslime_recover", () -> LoadableRecipeSerializer.of(OverslimeRecoverRecipe.LOADER));
 	public static final RegistryObject<RecipeSerializer<GolemSeveringRecipe>> GOLEM_SEVERING_SERIALIZER = RECIPE_SERIALIZERS.register("golem_severing", () -> new SimpleRecipeSerializer<>(GolemSeveringRecipe::new));
+	public static final RegistryObject<RecipeSerializer<ExtendedShapedMaterialsRecipe>> SHAPED_MATERIALS_SERIALIZER = RECIPE_SERIALIZERS.register("shaped_materials", () -> ExtendedShapedMaterialsRecipe.Serializer.INSTANCE);
 
 	static <T extends Recipe<?>> RegistryObject<RecipeType<T>> register(String name) {
 		return RECIPE_TYPES.register(name, () -> new RecipeType<T>() {

@@ -1,56 +1,71 @@
 {
-  "type": "tconstruct:crafting_shaped_materials",
+  "type": "tinkers_golem:shaped_materials",
   "category": "equipment",
   "key": {
-    "A": [
-      {
-        "type": "tconstruct:material_value",
-        "material": {
-          "type": "tconstruct:stat_type",
-          "stat_type": "tconstruct:limb"
+    "A": {
+      "type": "tinkers_golem:material",
+      "match": [
+        {
+          "type": "tconstruct:material_value",
+          "material": {
+            "type": "tconstruct:stat_type",
+            "stat_type": "tconstruct:limb"
+          },
+          "value": 1.0
         },
-        "value": 1.0
-      },
-      {
-        "type": "tconstruct:material",
-        "item": "tconstruct:fake_ingot",
-        "material": {
-          "type": "tconstruct:stat_type",
-          "stat_type": "tconstruct:limb"
+        {
+          "type": "tconstruct:material",
+          "item": "tconstruct:fake_ingot",
+          "material": {
+            "type": "tconstruct:stat_type",
+            "stat_type": "tconstruct:limb"
+          }
         }
-      }
-    ],
-    "B": [
-      {
-        "type": "tconstruct:material_value",
-        "material": {
-          "type": "tconstruct:stat_type",
-          "stat_type": "tconstruct:limb"
+      ],
+      "slot": 1
+    },
+    "B": {
+      "type": "tinkers_golem:material",
+      "match": [
+        {
+          "type": "tconstruct:material_value",
+          "material": {
+            "type": "tconstruct:stat_type",
+            "stat_type": "tconstruct:limb"
+          },
+          "value": 1.0
         },
-        "value": 1.0
-      },
-      {
-        "type": "tconstruct:material",
-        "item": "tconstruct:fake_ingot",
-        "material": {
-          "type": "tconstruct:stat_type",
-          "stat_type": "tconstruct:limb"
+        {
+          "type": "tconstruct:material",
+          "item": "tconstruct:fake_ingot",
+          "material": {
+            "type": "tconstruct:stat_type",
+            "stat_type": "tconstruct:limb"
+          }
         }
-      }
-    ],
+      ],
+      "slot": 2
+    },
     "C": {
-      "type": "tconstruct:material_value",
+      "type": "tinkers_golem:material",
+      "match": {
+        "type": "tinkers_golem:material_value",
+        "material": {
+          "type": "tconstruct:stat_type",
+          "stat_type": "tinkers_golem:cannon_core"
+        },
+        "value": 1.0
+      },
       "material": {
         "type": "tconstruct:stat_type",
         "stat_type": "tinkers_golem:cannon_core"
       },
-      "value": 1.0
+      "slot": 0
     },
     "T": {
       "item": "modulargolems:metal_golem_template"
     }
   },
-  "parts": "CAB",
   "pattern": [
     " AA",
     "C  ",
