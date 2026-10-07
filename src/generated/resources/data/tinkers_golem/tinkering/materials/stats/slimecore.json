@@ -1,8 +1,8 @@
 {
   "stats": {
     "tinkers_golem:cannon_core": {
+      "accuracy": 0.1,
       "cannon_range": 15.0,
-      "draw_speed": 0.0,
       "durability": 0.0
     }
   }

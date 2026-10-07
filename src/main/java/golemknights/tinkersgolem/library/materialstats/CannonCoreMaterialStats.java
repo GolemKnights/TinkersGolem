@@ -18,24 +18,24 @@ import java.util.List;
 
 import static slimeknights.tconstruct.tools.stats.HandleMaterialStats.formatDurability;
 
-public record CannonCoreMaterialStats(float durability, float drawSpeed, float cannonRange) implements IMaterialStats.ScaledTooltip {
+public record CannonCoreMaterialStats(float durability, float accuracy, float cannonRange) implements IMaterialStats.ScaledTooltip {
     public static final MaterialStatsId ID = new MaterialStatsId(TinkersGolem.getResource("cannon_core"));
     public static final MaterialStatType<CannonCoreMaterialStats> TYPE = new MaterialStatType<>(
             ID, new CannonCoreMaterialStats(0.0F, 0.0F, 0.0F),
             RecordLoadable.create(
                     FloatLoadable.ANY.defaultField("durability", 0.0F, true, CannonCoreMaterialStats::durability),
-                    FloatLoadable.ANY.defaultField("draw_speed", 0.0F, true, CannonCoreMaterialStats::drawSpeed),
+                    FloatLoadable.ANY.defaultField("accuracy", 0.0F, true, CannonCoreMaterialStats::accuracy),
                     FloatLoadable.ANY.defaultField("cannon_range", 0.0F, true, CannonCoreMaterialStats::cannonRange),
                     CannonCoreMaterialStats::new
             )
     );
     private static final List<Component> DESCRIPTION = List.of(
             IMaterialStats.makeTooltip(TinkersGolem.getResource("cannon_core.durability.description")),
-            IMaterialStats.makeTooltip(TinkersGolem.getResource("cannon_core.draw_speed.description")),
+            IMaterialStats.makeTooltip(TinkersGolem.getResource("cannon_core.accuracy.description")),
             IMaterialStats.makeTooltip(TinkersGolem.getResource("cannon_core.cannon_range.description"))
     );
 
-    static final String DRAW_SPEED_PREFIX = IMaterialStats.makeTooltipKey(TConstruct.getResource("draw_speed"));
+    static final String ACCURACY_PREFIX = IMaterialStats.makeTooltipKey(TConstruct.getResource("accuracy"));
     static final String CANNNON_RANGE_PREFIX = IMaterialStats.makeTooltipKey(TinkersGolem.getResource("cannon_range"));
     @Override
     public MaterialStatType<?> getType() {
@@ -46,7 +46,7 @@ public record CannonCoreMaterialStats(float durability, float drawSpeed, float c
     public List<Component> getLocalizedInfo(float scale) {
         List<Component> list = new ArrayList<>();
         list.add(formatDurability(this.durability * scale));
-        list.add(IToolStat.formatColoredBonus(DRAW_SPEED_PREFIX, this.drawSpeed * scale));
+        list.add(IToolStat.formatColoredBonus(ACCURACY_PREFIX, this.accuracy * scale));
         list.add(IToolStat.formatColoredBonus(CANNNON_RANGE_PREFIX, this.cannonRange * scale));
         return list;
     }
@@ -59,7 +59,7 @@ public record CannonCoreMaterialStats(float durability, float drawSpeed, float c
     @Override
     public void apply(ModifierStatsBuilder builder, float scale) {
         ToolStats.DURABILITY.percent(builder, this.durability * scale);
-        ToolStats.DRAW_SPEED.percent(builder, this.drawSpeed * scale);
+        ToolStats.ACCURACY.percent(builder, this.accuracy * scale);
         TGStats.CANNON_RANGE.percent(builder, this.cannonRange * scale);
     }
 }

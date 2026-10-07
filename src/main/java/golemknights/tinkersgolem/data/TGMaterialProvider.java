@@ -41,7 +41,7 @@ public class TGMaterialProvider extends AbstractMaterialDataProvider {
 
         @Override
         protected void addMaterialStats() {
-            addMaterialStats(slimecore, new CannonCoreMaterialStats(0, 0, 15));
+            addMaterialStats(slimecore, new CannonCoreMaterialStats(0, 0.1f, 15));
             addMaterialStats(fluidcore, new CannonCoreMaterialStats(0, 0, 15));
         }
 
