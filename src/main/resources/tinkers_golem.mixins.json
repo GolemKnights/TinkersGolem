@@ -6,7 +6,8 @@
   "refmap": "tinkers_golem.refmap.json",
   "mixins": [
     "FireballModuleMixin",
-    "FireballTypeMixin"
+    "FireballTypeMixin",
+    "FixMonsterMeleeMixin"
   ],
   "client": [
     "DinnerBoneRendererMixin"
