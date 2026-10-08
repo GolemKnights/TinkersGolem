@@ -29,6 +29,7 @@ public class TGEntities {
 	public static final RegistryEntry<SlimeGolemType> TYPE_SLIME;
 	public static final ItemEntry<GolemPart<SlimeGolemEntity, SlimeGolemPartType>> SLIME_CORE, SLIME_SHELL;
 	public static final ItemEntry<GolemHolder<SlimeGolemEntity, SlimeGolemPartType>> HOLDER_SLIME;
+	public static final EntityEntry<ModifiableLaserEntity> ENTITY_LASER;
 
 
 	static {
@@ -82,6 +83,9 @@ public class TGEntities {
 				.tab(GolemItems.ITEMS.getKey())
 				.transform(e -> e.tab(GolemItems.GOLEMS.getKey(), x -> e.getEntry().fillItemCategory(x)))
 				.tag(MGTagGen.GOLEM_PARTS, TGTagGen.SLIME_PART).defaultLang().register();
+		ENTITY_LASER = TinkersGolem.REGISTRATE.entity("modifiable_laser", ModifiableLaserEntity::new, MobCategory.MISC)
+				.renderer(() -> ModifiableLaserRenderer::new)
+				.register();
 	}
 
 	public static void load() {

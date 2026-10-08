@@ -13,7 +13,7 @@ public interface ShoulderWeaponModifierHook {
     void onTick(IToolStackView tool, ModifierEntry modifier, MetalGolemEntity golem, ItemStack toolItem,
             InteractionHand hand);
 
-    public static interface Delayed extends ShoulderWeaponModifierHook {
+    interface Delayed extends ShoulderWeaponModifierHook {
         default int getDelay(IToolStackView tool, ModifierEntry modifier, MetalGolemEntity entity, ItemStack toolItem,
                 InteractionHand hand) {
             return (int) (40 / tool.getStats().get(ToolStats.DRAW_SPEED));

@@ -36,7 +36,7 @@ import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 import java.util.*;
 
-public class ModifiableBeaconLaserEntity extends BaseEntity implements OwnableEntity {
+public class ModifiableLaserEntity extends BaseEntity implements OwnableEntity {
     public static final EntityDataAccessor<Integer> OWNER_ID;
     @SerialClass.SerialField
     public UUID owner;
@@ -56,14 +56,14 @@ public class ModifiableBeaconLaserEntity extends BaseEntity implements OwnableEn
     private float velocity = 1;
     private float power = 2;
 
-    public ModifiableBeaconLaserEntity(EntityType<?> type, Level level) {
+    public ModifiableLaserEntity(EntityType<?> type, Level level) {
         super(type, level);
         this.lastTarget = Vec3.ZERO;
         this.hit = new HashSet();
         this.tool = null;
     }
 
-    public ModifiableBeaconLaserEntity(EntityType<?> type, Level level, LivingEntity owner, int life, boolean right, IToolStackView tool, ItemStack stack) {
+    public ModifiableLaserEntity(EntityType<?> type, Level level, LivingEntity owner, int life, boolean right, IToolStackView tool, ItemStack stack) {
         super(type, level);
         this.lastTarget = Vec3.ZERO;
         this.hit = new HashSet();
@@ -218,6 +218,6 @@ public class ModifiableBeaconLaserEntity extends BaseEntity implements OwnableEn
     }
 
     static {
-        OWNER_ID = SynchedEntityData.defineId(ModifiableBeaconLaserEntity.class, EntityDataSerializers.INT);
+        OWNER_ID = SynchedEntityData.defineId(ModifiableLaserEntity.class, EntityDataSerializers.INT);
     }
 }
