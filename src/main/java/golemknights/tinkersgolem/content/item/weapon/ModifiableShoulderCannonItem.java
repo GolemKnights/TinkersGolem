@@ -6,16 +6,22 @@ import dev.xkmc.modulargolems.content.item.ranged.IShoulderCannonAnimated;
 import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.tools.capability.inventory.ToolInventoryCapability;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
 import slimeknights.tconstruct.library.tools.item.ranged.ModifiableLauncherItem;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
+import slimeknights.tconstruct.library.utils.Util;
 
 import java.util.function.Predicate;
 
@@ -27,7 +33,8 @@ public class ModifiableShoulderCannonItem extends ModifiableLauncherItem impleme
    public void onTick(MetalGolemEntity e, ItemStack stack, InteractionHand hand) {
       if (stack.getItem() instanceof IModifiable) {
          ToolStack tool = ToolStack.from(stack);
-         if(tool.isBroken()) return;
+         if (tool.isBroken())
+            return;
          for (ModifierEntry modifier : tool.getModifierList()) {
             modifier.getHook(TGTinkersModifiers.SHOLDER_WEAPON_MODIFIER_HOOK).onTick(tool, modifier, e, stack, hand);
          }
@@ -55,7 +62,8 @@ public class ModifiableShoulderCannonItem extends ModifiableLauncherItem impleme
    }
 
    @Override
-   public @NotNull ResourceLocation getModelTexture(MetalGolemEntity metalGolemEntity, ItemStack itemStack, InteractionHand interactionHand) {
+   public @NotNull ResourceLocation getModelTexture(MetalGolemEntity metalGolemEntity, ItemStack itemStack,
+         InteractionHand interactionHand) {
       ResourceLocation id = ForgeRegistries.ITEMS.getKey(this);
       assert id != null;
       return id.withPath((e) -> "textures/equipments/" + e + ".png");
@@ -73,5 +81,18 @@ public class ModifiableShoulderCannonItem extends ModifiableLauncherItem impleme
    @Override
    public int getDefaultProjectileRange() {
       return 15;
+   }
+
+   @Override
+   public InteractionResultHolder<ItemStack> use(Level levelIn, Player playerIn, InteractionHand handIn) {
+      if (playerIn.isCrouching()) {
+         ItemStack stack = playerIn.getItemInHand(handIn);
+         InteractionResult result = ToolInventoryCapability.tryOpenContainer(stack, null, getToolDefinition(), playerIn,
+               Util.getSlotType(handIn));
+         if (result.consumesAction()) {
+            return new InteractionResultHolder<>(result, stack);
+         }
+      }
+      return super.use(levelIn, playerIn, handIn);
    }
 }

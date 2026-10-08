@@ -1,11 +1,13 @@
 package golemknights.tinkersgolem.data;
 
+import golemknights.tinkersgolem.content.modifiers.tool.MetalGolemAmmoFinderModule;
 import golemknights.tinkersgolem.content.modifiers.tool.SpewingModule;
 import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import slimeknights.tconstruct.library.data.tinkering.AbstractModifierProvider;
 import slimeknights.tconstruct.library.json.LevelingInt;
+import slimeknights.tconstruct.library.modifiers.impl.BasicModifier.TooltipDisplay;
 import slimeknights.tconstruct.library.modifiers.modules.build.StatBoostModule;
 import slimeknights.tconstruct.library.modifiers.util.ModifierLevelDisplay;
 import slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper;
@@ -21,8 +23,10 @@ public class TGTinkersModifierProvider extends AbstractModifierProvider implemen
                 .priority(120).levelDisplay(ModifierLevelDisplay.SINGLE_LEVEL)
                 .addModule(new SpewingModule(LevelingInt.eachLevel(1)))
                 .addModule(ToolTankHelper.TANK_HANDLER)
-                .addModule(StatBoostModule.add(ToolTankHelper.CAPACITY_STAT).eachLevel(1000.0F))
-        ;
+                .addModule(StatBoostModule.add(ToolTankHelper.CAPACITY_STAT).eachLevel(1000.0F));
+        buildModifier(TGTinkersModifiers.ammoFinder)
+                .priority(200).tooltipDisplay(TooltipDisplay.NEVER)
+                .addModule(MetalGolemAmmoFinderModule.INSTANCE);
     }
 
     @Override

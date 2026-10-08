@@ -7,13 +7,13 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ProjectileWeaponItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.fluid.entity.DamageFluidEffect.DamageTypePair;
 import slimeknights.tconstruct.library.modifiers.hook.build.ConditionalStatModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.ranged.BowAmmoModifierHook;
 import slimeknights.tconstruct.library.tools.capability.EntityModifierCapability;
 import slimeknights.tconstruct.library.tools.capability.PersistentDataCapability;
 import slimeknights.tconstruct.library.tools.helper.ModifierUtil;
@@ -26,7 +26,6 @@ import slimeknights.tconstruct.tools.entity.CustomFireball;
 import slimeknights.tconstruct.tools.modules.interaction.FireballModule;
 
 import javax.annotation.Nullable;
-import java.util.function.Predicate;
 
 public interface FireballModule_ShoulderWeaponModifierHook extends ShoulderWeaponModifierHook.Delayed {
 
@@ -43,28 +42,13 @@ public interface FireballModule_ShoulderWeaponModifierHook extends ShoulderWeapo
         }
     }
 
-    private ItemStack getProjectile(MetalGolemEntity e) {
-        Predicate<ItemStack> predicate = self();
-        ItemStack stack = ProjectileWeaponItem.getHeldProjectile(e, predicate);
-        ItemStack arrowSlot = e.getArrowSlot().getItem();
-        if (stack.isEmpty() && !arrowSlot.isEmpty() && predicate.test(arrowSlot)) {
-            stack = arrowSlot;
-        }
-
-        if (e.isHostile()) {
-            stack = stack.copy();
-        }
-
-        return stack;
-    }
-
     @Override
     default void onShoot(IToolStackView tool, ModifierEntry modifier, MetalGolemEntity entity, ItemStack toolItem,
             InteractionHand hand) {
         LivingEntity target = entity.getTarget();
         if (target != null && target.isAlive()) {
             if (!CannonPoseUtil.FLAME_THROWER.isOutOfRange(entity, hand, 15.0F)) {
-                ItemStack fireball = getProjectile(entity);
+                ItemStack fireball = BowAmmoModifierHook.consumeAmmo(tool, ItemStack.EMPTY, entity, null, self(), 1);
                 if (fireball.isEmpty())
                     return;
                 Vec3 pos = CannonPoseUtil.FLAME_THROWER.getOrigin(entity, hand);

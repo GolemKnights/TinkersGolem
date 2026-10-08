@@ -1,0 +1,10 @@
+{
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tinkers_golem:golem_ammo_finder"
+    }
+  ],
+  "priority": 200,
+  "tooltip_display": "never"
+}

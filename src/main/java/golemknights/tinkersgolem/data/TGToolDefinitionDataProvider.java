@@ -2,6 +2,7 @@ package golemknights.tinkersgolem.data;
 
 import golemknights.tinkersgolem.library.materialstats.CannonCoreMaterialStats;
 import golemknights.tinkersgolem.register.TGItems;
+import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.ArmorItem;
 import slimeknights.tconstruct.library.data.tinkering.AbstractToolDefinitionDataProvider;
@@ -10,6 +11,7 @@ import slimeknights.tconstruct.library.tools.SlotType;
 import slimeknights.tconstruct.library.tools.definition.module.build.MultiplyStatsModule;
 import slimeknights.tconstruct.library.tools.definition.module.build.SetStatsModule;
 import slimeknights.tconstruct.library.tools.definition.module.build.ToolSlotsModule;
+import slimeknights.tconstruct.library.tools.definition.module.build.ToolTraitsModule;
 import slimeknights.tconstruct.library.tools.definition.module.display.MaterialToolNameModule;
 import slimeknights.tconstruct.library.tools.definition.module.display.UniqueMaterialToolName;
 import slimeknights.tconstruct.library.tools.definition.module.material.DefaultMaterialsModule;
@@ -129,6 +131,9 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 )
                 .module(
                         MaterialToolNameModule.REPAIRABLE
+                )
+                .module(
+                        ToolTraitsModule.builder().trait(TGTinkersModifiers.ammoFinder).build()
                 )
         ;
     }
