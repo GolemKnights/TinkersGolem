@@ -56,17 +56,14 @@ public class ModifiableLaserEntity extends BaseEntity implements OwnableEntity {
     private float velocity = 1;
     private float power = 2;
 
-    public ModifiableLaserEntity(EntityType<?> type, Level level) {
+    public ModifiableLaserEntity(EntityType<ModifiableLaserEntity> type, Level level) {
         super(type, level);
         this.lastTarget = Vec3.ZERO;
         this.hit = new HashSet();
-        this.tool = null;
     }
 
-    public ModifiableLaserEntity(EntityType<?> type, Level level, LivingEntity owner, int life, boolean right, IToolStackView tool, ItemStack stack) {
-        super(type, level);
-        this.lastTarget = Vec3.ZERO;
-        this.hit = new HashSet();
+    public ModifiableLaserEntity(EntityType<ModifiableLaserEntity> type, Level level, LivingEntity owner, int life, boolean right, IToolStackView tool, ItemStack stack) {
+        this(type, level);
         this.tool = tool;
         this.item = stack;
         this.owner = owner.getUUID();

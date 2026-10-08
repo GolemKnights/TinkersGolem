@@ -2,9 +2,9 @@ package golemknights.tinkersgolem.content.modifiers.tool;
 
 import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
 import dev.xkmc.modulargolems.content.item.ranged.CannonPoseUtil;
-import dev.xkmc.modulargolems.init.registrate.GolemMiscEntities;
 import golemknights.tinkersgolem.content.entity.ModifiableLaserEntity;
 import golemknights.tinkersgolem.library.hooks.ShoulderWeaponModifierHook;
+import golemknights.tinkersgolem.register.TGEntities;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -20,7 +20,7 @@ public enum SpotlightModule implements ShoulderWeaponModifierHook.Delayed {
         if (CannonPoseUtil.BEACON_CANNON.isOutOfRange(entity, hand)) {
             return;
         }
-        ModifiableLaserEntity laser = new ModifiableLaserEntity(GolemMiscEntities.LASER.get(), entity.level(), entity, 10, hand == InteractionHand.MAIN_HAND, tool, toolItem);
+        ModifiableLaserEntity laser = new ModifiableLaserEntity(TGEntities.ENTITY_LASER.get(), entity.level(), entity, 10, hand == InteractionHand.MAIN_HAND, tool, toolItem);
         entity.level().addFreshEntity(laser);
         if (!entity.isSilent()) {
             entity.level().playSound(null, entity.blockPosition(), SoundEvents.BEACON_DEACTIVATE, SoundSource.NEUTRAL, 2.0F, 1.5F);

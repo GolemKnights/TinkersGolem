@@ -83,7 +83,9 @@ public class TGEntities {
 				.tab(GolemItems.ITEMS.getKey())
 				.transform(e -> e.tab(GolemItems.GOLEMS.getKey(), x -> e.getEntry().fillItemCategory(x)))
 				.tag(MGTagGen.GOLEM_PARTS, TGTagGen.SLIME_PART).defaultLang().register();
-		ENTITY_LASER = TinkersGolem.REGISTRATE.entity("modifiable_laser", ModifiableLaserEntity::new, MobCategory.MISC)
+
+		ENTITY_LASER = TinkersGolem.REGISTRATE.<ModifiableLaserEntity>entity("modifiable_laser", ModifiableLaserEntity::new, MobCategory.MISC)
+				.properties(p -> p.fireImmune().noSave().noSummon().sized(0.0F, 0.0F))
 				.renderer(() -> ModifiableLaserRenderer::new)
 				.register();
 	}
