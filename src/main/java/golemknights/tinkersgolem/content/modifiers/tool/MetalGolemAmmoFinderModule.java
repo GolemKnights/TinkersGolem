@@ -27,7 +27,9 @@ public enum MetalGolemAmmoFinderModule implements ModifierModule, BowAmmoModifie
     @Override
     public ItemStack findAmmo(IToolStackView tool, ModifierEntry modifier, LivingEntity shooter, ItemStack standardAmmo,
             Predicate<ItemStack> ammoPredicate) {
-        if(shooter instanceof SweepGolemEntity golem) return golem.getArrowSlot().getItem();
+        if (!tool.getVolatileData().getBoolean(SKIP_INVENTORY_AMMO) && shooter instanceof SweepGolemEntity golem) {
+            return golem.getArrowSlot().getItem();
+            }
         return ItemStack.EMPTY;
     }
 
