@@ -1,6 +1,6 @@
-// 1.20.1	2026-10-09T16:17:59.544332	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (enchantments), Tags (mob_effects), Tags (attributes)]
-b8436d0c44d92f2b099471c96a4ea21253455870 assets/tinkers_golem/lang/en_ud.json
-f21a547adbf1c5740ef47d1aee696a6e2340a42d assets/tinkers_golem/lang/en_us.json
+// 1.20.1	2026-10-09T22:10:10.8990148	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (enchantments), Tags (mob_effects), Tags (attributes)]
+4b1bc1eda8aca1d99c0a446d9aaf0e05276eb151 assets/tinkers_golem/lang/en_ud.json
+94029f56e8d7406e1ffff7b008b3eff2771d8191 assets/tinkers_golem/lang/en_us.json
 203af4551a77473a1609ef1a9c4c6930e386d9f7 assets/tinkers_golem/models/item/cinderslime_expand.json
 0bd4bd9c7a958a5794212a3f11e6c36bedbb87b6 assets/tinkers_golem/models/item/enderference.json
 cb710003784ca666969f4c4b887628e2aee32488 assets/tinkers_golem/models/item/enderference_blue.json

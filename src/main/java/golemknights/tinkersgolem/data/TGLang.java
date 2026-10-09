@@ -100,14 +100,23 @@ public enum TGLang {
 		pvd.add("item." + TinkersGolem.MODID + ".metal_golem_boots", "Metal Golem Boots");
 		pvd.add("item." + TinkersGolem.MODID + ".metal_golem_gloves", "Metal Golem Gloves");
 		pvd.add("item." + TinkersGolem.MODID + ".cannon", "Cannon");
-		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tconstruct.ui_render", "Cannon");
+		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tconstruct.ui_render", "Any Cannon");
 		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.slimecore", "Slimecannon");
 		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.fluidcore", "Fluidcannon");
-		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.arrowcore", "Cannon");
-		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.beaconcore", "Cannon");
+		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.arrowcore", "Ballista");
+		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.beaconcore", "Beaconcannon");
 		pvd.add("modifier." + TinkersGolem.MODID + ".spewing", "Spewing");
 		pvd.add("modifier." + TinkersGolem.MODID + ".spewing.flavor", "");
 		pvd.add("modifier." + TinkersGolem.MODID + ".spewing.description", "");
+		pvd.add("modifier." + TinkersGolem.MODID + ".shooting", "Shooting");
+		pvd.add("modifier." + TinkersGolem.MODID + ".shooting.flavor", "");
+		pvd.add("modifier." + TinkersGolem.MODID + ".shooting.description", "");
+		pvd.add("modifier." + TinkersGolem.MODID + ".spotlight", "Spotlight");
+		pvd.add("modifier." + TinkersGolem.MODID + ".spotlight.flavor", "");
+		pvd.add("modifier." + TinkersGolem.MODID + ".spotlight.description", "");
+		pvd.add("stat." + TinkersGolem.MODID + ".cannon_core", "Cannon Core");
+		pvd.add("tool_stat." + TinkersGolem.MODID + ".cannon_range", "Cannon Range");
+		pvd.add("tool_stat." + TinkersGolem.MODID + ".cannon_range.description", "");
 
 		for (var type : SlimeGolemPartType.values()) {
 			String name = type.name().toLowerCase(Locale.ROOT);

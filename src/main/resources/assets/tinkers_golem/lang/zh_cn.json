@@ -1,5 +1,6 @@
 {
   "config.jade.plugin_tinkers_golem.overslime": "黏液覆层",
+  "entity.tinkers_golem.modifiable_laser": "信标激光",
   "entity.tinkers_golem.slime_golem": "史莱姆傀儡",
   "golem_material.tconstruct.cinderslime": "余烬黏液",
   "golem_material.tconstruct.knightslime": "骑士史莱姆",
@@ -100,11 +101,17 @@
   "modifier.tinkers_golem.overworked": "黏液过劳",
   "modifier.tinkers_golem.repulsive": "排斥",
   "modifier.tinkers_golem.repulsive.desc": "攻击后击飞周围的生物",
+  "modifier.tinkers_golem.shooting": "射击",
+  "modifier.tinkers_golem.shooting.description": "",
+  "modifier.tinkers_golem.shooting.flavor": "",
   "modifier.tinkers_golem.spewing": "喷射",
   "modifier.tinkers_golem.spewing.description": "可从储罐中喷出流体，并对目标造成效果。受炮的数值影响。",
   "modifier.tinkers_golem.spewing.flavor": "你家羊驼多大口径的？",
   "modifier.tinkers_golem.spilling": "喷溅",
   "modifier.tinkers_golem.spilling.desc": "史莱姆傀儡攻击时会向目标喷洒流体",
+  "modifier.tinkers_golem.spotlight": "聚焦",
+  "modifier.tinkers_golem.spotlight.description": "",
+  "modifier.tinkers_golem.spotlight.flavor": "",
   "modifier.tinkers_golem.swallow": "吞食",
   "modifier.tinkers_golem.swallow.desc": "杀死生物后每级回复其最大生命值的20%黏液覆层",
   "modifier.tinkers_golem.symbionic": "共生",
@@ -117,6 +124,7 @@
   "pattern.tinkers_golem.helmet_metal_golem_plating": "大型金属傀儡头盔镶板",
   "pattern.tinkers_golem.leggings_metal_golem_plating": "大型金属傀儡护腿镶板",
   "pattern.tinkers_golem.metal_golem_plating": "大型金属傀儡镶板",
+  "stat.tinkers_golem.cannon_core": "炮身",
   "tabs.tinkers_golem.items": "工匠傀儡：物品",
   "tabs.tinkers_golem.tools": "工匠傀儡：工具",
   "tinkers_golem.attack_percent": "伤害",
@@ -124,5 +132,7 @@
   "tinkers_golem.info.overslime": "黏液覆层: %s/%s",
   "tinkers_golem.max_overslime": "最大黏液覆层",
   "tinkers_golem.overslime_recovery": "黏液覆层回复倍率",
-  "tinkers_golem.tank_capacity": "最大储罐容量"
+  "tinkers_golem.tank_capacity": "最大储罐容量",
+  "tool_stat.tinkers_golem.cannon_range": "炮击范围：",
+  "tool_stat.tinkers_golem.cannon_range.description": "傀儡会用炮攻击目标的范围"
 }
