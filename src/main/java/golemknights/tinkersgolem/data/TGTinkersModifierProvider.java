@@ -2,6 +2,7 @@ package golemknights.tinkersgolem.data;
 
 import golemknights.tinkersgolem.content.modifiers.tool.MetalGolemAmmoFinderModule;
 import golemknights.tinkersgolem.content.modifiers.tool.SpewingModule;
+import golemknights.tinkersgolem.content.modifiers.tool.SpotlightModule;
 import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
@@ -27,6 +28,9 @@ public class TGTinkersModifierProvider extends AbstractModifierProvider implemen
         buildModifier(TGTinkersModifiers.ammoFinder)
                 .priority(200).tooltipDisplay(TooltipDisplay.NEVER)
                 .addModule(MetalGolemAmmoFinderModule.INSTANCE);
+        buildModifier(TGTinkersModifiers.spotlight)
+                .priority(120).levelDisplay(ModifierLevelDisplay.NO_LEVELS)
+                .addModule(SpotlightModule.INSTANCE);
     }
 
     @Override

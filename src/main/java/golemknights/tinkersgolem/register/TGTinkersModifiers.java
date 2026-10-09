@@ -21,7 +21,7 @@ public class TGTinkersModifiers {
     void registerSerializers(RegisterEvent event) {
         if (event.getRegistryKey() == Registries.RECIPE_SERIALIZER) {
             ModifierModule.LOADER.register(TinkersGolem.getResource("spewing"), SpewingModule.LOADER);
-            // ModifierModule.LOADER.register(TinkersGolem.getResource("spotlight"), SpotlightModule.LOADER);
+            ModifierModule.LOADER.register(TinkersGolem.getResource("spotlight"), SpotlightModule.LOADER);
             ModifierModule.LOADER.register(TinkersGolem.getResource("golem_ammo_finder"), MetalGolemAmmoFinderModule.LOADER);
         }
     }
@@ -32,6 +32,7 @@ public class TGTinkersModifiers {
     // Modifierid
     public static final ModifierId spewing = id("spewing");
     public static final ModifierId ammoFinder= id("golem_ammo_finder");
+    public static final ModifierId spotlight = id("spotlight");
     private static ModifierId id(String name) {
         return new ModifierId(TinkersGolem.MODID, name);
     }

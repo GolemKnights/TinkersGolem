@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-08T20:31:18.5281472	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (attributes), Tags (enchantments), Tags (mob_effects)]
+// 1.20.1	2026-10-09T16:17:59.544332	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (enchantments), Tags (mob_effects), Tags (attributes)]
 b8436d0c44d92f2b099471c96a4ea21253455870 assets/tinkers_golem/lang/en_ud.json
 f21a547adbf1c5740ef47d1aee696a6e2340a42d assets/tinkers_golem/lang/en_us.json
 203af4551a77473a1609ef1a9c4c6930e386d9f7 assets/tinkers_golem/models/item/cinderslime_expand.json
@@ -60,6 +60,7 @@ d76b2bdf7182c93cb4bb98f4cc17674e6d699334 data/tconstruct/tags/items/modifiable/a
 4b94140d5a270197067c40dc35808970ab028454 data/tconstruct/tags/items/modifiable/bonus_slots.json
 6c8e3f778b2b7f3543997b034dcc08a9b0ed7734 data/tconstruct/tags/items/modifiable/book_armor/mighty_smelting.json
 4b94140d5a270197067c40dc35808970ab028454 data/tconstruct/tags/items/modifiable/durability.json
+e13d49b5029f63046699085ff56eb17114608c8b data/tconstruct/tags/items/modifiable/melee/unarmed.json
 4b94140d5a270197067c40dc35808970ab028454 data/tconstruct/tags/items/modifiable/multipart.json
 e13d49b5029f63046699085ff56eb17114608c8b data/tconstruct/tags/items/modifiable/ranged/bounce.json
 e13d49b5029f63046699085ff56eb17114608c8b data/tconstruct/tags/items/modifiable/ranged/broad.json

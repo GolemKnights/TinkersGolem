@@ -50,6 +50,9 @@ public class TGTagGen {
 				TGItems.metalGolemGloves.asItem(),
 				TGItems.cannonItem.asItem()
 		);
+		pvd.addTag(TinkerTags.Items.UNARMED).add(
+				TGItems.cannonItem.asItem()
+		);
 		pvd.addTag(TinkerTags.Items.AOE).add(
 				TGItems.cannonItem.asItem()
 		);

@@ -1,0 +1,10 @@
+{
+  "level_display": "tconstruct:no_levels",
+  "modules": [
+    {
+      "type": "tinkers_golem:spotlight"
+    }
+  ],
+  "priority": 120,
+  "tooltip_display": "always"
+}

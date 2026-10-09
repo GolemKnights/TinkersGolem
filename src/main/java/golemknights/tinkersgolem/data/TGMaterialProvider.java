@@ -4,6 +4,7 @@ import golemknights.tinkersgolem.library.materialstats.CannonCoreMaterialStats;
 import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataProvider;
@@ -15,8 +16,7 @@ import slimeknights.tconstruct.tools.data.ModifierIds;
 
 import java.util.function.Consumer;
 
-import static golemknights.tinkersgolem.register.TGMaterials.fluidcore;
-import static golemknights.tinkersgolem.register.TGMaterials.slimecore;
+import static golemknights.tinkersgolem.register.TGMaterials.*;
 
 public class TGMaterialProvider extends AbstractMaterialDataProvider {
     public TGMaterialProvider(PackOutput packOutput) {
@@ -27,6 +27,7 @@ public class TGMaterialProvider extends AbstractMaterialDataProvider {
     protected void addMaterials() {
         material(slimecore).tier(3).sort(1).craftable();
         material(fluidcore).tier(2).sort(1).craftable();
+        material(beaconcore).tier(4).sort(1).craftable();
     }
 
     @Override
@@ -43,6 +44,7 @@ public class TGMaterialProvider extends AbstractMaterialDataProvider {
         protected void addMaterialStats() {
             addMaterialStats(slimecore, new CannonCoreMaterialStats(0, 0.1f, 15));
             addMaterialStats(fluidcore, new CannonCoreMaterialStats(0, 0, 15));
+            addMaterialStats(beaconcore, new CannonCoreMaterialStats(0, 0, 15));
         }
 
         @Override
@@ -60,6 +62,7 @@ public class TGMaterialProvider extends AbstractMaterialDataProvider {
         protected void addMaterialTraits() {
             addDefaultTraits(slimecore, ModifierIds.slimeball);
             addDefaultTraits(fluidcore, TGTinkersModifiers.spewing);
+            addDefaultTraits(beaconcore, TGTinkersModifiers.spotlight);
         }
 
         @Override
@@ -79,6 +82,7 @@ public class TGMaterialProvider extends AbstractMaterialDataProvider {
             String folder = "tools/materials/";
             materialRecipe(consumer, slimecore, Ingredient.of(TinkerMaterials.slimesteel.getBlockItemTag()), 1, 1, folder + "slimecore");
             materialRecipe(consumer, fluidcore, Ingredient.of(TinkerSmeltery.searedFluidCannon), 1, 1, folder + "fluidcore");
+            materialRecipe(consumer, beaconcore, Ingredient.of(Items.BEACON), 1, 1, folder + "beaconcore");
         }
 
         @Override

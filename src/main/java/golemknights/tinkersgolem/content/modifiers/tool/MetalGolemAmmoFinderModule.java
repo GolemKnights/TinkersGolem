@@ -1,8 +1,5 @@
 package golemknights.tinkersgolem.content.modifiers.tool;
 
-import java.util.List;
-import java.util.function.Predicate;
-
 import dev.xkmc.modulargolems.content.entity.common.SweepGolemEntity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -15,9 +12,12 @@ import slimeknights.tconstruct.library.modifiers.modules.ModifierModule;
 import slimeknights.tconstruct.library.module.ModuleHook;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
+import java.util.List;
+import java.util.function.Predicate;
+
 public enum MetalGolemAmmoFinderModule implements ModifierModule, BowAmmoModifierHook{
     INSTANCE;
-    public static final RecordLoadable<MetalGolemAmmoFinderModule> LOADER = new SingletonLoader<MetalGolemAmmoFinderModule>(INSTANCE);
+    public static final RecordLoadable<MetalGolemAmmoFinderModule> LOADER = new SingletonLoader<>(INSTANCE);
     private static final List<ModuleHook<?>> HOOKS = List.of(ModifierHooks.BOW_AMMO);
     @Override
     public List<ModuleHook<?>> getDefaultHooks() {

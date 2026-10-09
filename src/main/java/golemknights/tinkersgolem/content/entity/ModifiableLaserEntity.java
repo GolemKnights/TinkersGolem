@@ -36,6 +36,7 @@ import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 import java.util.*;
 
+@SerialClass
 public class ModifiableLaserEntity extends BaseEntity implements OwnableEntity {
     public static final EntityDataAccessor<Integer> OWNER_ID;
     @SerialClass.SerialField
@@ -79,6 +80,13 @@ public class ModifiableLaserEntity extends BaseEntity implements OwnableEntity {
             InteractionHand hand = this.right ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND;
             Vec3 pos = CannonPoseUtil.BEACON_CANNON.getOrigin(golem, hand);
             float[] rot = CannonPoseUtil.BEACON_CANNON.getAngle(golem, hand);
+            Vec3 dst = golem.getTargetAimPos().add(golem.position()).subtract(pos).normalize().scale(35.0).add(pos);
+            BlockHitResult hit = golem.level().clip(new ClipContext(pos, dst, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, (Entity)null));
+            this.len = (float)hit.getLocation().subtract(pos).length();
+            this.lastTarget = hit.getLocation();
+            this.setPos(pos);
+            rot[0] *= 57.295776F;
+            rot[1] *= 57.295776F;
             Random random = new Random();
             if (tool != null) {
                 // 使用精准度偏移角度
@@ -86,13 +94,8 @@ public class ModifiableLaserEntity extends BaseEntity implements OwnableEntity {
                 rot[0] += (float) (random.nextGaussian() * inaccuracy);
                 rot[1] += (float) (random.nextGaussian() * inaccuracy);
             }
-            Vec3 dst = golem.getTargetAimPos().add(golem.position()).subtract(pos).normalize().scale(35.0).add(pos);
-            BlockHitResult hit = golem.level().clip(new ClipContext(pos, dst, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, (Entity)null));
-            this.len = (float)hit.getLocation().subtract(pos).length();
-            this.lastTarget = hit.getLocation();
-            this.setPos(pos);
-            this.setYRot(rot[0] * 57.295776F);
-            this.setXRot(rot[1] * 57.295776F);
+            this.setYRot(rot[0]);
+            this.setXRot(rot[1]);
         }
     }
 
