@@ -7,7 +7,7 @@ import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import slimeknights.tconstruct.library.data.tinkering.AbstractModifierProvider;
-import slimeknights.tconstruct.library.json.LevelingInt;
+import slimeknights.tconstruct.library.json.LevelingValue;
 import slimeknights.tconstruct.library.modifiers.impl.BasicModifier.TooltipDisplay;
 import slimeknights.tconstruct.library.modifiers.modules.build.StatBoostModule;
 import slimeknights.tconstruct.library.modifiers.util.ModifierLevelDisplay;
@@ -22,7 +22,7 @@ public class TGTinkersModifierProvider extends AbstractModifierProvider implemen
     protected void addModifiers() {
         buildModifier(TGTinkersModifiers.spewing)
                 .priority(120).levelDisplay(ModifierLevelDisplay.SINGLE_LEVEL)
-                .addModule(new SpewingModule(LevelingInt.eachLevel(1)))
+                .addModule(new SpewingModule(LevelingValue.eachLevel(0.5f)))
                 .addModule(ToolTankHelper.TANK_HANDLER)
                 .addModule(StatBoostModule.add(ToolTankHelper.CAPACITY_STAT).eachLevel(1000.0F));
         buildModifier(TGTinkersModifiers.ammoFinder)

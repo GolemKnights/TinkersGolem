@@ -17,12 +17,13 @@ import org.joml.Quaternionf;
 import org.joml.Vector3f;
 import slimeknights.mantle.data.loadable.record.RecordLoadable;
 import slimeknights.tconstruct.common.Sounds;
-import slimeknights.tconstruct.library.json.LevelingInt;
+import slimeknights.tconstruct.library.json.LevelingValue;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.fluid.FluidEffectManager;
 import slimeknights.tconstruct.library.modifiers.fluid.FluidEffects;
 import slimeknights.tconstruct.library.modifiers.hook.build.ConditionalStatModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.ranged.BowAmmoModifierHook;
 import slimeknights.tconstruct.library.modifiers.modules.ModifierModule;
 import slimeknights.tconstruct.library.module.HookProvider;
 import slimeknights.tconstruct.library.module.ModuleHook;
@@ -39,9 +40,9 @@ import slimeknights.tconstruct.tools.entity.FluidEffectProjectile;
 
 import java.util.List;
 
-public record SpewingModule(LevelingInt shots) implements ModifierModule, ShoulderWeaponModifierHook.Delayed {
+public record SpewingModule(LevelingValue shots) implements ModifierModule, ShoulderWeaponModifierHook.Delayed {
     public static final RecordLoadable<SpewingModule> LOADER = RecordLoadable.create(
-            LevelingInt.LOADABLE.requiredField("shots", SpewingModule::shots),
+            LevelingValue.LOADABLE.requiredField("shots_percent", SpewingModule::shots),
             SpewingModule::new);
 
     @Override
@@ -66,7 +67,7 @@ public record SpewingModule(LevelingInt shots) implements ModifierModule, Should
                     if (recipe.hasEffects()) {
                         float power = ConditionalStatModifierHook.getModifiedStat(tool, golem,
                                 ToolStats.PROJECTILE_DAMAGE);
-                        int shots = this.shots.compute(modifier.getEffectiveLevel());
+                        int shots = (int)Math.max(1, this.shots.compute(modifier.getEffectiveLevel()) * (BowAmmoModifierHook.getDesiredProjectiles(tool) - 1));
                         int amount = Math.min(fluid.getAmount(),
                                 (int) ((float) recipe.getAmount(fluid.getFluid()) * power) * shots) / shots;
                         if (amount > 0) {
