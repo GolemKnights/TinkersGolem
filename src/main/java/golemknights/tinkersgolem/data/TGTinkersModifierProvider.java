@@ -1,6 +1,7 @@
 package golemknights.tinkersgolem.data;
 
 import golemknights.tinkersgolem.content.modifiers.tool.MetalGolemAmmoFinderModule;
+import golemknights.tinkersgolem.content.modifiers.tool.ShootingModule;
 import golemknights.tinkersgolem.content.modifiers.tool.SpewingModule;
 import golemknights.tinkersgolem.content.modifiers.tool.SpotlightModule;
 import golemknights.tinkersgolem.register.TGTinkersModifiers;
@@ -31,6 +32,9 @@ public class TGTinkersModifierProvider extends AbstractModifierProvider implemen
         buildModifier(TGTinkersModifiers.spotlight)
                 .priority(120).levelDisplay(ModifierLevelDisplay.NO_LEVELS)
                 .addModule(SpotlightModule.INSTANCE);
+        buildModifier(TGTinkersModifiers.shooting)
+                .priority(120).levelDisplay(ModifierLevelDisplay.NO_LEVELS)
+                .addModule(ShootingModule.INSTANCE);
     }
 
     @Override

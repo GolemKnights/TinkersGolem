@@ -28,6 +28,7 @@ public class TGMaterialProvider extends AbstractMaterialDataProvider {
         material(slimecore).tier(3).sort(1).craftable();
         material(fluidcore).tier(2).sort(1).craftable();
         material(beaconcore).tier(4).sort(1).craftable();
+        material(arrowcore).tier(2).sort(1).craftable();
     }
 
     @Override
@@ -45,6 +46,7 @@ public class TGMaterialProvider extends AbstractMaterialDataProvider {
             addMaterialStats(slimecore, new CannonCoreMaterialStats(0, 0.1f, 15));
             addMaterialStats(fluidcore, new CannonCoreMaterialStats(0, 0, 15));
             addMaterialStats(beaconcore, new CannonCoreMaterialStats(0, 0, 5));
+            addMaterialStats(arrowcore, new CannonCoreMaterialStats(0, 0, 15));
         }
 
         @Override
@@ -63,6 +65,7 @@ public class TGMaterialProvider extends AbstractMaterialDataProvider {
             addDefaultTraits(slimecore, ModifierIds.slimeball);
             addDefaultTraits(fluidcore, TGTinkersModifiers.spewing);
             addDefaultTraits(beaconcore, TGTinkersModifiers.spotlight);
+            addDefaultTraits(arrowcore, TGTinkersModifiers.shooting);
         }
 
         @Override
@@ -83,6 +86,7 @@ public class TGMaterialProvider extends AbstractMaterialDataProvider {
             materialRecipe(consumer, slimecore, Ingredient.of(TinkerMaterials.slimesteel.getBlockItemTag()), 1, 1, folder + "slimecore");
             materialRecipe(consumer, fluidcore, Ingredient.of(TinkerSmeltery.searedFluidCannon), 1, 1, folder + "fluidcore");
             materialRecipe(consumer, beaconcore, Ingredient.of(Items.BEACON), 1, 1, folder + "beaconcore");
+            materialRecipe(consumer, arrowcore, Ingredient.of(Items.DISPENSER), 1, 1, folder + "arrowcore");
         }
 
         @Override

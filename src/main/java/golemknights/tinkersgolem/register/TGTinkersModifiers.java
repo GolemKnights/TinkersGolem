@@ -2,6 +2,7 @@ package golemknights.tinkersgolem.register;
 
 import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.content.modifiers.tool.MetalGolemAmmoFinderModule;
+import golemknights.tinkersgolem.content.modifiers.tool.ShootingModule;
 import golemknights.tinkersgolem.content.modifiers.tool.SpewingModule;
 import golemknights.tinkersgolem.content.modifiers.tool.SpotlightModule;
 import golemknights.tinkersgolem.library.hooks.ShoulderWeaponModifierHook;
@@ -23,6 +24,7 @@ public class TGTinkersModifiers {
             ModifierModule.LOADER.register(TinkersGolem.getResource("spewing"), SpewingModule.LOADER);
             ModifierModule.LOADER.register(TinkersGolem.getResource("spotlight"), SpotlightModule.LOADER);
             ModifierModule.LOADER.register(TinkersGolem.getResource("golem_ammo_finder"), MetalGolemAmmoFinderModule.LOADER);
+            ModifierModule.LOADER.register(TinkersGolem.getResource("shooting"), ShootingModule.LOADER);
         }
     }
     // Hooks
@@ -33,6 +35,7 @@ public class TGTinkersModifiers {
     public static final ModifierId spewing = id("spewing");
     public static final ModifierId ammoFinder= id("golem_ammo_finder");
     public static final ModifierId spotlight = id("spotlight");
+    public static final ModifierId shooting = id("shooting");
     private static ModifierId id(String name) {
         return new ModifierId(TinkersGolem.MODID, name);
     }
