@@ -3,6 +3,7 @@ package golemknights.tinkersgolem.mixinhelper;
 import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
 import dev.xkmc.modulargolems.content.item.ranged.CannonPoseUtil;
 import golemknights.tinkersgolem.library.hooks.ShoulderWeaponModifierHook;
+import golemknights.tinkersgolem.register.TGStats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
@@ -47,7 +48,7 @@ public interface FireballModule_ShoulderWeaponModifierHook extends ShoulderWeapo
             InteractionHand hand) {
         LivingEntity target = entity.getTarget();
         if (target != null && target.isAlive()) {
-            if (!CannonPoseUtil.FLAME_THROWER.isOutOfRange(entity, hand, 15.0F)) {
+            if (!CannonPoseUtil.FLAME_THROWER.isOutOfRange(entity, hand, ConditionalStatModifierHook.getModifiedStat(tool, entity, TGStats.CANNON_RANGE))) {
                 ItemStack fireball = BowAmmoModifierHook.consumeAmmo(tool, ItemStack.EMPTY, entity, null, self(), 1);
                 if (fireball.isEmpty())
                     return;

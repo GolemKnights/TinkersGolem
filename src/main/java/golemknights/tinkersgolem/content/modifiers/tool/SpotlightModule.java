@@ -5,6 +5,7 @@ import dev.xkmc.modulargolems.content.item.ranged.CannonPoseUtil;
 import golemknights.tinkersgolem.content.entity.ModifiableLaserEntity;
 import golemknights.tinkersgolem.library.hooks.ShoulderWeaponModifierHook;
 import golemknights.tinkersgolem.register.TGEntities;
+import golemknights.tinkersgolem.register.TGStats;
 import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -13,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import slimeknights.mantle.data.loadable.record.RecordLoadable;
 import slimeknights.mantle.data.loadable.record.SingletonLoader;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.hook.build.ConditionalStatModifierHook;
 import slimeknights.tconstruct.library.modifiers.modules.ModifierModule;
 import slimeknights.tconstruct.library.module.HookProvider;
 import slimeknights.tconstruct.library.module.ModuleHook;
@@ -38,7 +40,7 @@ public enum SpotlightModule implements ModifierModule, ShoulderWeaponModifierHoo
 
     @Override
     public void onShoot(IToolStackView tool, ModifierEntry modifier, MetalGolemEntity entity, ItemStack toolItem, InteractionHand hand) {
-        if (CannonPoseUtil.BEACON_CANNON.isOutOfRange(entity, hand)) {
+        if (CannonPoseUtil.BEACON_CANNON.isOutOfRange(entity, hand, ConditionalStatModifierHook.getModifiedStat(tool, entity, TGStats.CANNON_RANGE))) {
             return;
         }
         ModifiableLaserEntity laser = new ModifiableLaserEntity(TGEntities.ENTITY_LASER.get(), entity.level(), entity, 10, hand == InteractionHand.MAIN_HAND, tool, toolItem);

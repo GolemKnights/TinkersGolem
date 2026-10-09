@@ -3,6 +3,7 @@ package golemknights.tinkersgolem.content.modifiers.tool;
 import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
 import dev.xkmc.modulargolems.content.item.ranged.CannonPoseUtil;
 import golemknights.tinkersgolem.library.hooks.ShoulderWeaponModifierHook;
+import golemknights.tinkersgolem.register.TGStats;
 import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -58,7 +59,7 @@ public record SpewingModule(LevelingInt shots) implements ModifierModule, Should
             InteractionHand hand) {
         LivingEntity target = golem.getTarget();
         if (target != null && target.isAlive()) {
-            if (!CannonPoseUtil.FLAME_THROWER.isOutOfRange(golem, hand, 15.0F)) {
+            if (!CannonPoseUtil.FLAME_THROWER.isOutOfRange(golem, hand, ConditionalStatModifierHook.getModifiedStat(tool, golem, TGStats.CANNON_RANGE))) {
                 FluidStack fluid = ToolTankHelper.TANK_HELPER.getFluid(tool);
                 if (!fluid.isEmpty()) {
                     FluidEffects recipe = FluidEffectManager.INSTANCE.find(fluid.getFluid());
