@@ -6,7 +6,7 @@
       "tag": "forge:ingots/queens_slime"
     },
     "B": {
-      "tag": "forge:raw_nuggets/knightmetal"
+      "item": "minecraft:ender_eye"
     },
     "E": {
       "item": "modulargolems:empty_upgrade"

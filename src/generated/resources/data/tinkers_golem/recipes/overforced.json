@@ -3,6 +3,9 @@
   "category": "misc",
   "key": {
     "A": {
+      "tag": "forge:ingots/slimesteel"
+    },
+    "B": {
       "item": "tconstruct:slimesteel_reinforcement"
     },
     "E": {
@@ -10,9 +13,9 @@
     }
   },
   "pattern": [
-    "AAA",
+    "BAB",
     "AEA",
-    "AAA"
+    "BAB"
   ],
   "result": {
     "item": "tinkers_golem:overforced"

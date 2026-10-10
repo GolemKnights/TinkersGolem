@@ -74,9 +74,9 @@ public class TGRecipeGen {
 
 			unlock(pvd, new GolemAssembleBuilder(TGEntities.HOLDER_SLIME.get(), 1)::unlockedBy,
 					TGEntities.SLIME_CORE.get())
-					.pattern("A").pattern("B")
-					.define('A', TGEntities.SLIME_SHELL.get())
-					.define('B', TGEntities.SLIME_CORE.get())
+					.pattern("B").pattern("A")
+					.define('A', TGEntities.SLIME_CORE.get())
+					.define('B', TGEntities.SLIME_SHELL.get())
 					.save(pvd, TinkersGolem.getResource("slime_golem/assemble_holder_inverted"));
 
 			unlock(pvd, new GolemReplaceBuilder(TGEntities.HOLDER_SLIME.get(), 1)::unlockedBy,
@@ -128,6 +128,7 @@ public class TGRecipeGen {
 			genMetal(pvd, TConstruct.getResource("slimesteel"), TinkerFluids.moltenSlimesteel, 90);
 			genMetal(pvd, TConstruct.getResource("queens_slime"), TinkerFluids.moltenQueensSlime, 90);
 			genMetal(pvd, TConstruct.getResource("cinderslime"), TinkerFluids.moltenCinderslime, 90);
+			genMetal(pvd, TConstruct.getResource("knightslime"), TinkerFluids.moltenKnightslime, 90);
 
 			var core = TGEntities.SLIME_CORE.get();
 
@@ -165,6 +166,13 @@ public class TGRecipeGen {
 					.pattern("BAB").pattern("AEA").pattern("BAB")
 					.define('E', GolemItems.ADD_DIAMOND.get())
 					.define('A', TinkerMaterials.cinderslime.getIngotTag())
+					.define('B', TinkerTags.Items.CONGEALED_SLIME)
+					.save(pvd);
+
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGGolemModifiers.KNIGHTSLIME_EXPAND.get(), 1)::unlockedBy, GolemItems.ADD_DIAMOND.get())
+					.pattern("BAB").pattern("AEA").pattern("BAB")
+					.define('E', GolemItems.ADD_DIAMOND.get())
+					.define('A', TinkerMaterials.knightslime.getIngotTag())
 					.define('B', TinkerTags.Items.CONGEALED_SLIME)
 					.save(pvd);
 
@@ -215,20 +223,28 @@ public class TGRecipeGen {
 					.pattern("BAB").pattern("AEA").pattern("BAB")
 					.define('E', GolemItems.EMPTY_UPGRADE.get())
 					.define('A', TinkerMaterials.queensSlime.getIngotTag())
-					.define('B', TinkerTags.Items.KNIGHTMETAL_SHARD)
+					.define('B', Items.ENDER_EYE)
 					.save(pvd);
 
 			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGGolemModifiers.ITEM_OVERBURN.get(), 1)::unlockedBy, GolemItems.EMPTY_UPGRADE.get())
 					.pattern("BAB").pattern("AEA").pattern("BAB")
 					.define('E', GolemItems.EMPTY_UPGRADE.get())
 					.define('A', TinkerMaterials.cinderslime.getIngotTag())
-					.define('B', TinkerWorld.cobaltShard.get())
+					.define('B', TinkerTags.Items.COBALT_SHARD)
 					.save(pvd);
 
 			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGGolemModifiers.ITEM_OVERFORCED.get(), 1)::unlockedBy, GolemItems.EMPTY_UPGRADE.get())
-					.pattern("AAA").pattern("AEA").pattern("AAA")
+					.pattern("BAB").pattern("AEA").pattern("BAB")
 					.define('E', GolemItems.EMPTY_UPGRADE.get())
-					.define('A', TinkerModifiers.slimesteelReinforcement.get())
+					.define('A', TinkerMaterials.slimesteel.getIngotTag())
+					.define('B', TinkerModifiers.slimesteelReinforcement.get())
+					.save(pvd);
+
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGGolemModifiers.ITEM_OVERWIELD.get(), 1)::unlockedBy, GolemItems.EMPTY_UPGRADE.get())
+					.pattern("BAB").pattern("AEA").pattern("BAB")
+					.define('E', GolemItems.EMPTY_UPGRADE.get())
+					.define('A', TinkerMaterials.knightslime.getIngotTag())
+					.define('B', TinkerTags.Items.KNIGHTMETAL_SHARD)
 					.save(pvd);
 
 		}

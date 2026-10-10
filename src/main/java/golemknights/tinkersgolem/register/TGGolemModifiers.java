@@ -63,10 +63,10 @@ public class TGGolemModifiers {
 	public static final RegistryEntry<RepulsiveModifier> REPULSIVE;
 	// Items
 	public static final ItemEntry<SimpleUpgradeItem> ITEM_OVERGROWTH, ITEM_SUPER_OVERGROWTH,
-			ITEM_OVERWORKED, ITEM_OVERFORCED, ITEM_OVERFILL, ITEM_OVERLORD, ITEM_OVERBURN,
+			ITEM_OVERWORKED, ITEM_OVERFORCED, ITEM_OVERFILL, ITEM_OVERLORD, ITEM_OVERBURN, ITEM_OVERWIELD,
 			ITEM_SPILLING, ITEM_WETTING, ITEM_ENDERFERENCE;
 	public static final ItemEntry<SpecialUpgradeItem> ITEM_OVERDRIVE;
-	public static final ItemEntry<AddSlotTemplate> QUEENS_SLIME_EXPAND, CINDERSLIME_EXPAND, SLIMESTEEL_EXPAND;
+	public static final ItemEntry<AddSlotTemplate> QUEENS_SLIME_EXPAND, CINDERSLIME_EXPAND, SLIMESTEEL_EXPAND, KNIGHTSLIME_EXPAND;
 
 	static {
 		OVERWORKED = reg("overworked", () -> new AttributeGolemModifier(4,
@@ -102,21 +102,23 @@ public class TGGolemModifiers {
 		DURITAE = reg("duritae", DuritaeModifier::new, "");
 		REPULSIVE = reg("repulsive", RepulsiveModifier::new, "");
 
-		ITEM_OVERGROWTH = regUpgradeImpl("overgrowth", () -> OVERGROWTH, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
-		ITEM_SUPER_OVERGROWTH = regUpgradeImpl("overgrown", () -> OVERGROWTH, 4, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
-		ITEM_OVERWORKED = regUpgradeImpl("overworked", () -> OVERWORKED, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
-		ITEM_OVERFORCED = regUpgradeImpl("overforced", () -> OVERFORCED, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
-		ITEM_OVERFILL = regUpgradeImpl("overfill", () -> OVERFILL, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
-		ITEM_OVERLORD = regUpgradeImpl("overlord", () -> OVERLORD, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
-		ITEM_OVERBURN = regUpgradeImpl("overburn", () -> OVERBURN, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
-		ITEM_SPILLING = regUpgradeImpl("spilling", () -> SPILLING, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
-		ITEM_WETTING = regUpgradeImpl("wetting", () -> WETTING, 1, false, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
+		ITEM_OVERGROWTH = regUpgradeImpl("overgrowth", () -> OVERGROWTH, 1, false, TinkersGolem.MODID).lang("Slimewood Upgrade").tag(TGTagGen.SLIME_UPGRADES).register();
+		ITEM_SUPER_OVERGROWTH = regUpgradeImpl("overgrown", () -> OVERGROWTH, 4, false, TinkersGolem.MODID).lang("Multiple Slimewood Upgrade").tag(TGTagGen.SLIME_UPGRADES).register();
+		ITEM_OVERWORKED = regUpgradeImpl("overworked", () -> OVERWORKED, 1, false, TinkersGolem.MODID).lang("Plated Slimewood Upgrade").tag(TGTagGen.SLIME_UPGRADES).register();
+		ITEM_OVERFORCED = regUpgradeImpl("overforced", () -> OVERFORCED, 1, false, TinkersGolem.MODID).lang("Slimesteel Upgrade").tag(TGTagGen.SLIME_UPGRADES).register();
+		ITEM_OVERFILL = regUpgradeImpl("overfill", () -> OVERFILL, 1, false, TinkersGolem.MODID).lang("Tank Upgrade").tag(TGTagGen.SLIME_UPGRADES).register();
+		ITEM_OVERLORD = regUpgradeImpl("overlord", () -> OVERLORD, 1, false, TinkersGolem.MODID).lang("Queen's Slime Upgrade").tag(TGTagGen.SLIME_UPGRADES).register();
+		ITEM_OVERBURN = regUpgradeImpl("overburn", () -> OVERBURN, 1, false, TinkersGolem.MODID).lang("Cinderslime Upgrade").tag(TGTagGen.SLIME_UPGRADES).register();
+		ITEM_OVERWIELD = regUpgradeImpl("overwield", () -> OVERWIELD, 1, false, TinkersGolem.MODID).lang("Knightslime Upgrade").tag(TGTagGen.SLIME_UPGRADES).register();
+		ITEM_SPILLING = regUpgradeImpl("spilling", () -> SPILLING, 1, false, TinkersGolem.MODID).lang("Spilling Upgrade").tag(TGTagGen.SLIME_UPGRADES).register();
+		ITEM_WETTING = regUpgradeImpl("wetting", () -> WETTING, 1, false, TinkersGolem.MODID).lang("Wetting Upgrade").tag(TGTagGen.SLIME_UPGRADES).register();
 		ITEM_ENDERFERENCE = regUpgradeImpl("enderference", () -> ENDERFERENCE, 1, false, TinkersGolem.MODID).tag(MGTagGen.POTION_UPGRADES).register();
-		ITEM_OVERDRIVE = specialUpgrade("overdrive", () -> OVERDRIVE, TinkersGolem.MODID).tag(TGTagGen.SLIME_UPGRADES).register();
+		ITEM_OVERDRIVE = specialUpgrade("overdrive", () -> OVERDRIVE, TinkersGolem.MODID).lang("Upgrade Template: Overdrive").tag(TGTagGen.SLIME_UPGRADES).register();
 
 		SLIMESTEEL_EXPAND = addSlot("slimesteel_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Slimesteel").register();
 		QUEENS_SLIME_EXPAND = addSlot("queens_slime_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Queen's Slime").register();
 		CINDERSLIME_EXPAND = addSlot("cinderslime_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Cinderslime").register();
+		KNIGHTSLIME_EXPAND = addSlot("knightslime_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Knightslime").register();
 
 	}
 

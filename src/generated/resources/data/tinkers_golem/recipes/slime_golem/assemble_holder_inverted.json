@@ -3,15 +3,15 @@
   "category": "misc",
   "key": {
     "A": {
-      "item": "tinkers_golem:slime_golem_shell"
+      "item": "tinkers_golem:slime_golem_core"
     },
     "B": {
-      "item": "tinkers_golem:slime_golem_core"
+      "item": "tinkers_golem:slime_golem_shell"
     }
   },
   "pattern": [
-    "A",
-    "B"
+    "B",
+    "A"
   ],
   "result": {
     "item": "tinkers_golem:slime_golem_holder"

@@ -3,13 +3,13 @@
   "category": "misc",
   "key": {
     "A": {
-      "tag": "forge:ingots/cinderslime"
+      "tag": "forge:ingots/knightslime"
     },
     "B": {
-      "tag": "forge:raw_nuggets/cobalt"
+      "tag": "tconstruct:congealed_slime"
     },
     "E": {
-      "item": "modulargolems:empty_upgrade"
+      "item": "modulargolems:diamond_expansion_template"
     }
   },
   "pattern": [
@@ -18,7 +18,7 @@
     "BAB"
   ],
   "result": {
-    "item": "tinkers_golem:overburn"
+    "item": "tinkers_golem:knightslime_expand"
   },
   "show_notification": true
 }

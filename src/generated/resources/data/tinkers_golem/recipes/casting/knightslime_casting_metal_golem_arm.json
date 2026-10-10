@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:casting_basin",
+  "cast": {
+    "item": "modulargolems:metal_golem_arm"
+  },
+  "cast_consumed": true,
+  "cooling_time": 210,
+  "fluid": {
+    "amount": 810,
+    "tag": "tconstruct:molten_knightslime"
+  },
+  "result": {
+    "item": "modulargolems:metal_golem_arm",
+    "nbt": {
+      "golem_material": "tconstruct:knightslime"
+    }
+  }
+}
