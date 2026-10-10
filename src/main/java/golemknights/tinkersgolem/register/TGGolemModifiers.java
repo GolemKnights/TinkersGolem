@@ -20,6 +20,7 @@ import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.content.item.misc.SpecialUpgradeItem;
 import golemknights.tinkersgolem.content.modifiers.golem.*;
+import golemknights.tinkersgolem.content.modifiers.golem.compat.*;
 import golemknights.tinkersgolem.content.modifiers.slime.*;
 import golemknights.tinkersgolem.data.TGConfig;
 import golemknights.tinkersgolem.data.TGTagGen;
@@ -35,7 +36,7 @@ import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
 public class TGGolemModifiers {
-
+	// Modifiers
 	public static final RegistryEntry<OvergrowthModifier> OVERGROWTH;
 	public static final RegistryEntry<AttributeGolemModifier> OVERFORCED, OVERWORKED, OVERFILL;
 	public static final RegistryEntry<PotionAttackModifier> ENDERFERENCE;
@@ -49,17 +50,17 @@ public class TGGolemModifiers {
 	public static final RegistryEntry<OverdriveModifier> OVERDRIVE;
 	public static final RegistryEntry<SpillingModifier> SPILLING;
 	public static final RegistryEntry<WettingModifier> WETTING;
+	public static final RegistryEntry<FieryExplosionModifier> FIERY_EXPLOSION;
+	public static final RegistryEntry<SwallowModifier> SWALLOW;
+	public static final RegistryEntry<SlimeSlotModifier> OVERTALENTED;
+	// Tinkers' Thinking
 	public static final RegistryEntry<CrazyMetalModifier> CRAZY_METAL;
 	public static final RegistryEntry<CountermeasuresModifier> COUNTERMEASURES;
 	public static final RegistryEntry<SymbionicModifier> SYMBIONIC;
 	public static final RegistryEntry<LightlyAttackModifier> LIGHTLY_ATTACK;
 	public static final RegistryEntry<DuritaeModifier> DURITAE;
 	public static final RegistryEntry<RepulsiveModifier> REPULSIVE;
-	public static final RegistryEntry<FieryExplosionModifier> FIERY_EXPLOSION;
-	public static final RegistryEntry<SwallowModifier> SWALLOW;
-
-	public static final RegistryEntry<SlimeSlotModifier> OVERTALENTED;
-
+	// Items
 	public static final ItemEntry<SimpleUpgradeItem> ITEM_OVERGROWTH, ITEM_SUPER_OVERGROWTH,
 			ITEM_OVERWORKED, ITEM_OVERFORCED, ITEM_OVERFILL, ITEM_OVERLORD, ITEM_OVERBURN,
 			ITEM_SPILLING, ITEM_WETTING, ITEM_ENDERFERENCE;

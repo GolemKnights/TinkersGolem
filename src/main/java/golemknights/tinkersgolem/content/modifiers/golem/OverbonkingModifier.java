@@ -29,8 +29,13 @@ public class OverbonkingModifier extends GolemModifier {
 	public void onHurtTarget(AbstractGolemEntity<?, ?> entity, LivingHurtEvent event, int level) {
 		LivingEntity target = event.getEntity();
 		if (target instanceof LivingEntity && entity.getRandom().nextFloat() < level * TGConfig.COMMON.overbonkingChance.get()) {
-			Vec3 angle = new Vec3(getAngle(entity, target), getAngle(entity, target), getAngle(entity, target));
-			target.push(4, angle.x, angle.z);
+			RandomSource random = entity.getRandom();
+			Vec3 angle = new Vec3(
+					(entity.getX() - target.getX()) + random.nextGaussian() * 0.0075f,
+					(entity.getY() - target.getY()) + random.nextGaussian() * 0.0075f,
+					(entity.getZ() - target.getZ()) + random.nextGaussian() * 0.0075f
+			);
+			target.knockback(4, angle.x, angle.z);
 			entity.level().playSound(null, entity.getX(), entity.getY(), entity.getZ(), Sounds.BONK.getSound(), entity.getSoundSource(), 1, 0.5f);
 		}
 	}

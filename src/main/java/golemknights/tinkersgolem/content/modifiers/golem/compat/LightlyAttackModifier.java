@@ -1,4 +1,4 @@
-package golemknights.tinkersgolem.content.modifiers.golem;
+package golemknights.tinkersgolem.content.modifiers.golem.compat;
 
 import dev.xkmc.modulargolems.content.core.StatFilterType;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
@@ -11,34 +11,24 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectUtil;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import slimeknights.tconstruct.shared.TinkerEffects;
 
 import java.util.List;
 
-public class RepulsiveModifier extends GolemModifier {
-    public RepulsiveModifier() {
+public class LightlyAttackModifier extends GolemModifier {
+    public LightlyAttackModifier() {
         super(StatFilterType.MASS, 5);
     }
+
     @Override
     public void onHurtTarget(AbstractGolemEntity<?, ?> entity, LivingHurtEvent event, int level) {
-        TGModifierUtil.applyEffect(entity, new MobEffectInstance(TinkerEffects.repulsive.get(), 15, level * 2 - 1, false, false));
-    }
-
-    @Override
-    public void onHurt(AbstractGolemEntity<?, ?> entity, LivingHurtEvent event, int level) {
-        Entity var5 = event.getSource().getDirectEntity();
-        if (var5 instanceof LivingEntity) {
-            TGModifierUtil.applyEffect(entity, new MobEffectInstance(TinkerEffects.repulsive.get(), 15, level * 2 - 1, false, false));
-        }
-
+        TGModifierUtil.applyEffect(entity, new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, level - 1, false, false));
     }
 
     @Override
     public List<MutableComponent> getDetail(int v) {
-        MobEffectInstance ins = new MobEffectInstance(TinkerEffects.repulsive.get(), 15, v * 2 - 1, false, false);
+        MobEffectInstance ins = new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, v - 1, false, false);
         MutableComponent lang = Component.translatable(ins.getDescriptionId());
         MobEffect mobeffect = ins.getEffect();
         if (ins.getAmplifier() > 0) {

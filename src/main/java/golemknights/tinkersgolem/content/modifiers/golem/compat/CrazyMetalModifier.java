@@ -1,4 +1,4 @@
-package golemknights.tinkersgolem.content.modifiers.golem;
+package golemknights.tinkersgolem.content.modifiers.golem.compat;
 
 import dev.xkmc.modulargolems.content.core.StatFilterType;
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
