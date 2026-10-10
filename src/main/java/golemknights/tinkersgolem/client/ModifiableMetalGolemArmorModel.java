@@ -10,9 +10,9 @@ import java.util.List;
 
 @SuppressWarnings({"unused","null"})
 public class ModifiableMetalGolemArmorModel {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(TGModelPaths.LOC, "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(TGModelPaths.METAL_GOLEM_ARMOR, "main");
 
-    public static final GolemModelPath PATH = GolemModelPath.register(TGModelPaths.LOC,
+    public static final GolemModelPath PATH = GolemModelPath.register(TGModelPaths.METAL_GOLEM_ARMOR,
             new GolemModelPath(LAYER_LOCATION,
                     List.of(List.of("body", "body1"),
                             List.of("body", "legs1"),

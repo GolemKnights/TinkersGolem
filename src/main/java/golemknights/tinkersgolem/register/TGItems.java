@@ -39,14 +39,14 @@ public class TGItems {
                     METAL_GOLEM, ArmorItem.Type.values(),
                     type -> new ModifiableMetalGolemArmorItem(UNSTACKABLE_PROPS, type,
                             GOLEM,
-                            TGModelPaths.LOC,
+                            TGModelPaths.METAL_GOLEM_ARMOR,
                             getResource(METAL_GOLEM + "_" + type.getName())));
     public static final ToolDefinition GLOVES_TOOL = ToolDefinition.create(getResource(METAL_GOLEM + "_gloves"));
     public static final ItemObject<ModifiableMetalGolemArmorItem> metalGolemGloves = ITEMS.register(
             METAL_GOLEM + "_gloves",
             () -> new ModifiableMetalGolemArmorItem(UNSTACKABLE_PROPS, ArmorItem.Type.CHESTPLATE,
                     GLOVES_TOOL,
-                    TGModelPaths.LOC,
+                    TGModelPaths.METAL_GOLEM_ARMOR,
                     getResource(METAL_GOLEM + "_gloves")));
 
     public static final String DOG_GOLEM_ARMOR = "dog_golem_armor";
