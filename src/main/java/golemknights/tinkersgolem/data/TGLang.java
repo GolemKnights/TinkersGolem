@@ -115,6 +115,14 @@ public enum TGLang {
 		pvd.add("modifier." + TinkersGolem.MODID + ".spotlight", "Spotlight");
 		pvd.add("modifier." + TinkersGolem.MODID + ".spotlight.flavor", "");
 		pvd.add("modifier." + TinkersGolem.MODID + ".spotlight.description", "");
+		pvd.add("material." + TinkersGolem.MODID + ".slimecore", "Slimesteel");
+		pvd.add("material." + TinkersGolem.MODID + ".slimecore.flavor", "");
+		pvd.add("material." + TinkersGolem.MODID + ".fluidcore", "Fluid");
+		pvd.add("material." + TinkersGolem.MODID + ".fluidcore.flavor", "");
+		pvd.add("material." + TinkersGolem.MODID + ".arrowcore", "Dispenser");
+		pvd.add("material." + TinkersGolem.MODID + ".arrowcore.flavor", "");
+		pvd.add("material." + TinkersGolem.MODID + ".beaconcore", "Beacon");
+		pvd.add("material." + TinkersGolem.MODID + ".beaconcore.flavor", "");
 		pvd.add("stat." + TinkersGolem.MODID + ".cannon_core", "Cannon Core");
 		pvd.add("tool_stat." + TinkersGolem.MODID + ".cannon_range", "Cannon Range");
 		pvd.add("tool_stat." + TinkersGolem.MODID + ".cannon_range.description", "");
