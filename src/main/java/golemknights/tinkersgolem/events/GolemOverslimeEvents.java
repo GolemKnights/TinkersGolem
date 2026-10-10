@@ -39,37 +39,56 @@ public class GolemOverslimeEvents {
 		}
 	}
 
-	public static void setOverslime(LivingEntity entity, float amount) {
+	/**
+	 * @return Whether setting overslime is successful.
+	 */
+	public static boolean setOverslime(LivingEntity entity, float amount) {
 		if (entity instanceof AbstractGolemEntity<?, ?> golem) {
 			AttributeInstance attribute = entity.getAttribute(TGAttributes.MAX_OVERSLIME.get());
 			if (attribute == null)
-				return;
+				return false;
 			float value = (float) attribute.getValue();
 			var cap = OverslimeCap.HOLDER.get(golem);
 			cap.overslime = Math.min(Math.max(amount, 0), value);
 			if (!entity.level().isClientSide()) {
 				cap.sync(golem);
 			}
+			return true;
 		}
+		return false;
 	}
 
-	public static void addOverslime(LivingEntity entity, float amount) {
+	/**
+	 * @return The real amount of recovery.
+	 */
+	public static float addOverslime(LivingEntity entity, float amount) {
 		if (amount > 0) {
 			var ins = entity.getAttribute(TGAttributes.OVERSLIME_RECOVERY.get());
 			if (ins != null)
 				amount *= (float) ins.getValue();
 		}
-		setOverslime(entity, getOverslime(entity) + amount);
+		float origin = getOverslime(entity);
+		if (setOverslime(entity, origin + amount)) {
+			return getOverslime(entity) - origin;
+		}
+		return 0;
 	}
 
-	public static void removeOverslime(LivingEntity entity, float amount) {
-		//TODO:可以在这里加一个消耗倍率
+	/**
+	 * @return The real amount of consumption.
+	 */
+	public static float removeOverslime(LivingEntity entity, float amount) {
+		//TODO:可以在这里加一个消耗倍率和事件
 		/*if (amount > 0) {
 			var ins = entity.getAttribute(TGAttributes.OVERSLIME_RECOVERY.get());
 			if (ins != null)
 				amount *= (float) ins.getValue();
 		}*/
-		setOverslime(entity, getOverslime(entity) - amount);
+		float origin = getOverslime(entity);
+		if (setOverslime(entity, origin - amount)) {
+			return origin - getOverslime(entity);
+		}
+		return 0;
 	}
 
 	//傀儡受伤消耗黏液覆层
