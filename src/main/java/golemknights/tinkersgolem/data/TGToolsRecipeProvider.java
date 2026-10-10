@@ -1,10 +1,10 @@
 package golemknights.tinkersgolem.data;
 
 import dev.xkmc.modulargolems.init.registrate.GolemItems;
+import golemknights.tinkersgolem.library.materialstats.CannonCoreMaterialStats;
 import golemknights.tinkersgolem.library.recipes.ExtendedShapedMaterialsRecipe;
 import golemknights.tinkersgolem.library.recipes.ExtendedShapedMaterialsRecipe.ExtendedMaterialIngredient;
 import golemknights.tinkersgolem.library.recipes.ExtendedShapedMaterialsRecipe.ExtendedMaterialValueIngredient;
-import golemknights.tinkersgolem.library.materialstats.CannonCoreMaterialStats;
 import golemknights.tinkersgolem.register.TGItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -56,9 +56,9 @@ public class TGToolsRecipeProvider extends BaseRecipeProvider implements IMateri
                 .layoutSlot(TGItems.METAL_GOLEM_ARMOR_PATTERN)
                 .save(consumer, this.prefix(id(TGItems.metalGolemGloves.get()), metalGolemFolder));
         ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, TGItems.cannonItem)
-                .pattern(" AA")
+                .pattern(" AB")
                 .pattern("C  ")
-                .pattern("TBB")
+                .pattern("TAB")
                 .define('T', GolemItems.GOLEM_TEMPLATE.get())
                 .define('C', cannonCoreMaterial.apply(CannonCoreMaterialStats.ID, 0))
                 .define('A', material.apply(LimbMaterialStats.ID, 1))

@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-10T20:23:04.2357409	Tinkers' Golem Tool Recipes
+// 1.20.1	2026-10-10T22:28:37.5550074	Tinkers' Golem Tool Recipes
 2bc1e76b18dd9672c27f2bada83d691f3fcaca21 data/tinkers_golem/advancements/recipes/tools/tools/building/cannon.json
 1e4bf0ed40cfefe94cd5595facb72e2aa23d2dec data/tinkers_golem/recipes/smeltery/casts/gold/boots_metal_golem_plating.json
 9913b7d912b0e25fa26e10919d20882c5d1a4656 data/tinkers_golem/recipes/smeltery/casts/gold/chestplate_metal_golem_plating.json
@@ -33,7 +33,7 @@ d0029242514f294d32b86191e9f0c8954227c820 data/tinkers_golem/recipes/smeltery/cas
 d861eede66919af599c6a5ad662dc724e6f63533 data/tinkers_golem/recipes/tools/armor/metal_golem/metal_golem_gloves.json
 8137380dc7ce19cf254ff9404d53e415b18541df data/tinkers_golem/recipes/tools/armor/metal_golem/metal_golem_helmet.json
 57db96843ce6d40dafd4b7f7088536fb4cd429cd data/tinkers_golem/recipes/tools/armor/metal_golem/metal_golem_leggings.json
-4de95e729c6e16986237306fbf6d8674f6456238 data/tinkers_golem/recipes/tools/building/cannon.json
+5192d2901c35fe6227145defb2622453d4f2c8ea data/tinkers_golem/recipes/tools/building/cannon.json
 13f33b9376c9847b64d0871b0635991ba4625c85 data/tinkers_golem/recipes/tools/parts/builder/boots_metal_golem_plating.json
 5b63f556221ff85f6bd226b1ba7bd9f67d7a816c data/tinkers_golem/recipes/tools/parts/builder/chestplate_metal_golem_plating.json
 426ad45ed3d3da7bfec74a37b7724ec211a0dc1b data/tinkers_golem/recipes/tools/parts/builder/helmet_metal_golem_plating.json

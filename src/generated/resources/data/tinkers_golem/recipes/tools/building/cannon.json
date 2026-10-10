@@ -67,9 +67,9 @@
     }
   },
   "pattern": [
-    " AA",
+    " AB",
     "C  ",
-    "TBB"
+    "TAB"
   ],
   "result": {
     "item": "tinkers_golem:cannon"
