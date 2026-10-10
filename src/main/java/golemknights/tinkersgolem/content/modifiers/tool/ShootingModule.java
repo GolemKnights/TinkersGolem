@@ -6,7 +6,6 @@ import golemknights.tinkersgolem.library.hooks.ShoulderWeaponModifierHook;
 import golemknights.tinkersgolem.register.TGStats;
 import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
@@ -117,7 +116,7 @@ public enum ShootingModule implements ModifierModule, ShoulderWeaponModifierHook
                         }
 
                         level.addFreshEntity(projectile);
-                        level.playSound(null, golem.getX(), golem.getY(), golem.getZ(), SoundEvents.CROSSBOW_SHOOT, hostile ? SoundSource.HOSTILE : SoundSource.NEUTRAL, 1.0F, getRandomShotPitch(angle, golem.getRandom()));
+                        level.playSound(null, golem.getX(), golem.getY(), golem.getZ(), SoundEvents.CROSSBOW_SHOOT, golem.getSoundSource(), 1.0F, getRandomShotPitch(angle, golem.getRandom()));
                     }
                     if (!hostile) {
                         ToolDamageUtil.damageAnimated(tool, damage, golem);
