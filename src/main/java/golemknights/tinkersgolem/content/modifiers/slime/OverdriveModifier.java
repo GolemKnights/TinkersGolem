@@ -19,7 +19,7 @@ public class OverdriveModifier extends SlimeModifier {
 		if (golem.getGuardedDataImpl() < golem.getMaxHealth()) {
 			GolemOverslimeEvents.removeOverslime(golem, golem.getMaxHealth() - golem.getGuardedDataImpl());
 			golem.setGuardedDataImpl(golem.getMaxHealth(), false, false);
-		} else if (slime.getSize() < 8) {
+		} else if (slime.getSize() < (4 << level)) {
 			GolemOverslimeEvents.removeOverslime(golem, golem.getMaxHealth());
 			slime.setSize(slime.getSize() + 1, false);
 			slime.addTag("NoSplit");
