@@ -3,6 +3,9 @@
     "tconstruct:cinderslime": {
       "tag": "forge:ingots/cinderslime"
     },
+    "tconstruct:knightslime": {
+      "tag": "forge:ingots/knightslime"
+    },
     "tconstruct:queens_slime": {
       "tag": "forge:ingots/queens_slime"
     },
@@ -16,6 +19,9 @@
       "tinkers_golem:overburn": 1,
       "tinkers_golem:oversmelt": 1
     },
+    "tconstruct:knightslime": {
+      "tinkers_golem:overwield": 1
+    },
     "tconstruct:queens_slime": {
       "tinkers_golem:overlord": 2
     },
@@ -25,6 +31,9 @@
   "repairIngredients": {
     "tconstruct:cinderslime": {
       "tag": "forge:ingots/cinderslime"
+    },
+    "tconstruct:knightslime": {
+      "tag": "forge:ingots/knightslime"
     },
     "tconstruct:queens_slime": {
       "tag": "forge:ingots/queens_slime"
@@ -36,13 +45,18 @@
   "stats": {
     "tconstruct:cinderslime": {
       "modulargolems:attack": 20.0,
+      "modulargolems:max_health": 220.0,
+      "modulargolems:max_overslime": 80.0
+    },
+    "tconstruct:knightslime": {
+      "modulargolems:attack": 30.0,
       "modulargolems:max_health": 200.0,
-      "modulargolems:max_overslime": 50.0
+      "modulargolems:max_overslime": 80.0
     },
     "tconstruct:queens_slime": {
-      "modulargolems:attack": 20.0,
-      "modulargolems:max_health": 200.0,
-      "modulargolems:max_overslime": 100.0
+      "modulargolems:attack": 18.0,
+      "modulargolems:max_health": 240.0,
+      "modulargolems:max_overslime": 160.0
     },
     "tconstruct:slimesteel": {
       "modulargolems:attack": 20.0,

@@ -16,6 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import slimeknights.tconstruct.TConstruct;
+import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.shared.TinkerMaterials;
 import slimeknights.tconstruct.shared.block.SlimeType;
@@ -116,6 +117,13 @@ public class TGConfigGen extends ConfigDataProvider {
 				.addModifier(TGGolemModifiers.SWALLOW.get(), 1)
 				.end()
 
+				.addMaterial(TinkersGolem.getResource("venom"), Ingredient.of(TinkerFluids.venomBottle))
+				.onlyFor(slimeParts)
+				.addStat(GolemTypes.STAT_HEALTH.get(), 20)
+				.addStat(GolemTypes.STAT_ATTACK.get(), 20)
+				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
+				.end()
+
 				.supportsDefaultAnd(List.of(TGEntities.SLIME_CORE.get()),
 						ModularGolems.loc("copper"),
 						ModularGolems.loc("iron"),
@@ -128,9 +136,9 @@ public class TGConfigGen extends ConfigDataProvider {
 						TConstruct.getResource("rose_gold"),
 						TConstruct.getResource("slimesteel"),
 						TConstruct.getResource("queens_slime"),
-						TConstruct.getResource("cinderslime")
+						TConstruct.getResource("cinderslime"),
+						TConstruct.getResource("knightslime")
 				)
-
 		);
 
 		map.add(ModularGolems.MATERIALS, TConstruct.getResource("extra"), new GolemMaterialConfig()
@@ -142,19 +150,26 @@ public class TGConfigGen extends ConfigDataProvider {
 				.end()
 
 				.addMaterial(TConstruct.getResource("queens_slime"), Ingredient.of(TinkerMaterials.queensSlime.getIngotTag()))
-				.addStat(GolemTypes.STAT_HEALTH.get(), 200)
-				.addStat(GolemTypes.STAT_ATTACK.get(), 20)
-				.addStat(TGAttributes.STAT_OVERSLIME.get(), 100)
+				.addStat(GolemTypes.STAT_HEALTH.get(), 240)
+				.addStat(GolemTypes.STAT_ATTACK.get(), 18)
+				.addStat(TGAttributes.STAT_OVERSLIME.get(), 160)
 				.addModifier(TGGolemModifiers.OVERLORD.get(), 2)
 				.end()
 
 				.addMaterial(TConstruct.getResource("cinderslime"), Ingredient.of(TinkerMaterials.cinderslime.getIngotTag()))
-				.addStat(GolemTypes.STAT_HEALTH.get(), 200)
+				.addStat(GolemTypes.STAT_HEALTH.get(), 220)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 20)
-				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
+				.addStat(TGAttributes.STAT_OVERSLIME.get(), 80)
 				.addModifier(GolemModifiers.FIRE_IMMUNE.get(), 1)
                 .addModifier(TGGolemModifiers.OVERBURN.get(), 1)
                 .addModifier(TGGolemModifiers.OVERSMELT.get(), 1)
+				.end()
+
+				.addMaterial(TConstruct.getResource("knightslime"), Ingredient.of(TinkerMaterials.knightslime.getIngotTag()))
+				.addStat(GolemTypes.STAT_HEALTH.get(), 200)
+				.addStat(GolemTypes.STAT_ATTACK.get(), 30)
+				.addStat(TGAttributes.STAT_OVERSLIME.get(), 80)
+				.addModifier(TGGolemModifiers.OVERWIELD.get(), 1)
 				.end()
 		);
 

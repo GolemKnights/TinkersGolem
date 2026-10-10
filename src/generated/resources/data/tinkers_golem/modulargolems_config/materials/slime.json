@@ -17,6 +17,9 @@
     },
     "tinkers_golem:skyslime": {
       "item": "tconstruct:sky_slime_ball"
+    },
+    "tinkers_golem:venom": {
+      "item": "tconstruct:venom_bottle"
     }
   },
   "modifiers": {
@@ -39,7 +42,8 @@
     },
     "tinkers_golem:skyslime": {
       "tinkers_golem:overshock": 1
-    }
+    },
+    "tinkers_golem:venom": {}
   },
   "partLimitation": {
     "modulargolems:copper": [
@@ -130,6 +134,17 @@
       "modulargolems:dog_golem_legs",
       "tinkers_golem:slime_golem_core"
     ],
+    "tconstruct:knightslime": [
+      "modulargolems:metal_golem_body",
+      "modulargolems:metal_golem_arm",
+      "modulargolems:metal_golem_legs",
+      "modulargolems:humanoid_golem_body",
+      "modulargolems:humanoid_golem_arms",
+      "modulargolems:humanoid_golem_legs",
+      "modulargolems:dog_golem_body",
+      "modulargolems:dog_golem_legs",
+      "tinkers_golem:slime_golem_core"
+    ],
     "tconstruct:manyullyn": [
       "modulargolems:metal_golem_body",
       "modulargolems:metal_golem_arm",
@@ -197,6 +212,10 @@
     "tinkers_golem:skyslime": [
       "tinkers_golem:slime_golem_core",
       "tinkers_golem:slime_golem_shell"
+    ],
+    "tinkers_golem:venom": [
+      "tinkers_golem:slime_golem_core",
+      "tinkers_golem:slime_golem_shell"
     ]
   },
   "repairIngredients": {
@@ -217,6 +236,9 @@
     },
     "tinkers_golem:skyslime": {
       "item": "tconstruct:sky_slime_ball"
+    },
+    "tinkers_golem:venom": {
+      "item": "tconstruct:venom_bottle"
     }
   },
   "stats": {
@@ -256,6 +278,11 @@
       "modulargolems:jump_strength": 2.0,
       "modulargolems:max_health": 20.0,
       "modulargolems:max_overslime": 100.0
+    },
+    "tinkers_golem:venom": {
+      "modulargolems:attack": 20.0,
+      "modulargolems:max_health": 20.0,
+      "modulargolems:max_overslime": 50.0
     }
   }
 }

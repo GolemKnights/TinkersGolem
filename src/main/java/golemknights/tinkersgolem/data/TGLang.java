@@ -64,8 +64,9 @@ public enum TGLang {
 		pvd.add("golem_material." + TinkersGolem.MODID + ".skyslime", "Skyslime");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".ichor", "Ichor");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".enderslime", "Enderslime");
-		pvd.add("golem_material." + TinkersGolem.MODID + ".mamga", "Mamga");
+		pvd.add("golem_material." + TinkersGolem.MODID + ".magma", "Magma");
 		pvd.add("golem_material." + TinkersGolem.MODID + ".honey", "Honey");
+		pvd.add("golem_material." + TinkersGolem.MODID + ".venom", "Venom");
 		pvd.add("golem_material." + TConstruct.MOD_ID + ".slimesteel", "Slimesteel");
 		pvd.add("golem_material." + TConstruct.MOD_ID + ".cinderslime", "Cinderslime");
 		pvd.add("golem_material." + TConstruct.MOD_ID + ".queens_slime", "Queen's Slime");
