@@ -4,5 +4,6 @@
   "pattern_item": {
     "tag": "tconstruct:casts/sand"
   },
-  "result": "tinkers_golem:chestplate_metal_golem_plating_sand_cast"
+  "result": "tinkers_golem:chestplate_metal_golem_plating_sand_cast",
+  "title_key": "tconstruct:sand_cast"
 }

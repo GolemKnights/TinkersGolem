@@ -5,6 +5,5 @@
       "type": "tinkers_golem:shooting"
     }
   ],
-  "priority": 120,
-  "tooltip_display": "always"
+  "priority": 120
 }

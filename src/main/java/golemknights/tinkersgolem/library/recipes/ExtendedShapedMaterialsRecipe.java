@@ -22,6 +22,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.FireworkRocketItem.Shape;
 import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -31,6 +32,7 @@ import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.IIngredientSerializer;
 import slimeknights.mantle.data.predicate.IJsonPredicate;
 import slimeknights.tconstruct.library.json.predicate.material.MaterialPredicate;
+import slimeknights.tconstruct.library.materials.definition.MaterialId;
 import slimeknights.tconstruct.library.materials.definition.MaterialVariantId;
 import slimeknights.tconstruct.library.recipe.ingredient.MaterialValueIngredient;
 import slimeknights.tconstruct.library.recipe.ingredient.NestedIngredient;
@@ -235,21 +237,26 @@ public class ExtendedShapedMaterialsRecipe extends ShapedRecipe {
         return true;
     }
 
+    public static MaterialVariantId getMaterial(ItemStack stack, ExtendedMaterialIngredient ext) {
+        // IMaterialItem：材料写在 NBT 里，直接读，再按谓词校验
+        if (stack.getItem() instanceof IMaterialItem materialItem) {
+            MaterialVariantId matched = materialItem.getMaterial(stack);
+            return ext.material.matches(matched) ? matched : MaterialId.UNKNOWN;
+        }
+        // 普通物品：不按 item 缓存地扫全部 material recipe，只保留符合谓词的
+        return MaterialRecipeCache.getAllRecipes().stream()
+                .filter(r -> r.getIngredient().test(stack))
+                .map(r -> r.getMaterial().getVariant())
+                .filter(v -> ext.material.matches(v)).findAny().orElse(MaterialId.UNKNOWN);
+    }
+
     private boolean testAndApplyMaterial(ItemStack stack, Ingredient ing, MaterialVariantId[] materials) {
 
         if (ing instanceof ExtendedMaterialIngredient ext) {
+            MaterialVariantId matched = getMaterial(stack, ext);
+            if (MaterialId.UNKNOWN.equals(matched))
+                return false;
             MaterialVariantId current = materials[ext.slot];
-            MaterialVariantId matched;
-            if (stack.getItem() instanceof IMaterialItem materialItem) {
-                matched = materialItem.getMaterial(stack);
-            } else {
-                matched = MaterialRecipeCache.getAllRecipes().stream()
-                        .filter(r -> r.getIngredient().test(stack))
-                        .map(r -> r.getMaterial().getVariant())
-                        .filter(v -> ext.material.matches(v)).findAny().get();
-                if (matched == null)
-                    return false;
-            }
             // first occurrence? thats our material
             if (current == null) {
                 materials[ext.slot] = matched;
@@ -302,9 +309,9 @@ public class ExtendedShapedMaterialsRecipe extends ShapedRecipe {
     public static class ExtendedMaterialIngredient extends NestedIngredient {
 
         /** 材料槽位（材料下标）上限，需与材料数组容量保持一致 */
-        private static final int MAX_SLOT = 9;
+        public static final int MAX_SLOT = 9;
 
-        private final int slot;
+        public final int slot;
         private final IJsonPredicate<MaterialVariantId> material;
 
         public ExtendedMaterialIngredient(Ingredient nested, int slot) {

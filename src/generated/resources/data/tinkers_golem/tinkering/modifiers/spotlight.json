@@ -5,6 +5,5 @@
       "type": "tinkers_golem:spotlight"
     }
   ],
-  "priority": 120,
-  "tooltip_display": "always"
+  "priority": 120
 }
