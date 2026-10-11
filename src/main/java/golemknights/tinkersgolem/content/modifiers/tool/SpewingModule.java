@@ -94,6 +94,7 @@ public record SpewingModule(LevelingValue shots) implements ModifierModule, Shou
                                 Vector3f targetVector = golem.getViewVector(1.0F).toVector3f()
                                         .rotate((new Quaternionf()).setAngleAxis((double) angle * Math.PI / 180.0,
                                                 upVector.x, upVector.y, upVector.z));
+                                spit.setPos(pos);
                                 spit.shoot(dir.x(), dir.y(), dir.z(), velocity, inaccuracy);
                                 EntityModifierCapability.getCapability(spit).setModifiers(tool.getModifiers());
                                 ModDataNBT arrowData = PersistentDataCapability.getOrWarn(spit);
