@@ -1,8 +1,8 @@
 package golemknights.tinkersgolem.content.item.weapon;
 
-import dev.xkmc.modulargolems.content.client.armor.GolemModelPaths;
 import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
 import dev.xkmc.modulargolems.content.item.ranged.IShoulderCannonAnimated;
+import golemknights.tinkersgolem.client.TGModelPaths;
 import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
@@ -30,6 +30,7 @@ public class ModifiableShoulderCannonItem extends ModifiableLauncherItem impleme
       super(properties, toolDefinition);
    }
 
+   @Override
    public void onTick(MetalGolemEntity e, ItemStack stack, InteractionHand hand) {
       if (stack.getItem() instanceof IModifiable) {
          ToolStack tool = ToolStack.from(stack);
@@ -41,34 +42,38 @@ public class ModifiableShoulderCannonItem extends ModifiableLauncherItem impleme
       }
    }
 
+   @Override
    public @NotNull Predicate<ItemStack> getAllSupportedProjectiles() {
       return stack -> true;
    }
 
+   @Override
    public @Nullable ResourceLocation getModelForHand(InteractionHand hand) {
-      return hand == InteractionHand.MAIN_HAND ? GolemModelPaths.FLAME_RIGHT : GolemModelPaths.FLAME_LEFT;
+      return hand == InteractionHand.MAIN_HAND ? TGModelPaths.CANNON_RIGHT : TGModelPaths.CANNON_LEFT;
    }
 
+   @Override
    public @Nullable ResourceLocation getAnimBaseId(MetalGolemEntity user, ItemStack stack, InteractionHand hand) {
-      return hand == InteractionHand.MAIN_HAND ? GolemModelPaths.BEACON_RIGHT : GolemModelPaths.BEACON_LEFT;
+      return hand == InteractionHand.MAIN_HAND ? TGModelPaths.CANNON_RIGHT : TGModelPaths.CANNON_LEFT;
    }
 
+   @Override
    public @NotNull ResourceLocation getEmissiveTexture(MetalGolemEntity entity, ItemStack stack, InteractionHand hand) {
+      // 不会被用到
       ResourceLocation id = ForgeRegistries.ITEMS.getKey(this);
-
       assert id != null;
-
       return id.withPath((e) -> "textures/equipments/" + e + "_emissive.png");
    }
 
    @Override
-   public @NotNull ResourceLocation getModelTexture(MetalGolemEntity metalGolemEntity, ItemStack itemStack,
-         InteractionHand interactionHand) {
+   public @NotNull ResourceLocation getModelTexture(MetalGolemEntity metalGolemEntity, ItemStack itemStack, InteractionHand interactionHand) {
+      // 不会被用到
       ResourceLocation id = ForgeRegistries.ITEMS.getKey(this);
       assert id != null;
       return id.withPath((e) -> "textures/equipments/" + e + ".png");
    }
 
+   @Override
    public boolean emissive() {
       return true;
    }
@@ -95,4 +100,5 @@ public class ModifiableShoulderCannonItem extends ModifiableLauncherItem impleme
       }
       return super.use(levelIn, playerIn, handIn);
    }
+
 }
