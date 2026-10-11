@@ -236,6 +236,10 @@ public class ModifiableMetalGolemWeaponItem extends GolemEquipmentItem
     }
 
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(IToolStackView tool, EquipmentSlot slot) {
+        if (slot != getSlot()) {
+            return ImmutableMultimap.of();
+        }
+
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         if (!tool.isBroken()) {
             StatsNBT statsNBT = tool.getStats();

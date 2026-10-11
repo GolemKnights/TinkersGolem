@@ -142,9 +142,9 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                         PartStatsModule
                                 .parts()
                                 .part(TinkerToolParts.broadBlade, 0.4F)
+                                .part(TinkerToolParts.toughHandle)
+                                .part(TinkerToolParts.largePlate, 0.2F)
                                 .part(TinkerToolParts.broadBlade, 0.4F)
-                                .part(TinkerToolParts.largePlate, 0.3F)
-                                .part(TinkerToolParts.toughHandle, 0.3F)
                                 .build()
                 )
                 .module(
@@ -154,8 +154,8 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 )
                 .module(
                         new SetStatsModule(StatsNBT.builder()
-                                .set(ToolStats.ATTACK_DAMAGE, 3)
                                 .set(TGStats.ENTITY_REACH, 1)
+                                .set(ToolStats.ATTACK_SPEED, 1.3F)
                                 .set(TGStats.GOLEM_SWEEP, 2)
                                 .build()
                         )
@@ -163,7 +163,7 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 .module(
                         new MultiplyStatsModule(MultiplierNBT.builder()
                                 .set(ToolStats.DURABILITY, 4)
-                                .set(ToolStats.ATTACK_DAMAGE, 1.6f)
+                                .set(ToolStats.ATTACK_DAMAGE, 2.5f)
                                 .build()
                         )
                 )
@@ -178,10 +178,10 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 .module(
                         PartStatsModule
                                 .parts()
-                                .part(TinkerToolParts.broadAxeHead, 0.4F)
-                                .part(TinkerToolParts.broadAxeHead, 0.4F)
-                                .part(TinkerToolParts.toughBinding, 0.3F)
-                                .part(TinkerToolParts.toughHandle, 0.3F)
+                                .part(TinkerToolParts.broadAxeHead, 0.6F)
+                                .part(TinkerToolParts.toughHandle)
+                                .part(TinkerToolParts.broadBlade, 0.4F)
+                                .part(TinkerToolParts.toughBinding)
                                 .build()
                 )
                 .module(
@@ -192,17 +192,20 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 .module(
                         new SetStatsModule(StatsNBT.builder()
                                 .set(ToolStats.ATTACK_DAMAGE, 3)
-                                .set(TGStats.ATTACK_DAMAGE_PERCENT, 0.4f)
+                                .set(ToolStats.ATTACK_SPEED, 0.6F)
                                 .set(TGStats.GOLEM_SWEEP, 2)
                                 .build()
                         )
                 )
                 .module(
                         new MultiplyStatsModule(MultiplierNBT.builder()
-                                .set(ToolStats.DURABILITY, 4)
-                                .set(ToolStats.ATTACK_DAMAGE, 1.6f)
+                                .set(ToolStats.DURABILITY, 4.5f)
+                                .set(ToolStats.ATTACK_DAMAGE, 2)
                                 .build()
                         )
+                )
+                .module(
+                        ToolTraitsModule.builder().trait(TGTinkersModifiers.percent_attack).build()
                 )
                 .module(
                         ToolSlotsModule.builder()
@@ -215,10 +218,10 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 .module(
                         PartStatsModule
                                 .parts()
-                                .part(TinkerToolParts.broadBlade, 0.4F)
-                                .part(TinkerToolParts.toughBinding, 0.4F)
-                                .part(TinkerToolParts.toughHandle, 0.3F)
-                                .part(TinkerToolParts.toughHandle, 0.3F)
+                                .part(TinkerToolParts.broadBlade)
+                                .part(TinkerToolParts.toughHandle, 0.5F)
+                                .part(TinkerToolParts.toughBinding)
+                                .part(TinkerToolParts.toughHandle, 0.5F)
                                 .build()
                 )
                 .module(
@@ -228,15 +231,16 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 )
                 .module(
                         new SetStatsModule(StatsNBT.builder()
-                                .set(ToolStats.ATTACK_DAMAGE, 3)
+                                .set(ToolStats.ATTACK_DAMAGE, 4)
+                                .set(ToolStats.ATTACK_SPEED, 1.1F)
                                 .set(TGStats.ENTITY_REACH, 2)
                                 .build()
                         )
                 )
                 .module(
                         new MultiplyStatsModule(MultiplierNBT.builder()
-                                .set(ToolStats.DURABILITY, 4)
-                                .set(ToolStats.ATTACK_DAMAGE, 1.6f)
+                                .set(ToolStats.DURABILITY, 4.8f)
+                                .set(ToolStats.ATTACK_DAMAGE, 1.5F)
                                 .build()
                         )
                 )

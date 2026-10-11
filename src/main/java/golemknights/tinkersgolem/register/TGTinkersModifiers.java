@@ -36,6 +36,7 @@ public class TGTinkersModifiers {
     public static final ModifierId ammoFinder= id("golem_ammo_finder");
     public static final ModifierId spotlight = id("spotlight");
     public static final ModifierId shooting = id("shooting");
+    public static final ModifierId percent_attack = id("percent_attack");
     private static ModifierId id(String name) {
         return new ModifierId(TinkersGolem.MODID, name);
     }

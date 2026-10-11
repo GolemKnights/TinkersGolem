@@ -1,5 +1,6 @@
-// 1.20.1	2026-10-10T20:23:04.2244857	Tinkers' Golem Modifiers
+// 1.20.1	2026-10-11T21:27:24.7769202	Tinkers' Golem Modifiers
 f9f436b2d6ea7f9911dec095b9a3f786de79ba11 data/tinkers_golem/tinkering/modifiers/golem_ammo_finder.json
+e5454908e8d856ce29638deb6274804e3991089f data/tinkers_golem/tinkering/modifiers/percent_attack.json
 658eff506b7cf68483d41aa52c22aecae1c1752f data/tinkers_golem/tinkering/modifiers/shooting.json
 4d676d8e44770ade7fd316db0688bd1b7a80d058 data/tinkers_golem/tinkering/modifiers/spewing.json
 8f4f12b9fbba03bd6f7f146eec77c6539780a209 data/tinkers_golem/tinkering/modifiers/spotlight.json

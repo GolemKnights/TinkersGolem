@@ -78,8 +78,8 @@ public class ModifiableLaserEntity extends BaseEntity implements OwnableEntity {
     public void setup(LivingEntity living) {
         if (living instanceof MetalGolemEntity golem) {
             InteractionHand hand = this.right ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND;
-            Vec3 pos = CannonPoseUtil.BEACON_CANNON.getOrigin(golem, hand);
-            float[] rot = CannonPoseUtil.BEACON_CANNON.getAngle(golem, hand);
+            Vec3 pos = CannonPoseUtil.FLAME_THROWER.getOrigin(golem, hand);
+            float[] rot = CannonPoseUtil.FLAME_THROWER.getAngle(golem, hand);
             Vec3 dst = golem.getTargetAimPos().add(golem.position()).subtract(pos).normalize().scale(35.0).add(pos);
             BlockHitResult hit = golem.level().clip(new ClipContext(pos, dst, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, (Entity)null));
             this.len = (float)hit.getLocation().subtract(pos).length();

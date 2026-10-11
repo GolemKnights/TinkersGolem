@@ -106,6 +106,9 @@ public enum TGLang {
 		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.fluidcore", "Fluidcannon");
 		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.arrowcore", "Ballista");
 		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.beaconcore", "Beaconcannon");
+		pvd.add("item." + TinkersGolem.MODID + ".golem_sword", "Golem Sword");
+		pvd.add("item." + TinkersGolem.MODID + ".golem_axe", "Golem Axe");
+		pvd.add("item." + TinkersGolem.MODID + ".golem_spear", "Golem Spear");
 		pvd.add("modifier." + TinkersGolem.MODID + ".spewing", "Spewing");
 		pvd.add("modifier." + TinkersGolem.MODID + ".spewing.flavor", "");
 		pvd.add("modifier." + TinkersGolem.MODID + ".spewing.description", "");
@@ -115,6 +118,12 @@ public enum TGLang {
 		pvd.add("modifier." + TinkersGolem.MODID + ".spotlight", "Spotlight");
 		pvd.add("modifier." + TinkersGolem.MODID + ".spotlight.flavor", "");
 		pvd.add("modifier." + TinkersGolem.MODID + ".spotlight.description", "");
+		pvd.add("modifier." + TinkersGolem.MODID + ".golem_ammo_finder", "Golem Ammo Finder");
+		pvd.add("modifier." + TinkersGolem.MODID + ".golem_ammo_finder.flavor", "");
+		pvd.add("modifier." + TinkersGolem.MODID + ".golem_ammo_finder.description", "");
+		pvd.add("modifier." + TinkersGolem.MODID + ".percent_attack", "Percent Attack");
+		pvd.add("modifier." + TinkersGolem.MODID + ".percent_attack.flavor", "");
+		pvd.add("modifier." + TinkersGolem.MODID + ".percent_attack.description", "");
 		pvd.add("material." + TinkersGolem.MODID + ".slimecore", "Slimesteel");
 		pvd.add("material." + TinkersGolem.MODID + ".slimecore.flavor", "");
 		pvd.add("material." + TinkersGolem.MODID + ".fluidcore", "Fluid");

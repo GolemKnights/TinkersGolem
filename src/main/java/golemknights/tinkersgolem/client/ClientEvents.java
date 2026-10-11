@@ -1,5 +1,7 @@
 package golemknights.tinkersgolem.client;
 
+import dev.xkmc.modulargolems.content.client.pose.GolemShoulderPose;
+import dev.xkmc.modulargolems.content.item.ranged.CannonPoseUtil;
 import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.client.render.ModifiableShoulderWeaponPose;
 import golemknights.tinkersgolem.register.TGEntities;
@@ -12,11 +14,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import static dev.xkmc.modulargolems.content.client.armor.GolemEquipmentModels.regAndAdd;
-
-import dev.xkmc.modulargolems.content.client.armor.GolemModelPaths;
-import dev.xkmc.modulargolems.content.client.pose.BeaconConnonPose;
-import dev.xkmc.modulargolems.content.client.pose.GolemShoulderPose;
-import dev.xkmc.modulargolems.content.item.ranged.CannonPoseUtil;
 
 @Mod.EventBusSubscriber(modid = TinkersGolem.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientEvents {

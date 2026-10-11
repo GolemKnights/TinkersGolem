@@ -1,8 +1,8 @@
-// 1.20.1	2026-10-11T10:59:46.1570451	Tinkers' Golem Tool Definition Data Generator
+// 1.20.1	2026-10-12T00:09:26.4960204	Tinkers' Golem Tool Definition Data Generator
 aac3e105a879337231921c4deb297d7715fc90a0 data/tinkers_golem/tinkering/tool_definitions/cannon.json
-4925648c7011926f97ad746cd853a8a65891f06e data/tinkers_golem/tinkering/tool_definitions/golem_axe.json
-e276fd7998f733b7f61f5f9789b65a702f71548f data/tinkers_golem/tinkering/tool_definitions/golem_spear.json
-f841de1c458560c5d4c5a042fde63addd73dc94e data/tinkers_golem/tinkering/tool_definitions/golem_sword.json
+2552e8c0c04f57af27779ac7f154a98f7fb8ca0b data/tinkers_golem/tinkering/tool_definitions/golem_axe.json
+dadd6242e0c3804b3854a496d06ee13da9b3e6ab data/tinkers_golem/tinkering/tool_definitions/golem_spear.json
+756e52d984b3f9b235805741e7aa91d3424be8f9 data/tinkers_golem/tinkering/tool_definitions/golem_sword.json
 f30073b9442a13053a0d64586950a05c4f503826 data/tinkers_golem/tinkering/tool_definitions/metal_golem_boots.json
 e286b708e12e76e73efbab248bcf6b5e231bb326 data/tinkers_golem/tinkering/tool_definitions/metal_golem_chestplate.json
 93275bc6ce7ff281888a0bf13e11af1d24ad8803 data/tinkers_golem/tinkering/tool_definitions/metal_golem_gloves.json

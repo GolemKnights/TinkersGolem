@@ -4,15 +4,18 @@ import golemknights.tinkersgolem.content.modifiers.tool.MetalGolemAmmoFinderModu
 import golemknights.tinkersgolem.content.modifiers.tool.ShootingModule;
 import golemknights.tinkersgolem.content.modifiers.tool.SpewingModule;
 import golemknights.tinkersgolem.content.modifiers.tool.SpotlightModule;
+import golemknights.tinkersgolem.register.TGStats;
 import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import slimeknights.tconstruct.library.data.tinkering.AbstractModifierProvider;
 import slimeknights.tconstruct.library.json.LevelingValue;
 import slimeknights.tconstruct.library.modifiers.modules.build.StatBoostModule;
+import slimeknights.tconstruct.library.modifiers.modules.build.StatCopyModule;
 import slimeknights.tconstruct.library.modifiers.util.ModifierLevelDisplay;
 import slimeknights.tconstruct.library.modifiers.util.ModifierTooltip;
 import slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper;
+import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 public class TGTinkersModifierProvider extends AbstractModifierProvider implements IConditionBuilder {
     public TGTinkersModifierProvider(PackOutput packOutput) {
@@ -35,6 +38,10 @@ public class TGTinkersModifierProvider extends AbstractModifierProvider implemen
         buildModifier(TGTinkersModifiers.shooting)
                 .priority(120).levelDisplay(ModifierLevelDisplay.NO_LEVELS)
                 .addModule(ShootingModule.INSTANCE);
+        buildModifier(TGTinkersModifiers.percent_attack)
+                .priority(80).levelDisplay(ModifierLevelDisplay.NO_LEVELS)
+                .addModule(StatCopyModule.builder(TGStats.ATTACK_DAMAGE_PERCENT, ToolStats.ATTACK_DAMAGE).amount(0.05f, 0))
+                .addModule(StatBoostModule.multiplyBase(ToolStats.ATTACK_DAMAGE).flat(-0.99999f));
     }
 
     @Override

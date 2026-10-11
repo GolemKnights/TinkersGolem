@@ -3,21 +3,15 @@
     {
       "type": "tconstruct:part_stats",
       "parts": [
-        {
-          "item": "tconstruct:broad_blade",
-          "scale": 0.4
-        },
-        {
-          "item": "tconstruct:tough_binding",
-          "scale": 0.4
-        },
+        "tconstruct:broad_blade",
         {
           "item": "tconstruct:tough_handle",
-          "scale": 0.3
+          "scale": 0.5
         },
+        "tconstruct:tough_binding",
         {
           "item": "tconstruct:tough_handle",
-          "scale": 0.3
+          "scale": 0.5
         }
       ],
       "primary_part": 0
@@ -46,15 +40,16 @@
     {
       "type": "tconstruct:base_stats",
       "stats": {
-        "tconstruct:attack_damage": 3.0,
+        "tconstruct:attack_damage": 4.0,
+        "tconstruct:attack_speed": 1.1,
         "tinkers_golem:entity_reach": 2.0
       }
     },
     {
       "type": "tconstruct:multiply_stats",
       "multipliers": {
-        "tconstruct:attack_damage": 1.6,
-        "tconstruct:durability": 4.0
+        "tconstruct:attack_damage": 1.5,
+        "tconstruct:durability": 4.8
       }
     },
     {
