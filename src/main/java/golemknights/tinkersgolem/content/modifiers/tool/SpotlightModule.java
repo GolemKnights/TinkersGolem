@@ -20,6 +20,7 @@ import slimeknights.tconstruct.library.module.HookProvider;
 import slimeknights.tconstruct.library.module.ModuleHook;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
+import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 import java.util.List;
 
@@ -36,6 +37,11 @@ public enum SpotlightModule implements ModifierModule, ShoulderWeaponModifierHoo
     @Override
     public List<ModuleHook<?>> getDefaultHooks() {
         return HookProvider.defaultHooks(TGTinkersModifiers.SHOLDER_WEAPON_MODIFIER_HOOK);
+    }
+
+    @Override
+    public int getDelay(IToolStackView tool, ModifierEntry modifier, MetalGolemEntity entity, ItemStack toolItem, InteractionHand hand) {
+        return (int) (60 / tool.getStats().get(ToolStats.DRAW_SPEED));
     }
 
     @Override
