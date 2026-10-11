@@ -3,6 +3,7 @@ package golemknights.tinkersgolem.register;
 import golemknights.tinkersgolem.client.TGModelPaths;
 import golemknights.tinkersgolem.content.item.armor.ModifiableDogGolemArmorItem;
 import golemknights.tinkersgolem.content.item.armor.ModifiableMetalGolemArmorItem;
+import golemknights.tinkersgolem.content.item.weapon.ModifiableMetalGolemWeaponItem;
 import golemknights.tinkersgolem.content.item.weapon.ModifiableShoulderCannonItem;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -61,6 +62,22 @@ public class TGItems {
     public static final ItemObject<ModifiableShoulderCannonItem> cannonItem = ITEMS.register(
             CANNON,
             () -> new ModifiableShoulderCannonItem(UNSTACKABLE_PROPS, CANNON_TOOL));
+    // 大傀儡武器
+    public static final String SWORD = "golem_sword";
+    public static final ToolDefinition SWORD_TOOL = ToolDefinition.create(getResource(SWORD));
+    public static final ItemObject<ModifiableMetalGolemWeaponItem> swordItem = ITEMS.register(
+            SWORD,
+            () -> new ModifiableMetalGolemWeaponItem(UNSTACKABLE_PROPS, SWORD_TOOL));
+    public static final String AXE = "golem_axe";
+    public static final ToolDefinition AXE_TOOL = ToolDefinition.create(getResource(AXE));
+    public static final ItemObject<ModifiableMetalGolemWeaponItem> axeItem = ITEMS.register(
+            AXE,
+            () -> new ModifiableMetalGolemWeaponItem(UNSTACKABLE_PROPS, AXE_TOOL));
+    public static final String SPEAR = "golem_spear";
+    public static final ToolDefinition SPEAR_TOOL = ToolDefinition.create(getResource(SPEAR));
+    public static final ItemObject<ModifiableMetalGolemWeaponItem> spearItem = ITEMS.register(
+            SPEAR,
+            () -> new ModifiableMetalGolemWeaponItem(UNSTACKABLE_PROPS, SPEAR_TOOL));
     // 大傀儡盔甲镶板
     public static final EnumObject<ArmorItem.Type, ToolPartItem> metalGolemPlating = ITEMS.registerEnum(
             ArmorItem.Type.values(),

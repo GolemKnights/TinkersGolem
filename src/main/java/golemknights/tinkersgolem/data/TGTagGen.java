@@ -4,6 +4,7 @@ import com.tterrag.registrate.providers.RegistrateItemTagsProvider;
 import dev.xkmc.modulargolems.init.data.MGTagGen;
 import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.register.TGItems;
+import golemknights.tinkersgolem.register.TGTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ArmorItem;
@@ -21,10 +22,16 @@ public class TGTagGen {
 	}
 
 	public static void genItemTag(RegistrateItemTagsProvider pvd) {
+		pvd.addTag(TGTags.Items.METAL_GOLEM_WEAPON).add(
+				TGItems.swordItem.asItem(),
+				TGItems.axeItem.asItem(),
+				TGItems.spearItem.asItem()
+		);
 		pvd.addTag(MGTagGen.SPECIAL_CRAFT).add(
 				TinkerMaterials.slimesteel.getIngot(),
 				TinkerMaterials.queensSlime.getIngot(),
-				TinkerMaterials.cinderslime.getIngot()
+				TinkerMaterials.cinderslime.getIngot(),
+				TinkerMaterials.knightslime.getIngot()
 		);
 		pvd.addTag(MGTagGen.GOLEM_DAMAGEABLE).add(
 				TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).asItem(),
@@ -32,6 +39,8 @@ public class TGTagGen {
 				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem(),
 				TGItems.metalGolemGloves.asItem()
+		).addTag(
+				TGTags.Items.METAL_GOLEM_WEAPON
 		);
 		//Tools
 		pvd.addTag(TinkerTags.Items.BONUS_SLOTS).add(
@@ -40,7 +49,10 @@ public class TGTagGen {
 				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem(),
 				TGItems.metalGolemGloves.asItem(),
-				TGItems.cannonItem.asItem()
+				TGItems.cannonItem.asItem(),
+				TGItems.swordItem.asItem(),
+				TGItems.axeItem.asItem(),
+				TGItems.spearItem.asItem()
 		);
 		pvd.addTag(TinkerTags.Items.MULTIPART_TOOL).add(
 				TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).asItem(),
@@ -48,13 +60,22 @@ public class TGTagGen {
 				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem(),
 				TGItems.metalGolemGloves.asItem(),
-				TGItems.cannonItem.asItem()
+				TGItems.cannonItem.asItem(),
+				TGItems.swordItem.asItem(),
+				TGItems.axeItem.asItem(),
+				TGItems.spearItem.asItem()
+		);
+		pvd.addTag(TinkerTags.Items.MELEE_PRIMARY).addTag(
+				TGTags.Items.METAL_GOLEM_WEAPON
 		);
 		pvd.addTag(TinkerTags.Items.UNARMED).add(
 				TGItems.cannonItem.asItem()
 		);
 		pvd.addTag(TinkerTags.Items.AOE).add(
-				TGItems.cannonItem.asItem()
+				TGItems.cannonItem.asItem(),
+				TGItems.swordItem.asItem(),
+				TGItems.axeItem.asItem(),
+				TGItems.spearItem.asItem()
 		);
 		pvd.addTag(TinkerTags.Items.DURABILITY).add(
 				TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).asItem(),
@@ -62,7 +83,10 @@ public class TGTagGen {
 				TGItems.metalGolemArmor.get(ArmorItem.Type.LEGGINGS).asItem(),
 				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem(),
 				TGItems.metalGolemGloves.asItem(),
-				TGItems.cannonItem.asItem()
+				TGItems.cannonItem.asItem(),
+				TGItems.swordItem.asItem(),
+				TGItems.axeItem.asItem(),
+				TGItems.spearItem.asItem()
 		);
 		pvd.addTag(TinkerTags.Items.BOOTS).add(
 				TGItems.metalGolemArmor.get(ArmorItem.Type.BOOTS).asItem()
@@ -76,6 +100,11 @@ public class TGTagGen {
 		);
 		pvd.addTag(TinkerTags.Items.HELMETS).add(
 				TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).asItem()
+		);
+		pvd.addTag(TinkerTags.Items.BROAD_TOOLS).add(
+				TGItems.swordItem.asItem(),
+				TGItems.axeItem.asItem(),
+				TGItems.spearItem.asItem()
 		);
 		pvd.addTag(TinkerTags.Items.MIGHTY_ARMOR).add(
 				TGItems.metalGolemArmor.get(ArmorItem.Type.HELMET).asItem(),

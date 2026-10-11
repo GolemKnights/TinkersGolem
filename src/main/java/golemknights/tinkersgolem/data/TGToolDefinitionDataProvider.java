@@ -2,6 +2,7 @@ package golemknights.tinkersgolem.data;
 
 import golemknights.tinkersgolem.library.materialstats.CannonCoreMaterialStats;
 import golemknights.tinkersgolem.register.TGItems;
+import golemknights.tinkersgolem.register.TGStats;
 import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.ArmorItem;
@@ -127,13 +128,123 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                             .build()
                 )
                 .module(
+                        ToolTraitsModule.builder().trait(TGTinkersModifiers.ammoFinder).build()
+                )
+                .module(
                         UniqueMaterialToolName.FIRST
                 )
                 .module(
                         MaterialToolNameModule.REPAIRABLE
                 )
+        ;
+        define(TGItems.SWORD_TOOL)
                 .module(
-                        ToolTraitsModule.builder().trait(TGTinkersModifiers.ammoFinder).build()
+                        PartStatsModule
+                                .parts()
+                                .part(TinkerToolParts.broadBlade, 0.4F)
+                                .part(TinkerToolParts.broadBlade, 0.4F)
+                                .part(TinkerToolParts.largePlate, 0.3F)
+                                .part(TinkerToolParts.toughHandle, 0.3F)
+                                .build()
+                )
+                .module(
+                        DefaultMaterialsModule.builder()
+                                .material(tier1Material, tier1Material, tier1Material, tier1Material)
+                                .build()
+                )
+                .module(
+                        new SetStatsModule(StatsNBT.builder()
+                                .set(ToolStats.ATTACK_DAMAGE, 3)
+                                .set(TGStats.ENTITY_REACH, 1)
+                                .set(TGStats.GOLEM_SWEEP, 2)
+                                .build()
+                        )
+                )
+                .module(
+                        new MultiplyStatsModule(MultiplierNBT.builder()
+                                .set(ToolStats.DURABILITY, 4)
+                                .set(ToolStats.ATTACK_DAMAGE, 1.6f)
+                                .build()
+                        )
+                )
+                .module(
+                        ToolSlotsModule.builder()
+                                .slots(SlotType.UPGRADE, 2)
+                                .slots(SlotType.ABILITY, 1)
+                                .build()
+                )
+        ;
+        define(TGItems.AXE_TOOL)
+                .module(
+                        PartStatsModule
+                                .parts()
+                                .part(TinkerToolParts.broadAxeHead, 0.4F)
+                                .part(TinkerToolParts.broadAxeHead, 0.4F)
+                                .part(TinkerToolParts.toughBinding, 0.3F)
+                                .part(TinkerToolParts.toughHandle, 0.3F)
+                                .build()
+                )
+                .module(
+                        DefaultMaterialsModule.builder()
+                                .material(tier1Material, tier1Material, tier1Material, tier1Material)
+                                .build()
+                )
+                .module(
+                        new SetStatsModule(StatsNBT.builder()
+                                .set(ToolStats.ATTACK_DAMAGE, 3)
+                                .set(TGStats.ATTACK_DAMAGE_PERCENT, 0.4f)
+                                .set(TGStats.GOLEM_SWEEP, 2)
+                                .build()
+                        )
+                )
+                .module(
+                        new MultiplyStatsModule(MultiplierNBT.builder()
+                                .set(ToolStats.DURABILITY, 4)
+                                .set(ToolStats.ATTACK_DAMAGE, 1.6f)
+                                .build()
+                        )
+                )
+                .module(
+                        ToolSlotsModule.builder()
+                                .slots(SlotType.UPGRADE, 2)
+                                .slots(SlotType.ABILITY, 1)
+                                .build()
+                )
+        ;
+        define(TGItems.SPEAR_TOOL)
+                .module(
+                        PartStatsModule
+                                .parts()
+                                .part(TinkerToolParts.broadBlade, 0.4F)
+                                .part(TinkerToolParts.toughBinding, 0.4F)
+                                .part(TinkerToolParts.toughHandle, 0.3F)
+                                .part(TinkerToolParts.toughHandle, 0.3F)
+                                .build()
+                )
+                .module(
+                        DefaultMaterialsModule.builder()
+                                .material(tier1Material, tier1Material, tier1Material, tier1Material)
+                                .build()
+                )
+                .module(
+                        new SetStatsModule(StatsNBT.builder()
+                                .set(ToolStats.ATTACK_DAMAGE, 3)
+                                .set(TGStats.ENTITY_REACH, 2)
+                                .build()
+                        )
+                )
+                .module(
+                        new MultiplyStatsModule(MultiplierNBT.builder()
+                                .set(ToolStats.DURABILITY, 4)
+                                .set(ToolStats.ATTACK_DAMAGE, 1.6f)
+                                .build()
+                        )
+                )
+                .module(
+                        ToolSlotsModule.builder()
+                                .slots(SlotType.UPGRADE, 2)
+                                .slots(SlotType.ABILITY, 1)
+                                .build()
                 )
         ;
     }

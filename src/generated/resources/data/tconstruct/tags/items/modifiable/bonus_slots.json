@@ -5,6 +5,9 @@
     "tinkers_golem:metal_golem_leggings",
     "tinkers_golem:metal_golem_boots",
     "tinkers_golem:metal_golem_gloves",
-    "tinkers_golem:cannon"
+    "tinkers_golem:cannon",
+    "tinkers_golem:golem_sword",
+    "tinkers_golem:golem_axe",
+    "tinkers_golem:golem_spear"
   ]
 }

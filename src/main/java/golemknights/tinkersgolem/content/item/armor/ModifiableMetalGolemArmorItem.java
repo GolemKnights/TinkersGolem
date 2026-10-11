@@ -98,7 +98,6 @@ public class ModifiableMetalGolemArmorItem extends GolemEquipmentItem
 
 	@Override
 	public int getMaxStackSize(ItemStack stack) {
-
 		return 1;
 	}
 

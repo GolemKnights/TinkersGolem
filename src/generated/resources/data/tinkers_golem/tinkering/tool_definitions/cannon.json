@@ -39,14 +39,6 @@
       }
     },
     {
-      "type": "tconstruct:unique_material_name",
-      "index": 0
-    },
-    {
-      "type": "tconstruct:material_name",
-      "filter": "repairable"
-    },
-    {
       "type": "tconstruct:traits",
       "traits": [
         {
@@ -54,6 +46,14 @@
           "name": "tinkers_golem:golem_ammo_finder"
         }
       ]
+    },
+    {
+      "type": "tconstruct:unique_material_name",
+      "index": 0
+    },
+    {
+      "type": "tconstruct:material_name",
+      "filter": "repairable"
     }
   ]
 }

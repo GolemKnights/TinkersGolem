@@ -1,5 +1,8 @@
 {
   "values": [
-    "tinkers_golem:cannon"
+    "tinkers_golem:cannon",
+    "tinkers_golem:golem_sword",
+    "tinkers_golem:golem_axe",
+    "tinkers_golem:golem_spear"
   ]
 }

@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-10T22:28:37.5390511	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (enchantments), Tags (mob_effects), Tags (attributes)]
+// 1.20.1	2026-10-11T10:59:46.1623342	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (enchantments), Tags (mob_effects), Tags (attributes)]
 1539ca322955a504d8b824c7d6fe16e72ae4bd5b assets/tinkers_golem/lang/en_ud.json
 f5362a4c2bca5449c21682cd7e8deb5b0ee5fc1b assets/tinkers_golem/lang/en_us.json
 203af4551a77473a1609ef1a9c4c6930e386d9f7 assets/tinkers_golem/models/item/cinderslime_expand.json
@@ -47,25 +47,27 @@ dec23362149052d8ee8e89b6e98fa0fddac56d3e data/modulargolems/advancements/recipes
 b46b0a4d2e4424f63a73465bb6b43fe3c75df3c7 data/modulargolems/recipes/diamond_expansion_template_slime_golem_holder.json
 0a02bf3e2b4c1f5543b5456ff0adfd19e2c9c20b data/modulargolems/recipes/netherite_expansion_template_slime_golem_holder.json
 02c377636cfa83a463c3a7a6dd5cfba02fe7c821 data/modulargolems/tags/entity_types/friendly.json
-6c8e3f778b2b7f3543997b034dcc08a9b0ed7734 data/modulargolems/tags/items/golem_damageable.json
+986f449bed2860127441c103498a6070b22fe9a9 data/modulargolems/tags/items/golem_damageable.json
 1a370d0aa358a8b47def2948173e712b65a4af06 data/modulargolems/tags/items/holders.json
 ba2bd0463bcc1a93805421a6ffe079a8a8e3f728 data/modulargolems/tags/items/parts.json
 eba1d13ad2df4d6ad86aba85e2c75c4ae3fe9526 data/modulargolems/tags/items/potion_upgrades.json
-39a5d3b6eb7c29647503fa63265e875a936a85df data/modulargolems/tags/items/special_crafting_material.json
+8cc2aab4fc38b1949bcd9d980bd1d8cfb0d85d7c data/modulargolems/tags/items/special_crafting_material.json
 bed7adcda3927e22a08aae59a2309f2f1f507a9b data/tconstruct/tags/items/casts/gold.json
 cfb44f1dff4bb09b702e0b6e4e7a4251b8b3b7af data/tconstruct/tags/items/casts/multi_use.json
 ad4fa5f8b8c9cde63d48ab2962fd925a987b6036 data/tconstruct/tags/items/casts/red_sand.json
 d815f44259dae84cf4de3ad76c6163517a74e6fd data/tconstruct/tags/items/casts/sand.json
-e13d49b5029f63046699085ff56eb17114608c8b data/tconstruct/tags/items/modifiable/aoe.json
+e1a45f0bf86cc53bee16b233585ecd15d1313706 data/tconstruct/tags/items/modifiable/aoe.json
 8b9a0ccdbcc0850143180cef2d7175c111503399 data/tconstruct/tags/items/modifiable/armor/boots.json
 cde2e77361b0affd2ceee108ac1409c1438b3b69 data/tconstruct/tags/items/modifiable/armor/chestplate.json
 fabc6c0a0d0e1965bbc9aae065be9eb397521641 data/tconstruct/tags/items/modifiable/armor/helmets.json
 d76b2bdf7182c93cb4bb98f4cc17674e6d699334 data/tconstruct/tags/items/modifiable/armor/leggings.json
-4b94140d5a270197067c40dc35808970ab028454 data/tconstruct/tags/items/modifiable/bonus_slots.json
+36a6d6ebecf848b9b47c743c741b52db9b3d75bb data/tconstruct/tags/items/modifiable/bonus_slots.json
 6c8e3f778b2b7f3543997b034dcc08a9b0ed7734 data/tconstruct/tags/items/modifiable/book_armor/mighty_smelting.json
-4b94140d5a270197067c40dc35808970ab028454 data/tconstruct/tags/items/modifiable/durability.json
+caea4e8824d316e3d54bf4fa982adeb71437998e data/tconstruct/tags/items/modifiable/broad.json
+36a6d6ebecf848b9b47c743c741b52db9b3d75bb data/tconstruct/tags/items/modifiable/durability.json
+d6e9eaff416a206dceee4531f7d15a5ba68e6253 data/tconstruct/tags/items/modifiable/melee/primary.json
 e13d49b5029f63046699085ff56eb17114608c8b data/tconstruct/tags/items/modifiable/melee/unarmed.json
-4b94140d5a270197067c40dc35808970ab028454 data/tconstruct/tags/items/modifiable/multipart.json
+36a6d6ebecf848b9b47c743c741b52db9b3d75bb data/tconstruct/tags/items/modifiable/multipart.json
 e13d49b5029f63046699085ff56eb17114608c8b data/tconstruct/tags/items/modifiable/ranged/bounce.json
 e13d49b5029f63046699085ff56eb17114608c8b data/tconstruct/tags/items/modifiable/ranged/broad.json
 e13d49b5029f63046699085ff56eb17114608c8b data/tconstruct/tags/items/modifiable/ranged/launcher.json
@@ -354,5 +356,6 @@ c4a6506fe6ddcca59119e1d4ec528ba77b51763e data/tinkers_golem/tags/items/casts/mul
 2f45d4760a0dd588c3d6c8ae25045a95fc0af972 data/tinkers_golem/tags/items/casts/single_use/chestplate_metal_golem_plating.json
 857eff737000814c9495e359af83baddfd241d24 data/tinkers_golem/tags/items/casts/single_use/helmet_metal_golem_plating.json
 0cc3bb00d3602f2421710361244033070a64d199 data/tinkers_golem/tags/items/casts/single_use/leggings_metal_golem_plating.json
+caea4e8824d316e3d54bf4fa982adeb71437998e data/tinkers_golem/tags/items/modifiable/melee/metal_golem_weapon.json
 ba2bd0463bcc1a93805421a6ffe079a8a8e3f728 data/tinkers_golem/tags/items/slime_part.json
 bbc5665d45509467b5a3bde297f6ede1fd00d590 data/tinkers_golem/tags/items/slime_upgrades.json

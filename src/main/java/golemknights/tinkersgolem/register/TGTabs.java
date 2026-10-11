@@ -20,8 +20,6 @@ import slimeknights.tconstruct.tools.TinkerTools;
 
 import java.util.function.Consumer;
 
-import org.slf4j.IMarkerFactory;
-
 import static golemknights.tinkersgolem.TinkersGolem.TABS;
 
 public class TGTabs {
@@ -58,6 +56,9 @@ public class TGTabs {
                                 TGItems.metalGolemArmor.forEach((item) -> acceptTool(output::accept, item));
                                 acceptTool(output::accept, TGItems.metalGolemGloves.get());
                                 acceptCannon(output::accept, TGItems.cannonItem.get());
+                                acceptTool(output::accept, TGItems.swordItem.get());
+                                acceptTool(output::accept, TGItems.axeItem.get());
+                                acceptTool(output::accept, TGItems.spearItem.get());
                             })
                     .withTabsBefore(TinkerTools.tabTools.getId())
                     .build());

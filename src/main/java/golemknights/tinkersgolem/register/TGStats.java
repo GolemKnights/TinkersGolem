@@ -11,6 +11,7 @@ import slimeknights.tconstruct.library.tools.stat.ToolStatId;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 public class TGStats {
+    // Tool Stats
     public static final FloatToolStat CANNON_RANGE = ToolStats.register(
             new FloatToolStat(
                     new ToolStatId(TinkersGolem.getResource("cannon_range")),
@@ -18,6 +19,28 @@ public class TGStats {
                     TinkerTags.Items.RANGED
             )
     );
+    public static final FloatToolStat ATTACK_DAMAGE_PERCENT = ToolStats.register(
+            new FloatToolStat(
+                    new ToolStatId(TinkersGolem.getResource("attack_damage_percent")),
+                    0x289B9C, 0.0F, -1.0F, 2048.0F,
+                    TGTags.Items.METAL_GOLEM_WEAPON
+            )
+    );
+    public static final FloatToolStat ENTITY_REACH = ToolStats.register(
+            new FloatToolStat(
+                    new ToolStatId(TinkersGolem.getResource("entity_reach")),
+                    0xFFFFFF, 0.0F, 0.0F, 2048.0F,
+                    TGTags.Items.METAL_GOLEM_WEAPON
+            )
+    );
+    public static final FloatToolStat GOLEM_SWEEP = ToolStats.register(
+            new FloatToolStat(
+                    new ToolStatId(TinkersGolem.getResource("golem_sweep")),
+                    0xFFFFFF, 0.0F, 0.0F, 2048.0F,
+                    TGTags.Items.METAL_GOLEM_WEAPON
+            )
+    );
+    // Material Stats
     public static final MaterialStatsId CANNON = new MaterialStatsId(TinkersGolem.getResource("cannon"));
 
     public static void setup() {
