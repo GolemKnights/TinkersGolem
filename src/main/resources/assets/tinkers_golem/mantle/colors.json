@@ -1,0 +1,14 @@
+{
+  "modifier.tinkers_golem": {
+    "spewing":    "#F98648",
+    "spotlight":  "#FFFFFF",
+    "shooting":   "#999999"
+  },
+
+  "material.tinkers_golem": {
+    "arrowcore":  "#999999",
+    "fluidcore":  "#E77C56",
+    "slimecore":  "#27C6C6",
+    "beaconcore": "#FFFFFF"
+  }
+}

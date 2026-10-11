@@ -36,7 +36,7 @@ public record CannonCoreMaterialStats(float durability, float accuracy, float ca
     );
 
     static final String ACCURACY_PREFIX = IMaterialStats.makeTooltipKey(TConstruct.getResource("accuracy"));
-    static final String CANNNON_RANGE_PREFIX = IMaterialStats.makeTooltipKey(TinkersGolem.getResource("cannon_range"));
+
     @Override
     public MaterialStatType<?> getType() {
         return TYPE;
@@ -47,7 +47,7 @@ public record CannonCoreMaterialStats(float durability, float accuracy, float ca
         List<Component> list = new ArrayList<>();
         list.add(formatDurability(this.durability * scale));
         list.add(IToolStat.formatColoredBonus(ACCURACY_PREFIX, this.accuracy * scale));
-        list.add(IToolStat.formatColoredBonus(CANNNON_RANGE_PREFIX, this.cannonRange * scale));
+        list.add(TGStats.CANNON_RANGE.formatValue(this.cannonRange * scale));
         return list;
     }
 

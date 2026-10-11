@@ -15,7 +15,7 @@ public class TGStats {
     public static final FloatToolStat CANNON_RANGE = ToolStats.register(
             new FloatToolStat(
                     new ToolStatId(TinkersGolem.getResource("cannon_range")),
-                    0xFFFFFF, 0.0F, 0.0F, 2048.0F,
+                    0xFF47CC47, 0.0F, 0.0F, 2048.0F,
                     TinkerTags.Items.RANGED
             )
     );
