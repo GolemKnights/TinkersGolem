@@ -1,9 +1,7 @@
 package golemknights.tinkersgolem.content.item.weapon;
 
 import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
-import dev.xkmc.modulargolems.content.item.ranged.BeaconCannonItem;
 import dev.xkmc.modulargolems.content.item.ranged.IShoulderCannonAnimated;
-import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.data.MGLangData;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import golemknights.tinkersgolem.client.TGModelPaths;
@@ -23,12 +21,9 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import slimeknights.mantle.client.SafeClientAccess;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.tools.capability.inventory.ToolInventoryCapability;
 import slimeknights.tconstruct.library.tools.definition.ToolDefinition;
-import slimeknights.tconstruct.library.tools.helper.TooltipUtil;
 import slimeknights.tconstruct.library.tools.item.IModifiable;
 import slimeknights.tconstruct.library.tools.item.ranged.ModifiableLauncherItem;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;

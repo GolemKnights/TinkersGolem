@@ -10,7 +10,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialRenderInfoProvider;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpriteProvider;
-import slimeknights.tconstruct.library.client.data.spritetransformer.ISpriteTransformer;
 import slimeknights.tconstruct.library.client.data.spritetransformer.OffsettingSpriteTransformer;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataProvider;
@@ -22,10 +21,6 @@ import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.tools.data.ModifierIds;
 
 import java.util.function.Consumer;
-
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSerializationContext;
-import com.mojang.blaze3d.platform.NativeImage;
 
 import static golemknights.tinkersgolem.register.TGMaterials.*;
 
@@ -137,7 +132,7 @@ public class TGMaterialProvider extends AbstractMaterialDataProvider {
         protected void addMaterialRenderInfo() {
             buildRenderInfo(slimecore);
             buildRenderInfo(fluidcore);
-            buildRenderInfo(beaconcore);
+            buildRenderInfo(beaconcore).luminosity(15);
             buildRenderInfo(arrowcore);
         }
     }
