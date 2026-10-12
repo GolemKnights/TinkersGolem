@@ -457,6 +457,7 @@ public class ModifiableMetalGolemWeaponItem extends GolemEquipmentItem
 
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
         TooltipUtil.addInformation(this, stack, level, tooltip, SafeClientAccess.getTooltipKey(), flag);
+        super.appendHoverText(stack, level, tooltip, flag);
     }
 
     public int getDefaultTooltipHideFlags(ItemStack stack) {

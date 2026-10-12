@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-11T23:32:58.7147426	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (enchantments), Tags (mob_effects), Tags (attributes)]
+// 1.20.1	2026-10-12T15:20:04.0948453	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (attributes), Tags (enchantments), Tags (mob_effects)]
 24a2eee30ee7a42d1082a9e5274d08c3aa5672e8 assets/tinkers_golem/lang/en_ud.json
 165c2c7497b02a34e0f01c7bfef75839deaf2152 assets/tinkers_golem/lang/en_us.json
 203af4551a77473a1609ef1a9c4c6930e386d9f7 assets/tinkers_golem/models/item/cinderslime_expand.json

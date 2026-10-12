@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-12T13:55:55.7248881	Material Part Generator - Tinkers' Golem Parts - Tinkers' Construct Materials
+// 1.20.1	2026-10-12T15:20:04.1008825	Material Part Generator - Tinkers' Golem Parts - Tinkers' Construct Materials
 4e95b32b9051db9a006c1fef817ca0ff43ea5faa assets/tinkers_golem/textures/item/tool/armor/metal_golem/boots/huge_plating_broken_tconstruct_aluminum.png
 38a32930140bedcdd3f939ae0c7c2778dcee9d6d assets/tinkers_golem/textures/item/tool/armor/metal_golem/boots/huge_plating_broken_tconstruct_amethyst_bronze.png
 9b66dae23e71555e111f05f2a77477936c8db1c4 assets/tinkers_golem/textures/item/tool/armor/metal_golem/boots/huge_plating_broken_tconstruct_ancient.png
@@ -1174,7 +1174,8 @@ b232e07ad896a9cf341b5a26c9a6f1a5440a4830 assets/tinkers_golem/textures/item/tool
 251e3a336175765230b43edfc641175d89f9268b assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_1_tconstruct_copper.png
 c5e9fb9b1a9231a5d48cccb92d940acea58e6901 assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_1_tconstruct_copper_oxidized.png
 ad93d661aa61a58840665c2167b788558cafa8fa assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_1_tconstruct_electrum.png
-6f2e3089b2f3d3e2073c3498d289d7b3f1f92611 assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_1_tconstruct_fiery.png
+f1fc55dd0ab0481353efb7d181ea98481fc0cd45 assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_1_tconstruct_fiery.png
+092be8af59a6f57e72a0108dc5ed632b65896816 assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_1_tconstruct_fiery.png.mcmeta
 f51d2002ae57dfa07905b93048c3ee4159f5d922 assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_1_tconstruct_hepatizon.png
 edd7dee3113397e03d4053bbf0e090d8a0fb6754 assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_1_tconstruct_invar.png
 4eec7670cd3a2f1dd487f72e8ba18c654a516a44 assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_1_tconstruct_iron.png
@@ -1222,7 +1223,8 @@ e1ed2a5635eb2768969f6db5ca290d860f068e3e assets/tinkers_golem/textures/item/tool
 c7d04659b5592caa36930c73c0f7e803c8a6dc09 assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_2_tconstruct_copper.png
 5e2b712a08244a76121ee4dc0b0401fb3ae73a17 assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_2_tconstruct_copper_oxidized.png
 9fdaac697bbefbf2ffb331d90c04d4eab74e569f assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_2_tconstruct_electrum.png
-99fde297847e2eb7a79bf913b0d74306d50b906a assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_2_tconstruct_fiery.png
+61f19c4a0e8917821294e682d5ef1b9cf775fa94 assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_2_tconstruct_fiery.png
+092be8af59a6f57e72a0108dc5ed632b65896816 assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_2_tconstruct_fiery.png.mcmeta
 aeb27793dc4a50b982691404e240fc12eed358ca assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_2_tconstruct_hepatizon.png
 850fe31fd52b7b220dca840a1115f6aa7a8db86e assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_2_tconstruct_invar.png
 b655dbfbdb9f65011dc33794a979ec82b70af153 assets/tinkers_golem/textures/item/tool/weapon/cannon/cannon_barrel_2_tconstruct_iron.png

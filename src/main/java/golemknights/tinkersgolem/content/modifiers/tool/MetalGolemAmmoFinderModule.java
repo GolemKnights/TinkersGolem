@@ -15,10 +15,12 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import java.util.List;
 import java.util.function.Predicate;
 
-public enum MetalGolemAmmoFinderModule implements ModifierModule, BowAmmoModifierHook{
+public enum MetalGolemAmmoFinderModule implements ModifierModule, BowAmmoModifierHook {
     INSTANCE;
+
     public static final RecordLoadable<MetalGolemAmmoFinderModule> LOADER = new SingletonLoader<>(INSTANCE);
     private static final List<ModuleHook<?>> HOOKS = List.of(ModifierHooks.BOW_AMMO);
+
     @Override
     public List<ModuleHook<?>> getDefaultHooks() {
         return HOOKS;
@@ -27,9 +29,10 @@ public enum MetalGolemAmmoFinderModule implements ModifierModule, BowAmmoModifie
     @Override
     public ItemStack findAmmo(IToolStackView tool, ModifierEntry modifier, LivingEntity shooter, ItemStack standardAmmo,
             Predicate<ItemStack> ammoPredicate) {
-        if (!tool.getVolatileData().getBoolean(SKIP_INVENTORY_AMMO) && shooter instanceof SweepGolemEntity golem) {
+        if (!tool.getVolatileData().getBoolean(SKIP_INVENTORY_AMMO) && shooter instanceof SweepGolemEntity golem
+                && ammoPredicate.test(golem.getArrowSlot().getItem())) {
             return golem.getArrowSlot().getItem();
-            }
+        }
         return ItemStack.EMPTY;
     }
 

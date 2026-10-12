@@ -8,6 +8,10 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import slimeknights.tconstruct.library.client.data.material.AbstractMaterialRenderInfoProvider;
+import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpriteProvider;
+import slimeknights.tconstruct.library.client.data.spritetransformer.ISpriteTransformer;
+import slimeknights.tconstruct.library.client.data.spritetransformer.OffsettingSpriteTransformer;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialTraitDataProvider;
@@ -18,6 +22,10 @@ import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.tools.data.ModifierIds;
 
 import java.util.function.Consumer;
+
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSerializationContext;
+import com.mojang.blaze3d.platform.NativeImage;
 
 import static golemknights.tinkersgolem.register.TGMaterials.*;
 
@@ -95,6 +103,45 @@ public class TGMaterialProvider extends AbstractMaterialDataProvider {
         }
     }
 
+    public static class Sprites extends AbstractMaterialSpriteProvider
+    {
+
+        @Override
+        public String getName() {
+            return "Tinker's Golem Material Sprites";
+        }
+
+        @Override
+        protected void addAllMaterials() {
+            var NOP = new OffsettingSpriteTransformer(null,0,0);
+            buildMaterial(slimecore).statType(CannonCoreMaterialStats.ID).transformer(NOP);
+            buildMaterial(fluidcore).statType(CannonCoreMaterialStats.ID).transformer(NOP);
+            buildMaterial(beaconcore).statType(CannonCoreMaterialStats.ID).transformer(NOP);
+            buildMaterial(arrowcore).statType(CannonCoreMaterialStats.ID).transformer(NOP);
+        }
+    }
+
+    public static class RenderInfo extends AbstractMaterialRenderInfoProvider
+    {
+
+        public RenderInfo(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
+            super(packOutput, new Sprites(), existingFileHelper);
+        }
+
+        @Override
+        public String getName() {
+            return "Tinker's Golem Material Render Info";
+        }
+
+        @Override
+        protected void addMaterialRenderInfo() {
+            buildRenderInfo(slimecore);
+            buildRenderInfo(fluidcore);
+            buildRenderInfo(beaconcore);
+            buildRenderInfo(arrowcore);
+        }
+    }
+
     public static class Recipes extends BaseRecipeProvider implements IMaterialRecipeHelper {
         public Recipes(PackOutput packOutput) {
             super(packOutput);
@@ -103,10 +150,8 @@ public class TGMaterialProvider extends AbstractMaterialDataProvider {
         @Override
         protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
             String folder = "tools/materials/";
-            materialRecipe(consumer, slimecore, Ingredient.of(TinkerMaterials.slimesteel.getBlockItemTag()), 1, 1,
-                    folder + "slimecore");
-            materialRecipe(consumer, fluidcore, Ingredient.of(TinkerSmeltery.searedFluidCannon), 1, 1,
-                    folder + "fluidcore");
+            materialRecipe(consumer, slimecore, Ingredient.of(TinkerMaterials.slimesteel.getBlockItemTag()), 1, 1, folder + "slimecore");
+            materialRecipe(consumer, fluidcore, Ingredient.of(TinkerSmeltery.searedFluidCannon), 1, 1, folder + "fluidcore");
             materialRecipe(consumer, beaconcore, Ingredient.of(Items.BEACON), 1, 1, folder + "beaconcore");
             materialRecipe(consumer, arrowcore, Ingredient.of(Items.DISPENSER), 1, 1, folder + "arrowcore");
         }

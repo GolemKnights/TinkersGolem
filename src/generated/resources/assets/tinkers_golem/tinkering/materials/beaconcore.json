@@ -1,0 +1,12 @@
+{
+  "generator": {
+    "supported_stats": [
+      "tinkers_golem:cannon_core"
+    ],
+    "transformer": {
+      "type": "tconstruct:offsetting",
+      "x": 0,
+      "y": 0
+    }
+  }
+}

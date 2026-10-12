@@ -106,6 +106,7 @@ public enum ShootingModule implements ModifierModule, ShoulderWeaponModifierHook
                         }
 
                         angle = startAngle + 10 * arrowIndex;
+                        projectile.setPos(pos);
                         projectile.shoot(dir.x(), dir.y(), dir.z(), velocity * speed, inaccuracy);
                         ModifierNBT modifiers = tool.getModifiers();
                         EntityModifierCapability.getCapability(projectile).addModifiers(modifiers);
