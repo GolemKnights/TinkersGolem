@@ -93,12 +93,12 @@
     },
     {
       "allow_animated": false,
-      "path": "tinkers_golem:item/tool/weapon/cannon/slime_cannon_barrel_1",
+      "path": "tinkers_golem:item/tool/weapon/cannon/cannon_barrel_1",
       "stat_type": "tconstruct:limb"
     },
     {
       "allow_animated": false,
-      "path": "tinkers_golem:item/tool/weapon/cannon/slime_cannon_barrel_2",
+      "path": "tinkers_golem:item/tool/weapon/cannon/cannon_barrel_2",
       "stat_type": "tconstruct:limb"
     },
     {

@@ -5,7 +5,6 @@ import golemknights.tinkersgolem.library.materialstats.CannonCoreMaterialStats;
 import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -14,14 +13,12 @@ import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataPr
 import slimeknights.tconstruct.library.data.material.AbstractMaterialTraitDataProvider;
 import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
 import slimeknights.tconstruct.library.data.tinkering.AbstractMaterialTagProvider;
-import slimeknights.tconstruct.library.materials.definition.IMaterial;
-import slimeknights.tconstruct.library.materials.definition.MaterialManager;
 import slimeknights.tconstruct.shared.TinkerMaterials;
 import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.tools.data.ModifierIds;
+
 import java.util.function.Consumer;
 
-import static golemknights.tinkersgolem.TinkersGolem.getResource;
 import static golemknights.tinkersgolem.register.TGMaterials.*;
 
 public class TGMaterialProvider extends AbstractMaterialDataProvider {
@@ -52,7 +49,7 @@ public class TGMaterialProvider extends AbstractMaterialDataProvider {
             addMaterialStats(slimecore, new CannonCoreMaterialStats(0, 0.1f, 15));
             addMaterialStats(fluidcore, new CannonCoreMaterialStats(0, 0, 15));
             addMaterialStats(beaconcore, new CannonCoreMaterialStats(0, 0, 5));
-            addMaterialStats(arrowcore, new CannonCoreMaterialStats(0, 0, 15));
+            addMaterialStats(arrowcore, new CannonCoreMaterialStats(-0.1f, 0, 15));
         }
 
         @Override

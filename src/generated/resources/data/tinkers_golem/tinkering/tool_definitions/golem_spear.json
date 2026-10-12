@@ -58,6 +58,12 @@
         "abilities": 1,
         "upgrades": 2
       }
+    },
+    {
+      "type": "tconstruct:tool_actions",
+      "tool_actions": [
+        "shield_disable"
+      ]
     }
   ]
 }

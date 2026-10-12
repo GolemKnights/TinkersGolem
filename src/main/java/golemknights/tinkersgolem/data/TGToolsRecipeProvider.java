@@ -65,6 +65,16 @@ public class TGToolsRecipeProvider extends BaseRecipeProvider implements IMateri
                 .define('B', material.apply(LimbMaterialStats.ID, 2))
                 .unlockedBy("has_template", has(GolemItems.GOLEM_TEMPLATE.get()))
                 .save(ExtendedShapedMaterialsRecipe.ConsumerBuilder.createConsumer(consumer), this.prefix(id(TGItems.cannonItem.get()), folder));
+
+        ToolBuildingRecipeBuilder.toolBuildingRecipe(TGItems.swordItem.get())
+                .addExtraRequirement(Ingredient.of(GolemItems.GOLEM_TEMPLATE.get()))
+                .save(consumer, this.prefix(id(TGItems.swordItem.get()), metalGolemFolder));
+        ToolBuildingRecipeBuilder.toolBuildingRecipe(TGItems.axeItem.get())
+                .addExtraRequirement(Ingredient.of(GolemItems.GOLEM_TEMPLATE.get()))
+                .save(consumer, this.prefix(id(TGItems.axeItem.get()), metalGolemFolder));
+        ToolBuildingRecipeBuilder.toolBuildingRecipe(TGItems.spearItem.get())
+                .addExtraRequirement(Ingredient.of(GolemItems.GOLEM_TEMPLATE.get()))
+                .save(consumer, this.prefix(id(TGItems.spearItem.get()), metalGolemFolder));
     }
     private void addPartRecipes(Consumer<FinishedRecipe> consumer) {
         String partFolder = "tools/parts/";

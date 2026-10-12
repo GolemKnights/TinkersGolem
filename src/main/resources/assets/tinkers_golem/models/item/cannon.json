@@ -4,9 +4,9 @@
 	"render_type": "minecraft:cutout_mipped",
 	"texture_size": [48, 48],
 	"textures": {
-		"1": "tinkers_golem:item/tool/weapon/cannon/slime_cannon_core",
-		"2": "tinkers_golem:item/tool/weapon/cannon/slime_cannon_barrel_1",
-		"3": "tinkers_golem:item/tool/weapon/cannon/slime_cannon_barrel_2"
+		"1": "tinkers_golem:item/tool/weapon/cannon/cannon_core",
+		"2": "tinkers_golem:item/tool/weapon/cannon/cannon_barrel_1",
+		"3": "tinkers_golem:item/tool/weapon/cannon/cannon_barrel_2"
 	},
 	"elements": [
 		{

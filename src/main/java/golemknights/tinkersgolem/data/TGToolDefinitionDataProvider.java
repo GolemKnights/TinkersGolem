@@ -6,22 +6,24 @@ import golemknights.tinkersgolem.register.TGStats;
 import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.ArmorItem;
+import net.minecraftforge.common.ToolActions;
 import slimeknights.tconstruct.library.data.tinkering.AbstractToolDefinitionDataProvider;
 import slimeknights.tconstruct.library.materials.RandomMaterial;
 import slimeknights.tconstruct.library.tools.SlotType;
-import slimeknights.tconstruct.library.tools.definition.module.build.MultiplyStatsModule;
-import slimeknights.tconstruct.library.tools.definition.module.build.SetStatsModule;
-import slimeknights.tconstruct.library.tools.definition.module.build.ToolSlotsModule;
-import slimeknights.tconstruct.library.tools.definition.module.build.ToolTraitsModule;
+import slimeknights.tconstruct.library.tools.definition.module.build.*;
 import slimeknights.tconstruct.library.tools.definition.module.display.MaterialToolNameModule;
 import slimeknights.tconstruct.library.tools.definition.module.display.UniqueMaterialToolName;
 import slimeknights.tconstruct.library.tools.definition.module.material.DefaultMaterialsModule;
 import slimeknights.tconstruct.library.tools.definition.module.material.MaterialStatsModule;
 import slimeknights.tconstruct.library.tools.definition.module.material.PartStatsModule;
+import slimeknights.tconstruct.library.tools.definition.module.weapon.ParticleWeaponAttack;
 import slimeknights.tconstruct.library.tools.nbt.MultiplierNBT;
 import slimeknights.tconstruct.library.tools.nbt.StatsNBT;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
+import slimeknights.tconstruct.tools.TinkerToolActions;
 import slimeknights.tconstruct.tools.TinkerToolParts;
+import slimeknights.tconstruct.tools.TinkerTools;
+import slimeknights.tconstruct.tools.data.ModifierIds;
 import slimeknights.tconstruct.tools.stats.LimbMaterialStats;
 
 import static golemknights.tinkersgolem.TinkersGolem.MODID;
@@ -121,12 +123,7 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                                 .build()
                         )
                 )
-                .module(
-                        ToolSlotsModule.builder()
-                            .slots(SlotType.UPGRADE, 3)
-                            .slots(SlotType.ABILITY, 1)
-                            .build()
-                )
+                .smallToolStartingSlots()
                 .module(
                         ToolTraitsModule.builder().trait(TGTinkersModifiers.ammoFinder).build()
                 )
@@ -154,24 +151,28 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 )
                 .module(
                         new SetStatsModule(StatsNBT.builder()
-                                .set(TGStats.ENTITY_REACH, 1)
+                                .set(ToolStats.ATTACK_DAMAGE, 3)
                                 .set(ToolStats.ATTACK_SPEED, 1.3F)
+                                .set(TGStats.ENTITY_REACH, 1)
                                 .set(TGStats.GOLEM_SWEEP, 2)
                                 .build()
                         )
                 )
                 .module(
                         new MultiplyStatsModule(MultiplierNBT.builder()
-                                .set(ToolStats.DURABILITY, 4)
-                                .set(ToolStats.ATTACK_DAMAGE, 2.5f)
+                                .set(ToolStats.DURABILITY, 4.5f)
+                                .set(ToolStats.ATTACK_DAMAGE, 2)
                                 .build()
                         )
                 )
                 .module(
-                        ToolSlotsModule.builder()
-                                .slots(SlotType.UPGRADE, 2)
-                                .slots(SlotType.ABILITY, 1)
-                                .build()
+                        ToolTraitsModule.builder().trait(ModifierIds.silkyShears).build()
+                )
+                .largeToolStartingSlots()
+                .module(
+                        ToolActionsModule.of(
+                                ToolActions.SWORD_DIG
+                        )
                 )
         ;
         define(TGItems.AXE_TOOL)
@@ -191,7 +192,6 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 )
                 .module(
                         new SetStatsModule(StatsNBT.builder()
-                                .set(ToolStats.ATTACK_DAMAGE, 3)
                                 .set(ToolStats.ATTACK_SPEED, 0.6F)
                                 .set(TGStats.GOLEM_SWEEP, 2)
                                 .build()
@@ -200,19 +200,21 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 .module(
                         new MultiplyStatsModule(MultiplierNBT.builder()
                                 .set(ToolStats.DURABILITY, 4.5f)
-                                .set(ToolStats.ATTACK_DAMAGE, 2)
+                                .set(ToolStats.ATTACK_DAMAGE, 2.5f)
                                 .build()
                         )
                 )
                 .module(
                         ToolTraitsModule.builder().trait(TGTinkersModifiers.percent_attack).build()
                 )
+                .largeToolStartingSlots()
                 .module(
-                        ToolSlotsModule.builder()
-                                .slots(SlotType.UPGRADE, 2)
-                                .slots(SlotType.ABILITY, 1)
-                                .build()
+                        ToolActionsModule.of(
+                                ToolActions.AXE_DIG,
+                                TinkerToolActions.SHIELD_DISABLE
+                        )
                 )
+                .module(new ParticleWeaponAttack(TinkerTools.axeAttackParticle.get()))
         ;
         define(TGItems.SPEAR_TOOL)
                 .module(
@@ -244,11 +246,11 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                                 .build()
                         )
                 )
+                .largeToolStartingSlots()
                 .module(
-                        ToolSlotsModule.builder()
-                                .slots(SlotType.UPGRADE, 2)
-                                .slots(SlotType.ABILITY, 1)
-                                .build()
+                        ToolActionsModule.of(
+                                TinkerToolActions.SHIELD_DISABLE
+                        )
                 )
         ;
     }
