@@ -4,7 +4,8 @@ import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.library.materialstats.CannonCoreMaterialStats;
 import net.minecraft.world.item.ArmorItem;
 import slimeknights.tconstruct.library.client.data.material.AbstractPartSpriteProvider;
-import slimeknights.tconstruct.tools.stats.*;
+import slimeknights.tconstruct.tools.stats.LimbMaterialStats;
+import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 
 public class TGPartSpriteProvider extends AbstractPartSpriteProvider {
     public TGPartSpriteProvider() {
@@ -36,20 +37,23 @@ public class TGPartSpriteProvider extends AbstractPartSpriteProvider {
         addTexture("item/tool/weapon/cannon/barrel_2", LimbMaterialStats.ID);
         addTexture("item/tool/weapon/cannon/core", CannonCoreMaterialStats.ID);
         buildTool("weapon/golem_sword")
-                .addPart("blade1", HeadMaterialStats.ID)
-                .addPart("handle", HandleMaterialStats.ID)
-                .addPart("guard", HeadMaterialStats.ID)
-                .addPart("blade2", HeadMaterialStats.ID);
+                //.addHead("golem_sword").addHead("golem_sword_large")
+                .addHead("blade1").addHead("blade1_large")
+                .addHandle("handle").addHandle("handle_large")
+                .addHead("guard").addHead("guard_large")
+                .addHead("blade2").addHead("blade2_large");
         buildTool("weapon/golem_axe")
-                .addPart("head", HeadMaterialStats.ID)
-                .addPart("handle", HandleMaterialStats.ID)
-                .addPart("blade", HeadMaterialStats.ID)
-                .addPart("binding", StatlessMaterialStats.BINDING);
+                //.addHead("golem_axe").addHead("golem_axe_large")
+                .addHead("head").addHead("head_large")
+                .addHandle("handle").addHandle("handle_large")
+                .addHead("blade").addHead("blade_large")
+                .addBinding("binding").addBinding("binding_large");
         buildTool("weapon/golem_spear")
-                .addPart("head", HeadMaterialStats.ID)
-                .addPart("handle1", HandleMaterialStats.ID)
-                .addPart("binding", StatlessMaterialStats.BINDING)
-                .addPart("handle2", HandleMaterialStats.ID);
+                //.addHead("golem_spear").addHead("golem_spear_large")
+                .addHead("head").addHead("head_large")
+                .addHandle("handle1").addHandle("handle1_large")
+                .addBinding("binding").addBinding("binding_large")
+                .addHandle("handle2").addHandle("handle2_large");
     }
 
     @Override

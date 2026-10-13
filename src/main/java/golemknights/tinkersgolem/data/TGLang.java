@@ -76,7 +76,7 @@ public enum TGLang {
 		pvd.add("pattern." + TinkersGolem.MODID + ".chestplate_metal_golem_plating", "Metal Golem Chestplate Plating");
 		pvd.add("pattern." + TinkersGolem.MODID + ".leggings_metal_golem_plating", "Metal Golem Leggings Plating");
 		pvd.add("pattern." + TinkersGolem.MODID + ".boots_metal_golem_plating", "Metal Golem Boots Plating");
-		pvd.add("pattern." + TinkersGolem.MODID + ".golem_template", "Metal Golem Template");
+		pvd.add("pattern." + ModularGolems.MODID + ".metal_golem_template", "Metal Golem Template");
 		pvd.add("gui." + TinkersGolem.MODID + ".metal_golem_armor", "Metal Golem Armor");
 		pvd.add("gui." + TinkersGolem.MODID + ".metal_golem_armor.description", "Metal golem armor is a defensive armor for metal golems.");
 		pvd.add("item." + TinkersGolem.MODID + ".helmet_metal_golem_plating", "Metal Golem Helmet Plating");
@@ -107,8 +107,11 @@ public enum TGLang {
 		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.arrowcore", "Ballista");
 		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.beaconcore", "Beaconcannon");
 		pvd.add("item." + TinkersGolem.MODID + ".golem_sword", "Golem Sword");
+		pvd.add("item." + TinkersGolem.MODID + ".golem_sword.description", "");
 		pvd.add("item." + TinkersGolem.MODID + ".golem_axe", "Golem Axe");
+		pvd.add("item." + TinkersGolem.MODID + ".golem_axe.description", "");
 		pvd.add("item." + TinkersGolem.MODID + ".golem_spear", "Golem Spear");
+		pvd.add("item." + TinkersGolem.MODID + ".golem_spear.description", "");
 		pvd.add("modifier." + TinkersGolem.MODID + ".spewing", "Spewing");
 		pvd.add("modifier." + TinkersGolem.MODID + ".spewing.flavor", "");
 		pvd.add("modifier." + TinkersGolem.MODID + ".spewing.description", "");

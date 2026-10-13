@@ -1,0 +1,55 @@
+{
+  "icon": {
+    "item": "tinkers_golem:golem_axe",
+    "nbt": "{Damage:0,tic_broken:0b,tic_display:1b,tic_materials:[\"tconstruct:ui_render#head\",\"tconstruct:ui_render#handle\",\"tconstruct:ui_render#extra\",\"tconstruct:ui_render#large\",\"tconstruct:ui_render#extra_large\"]}"
+  },
+  "input_slots": [
+    {
+      "filter": {
+        "item": "tconstruct:broad_axe_head"
+      },
+      "icon": "tconstruct:broad_axe_head",
+      "translation_key": "item.tconstruct.broad_axe_head",
+      "x": 44,
+      "y": 29
+    },
+    {
+      "filter": {
+        "item": "tconstruct:tough_handle"
+      },
+      "icon": "tconstruct:tough_handle",
+      "translation_key": "item.tconstruct.tough_handle",
+      "x": 21,
+      "y": 52
+    },
+    {
+      "filter": {
+        "item": "tconstruct:broad_blade"
+      },
+      "icon": "tconstruct:broad_blade",
+      "translation_key": "item.tconstruct.broad_blade",
+      "x": 25,
+      "y": 20
+    },
+    {
+      "filter": {
+        "item": "tconstruct:tough_binding"
+      },
+      "icon": "tconstruct:tough_binding",
+      "translation_key": "item.tconstruct.tough_binding",
+      "x": 50,
+      "y": 48
+    },
+    {
+      "filter": {
+        "item": "modulargolems:metal_golem_template"
+      },
+      "icon": "modulargolems:metal_golem_template",
+      "translation_key": "item.modulargolems.metal_golem_template",
+      "x": 83,
+      "y": 20
+    }
+  ],
+  "sortIndex": 19,
+  "translation_key": "item.tinkers_golem.golem_axe"
+}

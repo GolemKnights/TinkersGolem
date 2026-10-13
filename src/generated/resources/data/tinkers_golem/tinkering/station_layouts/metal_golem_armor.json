@@ -73,8 +73,8 @@
       "filter": {
         "item": "modulargolems:metal_golem_template"
       },
-      "icon": "tinkers_golem:golem_template",
-      "translation_key": "pattern.tinkers_golem.golem_template",
+      "icon": "modulargolems:metal_golem_template",
+      "translation_key": "item.modulargolems.metal_golem_template",
       "x": 13,
       "y": 49
     },
@@ -82,8 +82,8 @@
       "filter": {
         "item": "modulargolems:metal_golem_template"
       },
-      "icon": "tinkers_golem:golem_template",
-      "translation_key": "pattern.tinkers_golem.golem_template",
+      "icon": "modulargolems:metal_golem_template",
+      "translation_key": "item.modulargolems.metal_golem_template",
       "x": 53,
       "y": 49
     }

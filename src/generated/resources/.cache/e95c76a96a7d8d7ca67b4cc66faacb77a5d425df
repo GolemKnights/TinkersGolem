@@ -1,2 +1,5 @@
-// 1.20.1	2026-10-06T09:02:05.4300851	Tinkers' Golem Tinker Station Slot Layouts
-f501bc82e5124d9b9361fdfca66d429df425222b data/tinkers_golem/tinkering/station_layouts/metal_golem_armor.json
+// 1.20.1	2026-10-13T19:22:27.9988235	Tinkers' Golem Tinker Station Slot Layouts
+6b571926bbebfd32d9dd700a163c28910150e6eb data/tinkers_golem/tinkering/station_layouts/golem_axe.json
+41b1609458c4d84b50b441d84cf07c68c6781be1 data/tinkers_golem/tinkering/station_layouts/golem_spear.json
+3acb84b61ea73d363bc311a9f3dff3a9d5fd617e data/tinkers_golem/tinkering/station_layouts/golem_sword.json
+26be85ef7e08b98d75b932838c90bef6185a9a96 data/tinkers_golem/tinkering/station_layouts/metal_golem_armor.json
