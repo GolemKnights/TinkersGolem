@@ -92,15 +92,15 @@
       "stat_type": "tconstruct:plating_chestplate"
     },
     {
-      "path": "tinkers_golem:item/tool/weapon/cannon/cannon_barrel_1",
+      "path": "tinkers_golem:item/tool/weapon/cannon/barrel_1",
       "stat_type": "tconstruct:limb"
     },
     {
-      "path": "tinkers_golem:item/tool/weapon/cannon/cannon_barrel_2",
+      "path": "tinkers_golem:item/tool/weapon/cannon/barrel_2",
       "stat_type": "tconstruct:limb"
     },
     {
-      "path": "tinkers_golem:item/tool/weapon/cannon/cannon_core",
+      "path": "tinkers_golem:item/tool/weapon/cannon/core",
       "stat_type": "tinkers_golem:cannon_core"
     },
     {

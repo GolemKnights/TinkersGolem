@@ -33,9 +33,9 @@ public class TGPartSpriteProvider extends AbstractPartSpriteProvider {
         addTexture("tinker_armor/metal_golem_"+gloves+"/huge_plating_armor", PlatingMaterialStats.TYPES.get(1).getId()).disallowAnimated();
         addTexture("tinker_armor/metal_golem_"+gloves+"/small_plating1_armor", PlatingMaterialStats.TYPES.get(1).getId()).disallowAnimated();
         addTexture("tinker_armor/metal_golem_"+gloves+"/small_plating2_armor", PlatingMaterialStats.TYPES.get(1).getId()).disallowAnimated();
-        addTexture("item/tool/weapon/cannon/cannon_barrel_1", LimbMaterialStats.ID);
-        addTexture("item/tool/weapon/cannon/cannon_barrel_2", LimbMaterialStats.ID);
-        addTexture("item/tool/weapon/cannon/cannon_core", CannonCoreMaterialStats.ID);
+        addTexture("item/tool/weapon/cannon/barrel_1", LimbMaterialStats.ID);
+        addTexture("item/tool/weapon/cannon/barrel_2", LimbMaterialStats.ID);
+        addTexture("item/tool/weapon/cannon/core", CannonCoreMaterialStats.ID);
     }
 
     @Override
