@@ -252,6 +252,54 @@
       "allow_animated": false,
       "path": "tinkers_golem:item/tool/armor/metal_golem/gloves/small_plating2_broken",
       "stat_type": "tconstruct:plating_chestplate"
+    },
+    {
+      "path": "tinkers_golem:item/tool/weapon/golem_sword/blade1",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tinkers_golem:item/tool/weapon/golem_sword/handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tinkers_golem:item/tool/weapon/golem_sword/guard",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tinkers_golem:item/tool/weapon/golem_sword/blade2",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tinkers_golem:item/tool/weapon/golem_axe/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tinkers_golem:item/tool/weapon/golem_axe/handle",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tinkers_golem:item/tool/weapon/golem_axe/blade",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tinkers_golem:item/tool/weapon/golem_axe/binding",
+      "stat_type": "tconstruct:binding"
+    },
+    {
+      "path": "tinkers_golem:item/tool/weapon/golem_spear/head",
+      "stat_type": "tconstruct:head"
+    },
+    {
+      "path": "tinkers_golem:item/tool/weapon/golem_spear/handle1",
+      "stat_type": "tconstruct:handle"
+    },
+    {
+      "path": "tinkers_golem:item/tool/weapon/golem_spear/binding",
+      "stat_type": "tconstruct:binding"
+    },
+    {
+      "path": "tinkers_golem:item/tool/weapon/golem_spear/handle2",
+      "stat_type": "tconstruct:handle"
     }
   ],
   "replace": false

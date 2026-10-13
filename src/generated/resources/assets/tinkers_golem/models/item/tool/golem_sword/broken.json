@@ -1,0 +1,51 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "tconstruct:item/base/tall",
+  "textures": {
+    "blade1": "tinkers_golem:item/tool/weapon/golem_sword/blade1",
+    "handle": "tinkers_golem:item/tool/weapon/golem_sword/handle",
+    "guard": "tinkers_golem:item/tool/weapon/golem_sword/guard",
+    "blade2": "tinkers_golem:item/tool/weapon/golem_sword/blade2",
+    "large_blade1": "tinkers_golem:item/tool/weapon/golem_sword/blade1_large",
+    "large_handle": "tinkers_golem:item/tool/weapon/golem_sword/handle_large",
+    "large_guard": "tinkers_golem:item/tool/weapon/golem_sword/guard_large",
+    "large_blade2": "tinkers_golem:item/tool/weapon/golem_sword/blade2_large"
+  },
+  "modifier_maps": [
+    "tconstruct:cleaver_broken",
+    "tconstruct:cleaver"
+  ],
+  "modifier_roots": {
+    "small": [
+      "tinkers_golem:item/tool/weapon/golem_sword/modifiers/broken/",
+      "tinkers_golem:item/tool/weapon/golem_sword/modifiers/"
+    ],
+    "large": [
+      "tinkers_golem:item/tool/weapon/golem_sword/modifiers_large/broken/",
+      "tinkers_golem:item/tool/weapon/golem_sword/modifiers_large/"
+    ]
+  },
+  "large": true,
+  "large_offset": [
+    -2,
+    2
+  ],
+  "parts": [
+    {
+      "name": "handle",
+      "index": 1
+    },
+    {
+      "name": "blade1",
+      "index": 0
+    },
+    {
+      "name": "guard",
+      "index": 2
+    },
+    {
+      "name": "blade2",
+      "index": 3
+    }
+  ]
+}

@@ -1,6 +1,12 @@
-// 1.20.1	2026-10-06T09:18:24.2148141	Tinkers Golem Tool Item Model Provider
+// 1.20.1	2026-10-13T15:06:51.6966593	Tinkers Golem Tool Item Model Provider
 3132b8bde4d3845ef3a446cc3cdd6d2f5afed477 assets/tinkers_golem/models/item/armor/metal_golem/boots_broken.json
 b28a5607ea6fc42d45d2db394afc55efe7f335b4 assets/tinkers_golem/models/item/armor/metal_golem/chestplate_broken.json
 00d2be2335ddb722930295760f9c56373d360d51 assets/tinkers_golem/models/item/armor/metal_golem/gloves_broken.json
 4b4bbf6d5779c178479881dd79abef0492fdd0aa assets/tinkers_golem/models/item/armor/metal_golem/helmet_broken.json
 a98da145d707b6887c6a10e41f80fb7ceab8e3bc assets/tinkers_golem/models/item/armor/metal_golem/leggings_broken.json
+d835959f7a2aa3876233d98dbf186a051c29594b assets/tinkers_golem/models/item/tool/golem_axe/blocking.json
+6917a97244c939fbc27c8e94a3a76d70b2bbd436 assets/tinkers_golem/models/item/tool/golem_axe/broken.json
+a64d0e9884396db4d8641560be762b9e5322611a assets/tinkers_golem/models/item/tool/golem_spear/blocking.json
+896f4042f9b1e353986d9c8ddcba03332920fc64 assets/tinkers_golem/models/item/tool/golem_spear/broken.json
+0540d5619b4a91302547c4f1b979c6cd4c31c275 assets/tinkers_golem/models/item/tool/golem_sword/blocking.json
+e84511fd4d901089e656d7ddaa7bd2920ee4f7d5 assets/tinkers_golem/models/item/tool/golem_sword/broken.json

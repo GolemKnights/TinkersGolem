@@ -4,8 +4,7 @@ import golemknights.tinkersgolem.TinkersGolem;
 import golemknights.tinkersgolem.library.materialstats.CannonCoreMaterialStats;
 import net.minecraft.world.item.ArmorItem;
 import slimeknights.tconstruct.library.client.data.material.AbstractPartSpriteProvider;
-import slimeknights.tconstruct.tools.stats.LimbMaterialStats;
-import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
+import slimeknights.tconstruct.tools.stats.*;
 
 public class TGPartSpriteProvider extends AbstractPartSpriteProvider {
     public TGPartSpriteProvider() {
@@ -36,6 +35,21 @@ public class TGPartSpriteProvider extends AbstractPartSpriteProvider {
         addTexture("item/tool/weapon/cannon/barrel_1", LimbMaterialStats.ID);
         addTexture("item/tool/weapon/cannon/barrel_2", LimbMaterialStats.ID);
         addTexture("item/tool/weapon/cannon/core", CannonCoreMaterialStats.ID);
+        buildTool("weapon/golem_sword")
+                .addPart("blade1", HeadMaterialStats.ID)
+                .addPart("handle", HandleMaterialStats.ID)
+                .addPart("guard", HeadMaterialStats.ID)
+                .addPart("blade2", HeadMaterialStats.ID);
+        buildTool("weapon/golem_axe")
+                .addPart("head", HeadMaterialStats.ID)
+                .addPart("handle", HandleMaterialStats.ID)
+                .addPart("blade", HeadMaterialStats.ID)
+                .addPart("binding", StatlessMaterialStats.BINDING);
+        buildTool("weapon/golem_spear")
+                .addPart("head", HeadMaterialStats.ID)
+                .addPart("handle1", HandleMaterialStats.ID)
+                .addPart("binding", StatlessMaterialStats.BINDING)
+                .addPart("handle2", HandleMaterialStats.ID);
     }
 
     @Override

@@ -248,11 +248,11 @@ public class ModifiableMetalGolemWeaponItem extends GolemEquipmentItem
             if (slot == EquipmentSlot.MAINHAND && EntityInteractionModifierHook.isMeleeWeapon(tool)) {
                 float value = statsNBT.get(TGStats.ENTITY_REACH);
                 if (value > 0) {
-                    builder.put(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(perc, "tconstruct.tool.golem_reach", value, AttributeModifier.Operation.MULTIPLY_BASE));
+                    builder.put(ForgeMod.ENTITY_REACH.get(), new AttributeModifier(perc, "tconstruct.tool.golem_reach", value, AttributeModifier.Operation.ADDITION));
                 }
                 value = statsNBT.get(TGStats.GOLEM_SWEEP);
                 if (value > 0) {
-                    builder.put(GolemTypes.GOLEM_SWEEP.get(), new AttributeModifier(uuid, "tconstruct.tool.golem_sweep", value, AttributeModifier.Operation.MULTIPLY_BASE));
+                    builder.put(GolemTypes.GOLEM_SWEEP.get(), new AttributeModifier(uuid, "tconstruct.tool.golem_sweep", value, AttributeModifier.Operation.ADDITION));
                 }
                 value = statsNBT.get(TGStats.ATTACK_DAMAGE_PERCENT);
                 if (value > 0) {

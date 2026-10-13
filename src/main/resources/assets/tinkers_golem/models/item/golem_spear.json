@@ -1,0 +1,38 @@
+{
+  "loader": "tconstruct:tool",
+  "parent": "tconstruct:item/base/tall",
+  "textures": {
+    "head":   "tinkers_golem:item/tool/weapon/golem_spear/head",
+    "handle1": "tinkers_golem:item/tool/weapon/golem_spear/handle1",
+    "binding":  "tinkers_golem:item/tool/weapon/golem_spear/binding",
+    "handle2": "tinkers_golem:item/tool/weapon/golem_spear/handle2",
+
+    "large_head":   "tinkers_golem:item/tool/weapon/golem_spear/head_large",
+    "large_handle1": "tinkers_golem:item/tool/weapon/golem_spear/handle1_large",
+    "large_binding":  "tinkers_golem:item/tool/weapon/golem_spear/binding_large",
+    "large_handle2": "tinkers_golem:item/tool/weapon/golem_spear/handle2_large"
+  },
+  "modifier_maps": ["tconstruct:cleaver"],
+  "modifier_roots": {
+    "small": [ "tinkers_golem:item/tool/weapon/golem_spear/modifiers/" ],
+    "large": [ "tinkers_golem:item/tool/weapon/golem_spear/modifiers_large/" ]
+  },
+  "large": true,
+  "large_offset": [-2, 2],
+  "parts": [
+    { "name": "handle1", "index": 1 },
+    { "name": "head",   "index": 0 },
+    { "name": "handle2", "index": 3 },
+    { "name": "binding",  "index": 2 }
+  ],
+  "overrides": [
+    {
+      "predicate": { "tconstruct:charging": 2 },
+      "model": "tinkers_golem:item/tool/weapon/golem_spear/blocking"
+    },
+    {
+      "predicate": { "tconstruct:broken": 1 },
+      "model": "tinkers_golem:item/tool/weapon/golem_spear/broken"
+    }
+  ]
+}
