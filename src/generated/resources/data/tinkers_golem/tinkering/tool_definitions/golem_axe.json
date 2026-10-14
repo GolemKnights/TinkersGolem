@@ -41,14 +41,15 @@
       "type": "tconstruct:base_stats",
       "stats": {
         "tconstruct:attack_speed": 0.6,
+        "tinkers_golem:attack_damage_percent": 0.05,
         "tinkers_golem:golem_sweep": 2.0
       }
     },
     {
       "type": "tconstruct:multiply_stats",
       "multipliers": {
-        "tconstruct:attack_damage": 2.5,
-        "tconstruct:durability": 4.5
+        "tconstruct:durability": 4.5,
+        "tinkers_golem:attack_damage_percent": 2.0
       }
     },
     {

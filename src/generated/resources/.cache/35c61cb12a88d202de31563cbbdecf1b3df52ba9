@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-13T21:42:38.6734871	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (enchantments), Tags (mob_effects), Tags (attributes)]
+// 1.20.1	2026-10-14T09:41:42.6980664	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (enchantments), Tags (mob_effects), Tags (attributes)]
 4382862b5e116028509793d67706c32aae0a04c2 assets/tinkers_golem/lang/en_ud.json
 1780dd889f7765636e21a6e7c14e48c308103b35 assets/tinkers_golem/lang/en_us.json
 203af4551a77473a1609ef1a9c4c6930e386d9f7 assets/tinkers_golem/models/item/cinderslime_expand.json
@@ -186,6 +186,8 @@ f9305a3693df921234f61417e1e4718d8fb71438 data/tinkers_golem/advancements/recipes
 d8ef0fdf7209a89462a5f6c366b9cac880385323 data/tinkers_golem/advancements/recipes/casting/casting/tinkers_bronze_casting_metal_golem_body.json
 8e0b24b50c4263360af7bf9eb862f9c6edf27110 data/tinkers_golem/advancements/recipes/casting/casting/tinkers_bronze_casting_metal_golem_legs.json
 6d3451e595aac67626626288698f8072bd0cf59b data/tinkers_golem/advancements/recipes/casting/casting/tinkers_bronze_casting_slime_golem_core.json
+5e2753434832c8c004ecf93f2a95573c69169bcc data/tinkers_golem/advancements/recipes/casting/casting/venom_casting_slime_golem_core.json
+80d93ecfda6c08e678cb2592bbe22008dc702817 data/tinkers_golem/advancements/recipes/casting/casting/venom_casting_slime_golem_shell.json
 3b3d896c4e52669ba81b9976d297fa1ac36343a5 data/tinkers_golem/advancements/recipes/cinderslime_expand_slime_golem_holder.json
 7204d750cc3b7dba67beb2c031bf7bb20c2e5406 data/tinkers_golem/advancements/recipes/misc/cinderslime_expand.json
 4316ae1abf0b523abde60177b29964e7f3861b44 data/tinkers_golem/advancements/recipes/misc/knightslime_expand.json
@@ -320,6 +322,8 @@ df0eab30b31b847f574b49fab754ac5e97c3fbdd data/tinkers_golem/recipes/casting/tink
 aa1d52740e37deedfdc8de243c5cd22ac3a093f1 data/tinkers_golem/recipes/casting/tinkers_bronze_casting_metal_golem_body.json
 b2c964219e8d06242e1f73fc95a37c9a8ceccb4a data/tinkers_golem/recipes/casting/tinkers_bronze_casting_metal_golem_legs.json
 ad6fc7235745132362bb29d67fe6bbce0f5bc6df data/tinkers_golem/recipes/casting/tinkers_bronze_casting_slime_golem_core.json
+6007dea3a39302ba06f0b9d8165bf5619ea3a805 data/tinkers_golem/recipes/casting/venom_casting_slime_golem_core.json
+8780a38ee94766b968437a89571f23cea3f5afe3 data/tinkers_golem/recipes/casting/venom_casting_slime_golem_shell.json
 4018c6f2d574f3eaa8c02dbb32263e5eb5e7b6c9 data/tinkers_golem/recipes/cinderslime_expand.json
 b2a1788f2ee99a5c2b5bdf60d9aef77e1fe1a327 data/tinkers_golem/recipes/cinderslime_expand_slime_golem_holder.json
 b4bd59684ebaedce65a6fa975eb059363a934973 data/tinkers_golem/recipes/knightslime_expand.json

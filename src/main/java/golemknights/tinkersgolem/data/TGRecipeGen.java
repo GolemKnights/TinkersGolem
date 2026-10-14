@@ -124,6 +124,7 @@ public class TGRecipeGen {
 			genSlime(pvd, TinkersGolem.getResource("enderslime"), TinkerFluids.enderSlime, 250);
 			genSlime(pvd, TinkersGolem.getResource("magma"), TinkerFluids.magma, 250);
 			genSlime(pvd, TinkersGolem.getResource("honey"), TinkerFluids.honey, 250);
+			genSlime(pvd, TinkersGolem.getResource("venom"), TinkerFluids.venom, 250);
 
 			genMetal(pvd, TConstruct.getResource("slimesteel"), TinkerFluids.moltenSlimesteel, 90);
 			genMetal(pvd, TConstruct.getResource("queens_slime"), TinkerFluids.moltenQueensSlime, 90);

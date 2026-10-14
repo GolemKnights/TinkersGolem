@@ -151,7 +151,7 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 )
                 .module(
                         new SetStatsModule(StatsNBT.builder()
-                                .set(ToolStats.ATTACK_DAMAGE, 3)
+                                .set(ToolStats.ATTACK_DAMAGE, 1)
                                 .set(ToolStats.ATTACK_SPEED, 1.3F)
                                 .set(TGStats.ENTITY_REACH, 1)
                                 .set(TGStats.GOLEM_SWEEP, 2)
@@ -192,6 +192,7 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 )
                 .module(
                         new SetStatsModule(StatsNBT.builder()
+                                .set(TGStats.ATTACK_DAMAGE_PERCENT, 0.05f)
                                 .set(ToolStats.ATTACK_SPEED, 0.6F)
                                 .set(TGStats.GOLEM_SWEEP, 2)
                                 .build()
@@ -200,7 +201,7 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 .module(
                         new MultiplyStatsModule(MultiplierNBT.builder()
                                 .set(ToolStats.DURABILITY, 4.5f)
-                                .set(ToolStats.ATTACK_DAMAGE, 2.5f)
+                                .set(TGStats.ATTACK_DAMAGE_PERCENT, 2)
                                 .build()
                         )
                 )
@@ -233,7 +234,7 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 )
                 .module(
                         new SetStatsModule(StatsNBT.builder()
-                                .set(ToolStats.ATTACK_DAMAGE, 4)
+                                .set(ToolStats.ATTACK_DAMAGE, 1)
                                 .set(ToolStats.ATTACK_SPEED, 1.1F)
                                 .set(TGStats.ENTITY_REACH, 2)
                                 .build()
@@ -242,7 +243,7 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 .module(
                         new MultiplyStatsModule(MultiplierNBT.builder()
                                 .set(ToolStats.DURABILITY, 4.8f)
-                                .set(ToolStats.ATTACK_DAMAGE, 1.5F)
+                                .set(ToolStats.ATTACK_DAMAGE, 2)
                                 .build()
                         )
                 )
