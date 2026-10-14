@@ -41,6 +41,7 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -124,6 +125,8 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		super.registerGoals();
 		this.goalSelector.addGoal(2, meleeGoal);
 		this.goalSelector.addGoal(9, new SlimeKeepOnJumpingGoal(this));
+		this.goalSelector.removeGoal(new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(9, new SlimeRandomDirectionGoal(this));
 	}
 
 	public void setSize(int size, boolean resetHealth) {

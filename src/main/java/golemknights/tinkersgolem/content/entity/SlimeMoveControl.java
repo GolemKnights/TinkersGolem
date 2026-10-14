@@ -6,12 +6,18 @@ import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraftforge.common.ForgeMod;
 
 class SlimeMoveControl extends MoveControl {
+	private float yRot;
 	private int jumpDelay;
 	protected final SlimeGolemEntity slime;
+	private boolean isAggressive;
 
 	public SlimeMoveControl(SlimeGolemEntity golem) {
 		super(golem);
 		this.slime = golem;
+	}
+	public void setDirection(float p_33673_, boolean p_33674_) {
+		this.yRot = p_33673_;
+		this.isAggressive = p_33674_;
 	}
 
 	public void setWantedMovement(double p_33671_) {
@@ -21,6 +27,7 @@ class SlimeMoveControl extends MoveControl {
 
 	@Override
 	public void tick() {
+		this.mob.setYRot(this.rotlerp(this.mob.getYRot(), this.yRot, 90.0F));
 		double d = slime.getToTargetDist();
 		boolean arrived = !slime.isAggressive() && d < 0.5f;
 
