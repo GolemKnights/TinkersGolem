@@ -14,7 +14,8 @@ public abstract class FixMonsterMeleeMixin {
             method = "livingHurt",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/entity/LivingEntity;getAttributeValue(Lnet/minecraft/world/entity/ai/attributes/Attribute;)D")
+                    target = "Lnet/minecraft/world/entity/LivingEntity;getAttributeValue(Lnet/minecraft/world/entity/ai/attributes/Attribute;)D"
+            )
     )
     private static double getAttributeValue(LivingEntity entity, Attribute attribute, LivingHurtEvent event) {
         if (event.getSource().getEntity() instanceof LivingEntity living) {
