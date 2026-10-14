@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-14T09:41:42.6980664	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (enchantments), Tags (mob_effects), Tags (attributes)]
+// 1.20.1	2026-10-14T19:36:18.6235274	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (enchantments), Tags (mob_effects), Tags (attributes)]
 4382862b5e116028509793d67706c32aae0a04c2 assets/tinkers_golem/lang/en_ud.json
 1780dd889f7765636e21a6e7c14e48c308103b35 assets/tinkers_golem/lang/en_us.json
 203af4551a77473a1609ef1a9c4c6930e386d9f7 assets/tinkers_golem/models/item/cinderslime_expand.json
@@ -208,7 +208,6 @@ eb45fcb8cf124a1d7f31537236509abe8a8caf67 data/tinkers_golem/advancements/recipes
 b62312eb52ac9cf348991369667c4b0683d9df6b data/tinkers_golem/advancements/recipes/queens_slime_expand_slime_golem_holder.json
 61656191e761e997d4d2bc2e496f4f95576e2f0a data/tinkers_golem/advancements/recipes/slimesteel_expand_slime_golem_holder.json
 69bace95bd2e6f36a18647f86cb8744bf562733e data/tinkers_golem/advancements/recipes/slime_golem/assemble_holder.json
-db9219c464b7dd316e827837fdf153cafc5f88aa data/tinkers_golem/advancements/recipes/slime_golem/assemble_holder_inverted.json
 ae874b8b27020aa1644f9b40d06de25aba2ed062 data/tinkers_golem/advancements/recipes/slime_golem/replace_core.json
 c47ab7a85cde8c77855f75b902e092f821f374cd data/tinkers_golem/advancements/recipes/slime_golem/replace_shell.json
 8f632b42b8f01c53c8ad07c7b4ceac846c86066c data/tinkers_golem/recipes/casting/amethyst_bronze_casting_slime_golem_core.json
@@ -346,7 +345,6 @@ a0ee044ba6dbb7b68d19c0c9b4f1b170c63f9d26 data/tinkers_golem/recipes/queens_slime
 3e23db032338be035d370d32c97f4d826e53783d data/tinkers_golem/recipes/slimesteel_expand.json
 aea2530eaa18ba8897899723514d755fcbed4b18 data/tinkers_golem/recipes/slimesteel_expand_slime_golem_holder.json
 b602afeba0a385f9e8f21fe1af3965e129b3fe79 data/tinkers_golem/recipes/slime_golem/assemble_holder.json
-b0a244dd1e74be4c1e59a6f389110ce520eef877 data/tinkers_golem/recipes/slime_golem/assemble_holder_inverted.json
 6bfe5fa30d1289b72124276fe3322809e3194b10 data/tinkers_golem/recipes/slime_golem/replace_core.json
 028b65b6f5232e1256a2423549e3ca2b94cd1857 data/tinkers_golem/recipes/slime_golem/replace_shell.json
 a798ea10bb535a0988ab3f91f80edc8ce11ba9df data/tinkers_golem/recipes/slime_golem_core.json

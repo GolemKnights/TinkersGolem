@@ -72,12 +72,12 @@ public class TGRecipeGen {
 					.define('B', TGEntities.SLIME_SHELL.get())
 					.save(pvd, TinkersGolem.getResource("slime_golem/assemble_holder"));
 
-			unlock(pvd, new GolemAssembleBuilder(TGEntities.HOLDER_SLIME.get(), 1)::unlockedBy,
+			/*unlock(pvd, new GolemAssembleBuilder(TGEntities.HOLDER_SLIME.get(), 1)::unlockedBy,
 					TGEntities.SLIME_CORE.get())
 					.pattern("B").pattern("A")
 					.define('A', TGEntities.SLIME_CORE.get())
 					.define('B', TGEntities.SLIME_SHELL.get())
-					.save(pvd, TinkersGolem.getResource("slime_golem/assemble_holder_inverted"));
+					.save(pvd, TinkersGolem.getResource("slime_golem/assemble_holder_inverted"));*/
 
 			unlock(pvd, new GolemReplaceBuilder(TGEntities.HOLDER_SLIME.get(), 1)::unlockedBy,
 					TGEntities.SLIME_CORE.get())
