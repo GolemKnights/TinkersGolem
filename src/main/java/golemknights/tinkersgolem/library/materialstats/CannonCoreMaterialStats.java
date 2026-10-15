@@ -30,8 +30,8 @@ public record CannonCoreMaterialStats(float durability, float accuracy, float ca
             )
     );
     private static final List<Component> DESCRIPTION = List.of(
-            IMaterialStats.makeTooltip(TinkersGolem.getResource("cannon_core.durability.description")),
-            IMaterialStats.makeTooltip(TinkersGolem.getResource("cannon_core.accuracy.description")),
+            IMaterialStats.makeTooltip(TConstruct.getResource("handle.durability.description")),
+            IMaterialStats.makeTooltip(TConstruct.getResource("limb.accuracy.description")),
             IMaterialStats.makeTooltip(TinkersGolem.getResource("cannon_core.cannon_range.description"))
     );
 

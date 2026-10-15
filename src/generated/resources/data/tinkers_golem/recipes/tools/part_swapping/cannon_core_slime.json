@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:fixed_material_swapping",
+  "index": 0,
+  "ingredient": {
+    "tag": "forge:storage_blocks/slimesteel"
+  },
+  "material": "tinkers_golem:slimecore",
+  "max_stack_size": 16,
+  "tools": {
+    "item": "tinkers_golem:cannon"
+  }
+}

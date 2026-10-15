@@ -3,6 +3,7 @@ package golemknights.tinkersgolem.register;
 import golemknights.tinkersgolem.library.recipes.ExtendedShapedMaterialsRecipe;
 import golemknights.tinkersgolem.library.recipes.GolemSeveringRecipe;
 import golemknights.tinkersgolem.library.recipes.OverslimeRecoverRecipe;
+import golemknights.tinkersgolem.library.recipes.SlotSkippingMaterialSwappingRecipe;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -17,6 +18,7 @@ public class TGRecipes {
 	public static final RegistryObject<RecipeSerializer<OverslimeRecoverRecipe>> OVERSLIME_RECOVER_SERIALIZER = RECIPE_SERIALIZERS.register("overslime_recover", () -> LoadableRecipeSerializer.of(OverslimeRecoverRecipe.LOADER));
 	public static final RegistryObject<RecipeSerializer<GolemSeveringRecipe>> GOLEM_SEVERING_SERIALIZER = RECIPE_SERIALIZERS.register("golem_severing", () -> new SimpleRecipeSerializer<>(GolemSeveringRecipe::new));
 	public static final RegistryObject<RecipeSerializer<ExtendedShapedMaterialsRecipe>> SHAPED_MATERIALS_SERIALIZER = RECIPE_SERIALIZERS.register("shaped_materials", () -> ExtendedShapedMaterialsRecipe.Serializer.INSTANCE);
+	public static final RegistryObject<RecipeSerializer<SlotSkippingMaterialSwappingRecipe>> SLOT_SKIPPING_MATERIAL_SWAPPING_SERIALIZER = RECIPE_SERIALIZERS.register("slot_skipping_material_swapping", () -> LoadableRecipeSerializer.of(SlotSkippingMaterialSwappingRecipe.LOADER));
 
 	static <T extends Recipe<?>> RegistryObject<RecipeType<T>> register(String name) {
 		return RECIPE_TYPES.register(name, () -> new RecipeType<T>() {
