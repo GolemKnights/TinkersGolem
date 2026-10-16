@@ -1,0 +1,17 @@
+{
+  "type": "tinkers_golem:slot_skipping_material_swapping",
+  "cost": 2,
+  "index": [
+    1,
+    2
+  ],
+  "material": {
+    "type": "tconstruct:stat_type",
+    "stat_type": "tconstruct:limb"
+  },
+  "max_stack_size": 16,
+  "skips": 0,
+  "tools": {
+    "item": "tinkers_golem:cannon"
+  }
+}

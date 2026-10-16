@@ -1,0 +1,14 @@
+{
+  "type": "tconstruct:part_builder_tool_recycling",
+  "parts": [
+    "tinkers_golem:cannon_core",
+    "tconstruct:bow_limb",
+    "tconstruct:repair_kit"
+  ],
+  "pattern": {
+    "item": "tconstruct:venom_bottle"
+  },
+  "tools": {
+    "item": "tinkers_golem:cannon"
+  }
+}

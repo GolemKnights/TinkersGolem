@@ -145,6 +145,7 @@
   "modifier.tinkers_golem.wetting.desc": "pǝʞɔɐʇʇɐ uǝɥʍ spınןɟ ʎq pǝʇʇǝʍ sı ɯǝןob ǝɯıןS",
   "pattern.modulargolems.metal_golem_template": "ǝʇɐןdɯǝ⟘ ɯǝןo⅁ ןɐʇǝW",
   "pattern.tinkers_golem.boots_metal_golem_plating": "buıʇɐןԀ sʇooᗺ ɯǝןo⅁ ןɐʇǝW",
+  "pattern.tinkers_golem.cannon_core": "ǝɹoƆ uouuɐƆ",
   "pattern.tinkers_golem.chestplate_metal_golem_plating": "buıʇɐןԀ ǝʇɐןdʇsǝɥƆ ɯǝןo⅁ ןɐʇǝW",
   "pattern.tinkers_golem.helmet_metal_golem_plating": "buıʇɐןԀ ʇǝɯןǝH ɯǝןo⅁ ןɐʇǝW",
   "pattern.tinkers_golem.leggings_metal_golem_plating": "buıʇɐןԀ sbuıbbǝꞀ ɯǝןo⅁ ןɐʇǝW",
@@ -158,6 +159,7 @@
   "tinkers_golem.max_overslime": "ǝɯıןsɹǝʌO xɐW",
   "tinkers_golem.overslime_recovery": "ɹoʇɔɐℲ ʎɹǝʌoɔǝᴚ ǝɯıןsɹǝʌO",
   "tinkers_golem.tank_capacity": "ʎʇıɔɐdɐƆ ʞuɐ⟘",
+  "tool_stat.tinkers_golem.cannon_core.cannon_range.description": "",
   "tool_stat.tinkers_golem.cannon_range": "ǝbuɐᴚ uouuɐƆ",
   "tool_stat.tinkers_golem.cannon_range.description": ""
 }

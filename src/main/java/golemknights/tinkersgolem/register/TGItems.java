@@ -3,8 +3,10 @@ package golemknights.tinkersgolem.register;
 import golemknights.tinkersgolem.client.TGModelPaths;
 import golemknights.tinkersgolem.content.item.armor.ModifiableDogGolemArmorItem;
 import golemknights.tinkersgolem.content.item.armor.ModifiableMetalGolemArmorItem;
+import golemknights.tinkersgolem.content.item.misc.MaterialToNormalItem;
 import golemknights.tinkersgolem.content.item.weapon.ModifiableMetalGolemWeaponItem;
 import golemknights.tinkersgolem.content.item.weapon.ModifiableShoulderCannonItem;
+import golemknights.tinkersgolem.library.materialstats.CannonCoreMaterialStats;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import slimeknights.mantle.registration.object.EnumObject;
@@ -62,6 +64,9 @@ public class TGItems {
     public static final ItemObject<ModifiableShoulderCannonItem> cannonItem = ITEMS.register(
             CANNON,
             () -> new ModifiableShoulderCannonItem(UNSTACKABLE_PROPS, CANNON_TOOL));
+    // 技术性物品
+    public static final ItemObject<MaterialToNormalItem> cannonCoreItem = ITEMS.register("cannon_core",
+            ()->new MaterialToNormalItem(CannonCoreMaterialStats.ID));
     // 大傀儡武器
     public static final String SWORD = "golem_sword";
     public static final ToolDefinition SWORD_TOOL = ToolDefinition.create(getResource(SWORD));

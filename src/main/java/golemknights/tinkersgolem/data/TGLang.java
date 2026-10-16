@@ -138,6 +138,8 @@ public enum TGLang {
 		pvd.add("stat." + TinkersGolem.MODID + ".cannon_core", "Cannon Core");
 		pvd.add("tool_stat." + TinkersGolem.MODID + ".cannon_range", "Cannon Range");
 		pvd.add("tool_stat." + TinkersGolem.MODID + ".cannon_range.description", "");
+		pvd.add("tool_stat." + TinkersGolem.MODID + ".cannon_core.cannon_range.description", "");
+		pvd.add("pattern." + TinkersGolem.MODID + ".cannon_core", "Cannon Core");
 
 		for (var type : SlimeGolemPartType.values()) {
 			String name = type.name().toLowerCase(Locale.ROOT);
