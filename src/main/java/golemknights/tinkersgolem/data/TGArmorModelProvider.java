@@ -3,6 +3,7 @@ package golemknights.tinkersgolem.data;
 import golemknights.tinkersgolem.register.TGItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import slimeknights.tconstruct.library.client.armor.texture.FixedArmorTextureSupplier;
 import slimeknights.tconstruct.library.client.armor.texture.MaterialArmorTextureSupplier;
 import slimeknights.tconstruct.library.client.data.AbstractArmorModelProvider;
 
@@ -21,7 +22,8 @@ public class TGArmorModelProvider extends AbstractArmorModelProvider {
                     res,
                     new MaterialArmorTextureSupplier.Material(res, "/huge_plating_", 0),
                     new MaterialArmorTextureSupplier.Material(res, "/small_plating1_", 1),
-                    new MaterialArmorTextureSupplier.Material(res, "/small_plating2_", 2));
+                    new MaterialArmorTextureSupplier.Material(res, "/small_plating2_", 2),
+                    new FixedArmorTextureSupplier(res.withSuffix("/"), "", -1, 0, null));
         }
     }
 

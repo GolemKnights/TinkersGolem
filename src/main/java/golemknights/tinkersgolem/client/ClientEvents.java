@@ -35,6 +35,8 @@ public class ClientEvents {
 	public static void dispatchEntityLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		regAndAdd(event, ModifiableMetalGolemArmorModel.LAYER_LOCATION,
 				ModifiableMetalGolemArmorModel::createBodyLayer);
+		regAndAdd(event, ModifiableMetalGolemArmorModelV2.LAYER_LOCATION,
+				ModifiableMetalGolemArmorModelV2::createBodyLayer);
 		GolemShoulderPose.register(TGModelPaths.CANNON_RIGHT,
 				new ModifiableShoulderWeaponPose(CannonPoseUtil.FLAME_THROWER, "cannon", 0.45F, 1.05F, 0.25F));
 		GolemShoulderPose.register(TGModelPaths.CANNON_LEFT,
