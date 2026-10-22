@@ -52,8 +52,8 @@ public class TGItems {
                     TGModelPaths.METAL_GOLEM_ARMOR,
                     getResource(METAL_GOLEM + "_gloves")));
 
-    public static final String DOG_GOLEM_ARMOR = "dog_golem_armor";
     // 狗傀儡盔甲
+    public static final String DOG_GOLEM_ARMOR = "dog_golem_armor";
     public static final ItemObject<ModifiableDogGolemArmorItem> dogGolemArmor = ITEMS.register(
             DOG_GOLEM_ARMOR,
             () -> new ModifiableDogGolemArmorItem(UNSTACKABLE_PROPS, GOLEM, getResource(DOG_GOLEM_ARMOR)));

@@ -28,7 +28,7 @@
     {
       "type": "tconstruct:multiply_stats",
       "multipliers": {
-        "tconstruct:durability": 2.0
+        "tconstruct:durability": 3.5
       }
     },
     {

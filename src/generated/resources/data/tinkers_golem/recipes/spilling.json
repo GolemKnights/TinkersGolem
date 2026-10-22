@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:copper_ingot"
+    },
+    "B": {
+      "item": "tconstruct:seared_channel"
+    },
+    "E": {
+      "item": "tinkers_golem:overfill"
+    }
+  },
+  "pattern": [
+    "BAB",
+    "AEA",
+    "BAB"
+  ],
+  "result": {
+    "item": "tinkers_golem:spilling"
+  },
+  "show_notification": true
+}

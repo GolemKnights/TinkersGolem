@@ -40,6 +40,7 @@ import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.recipe.casting.ItemCastingRecipeBuilder;
 import slimeknights.tconstruct.shared.TinkerMaterials;
 import slimeknights.tconstruct.shared.block.SlimeType;
+import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.world.TinkerWorld;
 
@@ -246,6 +247,28 @@ public class TGRecipeGen {
 					.define('E', GolemItems.EMPTY_UPGRADE.get())
 					.define('A', TinkerMaterials.knightslime.getIngotTag())
 					.define('B', TinkerTags.Items.KNIGHTMETAL_SHARD)
+					.save(pvd);
+
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGGolemModifiers.ITEM_SPILLING.get(), 1)::unlockedBy, GolemItems.EMPTY_UPGRADE.get())
+					.pattern("BAB").pattern("AEA").pattern("BAB")
+					.define('E', TGGolemModifiers.ITEM_OVERFILL.get())
+					.define('A', Items.COPPER_INGOT)
+					.define('B', TinkerSmeltery.searedChannel.get())
+					.save(pvd);
+
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGGolemModifiers.ITEM_WETTING.get(), 1)::unlockedBy, GolemItems.EMPTY_UPGRADE.get())
+					.pattern("BAB").pattern("AEA").pattern("BAB")
+					.define('E', TGGolemModifiers.ITEM_OVERFILL.get())
+					.define('A', Items.COPPER_INGOT)
+					.define('B', Items.REDSTONE)
+					.save(pvd);
+
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGGolemModifiers.ITEM_ENDERFERENCE.get(), 1)::unlockedBy, GolemItems.EMPTY_UPGRADE.get())
+					.pattern("CBC").pattern("AEA").pattern("CBC")
+					.define('E', GolemItems.EMPTY_UPGRADE.get())
+					.define('A', Items.DRAGON_BREATH)
+					.define('B', Items.REDSTONE)
+					.define('C', Items.CHORUS_FRUIT)
 					.save(pvd);
 
 		}

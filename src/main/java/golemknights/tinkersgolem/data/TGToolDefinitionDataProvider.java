@@ -119,7 +119,7 @@ public class TGToolDefinitionDataProvider extends AbstractToolDefinitionDataProv
                 )
                 .module(
                         new MultiplyStatsModule(MultiplierNBT.builder()
-                                .set(ToolStats.DURABILITY, 2)
+                                .set(ToolStats.DURABILITY, 3.5f)
                                 .build()
                         )
                 )
