@@ -42,7 +42,7 @@ public class TGItems {
                     METAL_GOLEM, ArmorItem.Type.values(),
                     type -> new ModifiableMetalGolemArmorItem(UNSTACKABLE_PROPS, type,
                             GOLEM,
-                            TGModelPaths.METAL_GOLEM_ARMOR,
+                            TGModelPaths.METAL_GOLEM_ARMOR_V2,
                             getResource(METAL_GOLEM + "_" + type.getName())));
     public static final ToolDefinition GLOVES_TOOL = ToolDefinition.create(getResource(METAL_GOLEM + "_gloves"));
     public static final ItemObject<ModifiableMetalGolemArmorItem> metalGolemGloves = ITEMS.register(

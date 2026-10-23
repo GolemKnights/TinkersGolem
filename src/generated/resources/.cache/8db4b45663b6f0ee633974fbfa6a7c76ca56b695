@@ -1,4 +1,4 @@
-// 1.20.1	2026-10-22T19:52:39.7156573	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (enchantments), Tags (mob_effects), Tags (attributes)]
+// 1.20.1	2026-10-22T21:54:51.5542884	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (attributes), Tags (enchantments), Tags (mob_effects)]
 195465e1ae4871167c3d1dcfabd2cf479955da09 assets/tinkers_golem/lang/en_ud.json
 5bd8b862fdf55aa332f084d2aef63d1b24de277f assets/tinkers_golem/lang/en_us.json
 203af4551a77473a1609ef1a9c4c6930e386d9f7 assets/tinkers_golem/models/item/cinderslime_expand.json
@@ -190,7 +190,6 @@ d8ef0fdf7209a89462a5f6c366b9cac880385323 data/tinkers_golem/advancements/recipes
 80d93ecfda6c08e678cb2592bbe22008dc702817 data/tinkers_golem/advancements/recipes/casting/casting/venom_casting_slime_golem_shell.json
 3b3d896c4e52669ba81b9976d297fa1ac36343a5 data/tinkers_golem/advancements/recipes/cinderslime_expand_slime_golem_holder.json
 7204d750cc3b7dba67beb2c031bf7bb20c2e5406 data/tinkers_golem/advancements/recipes/misc/cinderslime_expand.json
-52b93a2d13cf06ad055c601e0ccdc3bbd2fbd122 data/tinkers_golem/advancements/recipes/misc/enderference.json
 4316ae1abf0b523abde60177b29964e7f3861b44 data/tinkers_golem/advancements/recipes/misc/knightslime_expand.json
 c3009dca136a9a1bd563a1dee500fedbb3d46ddc data/tinkers_golem/advancements/recipes/misc/overburn.json
 8babbdc7fbe509e0932d283ff4340d15564911a5 data/tinkers_golem/advancements/recipes/misc/overdrive.json
@@ -205,8 +204,6 @@ d78f1c5dd7232f56ee94d1f8a99dce2375ea0043 data/tinkers_golem/advancements/recipes
 eb45fcb8cf124a1d7f31537236509abe8a8caf67 data/tinkers_golem/advancements/recipes/misc/slimesteel_expand.json
 082a819fb0df537b7044d118f37e62ede9334ad8 data/tinkers_golem/advancements/recipes/misc/slime_golem_core.json
 9ecf23f25452e9562199393e33b0fe214f0f5181 data/tinkers_golem/advancements/recipes/misc/slime_golem_shell.json
-d69d2b6e94d624471ae93e5c7ee28f8fc3cffd84 data/tinkers_golem/advancements/recipes/misc/spilling.json
-6b468782b5738b1c60bf6959fe40551bd776dc7d data/tinkers_golem/advancements/recipes/misc/wetting.json
 11e19b4c523be2cd53e24b59135e20a7c1d35005 data/tinkers_golem/advancements/recipes/overdrive_slime_golem_holder.json
 b62312eb52ac9cf348991369667c4b0683d9df6b data/tinkers_golem/advancements/recipes/queens_slime_expand_slime_golem_holder.json
 61656191e761e997d4d2bc2e496f4f95576e2f0a data/tinkers_golem/advancements/recipes/slimesteel_expand_slime_golem_holder.json
@@ -328,7 +325,6 @@ ad6fc7235745132362bb29d67fe6bbce0f5bc6df data/tinkers_golem/recipes/casting/tink
 8780a38ee94766b968437a89571f23cea3f5afe3 data/tinkers_golem/recipes/casting/venom_casting_slime_golem_shell.json
 4018c6f2d574f3eaa8c02dbb32263e5eb5e7b6c9 data/tinkers_golem/recipes/cinderslime_expand.json
 b2a1788f2ee99a5c2b5bdf60d9aef77e1fe1a327 data/tinkers_golem/recipes/cinderslime_expand_slime_golem_holder.json
-8368d589d5348f96f05bdc9d8075ad85535c0ba7 data/tinkers_golem/recipes/enderference.json
 b4bd59684ebaedce65a6fa975eb059363a934973 data/tinkers_golem/recipes/knightslime_expand.json
 44d74379dba77c2ed62d61e74fac7771ad4b4333 data/tinkers_golem/recipes/overburn.json
 09f995f918a72f78a575826ebe1daec7d420e85c data/tinkers_golem/recipes/overdrive.json
@@ -353,9 +349,7 @@ b602afeba0a385f9e8f21fe1af3965e129b3fe79 data/tinkers_golem/recipes/slime_golem/
 028b65b6f5232e1256a2423549e3ca2b94cd1857 data/tinkers_golem/recipes/slime_golem/replace_shell.json
 a798ea10bb535a0988ab3f91f80edc8ce11ba9df data/tinkers_golem/recipes/slime_golem_core.json
 df240c5621c35cc45d8c1b6207502a3e9538d465 data/tinkers_golem/recipes/slime_golem_shell.json
-02983eef2c7016ce99e1c5c8655faaaf8c47b5b1 data/tinkers_golem/recipes/spilling.json
 581b3e8030a0b19338b9f14c5bbd767aa9b63186 data/tinkers_golem/recipes/tools/severing/golems.json
-b7da0ed5ed59caba90f1f572547b8dbc9d58765b data/tinkers_golem/recipes/wetting.json
 aac0cecd0ce7496e97851cea1ecabe00c8575923 data/tinkers_golem/tags/items/casts/multi_use/boots_metal_golem_plating.json
 eaa3cad8251853ab9679942f828fb2a777fadd56 data/tinkers_golem/tags/items/casts/multi_use/chestplate_metal_golem_plating.json
 c9fa0054086ef6e5d6b9d0d7b857cd430396448f data/tinkers_golem/tags/items/casts/multi_use/helmet_metal_golem_plating.json
