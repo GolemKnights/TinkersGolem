@@ -2,13 +2,18 @@ package golemknights.tinkersgolem.compat.tinkers;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
+import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.ConfigDataProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.fml.ModList;
 
 @SuppressWarnings("removal")
 public abstract class BaseTinkersPlugin {
+    public static void addGenerators(L2Registrate registrate, GatherDataEvent event) {
+        TinkersThinkingPlugin.addGenerator(registrate, event);
+    }
     public final boolean isLoaded(){
         return ModList.get().isLoaded(this.getModId());
     }

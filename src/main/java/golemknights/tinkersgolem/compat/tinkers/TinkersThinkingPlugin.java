@@ -2,8 +2,10 @@ package golemknights.tinkersgolem.compat.tinkers;
 
 import com.creeping_creeper.tinkers_thinking.common.register.ModCommonItems;
 import com.creeping_creeper.tinkers_thinking.common.register.ModFluids;
+import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
+import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.ConfigDataProvider;
 import dev.xkmc.modulargolems.content.config.GolemMaterialConfig;
 import dev.xkmc.modulargolems.init.ModularGolems;
@@ -13,10 +15,22 @@ import golemknights.tinkersgolem.register.TGAttributes;
 import golemknights.tinkersgolem.register.TGEntities;
 import golemknights.tinkersgolem.register.TGGolemModifiers;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.data.event.GatherDataEvent;
 
 import java.util.List;
 
-public final class TinkersThinkingPlugin extends BaseTinkersPlugin{
+public final class TinkersThinkingPlugin extends BaseTinkersPlugin {
+    static void addGenerator(L2Registrate registrate, GatherDataEvent event) {
+        registrate.addDataGenerator(ProviderType.LANG, new TinkersThinkingPlugin()::genLang);
+        registrate.addDataGenerator(ProviderType.RECIPE, new TinkersThinkingPlugin()::genRecipe);
+        var gen = event.getGenerator();
+        var output = gen.getPackOutput();
+        var pvd = event.getLookupProvider();
+        var helper = event.getExistingFileHelper();
+        var server = event.includeServer();
+        var client = event.includeClient();
+        gen.addProvider(server, new TinkersThinkingPlugin().new golemMaterialGen(gen));
+    }
     @Override
     protected String getModId() {
         return "tinkers_thinking";

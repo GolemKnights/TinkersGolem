@@ -6,7 +6,7 @@ import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
 import golemknights.tinkersgolem.cap.OverslimeCap;
 import golemknights.tinkersgolem.cap.OverslimeSyncPacket;
-import golemknights.tinkersgolem.compat.tinkers.TinkersThinkingPlugin;
+import golemknights.tinkersgolem.compat.tinkers.BaseTinkersPlugin;
 import golemknights.tinkersgolem.content.entity.SlimeTankSyncPacket;
 import golemknights.tinkersgolem.data.*;
 import golemknights.tinkersgolem.events.TGAttackListener;
@@ -106,11 +106,11 @@ public class TinkersGolem {
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void gatherData(GatherDataEvent event) {
+		BaseTinkersPlugin.addGenerators(REGISTRATE, event);
+
 		REGISTRATE.addDataGenerator(ProviderType.LANG, TGLang::genLang);
-		REGISTRATE.addDataGenerator(ProviderType.LANG, new TinkersThinkingPlugin()::genLang);
 		// REGISTRATE.addDataGenerator(ProviderType.LOOT, GDLootGen::genLoot);
 		REGISTRATE.addDataGenerator(ProviderType.RECIPE, TGRecipeGen::genRecipe);
-		REGISTRATE.addDataGenerator(ProviderType.RECIPE, new TinkersThinkingPlugin()::genRecipe);
 		// REGISTRATE.addDataGenerator(ProviderType.ADVANCEMENT, GDAdvGen::genAdv);
 		REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, TGTagGen::genItemTag);
 
@@ -121,7 +121,6 @@ public class TinkersGolem {
 		var server = event.includeServer();
 		var client = event.includeClient();
 		gen.addProvider(server, new TGConfigGen(gen));
-		gen.addProvider(server, new TinkersThinkingPlugin().new golemMaterialGen(gen));
 		gen.addProvider(server, new TGToolDefinitionDataProvider(output));
 		gen.addProvider(server, new TGStationSlotLayoutProvider(output));
 		gen.addProvider(server, new TGToolsRecipeProvider(output));
