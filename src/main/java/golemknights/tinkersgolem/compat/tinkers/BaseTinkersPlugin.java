@@ -12,7 +12,7 @@ import net.minecraftforge.fml.ModList;
 @SuppressWarnings("removal")
 public abstract class BaseTinkersPlugin {
     public static void addGenerators(L2Registrate registrate, GatherDataEvent event) {
-        TinkersThinkingPlugin.addGenerator(registrate, event);
+        //TinkersThinkingPlugin.addGenerator(registrate, event);
     }
     public final boolean isLoaded(){
         return ModList.get().isLoaded(this.getModId());
