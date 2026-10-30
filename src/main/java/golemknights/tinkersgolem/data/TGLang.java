@@ -103,9 +103,9 @@ public enum TGLang {
 		pvd.add("item." + TinkersGolem.MODID + ".cannon", "Cannon");
 		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tconstruct.ui_render", "Any Cannon");
 		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.slimecore", "Slimecannon");
-		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.fluidcore", "Fluidcannon");
+		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.fluidcore", "llamannon");
 		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.arrowcore", "Ballista");
-		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.beaconcore", "Beaconcannon");
+		pvd.add("item." + TinkersGolem.MODID + ".cannon.material.tinkers_golem.beaconcore", "Beacannon");
 		pvd.add("item." + TinkersGolem.MODID + ".golem_sword", "Golem Sword");
 		pvd.add("item." + TinkersGolem.MODID + ".golem_sword.description", "");
 		pvd.add("item." + TinkersGolem.MODID + ".golem_axe", "Golem Axe");
@@ -114,16 +114,16 @@ public enum TGLang {
 		pvd.add("item." + TinkersGolem.MODID + ".golem_spear.description", "");
 		pvd.add("modifier." + TinkersGolem.MODID + ".spewing", "Spewing");
 		pvd.add("modifier." + TinkersGolem.MODID + ".spewing.flavor", "");
-		pvd.add("modifier." + TinkersGolem.MODID + ".spewing.description", "");
+		pvd.add("modifier." + TinkersGolem.MODID + ".spewing.description", "Can launch fluid projectiles from the tank, applying the effect to the target. Affected by bow stats.");
 		pvd.add("modifier." + TinkersGolem.MODID + ".shooting", "Shooting");
 		pvd.add("modifier." + TinkersGolem.MODID + ".shooting.flavor", "");
-		pvd.add("modifier." + TinkersGolem.MODID + ".shooting.description", "");
+		pvd.add("modifier." + TinkersGolem.MODID + ".shooting.description", "Can launch arrows and firework rockets.");
 		pvd.add("modifier." + TinkersGolem.MODID + ".spotlight", "Spotlight");
-		pvd.add("modifier." + TinkersGolem.MODID + ".spotlight.flavor", "");
-		pvd.add("modifier." + TinkersGolem.MODID + ".spotlight.description", "");
+		pvd.add("modifier." + TinkersGolem.MODID + ".spotlight.flavor", "Beacon will guide your death forward.");
+		pvd.add("modifier." + TinkersGolem.MODID + ".spotlight.description", "Can launch beacon laser, dealing magic damage to the target. Affected by bow stats and damage of the attacker.");
 		pvd.add("modifier." + TinkersGolem.MODID + ".golem_ammo_finder", "Golem Ammo Finder");
 		pvd.add("modifier." + TinkersGolem.MODID + ".golem_ammo_finder.flavor", "");
-		pvd.add("modifier." + TinkersGolem.MODID + ".golem_ammo_finder.description", "");
+		pvd.add("modifier." + TinkersGolem.MODID + ".golem_ammo_finder.description", "Help golems find ammo in their inventory.");
 		pvd.add("modifier." + TinkersGolem.MODID + ".percent_attack", "Percent Attack");
 		pvd.add("modifier." + TinkersGolem.MODID + ".percent_attack.flavor", "");
 		pvd.add("modifier." + TinkersGolem.MODID + ".percent_attack.description", "");
@@ -132,13 +132,13 @@ public enum TGLang {
 		pvd.add("material." + TinkersGolem.MODID + ".fluidcore", "Fluid");
 		pvd.add("material." + TinkersGolem.MODID + ".fluidcore.flavor", "");
 		pvd.add("material." + TinkersGolem.MODID + ".arrowcore", "Dispenser");
-		pvd.add("material." + TinkersGolem.MODID + ".arrowcore.flavor", "");
+		pvd.add("material." + TinkersGolem.MODID + ".arrowcore.flavor", "Better than bows!");
 		pvd.add("material." + TinkersGolem.MODID + ".beaconcore", "Beacon");
 		pvd.add("material." + TinkersGolem.MODID + ".beaconcore.flavor", "");
 		pvd.add("stat." + TinkersGolem.MODID + ".cannon_core", "Cannon Core");
 		pvd.add("tool_stat." + TinkersGolem.MODID + ".cannon_range", "Cannon Range");
-		pvd.add("tool_stat." + TinkersGolem.MODID + ".cannon_range.description", "");
-		pvd.add("tool_stat." + TinkersGolem.MODID + ".cannon_core.cannon_range.description", "");
+		pvd.add("tool_stat." + TinkersGolem.MODID + ".cannon_range.description", "The maximum range at which golems can attack targets with cannon");
+		pvd.add("tool_stat." + TinkersGolem.MODID + ".cannon_core.cannon_range.description", "The maximum range at which golems can attack targets with cannon");
 		pvd.add("pattern." + TinkersGolem.MODID + ".cannon_core", "Cannon Core");
 
 		for (var type : SlimeGolemPartType.values()) {

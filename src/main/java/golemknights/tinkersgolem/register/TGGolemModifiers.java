@@ -113,12 +113,12 @@ public class TGGolemModifiers {
 		ITEM_SPILLING = regUpgradeImpl("spilling", () -> SPILLING, 1, false, TinkersGolem.MODID).lang("Spilling Upgrade").tag(TGTagGen.SLIME_UPGRADES).register();
 		ITEM_WETTING = regUpgradeImpl("wetting", () -> WETTING, 1, false, TinkersGolem.MODID).lang("Wetting Upgrade").tag(TGTagGen.SLIME_UPGRADES).register();
 		ITEM_ENDERFERENCE = regUpgradeImpl("enderference", () -> ENDERFERENCE, 1, false, TinkersGolem.MODID).tag(MGTagGen.POTION_UPGRADES).register();
-		ITEM_OVERDRIVE = specialUpgrade("overdrive", () -> OVERDRIVE, TinkersGolem.MODID).lang("Upgrade Template: Overdrive").tag(TGTagGen.SLIME_UPGRADES).register();
+		ITEM_OVERDRIVE = specialUpgrade("overdrive", () -> OVERDRIVE, TinkersGolem.MODID).lang("Slime Upgrade Template: Overdrive").tag(TGTagGen.SLIME_UPGRADES).register();
 
-		SLIMESTEEL_EXPAND = addSlot("slimesteel_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Slimesteel").register();
-		QUEENS_SLIME_EXPAND = addSlot("queens_slime_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Queen's Slime").register();
-		CINDERSLIME_EXPAND = addSlot("cinderslime_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Cinderslime").register();
-		KNIGHTSLIME_EXPAND = addSlot("knightslime_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Golem Expansion Template: Knightslime").register();
+		SLIMESTEEL_EXPAND = addSlot("slimesteel_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Expansion Template: Slimesteel").register();
+		QUEENS_SLIME_EXPAND = addSlot("queens_slime_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Expansion Template: Queen's Slime").register();
+		CINDERSLIME_EXPAND = addSlot("cinderslime_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Expansion Template: Cinderslime").register();
+		KNIGHTSLIME_EXPAND = addSlot("knightslime_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Expansion Template: Knightslime").register();
 
 	}
 
