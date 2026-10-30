@@ -4,12 +4,12 @@ license="All rights reserved"
 [[mods]]
 modId="tinkers_golem"
 version="${file.jarVersion}" #mandatory
-displayName="Tinkers Golem" #mandatory
+displayName="Tinkers' Golem" #mandatory
 #logoFile="tinkers_golem.png" #optional
 credits="GolemKnights" #optional
-authors="Qikahome" #optional
+authors="Lcy0x1, Qikahome, Gjhi, Creeping Creeper" #optional
 description='''
-
+Provide a connection between Tinkers' Construct and Modular Golems.
 '''
 [[dependencies.tinkers_golem]]
     modId="forge"
