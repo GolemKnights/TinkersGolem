@@ -49,6 +49,7 @@ public class TGEntities {
 						.add(GolemTypes.GOLEM_REGEN.get())
 						.add(GolemTypes.GOLEM_SIZE.get(), 3)
 						.add(GolemTypes.DYNAMIC_REDUCTION.get())
+						.add(GolemTypes.GOLEM_SWEEP.get(), 1)
 						.add(TGAttributes.MAX_OVERSLIME.get())
 						.add(TGAttributes.OVERSLIME_RECOVERY.get())
 						.add(TGAttributes.TANK_CAPACITY.get(), 4000)

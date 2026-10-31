@@ -53,7 +53,7 @@ public class TGConfigGen extends ConfigDataProvider {
 				.addFilter(GolemTypes.STAT_HEALTH.get(), 0.8)
 				.addFilter(GolemTypes.STAT_ATTACK.get(), 0.4)
 				.addFilter(GolemTypes.STAT_REGEN.get(), 1)
-				.addFilter(GolemTypes.STAT_SWEEP.get(), 0)
+				.addFilter(GolemTypes.STAT_SWEEP.get(), 1)
 				.end()
 		);
 

@@ -6,7 +6,8 @@ import dev.xkmc.l2serial.serialization.SerialClass;
 import dev.xkmc.modulargolems.content.config.GolemMaterial;
 import dev.xkmc.modulargolems.content.config.GolemMaterialConfig;
 import dev.xkmc.modulargolems.content.core.GolemType;
-import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
+import dev.xkmc.modulargolems.content.entity.common.SweepGolemEntity;
+import dev.xkmc.modulargolems.content.entity.humanoid.weapon.GolemWeaponRegistry;
 import dev.xkmc.modulargolems.content.item.equipments.IGolemEquipmentItem;
 import dev.xkmc.modulargolems.content.item.upgrade.AddSlotTemplate;
 import dev.xkmc.modulargolems.content.item.upgrade.IUpgradeItem;
@@ -66,7 +67,7 @@ import java.util.*;
 import static slimeknights.tconstruct.tools.modifiers.ability.fluid.UseFluidOnHitModifier.spawnParticles;
 
 @SerialClass
-public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, SlimeGolemPartType> {
+public class SlimeGolemEntity extends SweepGolemEntity<SlimeGolemEntity, SlimeGolemPartType> {
 
 	private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(SlimeGolemEntity.class,
 			EntityDataSerializers.INT);
@@ -85,7 +86,7 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 	public final SlimeTank tank = new SlimeTank(this, 1);
 
 	public SlimeGolemEntity(EntityType<SlimeGolemEntity> type, Level level) {
-		super(type, level);
+		super(new GolemWeaponRegistry<>(), type, level);
 		this.fixupDimensions();
 		this.lookControl = new SlimeLookControl(this);
 		this.moveControl = new SlimeMoveControl(this);
@@ -118,6 +119,17 @@ public class SlimeGolemEntity extends AbstractGolemEntity<SlimeGolemEntity, Slim
 		super.defineSynchedData();
 		this.entityData.define(ID_SIZE, 1);
 		this.entityData.define(ID_SHAKE, false);
+	}
+
+	@Override
+	public boolean doHurtTarget(Entity target) {
+		this.playSound(SoundEvents.SLIME_ATTACK, 1.0F, 1.0F);
+		return super.performRangedDamage(target, 0, 0);
+	}
+
+	@Override
+	protected boolean performDamageTarget(Entity target, float damage, double kbres) {
+		return super.doHurtTarget(target);
 	}
 
 	@Override
