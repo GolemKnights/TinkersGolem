@@ -114,7 +114,7 @@ public class TGConfigGen extends ConfigDataProvider {
 				.addStat(GolemTypes.STAT_ATTACK.get(), 10)
 				.addStat(GolemTypes.STAT_SPEED.get(), -0.2)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
-				.addModifier(TGGolemModifiers.SWALLOW.get(), 1)
+				.addModifier(TGGolemModifiers.OVEREAT.get(), 1)
 				.end()
 
 				.addMaterial(TinkersGolem.getResource("venom"), Ingredient.of(TinkerFluids.venomBottle))

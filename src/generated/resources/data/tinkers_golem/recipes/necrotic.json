@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "modulargolems:empty_upgrade"
+    },
+    {
+      "tag": "forge:wither_bones"
+    },
+    {
+      "item": "tconstruct:ichor_congealed_slime"
+    },
+    {
+      "item": "minecraft:ghast_tear"
+    }
+  ],
+  "result": {
+    "item": "tinkers_golem:necrotic"
+  }
+}

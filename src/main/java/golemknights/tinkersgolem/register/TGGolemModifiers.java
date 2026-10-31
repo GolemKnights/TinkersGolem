@@ -39,7 +39,7 @@ public class TGGolemModifiers {
 	// Modifiers
 	public static final RegistryEntry<OvergrowthModifier> OVERGROWTH;
 	public static final RegistryEntry<AttributeGolemModifier> OVERFORCED, OVERWORKED, OVERFILL;
-	public static final RegistryEntry<PotionAttackModifier> ENDERFERENCE;
+	public static final RegistryEntry<PotionAttackModifier> ENDERFERENCE, BLEEDING;
 	//public static final RegistryEntry<PotionDefenseModifier> space;
 	public static final RegistryEntry<OverlordModifier> OVERLORD;
 	public static final RegistryEntry<OverburnModifier> OVERBURN;
@@ -51,11 +51,11 @@ public class TGGolemModifiers {
 	public static final RegistryEntry<SpillingModifier> SPILLING;
 	public static final RegistryEntry<WettingModifier> WETTING;
 	public static final RegistryEntry<FieryExplosionModifier> FIERY_EXPLOSION;
-	public static final RegistryEntry<SwallowModifier> SWALLOW;
+	public static final RegistryEntry<OvereatModifier> OVEREAT;
 	public static final RegistryEntry<SlimeSlotModifier> OVERTALENTED;
 	public static final RegistryEntry<OverwieldModifier> OVERWIELD;
+	public static final RegistryEntry<LifeStealModifier> LIFE_STEAL;
 	// Tinkers' Thinking
-	public static final RegistryEntry<CrazyMetalModifier> CRAZY_METAL;
 	public static final RegistryEntry<CountermeasuresModifier> COUNTERMEASURES;
 	public static final RegistryEntry<SymbionicModifier> SYMBIONIC;
 	public static final RegistryEntry<LightlyAttackModifier> LIGHTLY_ATTACK;
@@ -64,7 +64,7 @@ public class TGGolemModifiers {
 	// Items
 	public static final ItemEntry<SimpleUpgradeItem> ITEM_OVERGROWTH, ITEM_SUPER_OVERGROWTH,
 			ITEM_OVERWORKED, ITEM_OVERFORCED, ITEM_OVERFILL, ITEM_OVERLORD, ITEM_OVERBURN, ITEM_OVERWIELD,
-			ITEM_SPILLING, ITEM_WETTING, ITEM_ENDERFERENCE;
+			ITEM_SPILLING, ITEM_WETTING, ITEM_ENDERFERENCE, ITEM_BLEEDING, ITEM_NECROTIC;
 	public static final ItemEntry<SpecialUpgradeItem> ITEM_OVERDRIVE;
 	public static final ItemEntry<AddSlotTemplate> QUEENS_SLIME_EXPAND, CINDERSLIME_EXPAND, SLIMESTEEL_EXPAND, KNIGHTSLIME_EXPAND;
 
@@ -79,6 +79,9 @@ public class TGGolemModifiers {
 		ENDERFERENCE = reg("enderference", () -> new PotionAttackModifier(StatFilterType.MASS, 3,
 				(i) -> new MobEffectInstance(TinkerEffects.enderference.get(), 100 * i, 0)
 		), "Potion Upgrade: Enderference", null);
+		BLEEDING = reg("bleeding", () -> new PotionAttackModifier(StatFilterType.MASS, 3,
+				(i) -> new MobEffectInstance(TinkerEffects.bleeding.get(), 100 * i, 0)
+		), "Potion Upgrade: Bleeding", null);
 
 		OVERGROWTH = reg("overgrowth", OvergrowthModifier::new, "Recover %s overslime per second");
 		OVERLORD = reg("overlord", OverlordModifier::new, "When taking damage, recover overslime by %s%% of damage taken");
@@ -92,10 +95,10 @@ public class TGGolemModifiers {
 		SPILLING = reg("spilling", SpillingModifier::new, "Slime golem spills fluid on target while attacking");
 		WETTING = reg("wetting", WettingModifier::new, "Slime golem is wetted by fluids when attacked");
 		FIERY_EXPLOSION = reg("fiery_explosion", FieryExplosionModifier::new, "");
-		SWALLOW = reg("swallow", SwallowModifier::new, "");
+		OVEREAT = reg("overeat", OvereatModifier::new, "");
 		OVERWIELD = reg("overwield", OverwieldModifier::new, "When attacking, consuming %s overslime and add %s%% damage per overslime");
+		LIFE_STEAL = reg("life_steal", LifeStealModifier::new, "When attacking, healing %s%% of attack damage");
 
-		CRAZY_METAL = reg("crazy_metal", CrazyMetalModifier::new, "Upon attacking, has a 10% chance per level to recover 5*damage health");
 		COUNTERMEASURES = reg("countermeasures", CountermeasuresModifier::new, "When taking damage bypass armor, reduce it 10% per level");
 		SYMBIONIC = reg("symbionic", SymbionicModifier::new, "When it is healed, heal its owner 20% amount per level");
 		LIGHTLY_ATTACK = reg("lightly_attack", LightlyAttackModifier::new, "Upon attacking, improve movement speed");
@@ -113,6 +116,8 @@ public class TGGolemModifiers {
 		ITEM_SPILLING = regUpgradeImpl("spilling", () -> SPILLING, 1, false, TinkersGolem.MODID).lang("Spilling Upgrade").tag(TGTagGen.SLIME_UPGRADES).register();
 		ITEM_WETTING = regUpgradeImpl("wetting", () -> WETTING, 1, false, TinkersGolem.MODID).lang("Wetting Upgrade").tag(TGTagGen.SLIME_UPGRADES).register();
 		ITEM_ENDERFERENCE = regUpgradeImpl("enderference", () -> ENDERFERENCE, 1, false, TinkersGolem.MODID).tag(MGTagGen.POTION_UPGRADES).register();
+		ITEM_BLEEDING = regUpgradeImpl("bleeding", () -> BLEEDING, 1, false, TinkersGolem.MODID).tag(MGTagGen.POTION_UPGRADES).register();
+		ITEM_NECROTIC = regUpgradeImpl("necrotic", () -> LIFE_STEAL, 1, false, TinkersGolem.MODID).lang("Necrotic Upgrade").tag(MGTagGen.BLUE_UPGRADES).register();
 		ITEM_OVERDRIVE = specialUpgrade("overdrive", () -> OVERDRIVE, TinkersGolem.MODID).lang("Slime Upgrade Template: Overdrive").tag(TGTagGen.SLIME_UPGRADES).register();
 
 		SLIMESTEEL_EXPAND = addSlot("slimesteel_expand", () -> OVERTALENTED, TinkersGolem.MODID).lang("Slime Expansion Template: Slimesteel").register();

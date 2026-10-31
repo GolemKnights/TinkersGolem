@@ -43,7 +43,7 @@ public final class TinkersThinkingPlugin extends BaseTinkersPlugin {
                 .addStat(GolemTypes.STAT_HEALTH.get(), 240)
                 .addStat(GolemTypes.STAT_ATTACK.get(), 16)
                 .addStat(GolemTypes.STAT_WEIGHT.get(), -0.2)
-                .addModifier(TGGolemModifiers.CRAZY_METAL.get(), 1)
+                .addModifier(TGGolemModifiers.LIFE_STEAL.get(), 2)
                 .end()
 
                 .addMaterial(this.getResource("tinkers_bronze"), Ingredient.of(ModCommonItems.tinkers_bronze.getIngotTag()))

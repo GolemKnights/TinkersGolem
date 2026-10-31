@@ -1,11 +1,17 @@
-// 1.20.1	2026-10-30T22:54:52.7646371	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (enchantments), Tags (mob_effects), Tags (attributes)]
-7a8e7674c57f678c24f17355445f256d5d6e0220 assets/tinkers_golem/lang/en_ud.json
-3e33a19097060c045ad71514ea190c7fb1067a9a assets/tinkers_golem/lang/en_us.json
+// 1.20.1	2026-10-31T11:27:58.6301302	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (enchantments), Tags (mob_effects), Tags (attributes)]
+a794e1c6f93c790592ede232fb3555f348e54eed assets/tinkers_golem/lang/en_ud.json
+085811159a33642dabf7400d773810402ad0fb53 assets/tinkers_golem/lang/en_us.json
+cba1e2baaa1379ed4faefee2dbec2df54e2bda72 assets/tinkers_golem/models/item/bleeding.json
+f44bbbda581b5739f4e4c6e693b9bada66695d99 assets/tinkers_golem/models/item/bleeding_blue.json
+4b5d3f36d21f46bb898623ce97ee54adbe820bb1 assets/tinkers_golem/models/item/bleeding_purple.json
 203af4551a77473a1609ef1a9c4c6930e386d9f7 assets/tinkers_golem/models/item/cinderslime_expand.json
 0bd4bd9c7a958a5794212a3f11e6c36bedbb87b6 assets/tinkers_golem/models/item/enderference.json
 cb710003784ca666969f4c4b887628e2aee32488 assets/tinkers_golem/models/item/enderference_blue.json
 501807cf3ccd727a731702ceb7fbdd9e92f5a2e8 assets/tinkers_golem/models/item/enderference_purple.json
 4e8807639fc14f4c63768f3190d1ff6913766c1d assets/tinkers_golem/models/item/knightslime_expand.json
+aad2ba8d8e3ef624f2d28ca76ec3e9cc38b39849 assets/tinkers_golem/models/item/necrotic.json
+97ae96b5568ac8d46eb80afd4e7cbc8199f267c2 assets/tinkers_golem/models/item/necrotic_blue.json
+b9df440939c0c2a0626c2955746d3c6d0d17ecac assets/tinkers_golem/models/item/necrotic_purple.json
 f44bef65d2063fb30df5e2f1be4da189076089ee assets/tinkers_golem/models/item/overburn.json
 7ff9f970cb24ec19e605f0eb18fb8db5e7cc1c03 assets/tinkers_golem/models/item/overburn_blue.json
 28b4afa56c742734a44cab23555db56b2742a47e assets/tinkers_golem/models/item/overburn_purple.json
@@ -47,10 +53,11 @@ dec23362149052d8ee8e89b6e98fa0fddac56d3e data/modulargolems/advancements/recipes
 b46b0a4d2e4424f63a73465bb6b43fe3c75df3c7 data/modulargolems/recipes/diamond_expansion_template_slime_golem_holder.json
 0a02bf3e2b4c1f5543b5456ff0adfd19e2c9c20b data/modulargolems/recipes/netherite_expansion_template_slime_golem_holder.json
 02c377636cfa83a463c3a7a6dd5cfba02fe7c821 data/modulargolems/tags/entity_types/friendly.json
+6f5578eb42fc12e64047ebd6fc179f68df62093a data/modulargolems/tags/items/blue_upgrades.json
 986f449bed2860127441c103498a6070b22fe9a9 data/modulargolems/tags/items/golem_damageable.json
 1a370d0aa358a8b47def2948173e712b65a4af06 data/modulargolems/tags/items/holders.json
 ba2bd0463bcc1a93805421a6ffe079a8a8e3f728 data/modulargolems/tags/items/parts.json
-eba1d13ad2df4d6ad86aba85e2c75c4ae3fe9526 data/modulargolems/tags/items/potion_upgrades.json
+820b15623ff04302c1873b986c483c25da2cace4 data/modulargolems/tags/items/potion_upgrades.json
 8cc2aab4fc38b1949bcd9d980bd1d8cfb0d85d7c data/modulargolems/tags/items/special_crafting_material.json
 bed7adcda3927e22a08aae59a2309f2f1f507a9b data/tconstruct/tags/items/casts/gold.json
 cfb44f1dff4bb09b702e0b6e4e7a4251b8b3b7af data/tconstruct/tags/items/casts/multi_use.json
@@ -135,9 +142,11 @@ eaaa133f71df88e641adc402dd54329e7b4d6cef data/tinkers_golem/advancements/recipes
 5e2753434832c8c004ecf93f2a95573c69169bcc data/tinkers_golem/advancements/recipes/casting/casting/venom_casting_slime_golem_core.json
 80d93ecfda6c08e678cb2592bbe22008dc702817 data/tinkers_golem/advancements/recipes/casting/casting/venom_casting_slime_golem_shell.json
 3b3d896c4e52669ba81b9976d297fa1ac36343a5 data/tinkers_golem/advancements/recipes/cinderslime_expand_slime_golem_holder.json
+df01a773179209bd46bfb6088dd1153d05ee08fb data/tinkers_golem/advancements/recipes/misc/bleeding.json
 7204d750cc3b7dba67beb2c031bf7bb20c2e5406 data/tinkers_golem/advancements/recipes/misc/cinderslime_expand.json
 52b93a2d13cf06ad055c601e0ccdc3bbd2fbd122 data/tinkers_golem/advancements/recipes/misc/enderference.json
 4316ae1abf0b523abde60177b29964e7f3861b44 data/tinkers_golem/advancements/recipes/misc/knightslime_expand.json
+edcf0787444587a3cba30b29cd1bbaef67bdbf51 data/tinkers_golem/advancements/recipes/misc/necrotic.json
 c3009dca136a9a1bd563a1dee500fedbb3d46ddc data/tinkers_golem/advancements/recipes/misc/overburn.json
 8babbdc7fbe509e0932d283ff4340d15564911a5 data/tinkers_golem/advancements/recipes/misc/overdrive.json
 40bf839ee6c2e95a90d085b8aacafabf039a127b data/tinkers_golem/advancements/recipes/misc/overfill.json
@@ -159,6 +168,7 @@ b62312eb52ac9cf348991369667c4b0683d9df6b data/tinkers_golem/advancements/recipes
 69bace95bd2e6f36a18647f86cb8744bf562733e data/tinkers_golem/advancements/recipes/slime_golem/assemble_holder.json
 ae874b8b27020aa1644f9b40d06de25aba2ed062 data/tinkers_golem/advancements/recipes/slime_golem/replace_core.json
 c47ab7a85cde8c77855f75b902e092f821f374cd data/tinkers_golem/advancements/recipes/slime_golem/replace_shell.json
+405497172ec87cb8930e3abff6ef95eece014c3a data/tinkers_golem/recipes/bleeding.json
 8f632b42b8f01c53c8ad07c7b4ceac846c86066c data/tinkers_golem/recipes/casting/amethyst_bronze_casting_slime_golem_core.json
 887697eb94bb21aac68517204c175c34ab7ebdb6 data/tinkers_golem/recipes/casting/cinderslime_casting_dog_golem_body.json
 f4d79c0cb97683a5915298420e8ea90a51103746 data/tinkers_golem/recipes/casting/cinderslime_casting_dog_golem_legs.json
@@ -222,6 +232,7 @@ b5ed5b60bee1ab9a23d90bccb83978ef795f54bd data/tinkers_golem/recipes/casting/slim
 b2a1788f2ee99a5c2b5bdf60d9aef77e1fe1a327 data/tinkers_golem/recipes/cinderslime_expand_slime_golem_holder.json
 8368d589d5348f96f05bdc9d8075ad85535c0ba7 data/tinkers_golem/recipes/enderference.json
 b4bd59684ebaedce65a6fa975eb059363a934973 data/tinkers_golem/recipes/knightslime_expand.json
+06662764e2f693846cc6557edc947411d0f1da29 data/tinkers_golem/recipes/necrotic.json
 44d74379dba77c2ed62d61e74fac7771ad4b4333 data/tinkers_golem/recipes/overburn.json
 09f995f918a72f78a575826ebe1daec7d420e85c data/tinkers_golem/recipes/overdrive.json
 e6690a4daf17806a106e8e7851b4da26049ee641 data/tinkers_golem/recipes/overdrive_slime_golem_holder.json

@@ -271,6 +271,21 @@ public class TGRecipeGen {
 					.define('C', Items.CHORUS_FRUIT)
 					.save(pvd);
 
+			unlock(pvd, ShapedRecipeBuilder.shaped(RecipeCategory.MISC, TGGolemModifiers.ITEM_BLEEDING.get(), 1)::unlockedBy, GolemItems.EMPTY_UPGRADE.get())
+					.pattern("CBC").pattern("AEA").pattern("CBC")
+					.define('E', GolemItems.EMPTY_UPGRADE.get())
+					.define('A', Items.DRAGON_BREATH)
+					.define('B', Items.REDSTONE)
+					.define('C', TinkerMaterials.nahuatl)
+					.save(pvd);
+
+			unlock(pvd, ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, TGGolemModifiers.ITEM_NECROTIC.get(), 1)::unlockedBy, GolemItems.EMPTY_UPGRADE.get())
+					.requires(GolemItems.EMPTY_UPGRADE.get())
+					.requires(TinkerTags.Items.WITHER_BONES)
+					.requires(TinkerWorld.congealedSlime.get(SlimeType.ICHOR))
+					.requires(Items.GHAST_TEAR)
+					.save(pvd);
+
 		}
 
 	}

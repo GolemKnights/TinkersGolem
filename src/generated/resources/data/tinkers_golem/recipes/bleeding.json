@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:dragon_breath"
+    },
+    "B": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "item": "tconstruct:nahuatl"
+    },
+    "E": {
+      "item": "modulargolems:empty_upgrade"
+    }
+  },
+  "pattern": [
+    "CBC",
+    "AEA",
+    "CBC"
+  ],
+  "result": {
+    "item": "tinkers_golem:bleeding"
+  },
+  "show_notification": true
+}

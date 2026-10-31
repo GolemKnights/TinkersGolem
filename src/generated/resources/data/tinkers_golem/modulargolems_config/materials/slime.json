@@ -30,7 +30,7 @@
       "tinkers_golem:overteleport": 1
     },
     "tinkers_golem:honey": {
-      "tinkers_golem:swallow": 1
+      "tinkers_golem:overeat": 1
     },
     "tinkers_golem:ichor": {
       "modulargolems:fire_immune": 1,
