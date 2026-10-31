@@ -24,10 +24,8 @@ public interface ShoulderWeaponModifierHook {
 
         default void onTick(IToolStackView tool, ModifierEntry modifier, MetalGolemEntity entity, ItemStack toolItem,
                 InteractionHand hand) {
-            int delay = getDelay(tool, modifier, entity, toolItem, hand);
-            if (delay < 1)
-                delay = 1;
-            if (entity.tickCount % delay == (hand == InteractionHand.MAIN_HAND ? 0 : delay / 2))
+            int delay = Math.max(1, getDelay(tool, modifier, entity, toolItem, hand));
+            if (entity.tickCount % delay == (hand == InteractionHand.MAIN_HAND ? delay / 4 : delay / 4 * 3))
                 onShoot(tool, modifier, entity, toolItem, hand);
         }
     }
