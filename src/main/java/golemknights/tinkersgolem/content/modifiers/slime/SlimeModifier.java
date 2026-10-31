@@ -13,7 +13,7 @@ public class SlimeModifier extends GolemModifier {
 
 	@Override
 	public boolean canExistOn(GolemPart<?, ?> part) {
-		return part.getEntityType() == TGEntities.TYPE_SLIME.get();
+		return part.getEntityType() == TGEntities.TYPE_SLIME.get() && super.canExistOn(part);
 	}
 
 }
