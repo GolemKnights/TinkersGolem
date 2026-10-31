@@ -77,10 +77,10 @@ public class TGGolemModifiers {
 				new AttributeGolemModifier.AttrEntry(TGAttributes.STAT_TANK_CAPACITY, TGConfig.COMMON.overfillFactor::get)), null);
 
 		ENDERFERENCE = reg("enderference", () -> new PotionAttackModifier(StatFilterType.MASS, 3,
-				(i) -> new MobEffectInstance(TinkerEffects.enderference.get(), 100 * i, 0)
+				(i) -> new MobEffectInstance(TinkerEffects.enderference.get(), 60 * i, 0)
 		), "Potion Upgrade: Enderference", null);
 		BLEEDING = reg("bleeding", () -> new PotionAttackModifier(StatFilterType.MASS, 3,
-				(i) -> new MobEffectInstance(TinkerEffects.bleeding.get(), 100 * i, 0)
+				(i) -> new MobEffectInstance(TinkerEffects.bleeding.get(), 60 * i, 0)
 		), "Potion Upgrade: Bleeding", null);
 
 		OVERGROWTH = reg("overgrowth", OvergrowthModifier::new, "Recover %s overslime per second");
