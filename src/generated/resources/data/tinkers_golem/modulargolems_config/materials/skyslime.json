@@ -1,0 +1,31 @@
+{
+  "ingredients": {
+    "tinkers_golem:skyslime": {
+      "item": "tconstruct:sky_slime_ball"
+    }
+  },
+  "modifiers": {
+    "tinkers_golem:skyslime": {
+      "tinkers_golem:overshock": 1
+    }
+  },
+  "partLimitation": {
+    "tinkers_golem:skyslime": [
+      "tinkers_golem:slime_golem_core",
+      "tinkers_golem:slime_golem_shell"
+    ]
+  },
+  "repairIngredients": {
+    "tinkers_golem:skyslime": {
+      "item": "tconstruct:sky_slime_ball"
+    }
+  },
+  "stats": {
+    "tinkers_golem:skyslime": {
+      "modulargolems:attack": 10.0,
+      "modulargolems:jump_strength": 2.0,
+      "modulargolems:max_health": 20.0,
+      "modulargolems:max_overslime": 100.0
+    }
+  }
+}

@@ -38,14 +38,16 @@ public final class TinkersThinkingPlugin extends BaseTinkersPlugin {
 
     @Override
     public void addGolemMaterials(ConfigDataProvider.Collector map) {
-        map.add(ModularGolems.MATERIALS, this.getResource("common"), new GolemMaterialConfig()
+        map.add(ModularGolems.MATERIALS, this.getResource("ardite"), new GolemMaterialConfig()
                 .addMaterial(this.getResource("ardite"), Ingredient.of(ModCommonItems.ardite.getIngotTag()))
                 .addStat(GolemTypes.STAT_HEALTH.get(), 240)
                 .addStat(GolemTypes.STAT_ATTACK.get(), 16)
                 .addStat(GolemTypes.STAT_WEIGHT.get(), -0.2)
                 .addModifier(TGGolemModifiers.LIFE_STEAL.get(), 2)
                 .end()
+        );
 
+        map.add(ModularGolems.MATERIALS, this.getResource("tinkers_bronze"), new GolemMaterialConfig()
                 .addMaterial(this.getResource("tinkers_bronze"), Ingredient.of(ModCommonItems.tinkers_bronze.getIngotTag()))
                 .addStat(GolemTypes.STAT_HEALTH.get(), 150)
                 .addStat(GolemTypes.STAT_ATTACK.get(), 22)
@@ -53,7 +55,9 @@ public final class TinkersThinkingPlugin extends BaseTinkersPlugin {
                 .addStat(TGAttributes.STAT_ATTACK_P.get(), 0.3)
                 .addModifier(TGGolemModifiers.COUNTERMEASURES.get(), 1)
                 .end()
+		);
 
+        map.add(ModularGolems.MATERIALS, this.getResource("chlorophyte"), new GolemMaterialConfig()
                 .addMaterial(this.getResource("chlorophyte"), Ingredient.of(ModCommonItems.chlorophyte.getIngotTag()))
                 .addStat(GolemTypes.STAT_HEALTH.get(), 225)
                 .addStat(GolemTypes.STAT_ATTACK.get(), 14)
@@ -61,7 +65,9 @@ public final class TinkersThinkingPlugin extends BaseTinkersPlugin {
                 .addStat(GolemTypes.STAT_WEIGHT.get(), 0.3)
                 .addModifier(TGGolemModifiers.SYMBIONIC.get(), 1)
                 .end()
+		);
 
+        map.add(ModularGolems.MATERIALS, this.getResource("lightite"), new GolemMaterialConfig()
                 .addMaterial(this.getResource("lightite"), Ingredient.of(ModCommonItems.lightite.getIngotTag()))
                 .addStat(GolemTypes.STAT_HEALTH.get(), 100)
                 .addStat(GolemTypes.STAT_ATTACK.get(), 22)
@@ -69,21 +75,27 @@ public final class TinkersThinkingPlugin extends BaseTinkersPlugin {
                 .addStat(GolemTypes.STAT_WEIGHT.get(), 0.6)
                 .addModifier(TGGolemModifiers.LIGHTLY_ATTACK.get(), 1)
                 .end()
+		);
 
+        map.add(ModularGolems.MATERIALS, this.getResource("obsidian_bronze"), new GolemMaterialConfig()
                 .addMaterial(this.getResource("obsidian_bronze"), Ingredient.of(ModCommonItems.obsidian_bronze.getIngotTag()))
                 .addStat(GolemTypes.STAT_HEALTH.get(), 185)
                 .addStat(GolemTypes.STAT_ATTACK.get(), 24)
                 .addStat(GolemTypes.STAT_SPEED.get(), -0.1)
                 .addModifier(TGGolemModifiers.DURITAE.get(), 1)
                 .end()
+		);
 
+        map.add(ModularGolems.MATERIALS, this.getResource("electrical_steel"), new GolemMaterialConfig()
                 .addMaterial(this.getResource("electrical_steel"), Ingredient.of(ModCommonItems.electrical_steel.getIngotTag()))
                 .addStat(GolemTypes.STAT_HEALTH.get(), 200)
                 .addStat(GolemTypes.STAT_ATTACK.get(), 22)
                 .addStat(GolemTypes.STAT_SWEEP.get(), 1)
                 .addModifier(TGGolemModifiers.REPULSIVE.get(), 1)
                 .end()
+		);
 
+        map.add(ModularGolems.MATERIALS, this.getResource("slimecore_support"), new GolemMaterialConfig()
                 .supportsDefaultAnd(List.of(TGEntities.SLIME_CORE.get()),
                         this.getResource("ardite"),
                         this.getResource("tinkers_bronze"),

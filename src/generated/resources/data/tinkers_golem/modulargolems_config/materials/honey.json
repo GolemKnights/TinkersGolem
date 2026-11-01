@@ -1,0 +1,31 @@
+{
+  "ingredients": {
+    "tinkers_golem:honey": {
+      "item": "minecraft:honey_bottle"
+    }
+  },
+  "modifiers": {
+    "tinkers_golem:honey": {
+      "tinkers_golem:overeat": 1
+    }
+  },
+  "partLimitation": {
+    "tinkers_golem:honey": [
+      "tinkers_golem:slime_golem_core",
+      "tinkers_golem:slime_golem_shell"
+    ]
+  },
+  "repairIngredients": {
+    "tinkers_golem:honey": {
+      "item": "minecraft:honey_bottle"
+    }
+  },
+  "stats": {
+    "tinkers_golem:honey": {
+      "modulargolems:attack": 10.0,
+      "modulargolems:max_health": 40.0,
+      "modulargolems:max_overslime": 50.0,
+      "modulargolems:speed": -0.2
+    }
+  }
+}

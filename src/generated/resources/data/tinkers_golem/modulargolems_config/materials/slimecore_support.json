@@ -1,50 +1,6 @@
 {
-  "ingredients": {
-    "tinkers_golem:earthslime": {
-      "item": "minecraft:slime_ball"
-    },
-    "tinkers_golem:enderslime": {
-      "item": "tconstruct:ender_slime_ball"
-    },
-    "tinkers_golem:honey": {
-      "item": "minecraft:honey_bottle"
-    },
-    "tinkers_golem:ichor": {
-      "item": "tconstruct:ichor_slime_ball"
-    },
-    "tinkers_golem:magma": {
-      "item": "minecraft:magma_cream"
-    },
-    "tinkers_golem:skyslime": {
-      "item": "tconstruct:sky_slime_ball"
-    },
-    "tinkers_golem:venom": {
-      "item": "tconstruct:venom_bottle"
-    }
-  },
-  "modifiers": {
-    "tinkers_golem:earthslime": {
-      "tinkers_golem:overgrowth": 2
-    },
-    "tinkers_golem:enderslime": {
-      "tinkers_golem:overteleport": 1
-    },
-    "tinkers_golem:honey": {
-      "tinkers_golem:overeat": 1
-    },
-    "tinkers_golem:ichor": {
-      "modulargolems:fire_immune": 1,
-      "tinkers_golem:overboking": 1
-    },
-    "tinkers_golem:magma": {
-      "modulargolems:fire_immune": 1,
-      "tinkers_golem:fiery_explosion": 1
-    },
-    "tinkers_golem:skyslime": {
-      "tinkers_golem:overshock": 1
-    },
-    "tinkers_golem:venom": {}
-  },
+  "ingredients": {},
+  "modifiers": {},
   "partLimitation": {
     "modulargolems:copper": [
       "modulargolems:metal_golem_body",
@@ -188,101 +144,8 @@
       "modulargolems:dog_golem_body",
       "modulargolems:dog_golem_legs",
       "tinkers_golem:slime_golem_core"
-    ],
-    "tinkers_golem:earthslime": [
-      "tinkers_golem:slime_golem_core",
-      "tinkers_golem:slime_golem_shell"
-    ],
-    "tinkers_golem:enderslime": [
-      "tinkers_golem:slime_golem_core",
-      "tinkers_golem:slime_golem_shell"
-    ],
-    "tinkers_golem:honey": [
-      "tinkers_golem:slime_golem_core",
-      "tinkers_golem:slime_golem_shell"
-    ],
-    "tinkers_golem:ichor": [
-      "tinkers_golem:slime_golem_core",
-      "tinkers_golem:slime_golem_shell"
-    ],
-    "tinkers_golem:magma": [
-      "tinkers_golem:slime_golem_core",
-      "tinkers_golem:slime_golem_shell"
-    ],
-    "tinkers_golem:skyslime": [
-      "tinkers_golem:slime_golem_core",
-      "tinkers_golem:slime_golem_shell"
-    ],
-    "tinkers_golem:venom": [
-      "tinkers_golem:slime_golem_core",
-      "tinkers_golem:slime_golem_shell"
     ]
   },
-  "repairIngredients": {
-    "tinkers_golem:earthslime": {
-      "item": "minecraft:slime_ball"
-    },
-    "tinkers_golem:enderslime": {
-      "item": "tconstruct:ender_slime_ball"
-    },
-    "tinkers_golem:honey": {
-      "item": "minecraft:honey_bottle"
-    },
-    "tinkers_golem:ichor": {
-      "item": "tconstruct:ichor_slime_ball"
-    },
-    "tinkers_golem:magma": {
-      "item": "minecraft:magma_cream"
-    },
-    "tinkers_golem:skyslime": {
-      "item": "tconstruct:sky_slime_ball"
-    },
-    "tinkers_golem:venom": {
-      "item": "tconstruct:venom_bottle"
-    }
-  },
-  "stats": {
-    "tinkers_golem:earthslime": {
-      "modulargolems:attack": 10.0,
-      "modulargolems:max_health": 20.0,
-      "modulargolems:max_overslime": 120.0
-    },
-    "tinkers_golem:enderslime": {
-      "modulargolems:attack": 10.0,
-      "modulargolems:max_health": 20.0,
-      "modulargolems:max_overslime": 100.0,
-      "modulargolems:range": 1.0,
-      "modulargolems:tank_capacity": 8.0
-    },
-    "tinkers_golem:honey": {
-      "modulargolems:attack": 10.0,
-      "modulargolems:max_health": 40.0,
-      "modulargolems:max_overslime": 50.0,
-      "modulargolems:speed": -0.2
-    },
-    "tinkers_golem:ichor": {
-      "modulargolems:attack": 10.0,
-      "modulargolems:max_health": 20.0,
-      "modulargolems:max_overslime": 100.0,
-      "modulargolems:speed": 0.6
-    },
-    "tinkers_golem:magma": {
-      "modulargolems:armor": 12.0,
-      "modulargolems:attack": 15.0,
-      "modulargolems:jump_strength": 1.0,
-      "modulargolems:max_health": 20.0,
-      "modulargolems:max_overslime": 80.0
-    },
-    "tinkers_golem:skyslime": {
-      "modulargolems:attack": 10.0,
-      "modulargolems:jump_strength": 2.0,
-      "modulargolems:max_health": 20.0,
-      "modulargolems:max_overslime": 100.0
-    },
-    "tinkers_golem:venom": {
-      "modulargolems:attack": 20.0,
-      "modulargolems:max_health": 20.0,
-      "modulargolems:max_overslime": 50.0
-    }
-  }
+  "repairIngredients": {},
+  "stats": {}
 }

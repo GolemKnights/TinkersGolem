@@ -1,0 +1,33 @@
+{
+  "ingredients": {
+    "tinkers_golem:magma": {
+      "item": "minecraft:magma_cream"
+    }
+  },
+  "modifiers": {
+    "tinkers_golem:magma": {
+      "modulargolems:fire_immune": 1,
+      "tinkers_golem:fiery_explosion": 1
+    }
+  },
+  "partLimitation": {
+    "tinkers_golem:magma": [
+      "tinkers_golem:slime_golem_core",
+      "tinkers_golem:slime_golem_shell"
+    ]
+  },
+  "repairIngredients": {
+    "tinkers_golem:magma": {
+      "item": "minecraft:magma_cream"
+    }
+  },
+  "stats": {
+    "tinkers_golem:magma": {
+      "modulargolems:armor": 12.0,
+      "modulargolems:attack": 15.0,
+      "modulargolems:jump_strength": 1.0,
+      "modulargolems:max_health": 20.0,
+      "modulargolems:max_overslime": 80.0
+    }
+  }
+}

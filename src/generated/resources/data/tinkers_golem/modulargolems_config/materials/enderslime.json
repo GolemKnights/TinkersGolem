@@ -1,0 +1,32 @@
+{
+  "ingredients": {
+    "tinkers_golem:enderslime": {
+      "item": "tconstruct:ender_slime_ball"
+    }
+  },
+  "modifiers": {
+    "tinkers_golem:enderslime": {
+      "tinkers_golem:overteleport": 1
+    }
+  },
+  "partLimitation": {
+    "tinkers_golem:enderslime": [
+      "tinkers_golem:slime_golem_core",
+      "tinkers_golem:slime_golem_shell"
+    ]
+  },
+  "repairIngredients": {
+    "tinkers_golem:enderslime": {
+      "item": "tconstruct:ender_slime_ball"
+    }
+  },
+  "stats": {
+    "tinkers_golem:enderslime": {
+      "modulargolems:attack": 10.0,
+      "modulargolems:max_health": 20.0,
+      "modulargolems:max_overslime": 100.0,
+      "modulargolems:range": 1.0,
+      "modulargolems:tank_capacity": 8.0
+    }
+  }
+}

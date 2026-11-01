@@ -1,0 +1,27 @@
+{
+  "ingredients": {
+    "tconstruct:cinderslime": {
+      "tag": "forge:ingots/cinderslime"
+    }
+  },
+  "modifiers": {
+    "tconstruct:cinderslime": {
+      "modulargolems:fire_immune": 1,
+      "tinkers_golem:overburn": 1,
+      "tinkers_golem:oversmelt": 1
+    }
+  },
+  "partLimitation": {},
+  "repairIngredients": {
+    "tconstruct:cinderslime": {
+      "tag": "forge:ingots/cinderslime"
+    }
+  },
+  "stats": {
+    "tconstruct:cinderslime": {
+      "modulargolems:attack": 20.0,
+      "modulargolems:max_health": 220.0,
+      "modulargolems:max_overslime": 80.0
+    }
+  }
+}

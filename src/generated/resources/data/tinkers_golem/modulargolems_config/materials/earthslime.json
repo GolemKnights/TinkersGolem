@@ -1,0 +1,30 @@
+{
+  "ingredients": {
+    "tinkers_golem:earthslime": {
+      "item": "minecraft:slime_ball"
+    }
+  },
+  "modifiers": {
+    "tinkers_golem:earthslime": {
+      "tinkers_golem:overgrowth": 2
+    }
+  },
+  "partLimitation": {
+    "tinkers_golem:earthslime": [
+      "tinkers_golem:slime_golem_core",
+      "tinkers_golem:slime_golem_shell"
+    ]
+  },
+  "repairIngredients": {
+    "tinkers_golem:earthslime": {
+      "item": "minecraft:slime_ball"
+    }
+  },
+  "stats": {
+    "tinkers_golem:earthslime": {
+      "modulargolems:attack": 10.0,
+      "modulargolems:max_health": 20.0,
+      "modulargolems:max_overslime": 120.0
+    }
+  }
+}

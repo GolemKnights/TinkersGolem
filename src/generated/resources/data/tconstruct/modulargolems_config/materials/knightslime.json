@@ -1,0 +1,25 @@
+{
+  "ingredients": {
+    "tconstruct:knightslime": {
+      "tag": "forge:ingots/knightslime"
+    }
+  },
+  "modifiers": {
+    "tconstruct:knightslime": {
+      "tinkers_golem:overwield": 1
+    }
+  },
+  "partLimitation": {},
+  "repairIngredients": {
+    "tconstruct:knightslime": {
+      "tag": "forge:ingots/knightslime"
+    }
+  },
+  "stats": {
+    "tconstruct:knightslime": {
+      "modulargolems:attack": 30.0,
+      "modulargolems:max_health": 200.0,
+      "modulargolems:max_overslime": 80.0
+    }
+  }
+}

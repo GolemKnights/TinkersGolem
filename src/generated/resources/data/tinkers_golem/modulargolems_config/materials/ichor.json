@@ -1,0 +1,32 @@
+{
+  "ingredients": {
+    "tinkers_golem:ichor": {
+      "item": "tconstruct:ichor_slime_ball"
+    }
+  },
+  "modifiers": {
+    "tinkers_golem:ichor": {
+      "modulargolems:fire_immune": 1,
+      "tinkers_golem:overboking": 1
+    }
+  },
+  "partLimitation": {
+    "tinkers_golem:ichor": [
+      "tinkers_golem:slime_golem_core",
+      "tinkers_golem:slime_golem_shell"
+    ]
+  },
+  "repairIngredients": {
+    "tinkers_golem:ichor": {
+      "item": "tconstruct:ichor_slime_ball"
+    }
+  },
+  "stats": {
+    "tinkers_golem:ichor": {
+      "modulargolems:attack": 10.0,
+      "modulargolems:max_health": 20.0,
+      "modulargolems:max_overslime": 100.0,
+      "modulargolems:speed": 0.6
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "ingredients": {
+    "tconstruct:queens_slime": {
+      "tag": "forge:ingots/queens_slime"
+    }
+  },
+  "modifiers": {
+    "tconstruct:queens_slime": {
+      "tinkers_golem:overlord": 2
+    }
+  },
+  "partLimitation": {},
+  "repairIngredients": {
+    "tconstruct:queens_slime": {
+      "tag": "forge:ingots/queens_slime"
+    }
+  },
+  "stats": {
+    "tconstruct:queens_slime": {
+      "modulargolems:attack": 18.0,
+      "modulargolems:max_health": 240.0,
+      "modulargolems:max_overslime": 160.0
+    }
+  }
+}
