@@ -21,7 +21,7 @@ Provide a connection between Tinkers' Construct and Modular Golems.
     modId="minecraft"
     mandatory=true
     versionRange="[1.20,1.21)"
-    ordering="NONE"
+    ordering="AFTER"
     side="BOTH"
 [[dependencies.tinkers_golem]]
     modId="l2library"
@@ -33,16 +33,19 @@ Provide a connection between Tinkers' Construct and Modular Golems.
     modId="modulargolems"
     mandatory=true
     versionRange="[2.7.2,)"
+    ordering="AFTER"
     side="BOTH"
 [[dependencies.tinkers_golem]]
     modId="mantle"
     mandatory=true
     versionRange="[1.11.104,)"
+    ordering="AFTER"
     side="BOTH"
 [[dependencies.tinkers_golem]]
     modId="tconstruct"
     mandatory=true
     versionRange="[3.11.2.166,)"
+    ordering="AFTER"
     side="BOTH"
 [[dependencies.tinkers_golem]]
     modId="tinkers_thinking"
