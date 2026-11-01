@@ -1,4 +1,4 @@
-package golemknights.tinkersgolem.compat.tinkers;
+package golemknights.tinkersgolem.compat.materials;
 
 import com.tterrag.registrate.providers.RegistrateLangProvider;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
@@ -10,9 +10,11 @@ import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.fml.ModList;
 
 @SuppressWarnings("removal")
-public abstract class BaseTinkersPlugin {
+public abstract class BaseMaterialPlugin {
     public static void addGenerators(L2Registrate registrate, GatherDataEvent event) {
         //TinkersThinkingPlugin.addGenerator(registrate, event);
+        L2CPlugin.addGenerator(registrate, event);
+        L2HPlugin.addGenerator(registrate, event);
     }
     public final boolean isLoaded(){
         return ModList.get().isLoaded(this.getModId());
@@ -29,14 +31,12 @@ public abstract class BaseTinkersPlugin {
     public abstract void genRecipe(RegistrateRecipeProvider pvd);
     public class golemMaterialGen extends ConfigDataProvider {
         public golemMaterialGen(DataGenerator generator) {
-            super(generator, "Golem Config of " + BaseTinkersPlugin.this.getModId());
+            super(generator, "Golem Config of " + BaseMaterialPlugin.this.getModId());
         }
 
         @Override
         public void add(Collector map) {
-            if (BaseTinkersPlugin.this.isLoaded()){
-                addGolemMaterials(map);
-            }
+            addGolemMaterials(map);
         }
     }
 }

@@ -6,7 +6,7 @@ import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
 import golemknights.tinkersgolem.cap.OverslimeCap;
 import golemknights.tinkersgolem.cap.OverslimeSyncPacket;
-import golemknights.tinkersgolem.compat.tinkers.BaseTinkersPlugin;
+import golemknights.tinkersgolem.compat.materials.BaseMaterialPlugin;
 import golemknights.tinkersgolem.content.entity.SlimeTankSyncPacket;
 import golemknights.tinkersgolem.data.*;
 import golemknights.tinkersgolem.events.TGAttackListener;
@@ -106,7 +106,7 @@ public class TinkersGolem {
 
 	@SubscribeEvent(priority = EventPriority.HIGH)
 	public static void gatherData(GatherDataEvent event) {
-		BaseTinkersPlugin.addGenerators(REGISTRATE, event);
+		BaseMaterialPlugin.addGenerators(REGISTRATE, event);
 
 		REGISTRATE.addDataGenerator(ProviderType.LANG, TGLang::genLang);
 		// REGISTRATE.addDataGenerator(ProviderType.LOOT, GDLootGen::genLoot);

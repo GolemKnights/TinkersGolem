@@ -1,4 +1,4 @@
-package golemknights.tinkersgolem.compat.tinkers;
+package golemknights.tinkersgolem.compat.materials.tinkers;
 
 import com.creeping_creeper.tinkers_thinking.common.register.ModCommonItems;
 import com.creeping_creeper.tinkers_thinking.common.register.ModFluids;
@@ -10,6 +10,7 @@ import dev.xkmc.l2library.serial.config.ConfigDataProvider;
 import dev.xkmc.modulargolems.content.config.GolemMaterialConfig;
 import dev.xkmc.modulargolems.init.ModularGolems;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
+import golemknights.tinkersgolem.compat.materials.BaseMaterialPlugin;
 import golemknights.tinkersgolem.data.TGRecipeGen;
 import golemknights.tinkersgolem.register.TGAttributes;
 import golemknights.tinkersgolem.register.TGEntities;
@@ -19,8 +20,8 @@ import net.minecraftforge.data.event.GatherDataEvent;
 
 import java.util.List;
 
-public final class TinkersThinkingPlugin extends BaseTinkersPlugin {
-    static void addGenerator(L2Registrate registrate, GatherDataEvent event) {
+public final class TinkersThinkingPlugin extends BaseMaterialPlugin {
+    public static void addGenerator(L2Registrate registrate, GatherDataEvent event) {
         registrate.addDataGenerator(ProviderType.LANG, new TinkersThinkingPlugin()::genLang);
         registrate.addDataGenerator(ProviderType.RECIPE, new TinkersThinkingPlugin()::genRecipe);
         var gen = event.getGenerator();
