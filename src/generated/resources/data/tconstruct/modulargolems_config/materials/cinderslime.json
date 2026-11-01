@@ -20,7 +20,7 @@
   "stats": {
     "tconstruct:cinderslime": {
       "modulargolems:attack": 20.0,
-      "modulargolems:max_health": 220.0,
+      "modulargolems:max_health": 270.0,
       "modulargolems:max_overslime": 80.0
     }
   }

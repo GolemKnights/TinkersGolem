@@ -55,6 +55,8 @@ public class TGGolemModifiers {
 	public static final RegistryEntry<SlimeSlotModifier> OVERTALENTED;
 	public static final RegistryEntry<OverwieldModifier> OVERWIELD;
 	public static final RegistryEntry<LifeStealModifier> LIFE_STEAL;
+	public static final RegistryEntry<AmbushModifier> AMBUSH;
+	public static final RegistryEntry<WardedModifier> WARDED;
 	// Tinkers' Thinking
 	public static final RegistryEntry<CountermeasuresModifier> COUNTERMEASURES;
 	public static final RegistryEntry<SymbionicModifier> SYMBIONIC;
@@ -98,6 +100,8 @@ public class TGGolemModifiers {
 		OVEREAT = reg("overeat", OvereatModifier::new, "");
 		OVERWIELD = reg("overwield", OverwieldModifier::new, "When attacking, consuming %s overslime and add %s%% damage per overslime");
 		LIFE_STEAL = reg("life_steal", LifeStealModifier::new, "When attacking, healing %s%% of attack damage");
+		AMBUSH = reg("ambush", AmbushModifier::new, "Grants +%s%% damage when at full health, and +%s%% damage when the target is at full health");
+		WARDED = reg("warded", WardedModifier::new, "When at full health, take %s%% less damage after armor and enchantments, down to a minimum of 1");
 
 		COUNTERMEASURES = reg("countermeasures", CountermeasuresModifier::new, "When taking damage bypass armor, reduce it 10% per level");
 		SYMBIONIC = reg("symbionic", SymbionicModifier::new, "When it is healed, heal its owner 20% amount per level");

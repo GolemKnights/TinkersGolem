@@ -1,6 +1,7 @@
 package golemknights.tinkersgolem.data;
 
 import dev.xkmc.l2library.serial.config.ConfigDataProvider;
+import dev.xkmc.modulargolems.compat.materials.tinker.TCCompatRegistry;
 import dev.xkmc.modulargolems.content.config.GolemMaterialConfig;
 import dev.xkmc.modulargolems.content.config.GolemPartConfig;
 import dev.xkmc.modulargolems.content.core.StatFilterType;
@@ -141,6 +142,7 @@ public class TGConfigGen extends ConfigDataProvider {
 						ModularGolems.loc("iron"),
 						ModularGolems.loc("gold"),
 						ModularGolems.loc("netherite"),
+						ModularGolems.loc("sculk"),
 						TConstruct.getResource("amethyst_bronze"),
 						TConstruct.getResource("manyullyn"),
 						TConstruct.getResource("hepatizon"),
@@ -153,9 +155,51 @@ public class TGConfigGen extends ConfigDataProvider {
 				)
 		);
 
+		map.add(ModularGolems.MATERIALS, TConstruct.getResource("tconstruct"), new GolemMaterialConfig());
+
+		map.add(ModularGolems.MATERIALS, TConstruct.getResource("amethyst_bronze"), new GolemMaterialConfig()
+				.addMaterial(TConstruct.getResource("amethyst_bronze"), Ingredient.of(TinkerMaterials.amethystBronze.getIngotTag()))
+				.addStat(GolemTypes.STAT_HEALTH.get(), 200.0)
+				.addStat(GolemTypes.STAT_ATTACK.get(), 15.0)
+				.end()
+		);
+
+		map.add(ModularGolems.MATERIALS, TConstruct.getResource("manyullyn"), new GolemMaterialConfig()
+				.addMaterial(TConstruct.getResource("manyullyn"), Ingredient.of(TinkerMaterials.manyullyn.getIngotTag()))
+				.addStat(GolemTypes.STAT_HEALTH.get(), 300.0)
+				.addStat(GolemTypes.STAT_ATTACK.get(), 27)
+				.addModifier(TGGolemModifiers.AMBUSH.get(), 1)
+				.addModifier(TGGolemModifiers.WARDED.get(), 1)
+				.end()
+		);
+
+		map.add(ModularGolems.MATERIALS, TConstruct.getResource("hepatizon"), new GolemMaterialConfig()
+				.addMaterial(TConstruct.getResource("hepatizon"), Ingredient.of(TinkerMaterials.hepatizon.getIngotTag()))
+				.addStat(GolemTypes.STAT_HEALTH.get(), 250.0)
+				.addStat(GolemTypes.STAT_ATTACK.get(), 21)
+				.addModifier(TCCompatRegistry.HEPATIZON_DEFENSE.get(), 1)
+				.end()
+		);
+
+		map.add(ModularGolems.MATERIALS, TConstruct.getResource("cobalt"), new GolemMaterialConfig()
+				.addMaterial(TConstruct.getResource("cobalt"), Ingredient.of(TinkerMaterials.cobalt.getIngotTag()))
+				.addStat(GolemTypes.STAT_HEALTH.get(), 220.0)
+				.addStat(GolemTypes.STAT_ATTACK.get(), 20.0)
+				.addStat(GolemTypes.STAT_SPEED.get(), 0.3)
+				.end()
+		);
+
+		map.add(ModularGolems.MATERIALS, TConstruct.getResource("rose_gold"), new GolemMaterialConfig()
+				.addMaterial(TConstruct.getResource("rose_gold"), Ingredient.of(TinkerMaterials.roseGold.getIngotTag()))
+				.addStat(GolemTypes.STAT_HEALTH.get(), 40.0)
+				.addStat(GolemTypes.STAT_ATTACK.get(), 10.0)
+				.addModifier(GolemModifiers.ADD_SLOT.get(), 1)
+				.end()
+		);
+
 		map.add(ModularGolems.MATERIALS, TConstruct.getResource("slimesteel"), new GolemMaterialConfig()
 				.addMaterial(TConstruct.getResource("slimesteel"), Ingredient.of(TinkerMaterials.slimesteel.getIngotTag()))
-				.addStat(GolemTypes.STAT_HEALTH.get(), 200)
+				.addStat(GolemTypes.STAT_HEALTH.get(), 250)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 20)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 50)
 				.addStat(TGAttributes.STAT_OVERSLIME_BONUS.get(), 1)
@@ -164,16 +208,16 @@ public class TGConfigGen extends ConfigDataProvider {
 
 		map.add(ModularGolems.MATERIALS, TConstruct.getResource("queens_slime"), new GolemMaterialConfig()
 				.addMaterial(TConstruct.getResource("queens_slime"), Ingredient.of(TinkerMaterials.queensSlime.getIngotTag()))
-				.addStat(GolemTypes.STAT_HEALTH.get(), 240)
+				.addStat(GolemTypes.STAT_HEALTH.get(), 300)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 18)
-				.addStat(TGAttributes.STAT_OVERSLIME.get(), 160)
+				.addStat(TGAttributes.STAT_OVERSLIME.get(), 200)
 				.addModifier(TGGolemModifiers.OVERLORD.get(), 2)
 				.end()
 		);
 
 		map.add(ModularGolems.MATERIALS, TConstruct.getResource("cinderslime"), new GolemMaterialConfig()
 				.addMaterial(TConstruct.getResource("cinderslime"), Ingredient.of(TinkerMaterials.cinderslime.getIngotTag()))
-				.addStat(GolemTypes.STAT_HEALTH.get(), 220)
+				.addStat(GolemTypes.STAT_HEALTH.get(), 270)
 				.addStat(GolemTypes.STAT_ATTACK.get(), 20)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 80)
 				.addModifier(GolemModifiers.FIRE_IMMUNE.get(), 1)
@@ -184,8 +228,8 @@ public class TGConfigGen extends ConfigDataProvider {
 
 		map.add(ModularGolems.MATERIALS, TConstruct.getResource("knightslime"), new GolemMaterialConfig()
 				.addMaterial(TConstruct.getResource("knightslime"), Ingredient.of(TinkerMaterials.knightslime.getIngotTag()))
-				.addStat(GolemTypes.STAT_HEALTH.get(), 200)
-				.addStat(GolemTypes.STAT_ATTACK.get(), 30)
+				.addStat(GolemTypes.STAT_HEALTH.get(), 250)
+				.addStat(GolemTypes.STAT_ATTACK.get(), 25)
 				.addStat(TGAttributes.STAT_OVERSLIME.get(), 80)
 				.addModifier(TGGolemModifiers.OVERWIELD.get(), 1)
 				.end()

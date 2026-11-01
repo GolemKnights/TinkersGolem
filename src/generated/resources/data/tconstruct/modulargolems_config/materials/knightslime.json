@@ -17,8 +17,8 @@
   },
   "stats": {
     "tconstruct:knightslime": {
-      "modulargolems:attack": 30.0,
-      "modulargolems:max_health": 200.0,
+      "modulargolems:attack": 25.0,
+      "modulargolems:max_health": 250.0,
       "modulargolems:max_overslime": 80.0
     }
   }

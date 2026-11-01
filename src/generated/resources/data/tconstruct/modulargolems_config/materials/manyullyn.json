@@ -1,0 +1,25 @@
+{
+  "ingredients": {
+    "tconstruct:manyullyn": {
+      "tag": "forge:ingots/manyullyn"
+    }
+  },
+  "modifiers": {
+    "tconstruct:manyullyn": {
+      "tinkers_golem:ambush": 1,
+      "tinkers_golem:warded": 1
+    }
+  },
+  "partLimitation": {},
+  "repairIngredients": {
+    "tconstruct:manyullyn": {
+      "tag": "forge:ingots/manyullyn"
+    }
+  },
+  "stats": {
+    "tconstruct:manyullyn": {
+      "modulargolems:attack": 27.0,
+      "modulargolems:max_health": 300.0
+    }
+  }
+}

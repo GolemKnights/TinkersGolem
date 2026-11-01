@@ -1,6 +1,6 @@
-// 1.20.1	2026-10-31T11:27:58.6301302	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (enchantments), Tags (mob_effects), Tags (attributes)]
-a794e1c6f93c790592ede232fb3555f348e54eed assets/tinkers_golem/lang/en_ud.json
-085811159a33642dabf7400d773810402ad0fb53 assets/tinkers_golem/lang/en_us.json
+// 1.20.1	2026-11-01T13:39:17.3483136	Registrate Provider for tinkers_golem [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), generic_server_provider, Blockstates, Item models, Lang (en_us/en_ud), generic_client_provider, Tags (enchantments), Tags (mob_effects), Tags (attributes)]
+14f60ee13f9f1e57874cbe382d594d66341c92f2 assets/tinkers_golem/lang/en_ud.json
+57f1c2a9d29d9411aa9ca97e84f30de4c40e59a1 assets/tinkers_golem/lang/en_us.json
 cba1e2baaa1379ed4faefee2dbec2df54e2bda72 assets/tinkers_golem/models/item/bleeding.json
 f44bbbda581b5739f4e4c6e693b9bada66695d99 assets/tinkers_golem/models/item/bleeding_blue.json
 4b5d3f36d21f46bb898623ce97ee54adbe820bb1 assets/tinkers_golem/models/item/bleeding_purple.json

@@ -18,8 +18,8 @@
   "stats": {
     "tconstruct:queens_slime": {
       "modulargolems:attack": 18.0,
-      "modulargolems:max_health": 240.0,
-      "modulargolems:max_overslime": 160.0
+      "modulargolems:max_health": 300.0,
+      "modulargolems:max_overslime": 200.0
     }
   }
 }

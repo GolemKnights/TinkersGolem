@@ -16,7 +16,7 @@
   "stats": {
     "tconstruct:slimesteel": {
       "modulargolems:attack": 20.0,
-      "modulargolems:max_health": 200.0,
+      "modulargolems:max_health": 250.0,
       "modulargolems:max_overslime": 50.0,
       "modulargolems:overslime_bonus": 1.0
     }
