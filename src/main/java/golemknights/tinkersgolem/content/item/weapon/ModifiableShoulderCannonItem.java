@@ -55,7 +55,12 @@ public class ModifiableShoulderCannonItem extends ModifiableLauncherItem impleme
 
    @Override
    public @Nullable ResourceLocation getModel(int slot) {
-      return slot < 0 ? TGModelPaths.CANNON_LEFT : TGModelPaths.CANNON_RIGHT;
+      return switch (slot) {
+         case -1 -> TGModelPaths.CANNON_LEFT;
+         case 0 -> TGModelPaths.CANNON_DOG;
+         case 1 -> TGModelPaths.CANNON_RIGHT;
+         default -> null;
+      };
    }
 
    @Override

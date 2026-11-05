@@ -47,11 +47,11 @@ public interface FireballModule_ShoulderWeaponModifierHook extends ShoulderWeapo
                          int slot) {
         LivingEntity target = entity.getTarget();
         if (target != null && target.isAlive()) {
-            if (!CannonPoseUtil.FLAME_THROWER.isOutOfRange(entity, slot, ConditionalStatModifierHook.getModifiedStat(tool, entity, TGStats.CANNON_RANGE))) {
+            if (!getPoseUtil(slot).isOutOfRange(entity, slot, ConditionalStatModifierHook.getModifiedStat(tool, entity, TGStats.CANNON_RANGE))) {
                 ItemStack fireball = BowAmmoModifierHook.consumeAmmo(tool, ItemStack.EMPTY, entity, null, self(), 1);
                 if (fireball.isEmpty())
                     return;
-                Vec3 pos = CannonPoseUtil.FLAME_THROWER.getOrigin(entity, slot);
+                Vec3 pos = getPoseUtil(slot).getOrigin(entity, slot);
 
                 Vec3 dst = target.position().add(0.0F, target.getBbHeight() / 2.0F,
                         0.0F);

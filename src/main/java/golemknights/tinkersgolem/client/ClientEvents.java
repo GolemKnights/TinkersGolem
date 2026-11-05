@@ -39,6 +39,8 @@ public class ClientEvents {
 				ModifiableMetalGolemArmorModelV2::createBodyLayer);
 		GolemShoulderPose.register(TGModelPaths.CANNON_RIGHT,
 				new ModifiableShoulderWeaponPose(CannonPoseUtil.FLAME_THROWER, "cannon", 0.45F, 1.05F, 0.25F));
+		GolemShoulderPose.register(TGModelPaths.CANNON_DOG,
+				new ModifiableShoulderWeaponPose(CannonPoseUtil.DOG_FLAME_THROWER, "cannon1", 0.4F, 0.75F, 0F));
 		GolemShoulderPose.register(TGModelPaths.CANNON_LEFT,
 				new ModifiableShoulderWeaponPose(CannonPoseUtil.FLAME_THROWER, "cannon2", -0.45F, 1.05F, 0.25F));
 	}

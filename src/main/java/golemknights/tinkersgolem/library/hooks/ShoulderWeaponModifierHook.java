@@ -1,6 +1,7 @@
 package golemknights.tinkersgolem.library.hooks;
 
 import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
+import dev.xkmc.modulargolems.content.item.ranged.CannonPoseUtil;
 import net.minecraft.world.item.ItemStack;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
@@ -11,6 +12,10 @@ import java.util.Collection;
 public interface ShoulderWeaponModifierHook {
     void onTick(IToolStackView tool, ModifierEntry modifier, AbstractGolemEntity<?, ?> golem, ItemStack toolItem,
                 int slot);
+
+    default CannonPoseUtil getPoseUtil(int slot) {
+        return slot == 0 ? CannonPoseUtil.DOG_FLAME_THROWER : CannonPoseUtil.FLAME_THROWER;
+    }
 
     interface Delayed extends ShoulderWeaponModifierHook {
         default int getDelay(IToolStackView tool, ModifierEntry modifier, AbstractGolemEntity<?, ?> golem, ItemStack toolItem,
