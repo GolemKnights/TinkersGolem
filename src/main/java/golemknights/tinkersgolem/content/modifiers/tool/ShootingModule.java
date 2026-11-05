@@ -1,13 +1,12 @@
 package golemknights.tinkersgolem.content.modifiers.tool;
 
-import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
+import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.item.ranged.CannonPoseUtil;
 import golemknights.tinkersgolem.library.hooks.ShoulderWeaponModifierHook;
 import golemknights.tinkersgolem.register.TGStats;
 import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.FireworkRocketEntity;
@@ -54,11 +53,11 @@ public enum ShootingModule implements ModifierModule, ShoulderWeaponModifierHook
     }
 
     @Override
-    public void onShoot(IToolStackView tool, ModifierEntry modifier, MetalGolemEntity golem, ItemStack toolItem, InteractionHand hand) {
+    public void onShoot(IToolStackView tool, ModifierEntry modifier, AbstractGolemEntity<?, ?> golem, ItemStack toolItem, int slot) {
         LivingEntity target = golem.getTarget();
         boolean hostile = golem.isHostile();
         if (target != null && target.isAlive()) {
-            if (!CannonPoseUtil.FLAME_THROWER.isOutOfRange(golem, hand, ConditionalStatModifierHook.getModifiedStat(tool, golem, TGStats.CANNON_RANGE))) {
+            if (!CannonPoseUtil.FLAME_THROWER.isOutOfRange(golem, slot, ConditionalStatModifierHook.getModifiedStat(tool, golem, TGStats.CANNON_RANGE))) {
                 int count = BowAmmoModifierHook.getDesiredProjectiles(tool);
                 ItemStack ammo = BowAmmoModifierHook.consumeAmmo(tool, ItemStack.EMPTY, golem, null, ProjectileWeaponItem.ARROW_OR_FIREWORK, count);
                 if (!ammo.isEmpty()) {
@@ -68,7 +67,7 @@ public enum ShootingModule implements ModifierModule, ShoulderWeaponModifierHook
                     int primaryIndex = ammo.getCount() / 2;
                     Level level = golem.level();
 
-                    Vec3 pos = CannonPoseUtil.FLAME_THROWER.getOrigin(golem, hand);
+                    Vec3 pos = CannonPoseUtil.FLAME_THROWER.getOrigin(golem, slot);
 
                     Vec3 dst = target.position().add(0.0F, target.getBbHeight() / 2.0F,
                             0.0F);

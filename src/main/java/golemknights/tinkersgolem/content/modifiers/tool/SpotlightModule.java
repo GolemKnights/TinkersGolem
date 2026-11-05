@@ -1,6 +1,6 @@
 package golemknights.tinkersgolem.content.modifiers.tool;
 
-import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
+import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.item.ranged.CannonPoseUtil;
 import golemknights.tinkersgolem.content.entity.ModifiableLaserEntity;
 import golemknights.tinkersgolem.library.hooks.ShoulderWeaponModifierHook;
@@ -9,7 +9,6 @@ import golemknights.tinkersgolem.register.TGStats;
 import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import slimeknights.mantle.data.loadable.record.RecordLoadable;
@@ -41,17 +40,17 @@ public enum SpotlightModule implements ModifierModule, ShoulderWeaponModifierHoo
     }
 
     @Override
-    public int getDelay(IToolStackView tool, ModifierEntry modifier, MetalGolemEntity entity, ItemStack toolItem, InteractionHand hand) {
+    public int getDelay(IToolStackView tool, ModifierEntry modifier, AbstractGolemEntity<?, ?> entity, ItemStack toolItem, int slot) {
         return (int) (60 / tool.getStats().get(ToolStats.DRAW_SPEED));
     }
 
     @Override
-    public void onShoot(IToolStackView tool, ModifierEntry modifier, MetalGolemEntity entity, ItemStack toolItem, InteractionHand hand) {
+    public void onShoot(IToolStackView tool, ModifierEntry modifier, AbstractGolemEntity<?, ?> entity, ItemStack toolItem, int slot) {
         LivingEntity target = entity.getTarget();
-        if (target == null || !target.isAlive() || CannonPoseUtil.BEACON_CANNON.isOutOfRange(entity, hand, ConditionalStatModifierHook.getModifiedStat(tool, entity, TGStats.CANNON_RANGE))) {
+        if (target == null || !target.isAlive() || CannonPoseUtil.BEACON_CANNON.isOutOfRange(entity, slot, ConditionalStatModifierHook.getModifiedStat(tool, entity, TGStats.CANNON_RANGE))) {
             return;
         }
-        ModifiableLaserEntity laser = new ModifiableLaserEntity(TGEntities.ENTITY_LASER.get(), entity.level(), entity, 10, hand == InteractionHand.MAIN_HAND, tool, toolItem);
+        ModifiableLaserEntity laser = new ModifiableLaserEntity(TGEntities.ENTITY_LASER.get(), entity.level(), entity, 10, slot >= 0, tool, toolItem);
         if (entity.level().addFreshEntity(laser)) {
             ToolDamageUtil.damageAnimated(tool, 1, entity);
             if (!entity.isSilent()) {

@@ -1,11 +1,10 @@
 package golemknights.tinkersgolem.mixinhelper;
 
-import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
+import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.item.ranged.CannonPoseUtil;
 import golemknights.tinkersgolem.library.hooks.ShoulderWeaponModifierHook;
 import golemknights.tinkersgolem.register.TGStats;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -44,15 +43,15 @@ public interface FireballModule_ShoulderWeaponModifierHook extends ShoulderWeapo
     }
 
     @Override
-    default void onShoot(IToolStackView tool, ModifierEntry modifier, MetalGolemEntity entity, ItemStack toolItem,
-            InteractionHand hand) {
+    default void onShoot(IToolStackView tool, ModifierEntry modifier, AbstractGolemEntity<?, ?> entity, ItemStack toolItem,
+                         int slot) {
         LivingEntity target = entity.getTarget();
         if (target != null && target.isAlive()) {
-            if (!CannonPoseUtil.FLAME_THROWER.isOutOfRange(entity, hand, ConditionalStatModifierHook.getModifiedStat(tool, entity, TGStats.CANNON_RANGE))) {
+            if (!CannonPoseUtil.FLAME_THROWER.isOutOfRange(entity, slot, ConditionalStatModifierHook.getModifiedStat(tool, entity, TGStats.CANNON_RANGE))) {
                 ItemStack fireball = BowAmmoModifierHook.consumeAmmo(tool, ItemStack.EMPTY, entity, null, self(), 1);
                 if (fireball.isEmpty())
                     return;
-                Vec3 pos = CannonPoseUtil.FLAME_THROWER.getOrigin(entity, hand);
+                Vec3 pos = CannonPoseUtil.FLAME_THROWER.getOrigin(entity, slot);
 
                 Vec3 dst = target.position().add(0.0F, target.getBbHeight() / 2.0F,
                         0.0F);

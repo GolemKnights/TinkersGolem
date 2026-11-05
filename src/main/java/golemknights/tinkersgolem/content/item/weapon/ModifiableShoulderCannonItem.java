@@ -1,7 +1,7 @@
 package golemknights.tinkersgolem.content.item.weapon;
 
-import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
-import dev.xkmc.modulargolems.content.item.ranged.IShoulderCannonAnimated;
+import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
+import dev.xkmc.modulargolems.content.item.ranged.IGenericShoulderCannonAnimated;
 import dev.xkmc.modulargolems.init.data.MGLangData;
 import dev.xkmc.modulargolems.init.registrate.GolemTypes;
 import golemknights.tinkersgolem.client.TGModelPaths;
@@ -12,7 +12,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -32,19 +31,19 @@ import slimeknights.tconstruct.library.utils.Util;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class ModifiableShoulderCannonItem extends ModifiableLauncherItem implements IShoulderCannonAnimated {
+public class ModifiableShoulderCannonItem extends ModifiableLauncherItem implements IGenericShoulderCannonAnimated {
    public ModifiableShoulderCannonItem(Properties properties, ToolDefinition toolDefinition) {
       super(properties, toolDefinition);
    }
 
    @Override
-   public void onTick(MetalGolemEntity e, ItemStack stack, InteractionHand hand) {
+   public void onTick(AbstractGolemEntity<?, ?> e, ItemStack stack, int slot) {
       if (stack.getItem() instanceof IModifiable) {
          ToolStack tool = ToolStack.from(stack);
          if (tool.isBroken())
             return;
          for (ModifierEntry modifier : tool.getModifierList()) {
-            modifier.getHook(TGTinkersModifiers.SHOLDER_WEAPON_MODIFIER_HOOK).onTick(tool, modifier, e, stack, hand);
+            modifier.getHook(TGTinkersModifiers.SHOLDER_WEAPON_MODIFIER_HOOK).onTick(tool, modifier, e, stack, slot);
          }
       }
    }
@@ -55,35 +54,21 @@ public class ModifiableShoulderCannonItem extends ModifiableLauncherItem impleme
    }
 
    @Override
-   public @Nullable ResourceLocation getModelForHand(InteractionHand hand) {
-      return hand == InteractionHand.MAIN_HAND ? TGModelPaths.CANNON_RIGHT : TGModelPaths.CANNON_LEFT;
-   }
-
-   @Override
-   public @Nullable ResourceLocation getAnimBaseId(MetalGolemEntity user, ItemStack stack, InteractionHand hand) {
-      return hand == InteractionHand.MAIN_HAND ? TGModelPaths.CANNON_RIGHT : TGModelPaths.CANNON_LEFT;
-   }
-
-   @Override
-   public @NotNull ResourceLocation getEmissiveTexture(MetalGolemEntity entity, ItemStack stack, InteractionHand hand) {
-      // 不会被用到
-      ResourceLocation id = ForgeRegistries.ITEMS.getKey(this);
-      assert id != null;
-      return id.withPath((e) -> "textures/equipments/" + e + "_emissive.png");
-   }
-
-   @Override
-   public @NotNull ResourceLocation getModelTexture(MetalGolemEntity metalGolemEntity, ItemStack itemStack,
-         InteractionHand interactionHand) {
-      // 不会被用到
-      ResourceLocation id = ForgeRegistries.ITEMS.getKey(this);
-      assert id != null;
-      return id.withPath((e) -> "textures/equipments/" + e + ".png");
+   public @Nullable ResourceLocation getModel(int slot) {
+      return slot < 0 ? TGModelPaths.CANNON_LEFT : TGModelPaths.CANNON_RIGHT;
    }
 
    @Override
    public boolean emissive() {
       return true;
+   }
+
+   @Override
+   public ResourceLocation getModelTexture(AbstractGolemEntity<?, ?> abstractGolemEntity, ItemStack itemStack, int i) {
+      // 不会被用到
+      ResourceLocation id = ForgeRegistries.ITEMS.getKey(this);
+      assert id != null;
+      return id.withPath((e) -> "textures/equipments/" + e + ".png");
    }
 
    @Override
@@ -112,10 +97,9 @@ public class ModifiableShoulderCannonItem extends ModifiableLauncherItem impleme
    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
       super.appendHoverText(stack, level, tooltip, flag);
       tooltip.add(MGLangData.GOLEM_EQUIPMENT
-            .get(new Object[] {
-                  ((EntityType) GolemTypes.ENTITY_GOLEM.get()).getDescription().copy().withStyle(ChatFormatting.GOLD) })
+            .get((GolemTypes.ENTITY_GOLEM.get()).getDescription().copy().withStyle(ChatFormatting.GOLD))
             .withStyle(ChatFormatting.UNDERLINE));
-      tooltip.add(MGLangData.SHOULDER_WEAPON.get(new Object[0]));
+      tooltip.add(MGLangData.SHOULDER_WEAPON.get());
    }
 
 }

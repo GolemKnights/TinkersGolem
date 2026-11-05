@@ -2,7 +2,7 @@ package golemknights.tinkersgolem.content.entity;
 
 import dev.xkmc.l2library.base.BaseEntity;
 import dev.xkmc.l2serial.serialization.SerialClass;
-import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
+import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.item.ranged.CannonPoseUtil;
 import dev.xkmc.modulargolems.init.data.MGConfig;
 import dev.xkmc.modulargolems.init.data.MGDamageTypes;
@@ -76,12 +76,13 @@ public class ModifiableLaserEntity extends BaseEntity implements OwnableEntity {
     }
 
     public void setup(LivingEntity living) {
-        if (living instanceof MetalGolemEntity golem) {
-            InteractionHand hand = this.right ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND;
-            Vec3 pos = CannonPoseUtil.FLAME_THROWER.getOrigin(golem, hand);
-            float[] rot = CannonPoseUtil.FLAME_THROWER.getAngle(golem, hand);
+        if (living instanceof AbstractGolemEntity<?, ?> golem) {
+            int slot = this.right ? 1 : -1;
+            CannonPoseUtil pose = golem.getCannonPose(CannonPoseUtil.BEACON_CANNON);
+            Vec3 pos = pose.getOrigin(golem, slot);
+            float[] rot = pose.getAngle(golem, slot);
             Vec3 dst = golem.getTargetAimPos().add(golem.position()).subtract(pos).normalize().scale(35.0).add(pos);
-            BlockHitResult hit = golem.level().clip(new ClipContext(pos, dst, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, (Entity)null));
+            BlockHitResult hit = golem.level().clip(new ClipContext(pos, dst, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, null));
             this.len = (float)hit.getLocation().subtract(pos).length();
             this.lastTarget = hit.getLocation();
             this.setPos(pos);
@@ -111,7 +112,7 @@ public class ModifiableLaserEntity extends BaseEntity implements OwnableEntity {
             }
 
             super.tick();
-            if (!this.level().isClientSide() && owner instanceof MetalGolemEntity golem) {
+            if (!this.level().isClientSide() && owner instanceof AbstractGolemEntity<?, ?> golem) {
                 Vec3 pos = this.position();
                 Vec3 dst = this.lastTarget;
                 List<LivingEntity> list = this.getEntityHitResult(this.level(), golem, pos, dst, golem.getScale() * 0.2F);
@@ -166,12 +167,13 @@ public class ModifiableLaserEntity extends BaseEntity implements OwnableEntity {
         }
     }
 
-    public List<LivingEntity> getEntityHitResult(Level level, MetalGolemEntity owner, Vec3 start, Vec3 end, float radius) {
+    public List<LivingEntity> getEntityHitResult(Level level, AbstractGolemEntity<?, ?> owner, Vec3 start, Vec3 end, float radius) {
+        Vec3 mid = start.add(end).scale(0.5);
+        double reach = start.distanceTo(end) * 0.5 + radius;
         List<LivingEntity> list = level.getEntities(
                 EntityTypeTest.forClass(LivingEntity.class),
-                (new AABB(start, end)).inflate(radius),
-                (x) -> !this.hit.contains(x) && owner.canAttack(x) && owner.predicateTarget(x)
-        );
+                AABB.ofSize(mid, reach * 2.0, reach * 2.0, reach * 2.0),
+                (x) -> !this.hit.contains(x) && owner.canAttack(x) && owner.predicateTarget(x));
         ArrayList<LivingEntity> ans = new ArrayList<>();
         Iterator<LivingEntity> var8 = list.iterator();
 

@@ -1,12 +1,11 @@
 package golemknights.tinkersgolem.content.modifiers.tool;
 
-import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
+import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.item.ranged.CannonPoseUtil;
 import golemknights.tinkersgolem.library.hooks.ShoulderWeaponModifierHook;
 import golemknights.tinkersgolem.register.TGStats;
 import golemknights.tinkersgolem.register.TGTinkersModifiers;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
@@ -56,11 +55,11 @@ public record SpewingModule(LevelingValue shots) implements ModifierModule, Shou
     }
 
     @Override
-    public void onShoot(IToolStackView tool, ModifierEntry modifier, MetalGolemEntity golem, ItemStack toolItem,
-            InteractionHand hand) {
+    public void onShoot(IToolStackView tool, ModifierEntry modifier, AbstractGolemEntity<?, ?> golem, ItemStack toolItem,
+                        int slot) {
         LivingEntity target = golem.getTarget();
         if (target != null && target.isAlive()) {
-            if (!CannonPoseUtil.FLAME_THROWER.isOutOfRange(golem, hand, ConditionalStatModifierHook.getModifiedStat(tool, golem, TGStats.CANNON_RANGE))) {
+            if (!CannonPoseUtil.FLAME_THROWER.isOutOfRange(golem, slot, ConditionalStatModifierHook.getModifiedStat(tool, golem, TGStats.CANNON_RANGE))) {
                 FluidStack fluid = ToolTankHelper.TANK_HELPER.getFluid(tool);
                 if (!fluid.isEmpty()) {
                     FluidEffects recipe = FluidEffectManager.INSTANCE.find(fluid.getFluid());
@@ -78,7 +77,7 @@ public record SpewingModule(LevelingValue shots) implements ModifierModule, Shou
                             int primaryIndex = shots / 2;
                             Level world = golem.level();
 
-                            Vec3 pos = CannonPoseUtil.FLAME_THROWER.getOrigin(golem, hand);
+                            Vec3 pos = CannonPoseUtil.FLAME_THROWER.getOrigin(golem, slot);
 
                             Vec3 dst = target.position().add(0.0F, target.getBbHeight() / 2.0F,
                                     0.0F);
