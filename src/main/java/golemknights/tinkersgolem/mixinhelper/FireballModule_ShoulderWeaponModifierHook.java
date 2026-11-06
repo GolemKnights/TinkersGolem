@@ -43,31 +43,31 @@ public interface FireballModule_ShoulderWeaponModifierHook extends ShoulderWeapo
     }
 
     @Override
-    default void onShoot(IToolStackView tool, ModifierEntry modifier, AbstractGolemEntity<?, ?> entity, ItemStack toolItem,
+    default void onShoot(IToolStackView tool, ModifierEntry modifier, AbstractGolemEntity<?, ?> golem, ItemStack toolItem,
                          int slot) {
-        LivingEntity target = entity.getTarget();
+        LivingEntity target = golem.getTarget();
         if (target != null && target.isAlive()) {
-            if (!getPoseUtil(slot).isOutOfRange(entity, slot, ConditionalStatModifierHook.getModifiedStat(tool, entity, TGStats.CANNON_RANGE))) {
-                ItemStack fireball = BowAmmoModifierHook.consumeAmmo(tool, ItemStack.EMPTY, entity, null, self(), 1);
+            if (!golem.getCannonPose(CannonPoseUtil.DOG_FLAME_THROWER).isOutOfRange(golem, slot, ConditionalStatModifierHook.getModifiedStat(tool, golem, TGStats.CANNON_RANGE))) {
+                ItemStack fireball = BowAmmoModifierHook.consumeAmmo(tool, ItemStack.EMPTY, golem, null, self(), 1);
                 if (fireball.isEmpty())
                     return;
-                Vec3 pos = getPoseUtil(slot).getOrigin(entity, slot);
+                Vec3 pos = golem.getCannonPose(CannonPoseUtil.DOG_FLAME_THROWER).getOrigin(golem, slot);
 
                 Vec3 dst = target.position().add(0.0F, target.getBbHeight() / 2.0F,
                         0.0F);
                 Vec3 dir = dst.subtract(pos).normalize();
 
-                Level level = entity.level();
+                Level level = golem.level();
                 // if we found a fireball, fire it
                 if (!level.isClientSide) {
                     // fetch stats
-                    float power = ConditionalStatModifierHook.getModifiedStat(tool, entity,
+                    float power = ConditionalStatModifierHook.getModifiedStat(tool, golem,
                             ToolStats.PROJECTILE_DAMAGE);
-                    float velocity = ConditionalStatModifierHook.getModifiedStat(tool, entity, ToolStats.VELOCITY);
-                    float inaccuracy = ModifierUtil.getInaccuracy(tool, entity) / 16.0F;
-                    RandomSource random = entity.getRandom();
+                    float velocity = ConditionalStatModifierHook.getModifiedStat(tool, golem, ToolStats.VELOCITY);
+                    float inaccuracy = ModifierUtil.getInaccuracy(tool, golem) / 16.0F;
+                    RandomSource random = golem.getRandom();
 
-                    CustomFireball projectile = new CustomFireball(level, entity,
+                    CustomFireball projectile = new CustomFireball(level, golem,
                             dir.x + random.nextGaussian() * inaccuracy,
                             dir.y,
                             dir.z + random.nextGaussian() * inaccuracy);
@@ -100,7 +100,7 @@ public interface FireballModule_ShoulderWeaponModifierHook extends ShoulderWeapo
                     ModDataNBT projectileData = PersistentDataCapability.getOrWarn(projectile);
                     // let modifiers set properties
                     for (ModifierEntry entry : tool.getModifierList()) {
-                        entry.getHook(ModifierHooks.PROJECTILE_LAUNCH).onProjectileLaunch(tool, entry, entity,
+                        entry.getHook(ModifierHooks.PROJECTILE_LAUNCH).onProjectileLaunch(tool, entry, golem,
                                 ItemStack.EMPTY, projectile, null, projectileData, true);
                     }
 
@@ -108,17 +108,17 @@ public interface FireballModule_ShoulderWeaponModifierHook extends ShoulderWeapo
                     level.addFreshEntity(projectile);
 
                     // damage tool if not creative
-                    ToolDamageUtil.damage(tool, self().durability().compute(modifier), entity, toolItem,
+                    ToolDamageUtil.damage(tool, self().durability().compute(modifier), golem, toolItem,
                             modifier.getId());
 
                 }
 
-                if (!entity.isSilent()) {
-                    entity.playSound(self().sound(), 2.0F,
+                if (!golem.isSilent()) {
+                    golem.playSound(self().sound(), 2.0F,
                             (level.random.nextFloat() - level.random.nextFloat()) * 0.2F + 1.0F);
                 }
 
-                if (!entity.isHostile()) {
+                if (!golem.isHostile()) {
                     fireball.shrink(1);
                 }
 

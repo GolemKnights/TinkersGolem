@@ -57,7 +57,7 @@ public enum ShootingModule implements ModifierModule, ShoulderWeaponModifierHook
         LivingEntity target = golem.getTarget();
         boolean hostile = golem.isHostile();
         if (target != null && target.isAlive()) {
-            if (!getPoseUtil(slot).isOutOfRange(golem, slot, ConditionalStatModifierHook.getModifiedStat(tool, golem, TGStats.CANNON_RANGE))) {
+            if (!golem.getCannonPose(CannonPoseUtil.DOG_FLAME_THROWER).isOutOfRange(golem, slot, ConditionalStatModifierHook.getModifiedStat(tool, golem, TGStats.CANNON_RANGE))) {
                 int count = BowAmmoModifierHook.getDesiredProjectiles(tool);
                 ItemStack ammo = BowAmmoModifierHook.consumeAmmo(tool, ItemStack.EMPTY, golem, null, ProjectileWeaponItem.ARROW_OR_FIREWORK, count);
                 if (!ammo.isEmpty()) {
@@ -67,7 +67,7 @@ public enum ShootingModule implements ModifierModule, ShoulderWeaponModifierHook
                     int primaryIndex = ammo.getCount() / 2;
                     Level level = golem.level();
 
-                    Vec3 pos = getPoseUtil(slot).getOrigin(golem, slot);
+                    Vec3 pos = golem.getCannonPose(CannonPoseUtil.DOG_FLAME_THROWER).getOrigin(golem, slot);
 
                     Vec3 dst = target.position().add(0.0F, target.getBbHeight() / 2.0F,
                             0.0F);

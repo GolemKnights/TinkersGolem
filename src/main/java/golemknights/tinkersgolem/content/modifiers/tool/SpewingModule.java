@@ -59,7 +59,7 @@ public record SpewingModule(LevelingValue shots) implements ModifierModule, Shou
                         int slot) {
         LivingEntity target = golem.getTarget();
         if (target != null && target.isAlive()) {
-            if (!getPoseUtil(slot).isOutOfRange(golem, slot, ConditionalStatModifierHook.getModifiedStat(tool, golem, TGStats.CANNON_RANGE))) {
+            if (!golem.getCannonPose(CannonPoseUtil.DOG_FLAME_THROWER).isOutOfRange(golem, slot, ConditionalStatModifierHook.getModifiedStat(tool, golem, TGStats.CANNON_RANGE))) {
                 FluidStack fluid = ToolTankHelper.TANK_HELPER.getFluid(tool);
                 if (!fluid.isEmpty()) {
                     FluidEffects recipe = FluidEffectManager.INSTANCE.find(fluid.getFluid());
@@ -77,7 +77,7 @@ public record SpewingModule(LevelingValue shots) implements ModifierModule, Shou
                             int primaryIndex = shots / 2;
                             Level world = golem.level();
 
-                            Vec3 pos = getPoseUtil(slot).getOrigin(golem, slot);
+                            Vec3 pos = golem.getCannonPose(CannonPoseUtil.DOG_FLAME_THROWER).getOrigin(golem, slot);
 
                             Vec3 dst = target.position().add(0.0F, target.getBbHeight() / 2.0F,
                                     0.0F);
