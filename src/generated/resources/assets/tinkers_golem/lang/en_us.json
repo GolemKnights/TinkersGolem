@@ -141,7 +141,7 @@
   "modifier.tinkers_golem.symbionic": "Symbionic",
   "modifier.tinkers_golem.symbionic.desc": "When it is healed, heal its owner 20% amount per level",
   "modifier.tinkers_golem.warded": "Warded",
-  "modifier.tinkers_golem.warded.desc": "When at full health, take %s%% less damage after armor and enchantments, down to a minimum of 1.",
+  "modifier.tinkers_golem.warded.desc": "When at full health, take %s%% less damage after armor and enchantments, down to a minimum of 1",
   "modifier.tinkers_golem.wetting": "Wetting",
   "modifier.tinkers_golem.wetting.desc": "Slime golem is wetted by fluids when attacked",
   "pattern.modulargolems.metal_golem_template": "Metal Golem Template",

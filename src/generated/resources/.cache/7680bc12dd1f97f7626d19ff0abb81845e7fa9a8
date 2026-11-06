@@ -1,4 +1,4 @@
-// 1.20.1	2026-11-01T13:39:17.33535	Golem Config
+// 1.20.1	2026-11-06T12:10:24.5323219	Golem Config
 b02eb974a8988ed04f958c6c7d8f613c7c99bb67 data/tconstruct/modulargolems_config/materials/amethyst_bronze.json
 1db9ad8dc5440195ea6e3b58d9cba4e1d5923512 data/tconstruct/modulargolems_config/materials/cinderslime.json
 a956855ae2825ff6819ffd370989bf3e0732cf57 data/tconstruct/modulargolems_config/materials/cobalt.json
@@ -16,4 +16,4 @@ bb3c0c2f064de85f0109bb7771ce7c7f78108432 data/tinkers_golem/modulargolems_config
 9e7c7307c05ff01a195ddb4bbb6ef7acf07eef98 data/tinkers_golem/modulargolems_config/materials/magma.json
 2aa367af6d728fb175c9df9f1d973d344521fae9 data/tinkers_golem/modulargolems_config/materials/skyslime.json
 cb8b498631f7a6b3f131fe8e774cdab393c361e8 data/tinkers_golem/modulargolems_config/materials/slimecore_support.json
-a1053eb4fd1860874021bb5e30ac3f11b6189bd4 data/tinkers_golem/modulargolems_config/parts/slime.json
+cab75af73b9a17404ea0c9961af72854a9a21339 data/tinkers_golem/modulargolems_config/parts/slime.json
