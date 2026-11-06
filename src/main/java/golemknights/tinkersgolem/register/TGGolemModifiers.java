@@ -188,7 +188,6 @@ public class TGGolemModifiers {
 	}
 
 	public static void load() {
-
 	}
 
 }

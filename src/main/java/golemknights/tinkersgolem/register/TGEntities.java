@@ -74,7 +74,7 @@ public class TGEntities {
 				.model((ctx, pvd) -> pvd.getBuilder(ctx.getName()).parent(new ModelFile.UncheckedModelFile("builtin/entity"))
 						.texture("particle", "minecraft:block/clay"))
 				.tab(GolemItems.ITEMS.getKey())
-				.transform(e -> e.tab(GolemItems.GOLEMS.getKey(), x -> e.getEntry().fillItemCategory(x)))
+				.transform(e -> e.tab(GolemItems.PARTS.getKey(), x -> e.getEntry().fillItemCategory(x)))
 				.tag(MGTagGen.GOLEM_PARTS, TGTagGen.SLIME_PART).defaultLang().register();
 
 		SLIME_SHELL = TinkersGolem.REGISTRATE.item("slime_golem_shell", p ->
@@ -82,7 +82,7 @@ public class TGEntities {
 				.model((ctx, pvd) -> pvd.getBuilder(ctx.getName()).parent(new ModelFile.UncheckedModelFile("builtin/entity"))
 						.texture("particle", "minecraft:block/clay"))
 				.tab(GolemItems.ITEMS.getKey())
-				.transform(e -> e.tab(GolemItems.GOLEMS.getKey(), x -> e.getEntry().fillItemCategory(x)))
+				.transform(e -> e.tab(GolemItems.PARTS.getKey(), x -> e.getEntry().fillItemCategory(x)))
 				.tag(MGTagGen.GOLEM_PARTS, TGTagGen.SLIME_PART).defaultLang().register();
 
 		ENTITY_LASER = TinkersGolem.REGISTRATE.<ModifiableLaserEntity>entity("modifiable_laser", ModifiableLaserEntity::new, MobCategory.MISC)

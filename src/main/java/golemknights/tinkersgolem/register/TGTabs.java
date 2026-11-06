@@ -61,6 +61,7 @@ public class TGTabs {
                                 acceptTool(output::accept, TGItems.spearItem.get());
                             })
                     .withTabsBefore(TinkerTools.tabTools.getId())
+                    .withSearchBar()
                     .build());
 
     private static void acceptCannon(Consumer<ItemStack> tab, ModifiableShoulderCannonItem cannon) {
