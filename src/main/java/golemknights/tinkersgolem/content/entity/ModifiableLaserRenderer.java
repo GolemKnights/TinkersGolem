@@ -2,8 +2,8 @@ package golemknights.tinkersgolem.content.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+import dev.xkmc.modulargolems.content.entity.common.AbstractGolemEntity;
 import dev.xkmc.modulargolems.content.entity.metalgolem.BeaconRenderer;
-import dev.xkmc.modulargolems.content.entity.metalgolem.MetalGolemEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -23,7 +23,7 @@ public class ModifiableLaserRenderer extends EntityRenderer<ModifiableLaserEntit
 
     public void render(ModifiableLaserEntity e, float yrot, float pTick, PoseStack pose, MultiBufferSource source, int light) {
         LivingEntity var8 = e.getOwner();
-        if (var8 instanceof MetalGolemEntity golem) {
+        if (var8 instanceof AbstractGolemEntity<?, ?> golem) {
             pose.pushPose();
             pose.mulPose(Axis.YP.rotationDegrees(e.getYRot()));
             pose.mulPose(Axis.XP.rotationDegrees(e.getXRot() + 90.0F));
