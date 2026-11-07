@@ -1,0 +1,12 @@
+{
+  "tool": "tinkers_golem:golem_axe",
+  "text": [
+    { "text": "傀儡战斧是种强大到玩家不能使用的武器。" },
+    { "text": "斧头不能砍树，很神奇吧？", "paragraph": true }
+  ],
+  "properties": [
+    "只对大型金属傀儡生效",
+    "范围攻击",
+    "百分比伤害"
+  ]
+}

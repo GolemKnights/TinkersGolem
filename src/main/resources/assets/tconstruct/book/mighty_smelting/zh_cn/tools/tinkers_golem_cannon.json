@@ -1,0 +1,12 @@
+{
+  "tool": "tinkers_golem:cannon",
+  "text": [
+    { "text": "炮是一种“弓”，什么都能射。" },
+    { "text": "二营长，你他X的意大利炮呢，给我拉来！", "paragraph": true }
+  ],
+  "properties": [
+    "只对傀儡生效",
+    "不同类型的弹药",
+    "穿戴在傀儡肩部"
+  ]
+}
