@@ -318,10 +318,7 @@ public class ModifiableMetalGolemWeaponItem extends GolemEquipmentItem
             ToolStack tool = ToolStack.from(stack);
             InteractionHand hand = context.getHand();
             if (shouldInteract(context.getPlayer(), tool, hand)) {
-                Iterator var5 = tool.getModifierList().iterator();
-
-                while(var5.hasNext()) {
-                    ModifierEntry entry = (ModifierEntry)var5.next();
+                for (ModifierEntry entry : tool.getModifierList()) {
                     InteractionResult result = entry.getHook(ModifierHooks.BLOCK_INTERACT).beforeBlockUse(tool, entry, context, InteractionSource.RIGHT_CLICK);
                     if (result.consumesAction()) {
                         return result;
@@ -354,10 +351,7 @@ public class ModifiableMetalGolemWeaponItem extends GolemEquipmentItem
     public InteractionResult interactLivingEntity(ItemStack stack, Player playerIn, LivingEntity target, InteractionHand hand) {
         ToolStack tool = ToolStack.from(stack);
         if (shouldInteract(playerIn, tool, hand)) {
-            Iterator var6 = tool.getModifierList().iterator();
-
-            while(var6.hasNext()) {
-                ModifierEntry entry = (ModifierEntry)var6.next();
+            for (ModifierEntry entry : tool.getModifierList()) {
                 InteractionResult result = entry.getHook(ModifierHooks.ENTITY_INTERACT).afterEntityUse(tool, entry, playerIn, target, hand, InteractionSource.RIGHT_CLICK);
                 if (result.consumesAction()) {
                     return result;
